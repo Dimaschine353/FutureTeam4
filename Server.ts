@@ -74,11 +74,46 @@ app.get("/",(req: express.Request, res: express.Response)=>{
     res.status(200);
     res.sendFile( __dirname + "/Public/index.html");
 });
+//Routen Login
+app.post("/login",login);
+app.post("/logout",logout);
 //Routen Benutzer
-/*
-app.post("/user",postUser);
-*/
+
 app.post("/benutzer",postBenutzer);
+
+
+//Funktion Login zugriff auf DB
+function login(req: express.Request, res: express.Response): void {
+    //Selektiert "nichts", aber unter der Bedingung, dass Name und Passwort stimmen
+    query("SELLECT NULL FROM benutzer WHERE email = ? AND passwort = ?",
+        [req.body.loginName, req.body.loginPasswort])
+        .then((results: any) => {
+            //Wenn Eintrag vorhanden ist wird der Loginname zum Sessionnamen
+            if (results.length===1) {
+                req.session.uname = req.body.loginName;
+                res.sendStatus(200);
+                console.log("wurde eingeloggt");
+            }else{
+                //Wenn keine Übereinstimmung erfolgt ist sende Fehlercode
+                res.sendStatus(404);
+            }
+            })
+        .catch((err: mysql.MysqlError) => {
+           //Leere Ergebnisse (siehe 404) sind kein Fehler; Login nur nicht möglich da keine Überstimmung mit DB. Fehler sind DB-Probleme
+           res.sendStatus(500);
+           console.log(err);
+        });
+}
+//Funktion Logout beendet Session
+function logout(req: express.Request, res: express.Response): void {
+    console.log("bin in der Logout Fkt")
+    req.session.destroy(()=>{
+        res.clearCookie("connect.sid");
+        res.sendStatus(200);
+    });
+}
+
+
 
 
 //Funktionen Benutzer

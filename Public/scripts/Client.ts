@@ -91,15 +91,18 @@
 
 //Deklaration Forms
 
-let formRegistrieren : HTMLFormElement;
-
+let formRegistrieren: HTMLFormElement;
+let formLogin: HTMLFormElement;
 
 //Deklaration Variablen
-
+//Registrieren
 let regVorname: HTMLInputElement;
 let regNachname: HTMLInputElement;
 let regEmail: HTMLInputElement;
 let regPasswort: HTMLInputElement;
+//Login
+let logName: HTMLInputElement;
+let logPasswort: HTMLInputElement;
 
 
 
@@ -107,7 +110,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     //Initialisierung Forms
     formRegistrieren = document.querySelector("#formRegistrieren");
-
+    formLogin = document.querySelector("#formLogin");
     //Initialisierung Variablen
 
     //Registrierung
