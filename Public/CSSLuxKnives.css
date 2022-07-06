@@ -13,3 +13,16 @@
     mix-blend-mode: lighten;
     font-size: 12rem;
 }
+
+.nav {
+    background-color: #0d0d0d;
+}
+
+.nav-link {
+    color: #f0f0f2;
+}
+
+.nav-link:hover {
+    color: #D94B2B;
+}
+
