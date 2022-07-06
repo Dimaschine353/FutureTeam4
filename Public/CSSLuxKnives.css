@@ -24,7 +24,8 @@
     mix-blend-mode: lighten;
     font-family: "Bebas Neue", serif;
 }
-#qf {
+h1 {
+    padding: 4rem;
     font-family: "Engebrechtre Rg", serif;
     text-align: center;
 }
@@ -32,6 +33,12 @@
 .scharf {
 justify-content: center;
     color: #0d0d0d;
+}
+/* ÜBER UNS */
+#überunsbild {
+    width: 43.8rem;
+    height: 30rem;
+    Padding: 4rem;
 }
 
 
