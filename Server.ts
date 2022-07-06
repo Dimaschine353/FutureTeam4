@@ -78,11 +78,13 @@ app.get("/",(req: express.Request, res: express.Response)=>{
 app.post("/login",login);
 app.post("/logout",logout);
 //Routen Benutzer
-
 app.post("/benutzer",postBenutzer);
+app.get("/benutzer/:email",checkLogin,getBenutzer);
+app.delete("/benutzer/:email",checkLogin,deleteBenutzer);
+app.put("/benutzer/:email",checkLogin,putBenutzer);
 
-
-//Funktion Login zugriff auf DB
+////Alle Log- in 'n - out funktionen
+//Funktion Login zugriff auf DB MUSS GETESTET WERDEN
 function login(req: express.Request, res: express.Response): void {
     //Selektiert "nichts", aber unter der Bedingung, dass Name und Passwort stimmen
     query("SELLECT NULL FROM benutzer WHERE email = ? AND passwort = ?",
@@ -104,7 +106,7 @@ function login(req: express.Request, res: express.Response): void {
            console.log(err);
         });
 }
-//Funktion Logout beendet Session
+//Funktion Logout beendet Session MUSS GETESTET WERDEN
 function logout(req: express.Request, res: express.Response): void {
     console.log("bin in der Logout Fkt")
     req.session.destroy(()=>{
@@ -112,13 +114,19 @@ function logout(req: express.Request, res: express.Response): void {
         res.sendStatus(200);
     });
 }
+//Funktion checkLogin prüft über den Sessionnamen ob und welcher Benutzer eingeloggt ist und gewährt dementsprechend Zugriff auf Routen
+function checkLogin(req: express.Request, res:express.Response, next: express.NextFunction): void{
+    if(req.session.uname !== undefined){
+        next();
+        console.log("Der User ist eingeloggt und berechtigt");
+    }else{
+        console.log("User ist nciht eingelogt");
+        res.status(401);
+    }
 
-
-
+}
 
 //Funktionen Benutzer
-
-
 function postBenutzer(req: express.Request, res: express.Response):void {
 
     const vName: string = req.body.vName;
@@ -143,7 +151,9 @@ function postBenutzer(req: express.Request, res: express.Response):void {
         res.send("diesen Benutzer gibt es bereits");
     }
 }
-
+function getBenutzer(req: express.Request, res: express.Response):void{}
+function deleteBenutzer(req: express.Request, res:express.Response):void{}
+function putBenutzer(req: express.Request, res:express.Response):void{}
 
 
 
