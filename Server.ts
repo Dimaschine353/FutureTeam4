@@ -77,8 +77,11 @@ app.get("/",(req: express.Request, res: express.Response)=>{
 /*
 app.post("/user",postUser);
 */
+/*
 app.post("/benutzer",postBenutzer);
 
+
+ */
 
 
 
