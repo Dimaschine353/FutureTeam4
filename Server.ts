@@ -4,6 +4,7 @@ import * as mysql from "mysql";
 import {MysqlError} from "mysql";
 
 //Klassen und Konstruktoren
+//wird für "C" gebraucht
 class Benutzer{
     vName: string;
     nName: string;
@@ -80,7 +81,33 @@ app.post("/user",postUser);
 app.post("/benutzer",postBenutzer);
 
 
+//Funktionen Benutzer
 
+
+function postBenutzer(req: express.Request, res: express.Response):void {
+
+    const vName: string = req.body.vName;
+    const nName: string = req.body.nNAme;
+    const email: string = req.body.email;
+    const passwort: string = req.body.passwort;
+
+    const param = [vName,nName,email,passwort];
+    let sql = "INSERT INTO benutzer(vName, nName, email, passwort) VALUES(?,?,?,?)";
+
+    if(email===undefined || vName===undefined || nName===undefined || passwort===undefined){
+        console.log("Einer der Werte fehlt")
+    }else if (email && vName && nName && passwort){
+        connection.query(
+            sql,
+            param,
+            (err: MysqlError | null, result: any) => {
+                res.status(201).send({result});
+            });
+    }else{
+        res.status(400);
+        res.send("diesen Benutzer gibt es bereits");
+    }
+}
 
 
 
