@@ -1,0 +1,15 @@
+.background {
+    background: #f0f0f2;
+    background: linear-gradient(white, #f0f0f2);
+}
+
+.fontLuxKnives {
+    font-family: "Montserrat Thin", serif;
+}
+
+.fontBigTitle {
+    font-family: "Bebas Neue", serif;
+    color: #D94B2B;
+    mix-blend-mode: lighten;
+    font-size: 12rem;
+}
