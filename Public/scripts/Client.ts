@@ -144,9 +144,11 @@ document.addEventListener("DOMContentLoaded",()=>{
               }).catch((error: AxiosError)=>{
                   
               });
-              
-              
-          }         
+          }
+
+          function benutzerLoeschen(event: Event){
+
+          }
  ///
                     
                     
