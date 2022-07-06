@@ -4,13 +4,27 @@ import * as mysql from "mysql";
 import {MysqlError} from "mysql";
 
 //Klassen und Konstruktoren
+class Benutzer{
+    vName: string;
+    nName: string;
+    email: string;
+    passwort: string;
 
+    constructor(vName:string, nName:string, email:string, passwort:string) {
+        this.vName = vName;
+        this.nName = nName;
+        this.email = email;
+        this.passwort = passwort;
+
+
+    }
+}
 
 //Verbindung zu DB
 //nameEinfügen
-/*
+
 const connection: mysql.Connection = mysql.createConnection({
-    database:"nameEinfügen"  ,
+    database:"luxknives"  ,
     host: "localhost",
     user: "root"
 });
@@ -23,7 +37,7 @@ connection.connect((err) => {
         console.log("Datenbankfehler: " + err);
     }
 });
-*/
+
 // Ein Wrapper von Manuel Groh, um die MySQL-Query als Promise (then/catch Syntax) zu nutzen
 function query(sql: string, param: any[] = []): Promise<any> {
     return new Promise<any>((resolve: any, reject: any) => {
@@ -59,4 +73,15 @@ app.get("/",(req: express.Request, res: express.Response)=>{
     res.status(200);
     res.sendFile( __dirname + "/Public/index.html");
 });
-//
+//Routen Benutzer
+/*
+app.post("/user",postUser);
+*/
+app.post("/benutzer",postBenutzer);
+
+
+
+
+
+
+
