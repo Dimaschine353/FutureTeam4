@@ -14,7 +14,28 @@
     mix-blend-mode: lighten;
     font-size: 12rem;
 }
+/* DETAILSEITE */
 
+.nakiri {
+    position: absolute;
+    left: 2rem;
+    font-size: 20rem;
+    color: red;
+    mix-blend-mode: lighten;
+    font-family: "Bebas Neue", serif;
+}
+#qf {
+    font-family: "Engebrechtre Rg", serif;
+    text-align: center;
+}
+
+.scharf {
+justify-content: center;
+    color: #0d0d0d;
+}
+
+
+/* FOOTER */
 footer {
     left: 0;
     bottom: 0;
