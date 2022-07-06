@@ -15,6 +15,56 @@
     font-size: 12rem;
 }
 
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    color: #0d0d0d;
+}
+
+.nav-link {
+    color: white;
+}
+
+.footer-item {
+    padding-right: 2rem;
+    padding-left: 2rem;
+    font-family: "Montserrat Thin", "serif";
+    font-size: larger;
+    align-content: center;
+
+}
+
+.btn {
+    padding: 2px
+}
+
+.nav-link:focus, .nav-link:hover {
+    color: #D94B2B;
+}
+
+#facebook {
+    padding: 2rem;
+    color: #D94B2B;
+}
+
+#instagram {
+    padding: 2rem;
+    color: #D94B2B;
+}
+
+#twitter {
+    padding: 2rem;
+    color: #D94B2B;
+}
+
+#youtube {
+    padding: 2rem;
+    color: #D94B2B;
+}
+
 /* Text auf Images */
 .top-left {
     position: absolute;
