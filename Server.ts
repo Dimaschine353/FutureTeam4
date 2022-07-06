@@ -87,7 +87,7 @@ app.post("/benutzer",postBenutzer);
 function postBenutzer(req: express.Request, res: express.Response):void {
 
     const vName: string = req.body.vName;
-    const nName: string = req.body.nNAme;
+    const nName: string = req.body.nName;
     const email: string = req.body.email;
     const passwort: string = req.body.passwort;
 
