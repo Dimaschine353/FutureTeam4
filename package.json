@@ -2,7 +2,7 @@
   "name": "LuxKnives",
   "version": "0.01",
   "description": "IP SoSe22",
-  "author": "Artir Guri, Marko[], 'Rash', Dmytro 'Dimaschine'Skorbyashchenskyy",
+  "author": "Artir Guri, Marko[], 'Rash', Dmytro 'Dimaschine'Skorbyashchenskyy, honorable mention Manuel Groh für Abschnitte im Server",
   "dependencies": {
     "express": "^4.18.1",
     "express-session": "^1.17.2",
