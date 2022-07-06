@@ -8,6 +8,7 @@ import {MysqlError} from "mysql";
 
 //Verbindung zu DB
 //nameEinfügen
+/*
 const connection: mysql.Connection = mysql.createConnection({
     database:"nameEinfügen"  ,
     host: "localhost",
@@ -22,7 +23,7 @@ connection.connect((err) => {
         console.log("Datenbankfehler: " + err);
     }
 });
-
+*/
 // Ein Wrapper von Manuel Groh, um die MySQL-Query als Promise (then/catch Syntax) zu nutzen
 function query(sql: string, param: any[] = []): Promise<any> {
     return new Promise<any>((resolve: any, reject: any) => {
@@ -58,3 +59,4 @@ app.get("/",(req: express.Request, res: express.Response)=>{
     res.status(200);
     res.sendFile( __dirname + "/Public/index.html");
 });
+//

@@ -95,10 +95,11 @@ let formRegistrieren : HTMLFormElement;
 
 
 //Deklaration Variablen
-let regVorname : HTMLInputElement;
-let regNachname : HTMLInputElement;
-let regEmail : HTMLInputElement;
-let regPasswort : HTMLInputElement;
+
+let regVorname: HTMLInputElement;
+let regNachname: HTMLInputElement;
+let regEmail: HTMLInputElement;
+let regPasswort: HTMLInputElement;
 
 
 
@@ -112,9 +113,9 @@ document.addEventListener("DOMContentLoaded",()=>{
     //Registrierung
     regVorname = document.querySelector("#formRegistrieren [name='regVorname']");
     regNachname = document.querySelector("#formRegistrieren [name='regNachname']");
-    regEmail = document.querySelector("#formRegistrieren [name='regEmail']");
+    regEmail = document.querySelector("#formRegistrieren [name='regE-mail']");
     regPasswort = document.querySelector("#formRegistrieren [name='regPasswort']");
-
+    document.querySelector("#formRegistrieren").addEventListener("submit",benutzerHinzufügen);
 
 });
 
@@ -146,7 +147,7 @@ document.addEventListener("DOMContentLoaded",()=>{
               
               
           }         
- //
+ ///
                     
                     
                     
