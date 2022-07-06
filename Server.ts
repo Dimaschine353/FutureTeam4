@@ -87,7 +87,7 @@ app.put("/benutzer/:email",checkLogin,putBenutzer);
 //Funktion Login zugriff auf DB MUSS GETESTET WERDEN
 function login(req: express.Request, res: express.Response): void {
     //Selektiert "nichts", aber unter der Bedingung, dass Name und Passwort stimmen
-    query("SELLECT NULL FROM benutzer WHERE email = ? AND passwort = ?",
+    query("SELECT NULL FROM benutzer WHERE email = ? AND passwort = ?",
         [req.body.loginName, req.body.loginPasswort])
         .then((results: any) => {
             //Wenn Eintrag vorhanden ist wird der Loginname zum Sessionnamen

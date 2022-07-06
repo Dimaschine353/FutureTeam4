@@ -101,10 +101,12 @@ let regNachname: HTMLInputElement;
 let regEmail: HTMLInputElement;
 let regPasswort: HTMLInputElement;
 //Login
-let logName: HTMLInputElement;
-let logPasswort: HTMLInputElement;
+
+let loginName: HTMLInputElement;
+let loginPasswort: HTMLInputElement;
 
 
+console.log("log");
 
 document.addEventListener("DOMContentLoaded",()=>{
 
@@ -119,6 +121,39 @@ document.addEventListener("DOMContentLoaded",()=>{
     regEmail = document.querySelector("#formRegistrieren [name='regE-mail']");
     regPasswort = document.querySelector("#formRegistrieren [name='regPasswort']");
     document.querySelector("#formRegistrieren").addEventListener("submit",benutzerHinzufügen);
+
+    //Login Feld
+    loginName = document.querySelector("#formLogin [name='loginName']");
+    loginPasswort = document.querySelector("#formLogin [name='loginPasswort']");
+
+    formLogin.addEventListener("submit", (event:Event)=>{
+
+        //TODO! auslagern in Funktion
+        event.preventDefault();
+        const data: FormData = new FormData(formLogin);
+        const email: string = data.get("loginName").toString();
+
+        console.log(email + " vom formLogin");
+        axios.post("/login", {
+            loginName: data.get("loginName"),
+            loginPasswort: data.get("loginPasswort")
+        })
+            .then((res: AxiosResponse) => {
+                console.log("Anmeldung erfolgreich bruh");
+                formLogin.reset();
+
+            })
+            .catch((err: AxiosError)=>{
+                if(err.response.status = 404){
+                    console.log("Anmeldung nicht erfolgreich if vom .catch");
+                    console.log(loginName);
+                    console.log(loginPasswort);
+                }else{
+                    console.log("Anmeldung nicht erfolgreich else vom .catch");
+                }
+            })
+
+    })
 
 });
 
@@ -149,9 +184,6 @@ document.addEventListener("DOMContentLoaded",()=>{
               });
           }
 
-          function benutzerLoeschen(event: Event){
-
-          }
  ///
                     
                     
