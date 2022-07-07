@@ -850,7 +850,21 @@
     </ul>
 </div>
 
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Ich habe die AGB's gelesen und akzeptiert</span>
+            </div>
+            <input type="checkbox" id="checkAGB" name="checkAGB" value="checked">
+            <label for="checkAGB"></label><br>
+        </div>
 
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Ich möchte den Newsletter abonnieren</span>
+            </div>
+            <input type="checkbox" id="checkNewsletter" name="checkNewsletter" value="checked">
+            <label for="checkNewsletter"></label><br>
+        </div>
 
 <!-- Warenkorb -->
 <div id="warenkorb">
@@ -909,58 +923,208 @@
 <!-- Checkout -->
 <div id="checkout">
 
+    <form id="formBereitsKunde">
+        <h5>Ich bin bereits Kunde</h5>
+        <br>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">E-Mail</span>
+            </div>
+            <input type="email" class="form-control" placeholder="Email" name="regE-mail"
+                   aria-label="Email" required>
 
-    <!-- PayPal Buttons -->
-    <div id="smart-button-container">
-        <div style="text-align: center;">
-            <div id="paypal-button-container"></div>
+            <div class="input-group-prepend">
+                <span class="input-group-text">Passwort</span>
+            </div>
+            <input type="password" class="form-control" placeholder="Passwort" name="regPasswort"
+                   aria-label="Passwort" required>
         </div>
-    </div>
-    <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
-    <script>
-        function initPayPalButton() {
-            paypal.Buttons({
-                style: {
-                    shape: 'rect',
-                    color: 'gold',
-                    layout: 'vertical',
-                    label: 'paypal',
+        <div class="input-group mb-3">
+            <button type="submit" class="btn btn-luxknives" name="regFormBtn">Einloggen</button>
+        </div>
+    </form>
 
-                },
+    <form id="rechnungsAdresse">
+        <h5>Liefer-Rechnungsadresse</h5>
+        <br>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Vorname</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Vorname" name="rechnungVorname"
+                   aria-label="Vorname" required>
 
-                createOrder: function(data, actions) {
-                    return actions.order.create({
-                        purchase_units: [{"amount":{"currency_code":"USD","value":1}}]
-                    });
-                },
+            <div class="input-group-prepend">
+                <span class="input-group-text">Nachname</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Nachname" name="rechnungNachname"
+                   aria-label="Vorname" required>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Firma</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Firma" name="rechnungFirma"
+                   aria-label="Firma">
 
-                onApprove: function(data, actions) {
-                    return actions.order.capture().then(function(orderData) {
+            <div class="input-group-prepend">
+                <span class="input-group-text">Firmenzusatz</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Firmenzusatz" name="rechnungFirma"
+                   aria-label="Firma">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Straße</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Straße" name="rechnungStraße"
+                   aria-label="Straße">
 
-                        // Full available details
-                        console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+            <div class="input-group-prepend">
+                <span class="input-group-text">Hausnummer</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Hausnummer" name="rechnungHausnummer"
+                   aria-label="Hausnummer">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Plz</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Postleihzahl" name="rechnungPlz"
+                   aria-label="Postleihzahl">
 
-                        // Show a success message within this page, e.g.
-                        const element = document.getElementById('paypal-button-container');
-                        element.innerHTML = '';
-                        element.innerHTML = '<h3>Thank you for your payment!</h3>';
+            <div class="input-group-prepend">
+                <span class="input-group-text">Ort</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Ort" name="rechnungOrt"
+                   aria-label="Ort">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Land</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Land" name="rechnungLand"
+                   aria-label="Land">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">E-Mail</span>
+            </div>
+            <input type="email" class="form-control" placeholder="E-Mail-Adresse" name="rechnungEmail"
+                   aria-label="Land">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Telefon</span>
+            </div>
+            <input type="tel" class="form-control" placeholder="Telefonnummer" name="rechnungTelefon"
+                   aria-label="Telefonnummer">
+        </div>
 
-                        // Or go to another URL:  actions.redirect('thank_you.html');
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Versandart</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Versandart" name="rechnungVersandart"
+                   aria-label="Versandart">
+        </div>
 
-                    });
-                },
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Rechnungsadresse als Lieferadresse verwenden</span>
+            </div>
+            <input type="checkbox" id="checkAdresse" name="checkAdresse" value="checked">
+            <label for="checkAdresse"></label><br>
+        </div>
+    </form>
 
-                onError: function(err) {
-                    console.log(err);
-                }
-            }).render('#paypal-button-container');
-        }
-        initPayPalButton();
-    </script>
+    <form id="zahlungsart">
+        <h5>Zahlungsart</h5>
+        <br>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Kartennummer</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Kartennummer" name="zahlungsartKartenNr"
+                   aria-label="Kartennummer" required>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Name des Karteninhabers</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Name" name="zahlungsartKartenName"
+                   aria-label="Name des Karteninhabers" required>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Gültig bis</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Gültig bis" name="zahlungsartGültigkeit"
+                   aria-label="Gültig bis">
+
+            <div class="input-group-prepend">
+                <span class="input-group-text">Sicherheitscode</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Sicherheitscode" name="zahlungsartSicherheitscode"
+                   aria-label="Sicherheitscode">
+        </div>
 
 
 
 
+
+        <div id="smart-button-container">
+            <div style="text-align: center;">
+                <div id="paypal-button-container"></div>
+            </div>
+        </div>
+        <!-- TODO! script auslagern und anpassen?, ist von paypal direkt übernommen -->
+        <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+        <script>
+            function initPayPalButton() {
+                paypal.Buttons({
+                    style: {
+                        shape: 'rect',
+                        color: 'gold',
+                        layout: 'vertical',
+                        label: 'paypal',
+
+                    },
+
+                    createOrder: function(data, actions) {
+                        return actions.order.create({
+                            purchase_units: [{"amount":{"currency_code":"USD","value":1}}]
+                        });
+                    },
+
+                    onApprove: function(data, actions) {
+                        return actions.order.capture().then(function(orderData) {
+
+                            // Full available details
+                            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+                            // Show a success message within this page, e.g.
+                            const element = document.getElementById('paypal-button-container');
+                            element.innerHTML = '';
+                            element.innerHTML = '<h3>Thank you for your payment!</h3>';
+
+                            // Or go to another URL:  actions.redirect('thank_you.html');
+
+                        });
+                    },
+
+                    onError: function(err) {
+                        console.log(err);
+                    }
+                }).render('#paypal-button-container');
+            }
+            initPayPalButton();
+        </script>
+
+
+
+        <btn class="btn btn-luxknives" >Bestellen</btn>
+    </form>
 </div>
 
 
