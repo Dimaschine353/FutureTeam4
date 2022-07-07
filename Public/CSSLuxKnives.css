@@ -39,6 +39,10 @@ h1 {
 justify-content: center;
     color: #0d0d0d;
 }
+
+.kommentarBild > img{
+    width: 5rem;
+}
 /* ÜBER UNS */
 #überunsbild {
     width: 43.8rem;
