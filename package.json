@@ -5,6 +5,7 @@
   "author": "Artir Guri, Marko[], 'Rash', Dmytro 'Dimaschine'Skorbyashchenskyy, honorable mention Manuel Groh für Abschnitte im Server",
   "dependencies": {
     "axios": "^0.27.2",
+    "bootstrap": "^5.2.0-beta1",
     "express": "^4.18.1",
     "express-session": "^1.17.3",
     "modules": "^0.4.0",

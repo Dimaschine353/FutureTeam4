@@ -2,7 +2,6 @@ import * as express from 'express';
 import * as session from "express-session";
 import * as mysql from "mysql";
 import {MysqlError} from "mysql";
-
 //Klassen und Konstruktoren
 //wird für "C" gebraucht
 class Benutzer{
