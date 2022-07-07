@@ -35,6 +35,7 @@ h1 {
     color: white;
 }
 
+
 .scharf {
 justify-content: center;
     color: #0d0d0d;
@@ -160,6 +161,83 @@ footer {
 }
 
 /* Icon styling */
+/* Service */
+
+.calender-centered {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+/* Kalender */
+
+tbody {
+    background-color: white;
+}
+
+.calendar {
+    text-align: center;
+}
+
+.calendar tbody td:hover {
+    border: 2px solid #D94B2B;
+}
+
+.calendar td {
+    border: 2px solid transparent;
+    border-radius: 50%;
+    display: inline-block;
+    height: 4em;
+    line-height: 4em;
+    text-align: center;
+    width: 4em;
+}
+
+
+.calendar .prev-month,
+.calendar .next-month {
+    color: #cbd1d2;
+}
+
+.calendar .prev-month:hover,
+.calendar .next-month:hover {
+    border: 2px solid #cbd1d2;
+}
+
+.current-day {
+    background: #f0f0f2;
+    color: #595859;
+}
+
+.event {
+    cursor: pointer;
+    position: relative;
+}
+
+.kalendar {
+    width: 30rem;
+}
+
+.btn-secondary {
+    width: 60rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: white;
+    color: #595859;
+}
+
+.btn-secondary:hover {
+    background-color:#D94B2B;
+}
+.dropdown-toggle {
+    align-items: flex-end;
+}
+
+
+
+
+
+
 
 .icon-centered {
     justify-content: center;
