@@ -265,8 +265,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <i class="fa-2xl fa-solid fa-house-person-return"></i>
+                            <div class="col-md-4 d-flex justify-content-center align-items-center">
+                                <i class="fa-solid fa-house-user fa-7x"></i>
                             </div>
                         </div>
                     </div>
@@ -520,11 +520,116 @@
 
 </div>
 
-<div id="warenkorb">
 
+
+<!-- Warenkorb -->
+<div id="warenkorb">
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="images/Messer2.png" alt="Produkt Bild" class="img-fluid">
+                    </div>
+                    <div class="col-4 d-flex justify-content-center align-items-center">
+                        <div class="row">
+                            <div class="col-3 icon-centered">
+                                <i class="fa-solid fa-minus border-1"></i>
+                            </div>
+                            <div class="col-6 icon-centered">
+                                <p class="border-1">1</p>
+                            </div>
+                            <div class="col-3 icon-centered">
+                                <i class="fa-solid fa-plus border-1"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <p>Produktname: Nakiri Musashi</p>
+                        <p>Verfugbare Anzahl:</p>
+                        <p>Lieferzeit: 1-3 Werktage</p>
+                        <p>Preis: 4300.00€</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 text-center">
+                <div class="row">
+                    <p>Warenkorb Preis</p>
+                </div>
+                <div class="row">
+                    <p>4300.00€</p>
+                </div>
+                <div class="row">
+                    <p>Lieferzeit: 1-3 Werktage</p>
+                </div>
+                <div class="row">
+                    <p><a href="#">AGB</a> und <a href="#">Datenrecht</a></p>
+                </div>
+                <div class="row">
+                    <button class="btn btn-luxknives">Check-Out</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
+
+
+<!-- Checkout -->
 <div id="checkout">
+
+
+    <!-- PayPal Buttons -->
+    <div id="smart-button-container">
+        <div style="text-align: center;">
+            <div id="paypal-button-container"></div>
+        </div>
+    </div>
+    <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+    <script>
+        function initPayPalButton() {
+            paypal.Buttons({
+                style: {
+                    shape: 'rect',
+                    color: 'gold',
+                    layout: 'vertical',
+                    label: 'paypal',
+
+                },
+
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{"amount":{"currency_code":"USD","value":1}}]
+                    });
+                },
+
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(orderData) {
+
+                        // Full available details
+                        console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+                        // Show a success message within this page, e.g.
+                        const element = document.getElementById('paypal-button-container');
+                        element.innerHTML = '';
+                        element.innerHTML = '<h3>Thank you for your payment!</h3>';
+
+                        // Or go to another URL:  actions.redirect('thank_you.html');
+
+                    });
+                },
+
+                onError: function(err) {
+                    console.log(err);
+                }
+            }).render('#paypal-button-container');
+        }
+        initPayPalButton();
+    </script>
+
+
+
 
 </div>
 

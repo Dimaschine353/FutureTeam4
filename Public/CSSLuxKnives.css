@@ -159,3 +159,10 @@ footer {
     color: #D94B2B;
 }
 
+/* Icon styling */
+
+.icon-centered {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
