@@ -395,8 +395,12 @@ tbody {
 
 
 
-#formLogin,#formRegistrieren{
-    padding-block: 3cm;
+#formLogin,#formRegistrieren,#formKontakt{
+
     padding-left: 3cm;
     padding-right: 3cm;
+}
+#formBereitsKunde,#formRechnungsAdresse,#formZahlungsart{
+    padding-left: 1cm;
+    padding-right: 1cm;
 }
