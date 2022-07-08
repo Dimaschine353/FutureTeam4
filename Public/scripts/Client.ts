@@ -90,7 +90,7 @@
                     
 
 //Deklaration Forms
-
+let feedbackReg:HTMLElement;
 let formRegistrieren: HTMLFormElement;
 let formLogin: HTMLFormElement;
 
@@ -110,6 +110,7 @@ let loginPasswort: HTMLInputElement;
 document.addEventListener("DOMContentLoaded",()=>{
 
     //Initialisierung Forms
+    feedbackReg = document.querySelector("#feedbackRegistrieren");
     formRegistrieren = document.querySelector("#formRegistrieren");
     formLogin = document.querySelector("#formLogin");
     //Initialisierung Variablen
@@ -151,8 +152,8 @@ document.addEventListener("DOMContentLoaded",()=>{
                   passwort: passwort
               }).then((res: AxiosResponse)=>{
                   formRegistrieren.reset();
-                  
-                  //später Display einstellungen
+                  //||bessere Alternative suchen
+                  feedbackReg.innerText = "Benutzer erfolgreich eingeloggt";
               }).catch((error: AxiosError)=>{
                   
               });

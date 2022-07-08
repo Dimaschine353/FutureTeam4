@@ -393,9 +393,9 @@ tbody {
 
 
 
+/*||toDO cm in andere Größe ändern um Anzeige auf Bildschirmen anzupassen   */
 
-
-#formLogin,#formRegistrieren,#formKontakt{
+#formLogin,#formRegistrieren,#formKontakt,#feedbackRegistrieren{
 
     padding-left: 3cm;
     padding-right: 3cm;
