@@ -253,11 +253,21 @@ tbody {
     align-items: flex-end;
 }
 
+/* Bearbeiten Button CSS */
+
+.bearbeitenButtonBR {
+    position: absolute;
+    left: 90rem;
+    top: 50rem;
+}
+.bearbeitenButtonBL {
+    position: absolute;
+    left: 1rem;
+    top: 50rem;
+}
 
 
-
-
-
+/* Icon SVG CSS */
 
 .icon-centered {
     justify-content: center;
@@ -269,6 +279,7 @@ tbody {
     filter: invert(100%) sepia(60%) saturate(0%) hue-rotate(180deg) brightness(103%) contrast(90%);
     width: 2.5rem;
 }
+
 
 
 
