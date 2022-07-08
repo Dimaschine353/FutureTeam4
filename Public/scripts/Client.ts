@@ -106,8 +106,6 @@ let loginName: HTMLInputElement;
 let loginPasswort: HTMLInputElement;
 
 
-console.log("log");
-
 document.addEventListener("DOMContentLoaded",()=>{
 
     //Initialisierung Forms
@@ -184,7 +182,6 @@ document.addEventListener("DOMContentLoaded",()=>{
               });
           }
 
- ///
                     
                     
                     

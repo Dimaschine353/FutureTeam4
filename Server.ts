@@ -33,7 +33,6 @@ class Nachricht{
         this.inhalt = inhalt;
     }
 }
-
 //Verbindung zu DB
 const connection: mysql.Connection = mysql.createConnection({
     database:"luxknives"  ,
@@ -91,7 +90,7 @@ app.get("/benutzer/:email",checkLogin,getBenutzer);
 app.delete("/benutzer/:email",checkLogin,deleteBenutzer);
 app.put("/benutzer/:email",checkLogin,putBenutzer);
 
-////Alle Log- in 'n - out funktionen
+//Alle Log- in 'n - out funktionen
 //Funktion Login zugriff auf DB MUSS GETESTET WERDEN
 function login(req: express.Request, res: express.Response): void {
     //Selektiert "nichts", aber unter der Bedingung, dass Name und Passwort stimmen
@@ -146,7 +145,7 @@ function postBenutzer(req: express.Request, res: express.Response):void {
     let sql = "INSERT INTO benutzer(vName, nName, email, passwort) VALUES(?,?,?,?)";
 
     if(email===undefined || vName===undefined || nName===undefined || passwort===undefined){
-        console.log("Einer der Werte fehlt")
+        console.log("Einer der Werte fehlt");
     }else if (email && vName && nName && passwort){
         connection.query(
             sql,
