@@ -90,7 +90,8 @@ app.get("/benutzer/:email",checkLogin,getBenutzer);
 app.delete("/benutzer/:email",checkLogin,deleteBenutzer);
 app.put("/benutzer/:email",checkLogin,putBenutzer);
 
-//Alle Log- in 'n - out funktionen
+///Alle Log- in 'n - out funktionen
+
 //Funktion Login zugriff auf DB MUSS GETESTET WERDEN
 function login(req: express.Request, res: express.Response): void {
     //Selektiert "nichts", aber unter der Bedingung, dass Name und Passwort stimmen
@@ -132,7 +133,6 @@ function checkLogin(req: express.Request, res:express.Response, next: express.Ne
     }
 
 }
-
 //Funktionen Benutzer
 function postBenutzer(req: express.Request, res: express.Response):void {
 

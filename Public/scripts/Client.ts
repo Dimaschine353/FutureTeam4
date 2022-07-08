@@ -95,6 +95,7 @@ let formRegistrieren: HTMLFormElement;
 let formLogin: HTMLFormElement;
 
 //Deklaration Variablen
+
 //Registrieren
 let regVorname: HTMLInputElement;
 let regNachname: HTMLInputElement;
@@ -124,39 +125,14 @@ document.addEventListener("DOMContentLoaded",()=>{
     loginName = document.querySelector("#formLogin [name='loginName']");
     loginPasswort = document.querySelector("#formLogin [name='loginPasswort']");
 
-    formLogin.addEventListener("submit", (event:Event)=>{
-
-        //TODO! auslagern in Funktion
-        event.preventDefault();
-        const data: FormData = new FormData(formLogin);
-        const email: string = data.get("loginName").toString();
-
-        console.log(email + " vom formLogin");
-        axios.post("/login", {
-            loginName: data.get("loginName"),
-            loginPasswort: data.get("loginPasswort")
-        })
-            .then((res: AxiosResponse) => {
-                console.log("Anmeldung erfolgreich bruh");
-                formLogin.reset();
-
-            })
-            .catch((err: AxiosError)=>{
-                if(err.response.status = 404){
-                    console.log("Anmeldung nicht erfolgreich if vom .catch");
-                    console.log(loginName);
-                    console.log(loginPasswort);
-                }else{
-                    console.log("Anmeldung nicht erfolgreich else vom .catch");
-                }
-            })
-
-    })
+    formLogin.addEventListener("submit", login);
 
 });
 
 
 //Funktionen
+
+//Funktionen Benutzer
           function benutzerHinzufügen(event:Event){
                 
               event.preventDefault();
@@ -181,6 +157,33 @@ document.addEventListener("DOMContentLoaded",()=>{
                   
               });
           }
+
+//Login 'n out Funkntionen
+        function login(event:Event){
+            event.preventDefault();
+            const data: FormData = new FormData(formLogin);
+            const email: string = data.get("loginName").toString();
+
+            console.log(email + " vom formLogin");
+            axios.post("/login", {
+                loginName: data.get("loginName"),
+                loginPasswort: data.get("loginPasswort")
+            })
+                .then((res: AxiosResponse) => {
+                    console.log("Anmeldung erfolgreich bruh");
+                    formLogin.reset();
+
+                })
+                .catch((err: AxiosError)=>{
+                    if(err.response.status = 404){
+                        console.log("Anmeldung nicht erfolgreich if vom .catch");
+                        console.log(loginName);
+                        console.log(loginPasswort);
+                    }else{
+                        console.log("Anmeldung nicht erfolgreich else vom .catch");
+                    }
+                })
+        }
 
                     
                     
