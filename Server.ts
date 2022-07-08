@@ -3,7 +3,7 @@ import * as session from "express-session";
 import * as mysql from "mysql";
 import {MysqlError} from "mysql";
 //Klassen und Konstruktoren
-//wird für Ben"C" gebraucht
+//wird für Ben"R" gebraucht
 class Benutzer{
     vName: string;
     nName: string;
