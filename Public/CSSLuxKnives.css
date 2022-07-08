@@ -265,6 +265,11 @@ tbody {
     left: 1rem;
     top: 50rem;
 }
+.bearbeitenButtonBM {
+    position: absolute;
+    left: 45rem;
+    top: 50rem;
+}
 
 
 /* Icon SVG CSS */
