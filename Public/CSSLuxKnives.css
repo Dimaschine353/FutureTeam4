@@ -21,6 +21,12 @@
     --bs-gutter-x: 0;
 }
 
+/* Profilseite CSS */
+.cardBioStyle {
+    max-width: 45rem;
+}
+
+
 /* DETAILSEITE */
 
 .nakiri {

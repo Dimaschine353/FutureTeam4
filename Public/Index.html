@@ -218,18 +218,13 @@
     </div>
 </section>
 
-<div class="scharf">
-    Scharf und Schneidefreudig. Die form passt sich Ihrer Hand an und vermittelt ein wolkenleichtes Schneidegefühl.
-    Der Griff des Messers ist so gestaltetet, dass es sich Ihrer Hand anschmiegt und somit für ein unvergessliches
-    Handling sorgt.
-</div>
 
 <!-- Profil -->
 <div id="profil">
     <div class="container-fluid p-0">
         <div class="row">
             <div class="col-7">
-                <div class="card mb-3" style="max-width: 540px;">
+                <div class="card mb-3 cardBioStyle">
                     <div class="row g-0">
                         <div class="col-md-4">
                             <img src="/cMe/images/PeterHofmannProfilepic.PNG" class="img-fluid" alt="...">
@@ -237,7 +232,15 @@
                         <div class="col-md-8">
                             <div class="card-body">
                                 <h5 class="card-title">Bio</h5>
-                                <p class="card-text">Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen. </p>
+                                <p class="card-text" id="profilBioRead">
+                                    Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                    Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                    Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                    Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                    Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                    Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                    Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -256,7 +259,7 @@
                 </div>
                 <div class="input-group mb-3 d-flex justify-content-center">
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-luxknives" data-bs-toggle="modal" data-bs-target="#profildatenBearbeitenModal">
+                    <button type="button" class="btn btn-luxknives rounded-1" data-bs-toggle="modal" data-bs-target="#profildatenBearbeitenModal">
                         Profildaten Bearbeiten
                     </button>
 
@@ -269,8 +272,21 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="">
-
+                                    <div class="input-group mb-3">
+                                        <input id="profilVornameUpdate" type="text" class="form-control" placeholder="Vorname" name="profilVorname"
+                                               aria-label="Vorname">
+                                        <input id="profilNachnameUpdate" type="text" class="form-control" placeholder="Nachname" name="profilNachname"
+                                               aria-label="Nachname">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input id="profilE-mailUpdate" type="email" class="form-control" placeholder="Email" name="profilE-mail" aria-label="Email">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="profilbildUpdate" class="form-label">Profilbild Hochladen</label>
+                                        <input class="form-control" type="file" id="profilbildUpdate">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <textarea id="profilBioUpdate" class="form-control" aria-label="profilBioUpdate" placeholder="Bio Schreiben"></textarea>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -280,8 +296,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <button type="submit" class="btn btn-luxknives" name="regFormBtn">Profildaten Bearbeiten</button>
                 </div>
             </div>
         </div>
