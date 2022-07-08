@@ -3,7 +3,7 @@ import * as session from "express-session";
 import * as mysql from "mysql";
 import {MysqlError} from "mysql";
 //Klassen und Konstruktoren
-//wird für "C" gebraucht
+//wird für Ben"C" gebraucht
 class Benutzer{
     vName: string;
     nName: string;
@@ -19,16 +19,27 @@ class Benutzer{
 
     }
 }
+//kRez
+class Nachricht{
+    vName: string;
+    nName: string;
+    email: string;
+    inhalt: string;
+
+    constructor(vName:string, nName:string, email:string, inhalt:string) {
+        this.vName = vName;
+        this.nName = nName;
+        this.email = email;
+        this.inhalt = inhalt;
+    }
+}
 
 //Verbindung zu DB
-//nameEinfügen
-
 const connection: mysql.Connection = mysql.createConnection({
     database:"luxknives"  ,
     host: "localhost",
     user: "root"
 });
-
 //Initialisiert Verbindung
 connection.connect((err) => {
     if (err === null) {
@@ -37,7 +48,6 @@ connection.connect((err) => {
         console.log("Datenbankfehler: " + err);
     }
 });
-
 // Ein Wrapper von Manuel Groh, um die MySQL-Query als Promise (then/catch Syntax) zu nutzen
 function query(sql: string, param: any[] = []): Promise<any> {
     return new Promise<any>((resolve: any, reject: any) => {
@@ -50,7 +60,6 @@ function query(sql: string, param: any[] = []): Promise<any> {
         });
     });
 }
-
 const app: express.Express = express();
 app.listen(8080);
 //notwendige übergabeparameter für JSON und URLencoded

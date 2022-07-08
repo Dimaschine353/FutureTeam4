@@ -2,7 +2,7 @@
   "name": "LuxKnives",
   "version": "0.01",
   "description": "IP SoSe22",
-  "author": "Artir Guri, Marko[], 'Rash', Dmytro 'Dimaschine'Skorbyashchenskyy, honorable mention Manuel Groh für Abschnitte im Server",
+  "author": "Artir Guri 'Schine', Marko Karila, Rasheen Donell Martin Burkard,  Dmytro 'Dimaschine'Skorbyashchenskyy, honorable mention Manuel Groh für Abschnitte im Server",
   "dependencies": {
     "axios": "^0.27.2",
     "bootstrap": "^5.2.0-beta1",
