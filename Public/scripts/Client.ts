@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 //Funktionen
 
 //Funktionen Benutzer
-          function benutzerHinzufügen(event:Event){
+function benutzerHinzufügen(event:Event){
                 
               event.preventDefault();
               
@@ -158,6 +158,16 @@ document.addEventListener("DOMContentLoaded",()=>{
                   
               });
           }
+
+function benutzerAuslesen(event:Event){
+    event.preventDefault();
+}
+function benutzerLöschen(event:Event){
+    event.preventDefault();
+}
+function benutzerÄndern(event:Event){
+    event.preventDefault();
+}
 
 //Login 'n out Funkntionen
         function login(event:Event){
@@ -185,6 +195,14 @@ document.addEventListener("DOMContentLoaded",()=>{
                     }
                 })
         }
+function logout(event:Event){
+    event.preventDefault();
+    axios.post("/logout")
+        .then(()=>{
+            console.log("habe eine response vom Server erhalten");
+            //hier soll alles rein was nachm logout passiert
+        });
+}
 
                     
                     
