@@ -393,14 +393,13 @@ tbody {
 
 
 
-/*||toDO cm in andere Größe ändern um Anzeige auf Bildschirmen anzupassen   */
 
 #formLogin,#formRegistrieren,#formKontakt,#feedbackRegistrieren{
 
-    padding-left: 3cm;
-    padding-right: 3cm;
+    padding-left: 5rem;
+    padding-right: 5rem;
 }
 #formBereitsKunde,#formRechnungsAdresse,#formZahlungsart{
-    padding-left: 1cm;
-    padding-right: 1cm;
+    padding-left: 3rem;
+    padding-right: 3rem;
 }
