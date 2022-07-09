@@ -201,7 +201,7 @@ function benutzerLöschen(event:Event){
 function benutzerÄndern(event:Event){
     event.preventDefault();
 }
-
+/*
 //Login 'n out Funkntionen
 function login(event:Event){
             event.preventDefault();
@@ -261,7 +261,7 @@ function logout(event:Event){
             //hier soll alles rein was nachm logout passiert
         });
 }
-
+*/
                     
                     
                     
