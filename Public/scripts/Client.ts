@@ -83,15 +83,16 @@
                     
                     
                     
-                    
+//Sections
+
                     
                     
 //Nav Leiste
-let btnLogin:HTMLInputElement;
+
                     
 
 //Deklaration Forms
-let feedbackReg:HTMLElement;
+let feedbackReg: HTMLElement;
 let formRegistrieren: HTMLFormElement;
 let formLogin: HTMLFormElement;
 
@@ -111,8 +112,7 @@ let loginPasswort: HTMLInputElement;
 document.addEventListener("DOMContentLoaded",()=>{
 
     //Initialisierung Nav Leiste
-    btnLogin = document.querySelector("#btnLogin");
-    btnLogin.addEventListener("click",login);
+
 
 
     //Initialisierung Forms
