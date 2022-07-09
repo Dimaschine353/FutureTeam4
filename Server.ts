@@ -158,6 +158,7 @@ function postBenutzer(req: express.Request, res: express.Response):void {
         res.send("diesen Benutzer gibt es bereits");
     }
 }
+//||MUSS GETESTET WERDEN!!
 function getBenutzer(req: express.Request, res: express.Response):void{
 
     const email: string = req.session.uname;
@@ -191,6 +192,8 @@ function getBenutzer(req: express.Request, res: express.Response):void{
     }
 
 }
+
+
 function deleteBenutzer(req: express.Request, res:express.Response):void{}
 function putBenutzer(req: express.Request, res:express.Response):void{}
 

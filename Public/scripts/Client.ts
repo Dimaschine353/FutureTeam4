@@ -170,7 +170,7 @@ function benutzerÄndern(event:Event){
 }
 
 //Login 'n out Funkntionen
-        function login(event:Event){
+function login(event:Event){
             event.preventDefault();
             const data: FormData = new FormData(formLogin);
             const email: string = data.get("loginName").toString();
