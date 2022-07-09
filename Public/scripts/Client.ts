@@ -116,7 +116,7 @@ let regPasswort: HTMLInputElement;
 
 let loginName: HTMLInputElement;
 let loginPasswort: HTMLInputElement;
-
+let logoutBtn: HTMLInputElement;
 
 document.addEventListener("DOMContentLoaded",()=>{
 
@@ -142,6 +142,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     feedbackReg = document.querySelector("#feedbackRegistrieren");
     formRegistrieren = document.querySelector("#formRegistrieren");
     formLogin = document.querySelector("#formLogin");
+    logoutBtn = document.querySelector("#logoutBtn");
     //Initialisierung Variablen
 
     //Registrierung
@@ -156,6 +157,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     loginPasswort = document.querySelector("#formLogin [name='loginPasswort']");
 
     formLogin.addEventListener("submit", login);
+    logoutBtn.addEventListener("click", logout);
 
 });
 
@@ -210,8 +212,33 @@ function login(event:Event){
                 loginPasswort: data.get("loginPasswort")
             })
                 .then((res: AxiosResponse) => {
-                    console.log("Anmeldung erfolgreich bruh");
                     formLogin.reset();
+
+
+                    sectDet.classList.remove("d-block");
+                    sectÜber.classList.remove("d-block");
+                    sectServ.classList.remove("d-block");
+                    sectWar.classList.remove("d-block");
+                    sectCheck.classList.remove("d-block");
+                    sectCheck.classList.remove("d-block");
+                    sectReg.classList.remove("d-block");
+                    sectLog.classList.remove("d-block");
+
+                    logoutBtn.classList.remove("d-none");
+                    logoutBtn.classList.add("d-block");
+
+                    sectDet.classList.add("d-none");
+                    sectÜber.classList.add("d-none");
+                    sectServ.classList.add("d-none");
+                    sectWar.classList.add("d-none");
+                    sectCheck.classList.add("d-none");
+                    sectCheck.classList.add("d-none");
+                    sectReg.classList.add("d-none");
+                    sectLog.classList.add("d-none");
+                    sectKont.classList.add("d-none");
+
+                    console.log("Anmeldung erfolgreich bruh");
+
 
                 })
                 .catch((err: AxiosError)=>{
