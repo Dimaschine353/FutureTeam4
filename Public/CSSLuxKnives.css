@@ -21,6 +21,12 @@
     --bs-gutter-x: 0;
 }
 
+/* Profilseite CSS */
+.cardBioStyle {
+    max-width: 45rem;
+}
+
+
 /* DETAILSEITE */
 
 .nakiri {
@@ -253,11 +259,26 @@ tbody {
     align-items: flex-end;
 }
 
+/* Bearbeiten Button CSS */
+
+.bearbeitenButtonBR {
+    position: absolute;
+    left: 90rem;
+    top: 50rem;
+}
+.bearbeitenButtonBL {
+    position: absolute;
+    left: 1rem;
+    top: 50rem;
+}
+.bearbeitenButtonBM {
+    position: absolute;
+    left: 45rem;
+    top: 50rem;
+}
 
 
-
-
-
+/* Icon SVG CSS */
 
 .icon-centered {
     justify-content: center;
