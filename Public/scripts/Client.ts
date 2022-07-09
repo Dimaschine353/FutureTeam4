@@ -84,7 +84,16 @@
                     
                     
 //Sections
-
+let sectStart: HTMLElement;
+let sectProf: HTMLElement;
+let sectDet: HTMLElement;
+let sectÜber: HTMLElement;
+let sectServ: HTMLElement;
+let sectWar: HTMLElement;
+let sectCheck: HTMLElement;
+let sectReg: HTMLElement;
+let sectLog: HTMLElement;
+let sectKont: HTMLElement;
                     
                     
 //Nav Leiste
@@ -110,6 +119,20 @@ let loginPasswort: HTMLInputElement;
 
 
 document.addEventListener("DOMContentLoaded",()=>{
+
+    //initialisierung Sect
+
+    sectStart = document.querySelector("#sectStart");
+    sectProf = document.querySelector("#sectProf");
+    sectDet = document.querySelector("#sectDet");
+    sectÜber = document.querySelector("#sectÜber");
+    sectServ = document.querySelector("#sectServ");
+    sectWar = document.querySelector("#sectWar");
+    sectCheck = document.querySelector("#sectCheck");
+    sectReg = document.querySelector("#sectReg");
+    sectLog = document.querySelector("#sectLog");
+    sectKont = document.querySelector("#sectKont");
+
 
     //Initialisierung Nav Leiste
 
