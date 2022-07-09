@@ -104,6 +104,7 @@ let sectKont: HTMLElement;
 let feedbackReg: HTMLElement;
 let formRegistrieren: HTMLFormElement;
 let formLogin: HTMLFormElement;
+let formLogout: HTMLFormElement;
 
 //Deklaration Variablen
 
@@ -143,6 +144,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     formRegistrieren = document.querySelector("#formRegistrieren");
     formLogin = document.querySelector("#formLogin");
     logoutBtn = document.querySelector("#logoutBtn");
+    formLogout = document.querySelector("#formLogout");
     //Initialisierung Variablen
 
     //Registrierung
@@ -224,8 +226,8 @@ function login(event:Event){
                     sectReg.classList.remove("d-block");
                     sectLog.classList.remove("d-block");
 
-                    logoutBtn.classList.remove("d-none");
-                    logoutBtn.classList.add("d-block");
+                    formLogout.classList.remove("d-none");
+                    formLogout.classList.add("d-block");
 
                     sectDet.classList.add("d-none");
                     sectÜber.classList.add("d-none");
