@@ -87,7 +87,9 @@ app.post("/logout",logout);
 //Routen Benutzer
 app.post("/benutzer",postBenutzer);
 app.get("/benutzer/:email",checkLogin,getBenutzer);
-app.delete("/benutzer/:email",checkLogin,deleteBenutzer);
+//app.delete("/benutzer/:email",checkLogin,deleteBenutzer);
+//eine 2te app.delete ohne "checklogin" für Testing zwecke
+app.delete("/benutzer/:email", deleteBenutzer);
 app.put("/benutzer/:email",checkLogin,putBenutzer);
 
 ///Alle Log- in 'n - out funktionen
@@ -195,10 +197,11 @@ function getBenutzer(req: express.Request, res: express.Response):void{
 
 
 function deleteBenutzer(req: express.Request, res:express.Response):void{
-    const email: string =  req.session.uname;
+    console.log("bin in der deleteBenutzer drin");
+    const email: string =  req.params.email.toString();
 
     const param = [email];
-    const sql = "DELETE FROM users WHERE email = ?;";
+    const sql = "DELETE FROM benutzer WHERE email = ?;";
 
     if(email === undefined){
         res.status(400);
