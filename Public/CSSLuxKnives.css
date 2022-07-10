@@ -108,20 +108,32 @@ footer {
     padding: 2rem;
     color: #D94B2B;
 }
+#facebook:hover {
+    color: #d9765f;
+}
 
 #instagram {
     padding: 2rem;
     color: #D94B2B;
+}
+#instagram:hover {
+    color: #d9765f;
 }
 
 #twitter {
     padding: 2rem;
     color: #D94B2B;
 }
+#twitter:hover {
+    color: #d9765f;
+}
 
 #youtube {
     padding: 2rem;
     color: #D94B2B;
+}
+#youtube:hover {
+    color: #d9765f;
 }
 
 /* Text auf Images */
