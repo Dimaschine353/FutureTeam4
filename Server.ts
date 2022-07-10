@@ -104,7 +104,7 @@ function login(req: express.Request, res: express.Response): void {
         .then((results: any) => {
             //Wenn Eintrag vorhanden ist wird der Loginname zum Sessionnamen
             if (results.length===1) {
-                req.session.uname = req.body.loginName;
+                req.session.uname = req.body.loginName
                 res.sendStatus(200);
                 console.log("wurde eingeloggt");
             }else{
@@ -201,7 +201,8 @@ function getBenutzer(req: express.Request, res: express.Response):void{
 function deleteBenutzer(req: express.Request, res:express.Response):void{
     console.log("bin in der deleteBenutzer drin");
     //TODO! email von session uname ziehen, sobald checkLogin fixed ist
-    const email: string =  req.params.email.toString();
+    //const email: string =  req.params.email.toString();
+    const email: string = req.session.uname;
 
     const param = [email];
     const sql = "DELETE FROM benutzer WHERE email = ?;";
