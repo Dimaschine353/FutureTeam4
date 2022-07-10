@@ -16,6 +16,15 @@
     font-size: 12rem;
 }
 
+.btn-luxknives {
+    background-color: #D94B2B;
+    color: white;
+}
+
+.btn-luxknives:hover {
+    background-color: #d9765f;
+}
+
 
 .row {
     --bs-gutter-x: 0;
@@ -43,10 +52,6 @@ h1 {
     text-align: center;
 }
 
-.btn-luxknives {
-    background-color: #D94B2B;
-    color: white;
-}
 
 
 .scharf {
