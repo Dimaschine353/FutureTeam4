@@ -174,7 +174,8 @@ footer {
     font-size: 4rem;
     color: white;
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(20px);
+    background-color: #f0f0f280;
     font-family: "Bebas Neue", serif;
 }
 
@@ -185,7 +186,8 @@ footer {
     font-size: 2rem;
     color: white;
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(20px);
+    background-color: #f0f0f280;
     font-family: "Bebas Neue", serif;
 }
 
