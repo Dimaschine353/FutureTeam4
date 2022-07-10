@@ -85,7 +85,6 @@
                     
 //Deklaration Sections
 
-
 let sectStart: HTMLElement;
 let sectProf: HTMLElement;
 let sectDet: HTMLElement;
@@ -189,6 +188,9 @@ document.addEventListener("DOMContentLoaded",()=>{
     profilUBtnB.addEventListener("click",benutzerBearbeitenStart);
     profilUBtnA = document.querySelector("#profilUBtnA");
     profilUBtnA.addEventListener("click",benutzerÄndern);
+
+    profilUBtnL = document.querySelector("#profilUBtnL");
+    profilUBtnL.addEventListener("click", benutzerLöschen);
 });
 
 
@@ -225,6 +227,18 @@ function benutzerAuslesen(event:Event){
 }
 function benutzerLöschen(event:Event){
     event.preventDefault();
+
+    const email: String = eingeloggterBenutzer;
+
+    axios.delete("/benutzer/"+email)
+        .then((res: AxiosResponse)=>{
+            console.log("Ihr Account wurde erfolgreich gelöscht");
+        }).catch((err: AxiosError)=>{
+
+    });
+
+
+
 }
 function benutzerBearbeitenStart(event: Event){
 event.preventDefault();
