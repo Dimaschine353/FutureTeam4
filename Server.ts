@@ -87,7 +87,11 @@ app.post("/logout",logout);
 //Routen Benutzer
 app.post("/benutzer",postBenutzer);
 app.get("/benutzer/:email",checkLogin,getBenutzer);
-app.delete("/benutzer/:email",checkLogin,deleteBenutzer);
+
+//TODO! app.delete route mit checklogin wieder aktivieren, sobald checkLogin funktioniert
+//app.delete("/benutzer/:email",checkLogin,deleteBenutzer);
+//eine 2te app.delete ohne "checklogin" für Testing zwecke
+app.delete("/benutzer/:email", deleteBenutzer);
 app.put("/benutzer/:email",checkLogin,putBenutzer);
 
 ///Alle Log- in 'n - out funktionen
@@ -100,7 +104,7 @@ function login(req: express.Request, res: express.Response): void {
         .then((results: any) => {
             //Wenn Eintrag vorhanden ist wird der Loginname zum Sessionnamen
             if (results.length===1) {
-                req.session.uname = req.body.loginName;
+                req.session.uname = req.body.loginName
                 res.sendStatus(200);
                 console.log("wurde eingeloggt");
             }else{
@@ -192,7 +196,32 @@ function getBenutzer(req: express.Request, res: express.Response):void{
     }
 
 }
-function deleteBenutzer(req: express.Request, res:express.Response):void{}
+
+
+function deleteBenutzer(req: express.Request, res:express.Response):void{
+    console.log("bin in der deleteBenutzer drin");
+    //TODO! email von session uname ziehen, sobald checkLogin fixed ist
+    //const email: string =  req.params.email.toString();
+    const email: string = req.session.uname;
+
+    const param = [email];
+    const sql = "DELETE FROM benutzer WHERE email = ?;";
+
+    if(email === undefined){
+        res.status(400);
+        res.send("Die E-Mail-Adresse fehlt");
+    }else if(email){
+        connection.query(
+            sql,
+            param,
+            (err: mysql.MysqlError | null, result: any) => {
+                res.status(200);
+                res.send("Ihr Account wurde erfolgreich gelöscht");
+            }
+        )
+    }
+}
+
 function putBenutzer(req: express.Request, res:express.Response):void{
 
     const email: string = req.session.uname;

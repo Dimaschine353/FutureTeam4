@@ -278,7 +278,7 @@ function login(event:Event){
                 loginPasswort: data.get("loginPasswort")
             })
                 .then((res: AxiosResponse) => {
-                    formLogin.reset();
+                    //formLogin.reset();
 
                     sectStart.classList.remove("d-block");
                     sectDet.classList.remove("d-block");
@@ -304,9 +304,11 @@ function login(event:Event){
                     sectLog.classList.add("d-none");
                     sectKont.classList.add("d-none");
 
-                    eingeloggterBenutzer = loginName.toString();
+                    eingeloggterBenutzer = loginName.value;
 
+                    console.log(eingeloggterBenutzer);
                     console.log("Anmeldung erfolgreich bruh");
+                    console.log(eingeloggterBenutzer);
 
 
                 })
