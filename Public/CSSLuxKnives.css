@@ -71,6 +71,10 @@ justify-content: center;
 
 
 /* FOOTER */
+.luxKnivesFooterStyle {
+    background-color: #0d0d0d;
+}
+
 footer {
     left: 0;
     bottom: 0;
