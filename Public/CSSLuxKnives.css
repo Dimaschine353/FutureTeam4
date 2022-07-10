@@ -21,6 +21,12 @@
     --bs-gutter-x: 0;
 }
 
+/* Profilseite CSS */
+.cardBioStyle {
+    max-width: 45rem;
+}
+
+
 /* DETAILSEITE */
 
 .nakiri {
@@ -250,11 +256,26 @@ tbody {
     align-items: flex-end;
 }
 
+/* Bearbeiten Button CSS */
+
+.bearbeitenButtonBR {
+    position: absolute;
+    left: 90rem;
+    top: 50rem;
+}
+.bearbeitenButtonBL {
+    position: absolute;
+    left: 1rem;
+    top: 50rem;
+}
+.bearbeitenButtonBM {
+    position: absolute;
+    left: 45rem;
+    top: 50rem;
+}
 
 
-
-
-
+/* Icon SVG CSS */
 
 .icon-centered {
     justify-content: center;
@@ -391,13 +412,12 @@ tbody {
 
 
 
+#formLogin,#formRegistrieren,#formKontakt,#feedbackRegistrieren{
 
-#formLogin,#formRegistrieren,#formKontakt{
-
-    padding-left: 3cm;
-    padding-right: 3cm;
+    padding-left: 5rem;
+    padding-right: 5rem;
 }
 #formBereitsKunde,#formRechnungsAdresse,#formZahlungsart{
-    padding-left: 1cm;
-    padding-right: 1cm;
+    padding-left: 3rem;
+    padding-right: 3rem;
 }

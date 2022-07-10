@@ -158,7 +158,42 @@ function postBenutzer(req: express.Request, res: express.Response):void {
         res.send("diesen Benutzer gibt es bereits");
     }
 }
-function getBenutzer(req: express.Request, res: express.Response):void{}
+//||MUSS GETESTET WERDEN!!
+function getBenutzer(req: express.Request, res: express.Response):void{
+
+    const email: string = req.session.uname;
+    const param = [email];
+    const sql = "SELECT * FROM benutzer WHERE email =?;";
+    console.log(email+ " inder getBenutzerServer");
+    if(email === undefined){
+        console.log("email fehlt");
+    }else if(email){
+        console.log("bin in der elseIF von der getBenutzer Server");
+        connection.query
+        (
+            sql,
+            param,
+            (err:mysql.MysqlError | null, results: any)=>
+            {
+                const benutzer : Benutzer = new Benutzer(
+                    results[0].vName,
+                    results[0].nName,
+                    results[0].email,
+                    results[0].passwort
+                )
+                console.log(benutzer);
+                res.status(200).send
+                ({
+                    benutzer
+                });
+
+            }
+        )
+    }
+
+}
+
+
 function deleteBenutzer(req: express.Request, res:express.Response):void{}
 function putBenutzer(req: express.Request, res:express.Response):void{}
 

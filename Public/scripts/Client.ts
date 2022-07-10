@@ -83,16 +83,28 @@
                     
                     
                     
+//Sections
+let sectStart: HTMLElement;
+let sectProf: HTMLElement;
+let sectDet: HTMLElement;
+let sectÜber: HTMLElement;
+let sectServ: HTMLElement;
+let sectWar: HTMLElement;
+let sectCheck: HTMLElement;
+let sectReg: HTMLElement;
+let sectLog: HTMLElement;
+let sectKont: HTMLElement;
                     
                     
-                    
-                    
+//Nav Leiste
+
                     
 
 //Deklaration Forms
-
+let feedbackReg: HTMLElement;
 let formRegistrieren: HTMLFormElement;
 let formLogin: HTMLFormElement;
+let formLogout: HTMLFormElement;
 
 //Deklaration Variablen
 
@@ -105,13 +117,34 @@ let regPasswort: HTMLInputElement;
 
 let loginName: HTMLInputElement;
 let loginPasswort: HTMLInputElement;
-
+let logoutBtn: HTMLInputElement;
 
 document.addEventListener("DOMContentLoaded",()=>{
 
+    //initialisierung Sect
+
+    sectStart = document.querySelector("#sectStart");
+    sectProf = document.querySelector("#sectProf");
+    sectDet = document.querySelector("#sectDet");
+    sectÜber = document.querySelector("#sectÜber");
+    sectServ = document.querySelector("#sectServ");
+    sectWar = document.querySelector("#sectWar");
+    sectCheck = document.querySelector("#sectCheck");
+    sectReg = document.querySelector("#sectReg");
+    sectLog = document.querySelector("#sectLog");
+    sectKont = document.querySelector("#sectKont");
+
+
+    //Initialisierung Nav Leiste
+
+
+
     //Initialisierung Forms
+    feedbackReg = document.querySelector("#feedbackRegistrieren");
     formRegistrieren = document.querySelector("#formRegistrieren");
     formLogin = document.querySelector("#formLogin");
+    logoutBtn = document.querySelector("#logoutBtn");
+    formLogout = document.querySelector("#formLogout");
     //Initialisierung Variablen
 
     //Registrierung
@@ -126,6 +159,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     loginPasswort = document.querySelector("#formLogin [name='loginPasswort']");
 
     formLogin.addEventListener("submit", login);
+    logoutBtn.addEventListener("click", logout);
 
 });
 
@@ -133,7 +167,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 //Funktionen
 
 //Funktionen Benutzer
-          function benutzerHinzufügen(event:Event){
+function benutzerHinzufügen(event:Event){
                 
               event.preventDefault();
               
@@ -151,15 +185,25 @@ document.addEventListener("DOMContentLoaded",()=>{
                   passwort: passwort
               }).then((res: AxiosResponse)=>{
                   formRegistrieren.reset();
-                  
-                  //später Display einstellungen
+                  //||bessere Alternative suchen
+                  feedbackReg.innerText = "Benutzer erfolgreich eingeloggt";
               }).catch((error: AxiosError)=>{
                   
               });
           }
 
+function benutzerAuslesen(event:Event){
+    event.preventDefault();
+}
+function benutzerLöschen(event:Event){
+    event.preventDefault();
+}
+function benutzerÄndern(event:Event){
+    event.preventDefault();
+}
+/*
 //Login 'n out Funkntionen
-        function login(event:Event){
+function login(event:Event){
             event.preventDefault();
             const data: FormData = new FormData(formLogin);
             const email: string = data.get("loginName").toString();
@@ -170,8 +214,33 @@ document.addEventListener("DOMContentLoaded",()=>{
                 loginPasswort: data.get("loginPasswort")
             })
                 .then((res: AxiosResponse) => {
-                    console.log("Anmeldung erfolgreich bruh");
                     formLogin.reset();
+
+
+                    sectDet.classList.remove("d-block");
+                    sectÜber.classList.remove("d-block");
+                    sectServ.classList.remove("d-block");
+                    sectWar.classList.remove("d-block");
+                    sectCheck.classList.remove("d-block");
+                    sectCheck.classList.remove("d-block");
+                    sectReg.classList.remove("d-block");
+                    sectLog.classList.remove("d-block");
+
+                    formLogout.classList.remove("d-none");
+                    formLogout.classList.add("d-block");
+
+                    sectDet.classList.add("d-none");
+                    sectÜber.classList.add("d-none");
+                    sectServ.classList.add("d-none");
+                    sectWar.classList.add("d-none");
+                    sectCheck.classList.add("d-none");
+                    sectCheck.classList.add("d-none");
+                    sectReg.classList.add("d-none");
+                    sectLog.classList.add("d-none");
+                    sectKont.classList.add("d-none");
+
+                    console.log("Anmeldung erfolgreich bruh");
+
 
                 })
                 .catch((err: AxiosError)=>{
@@ -184,7 +253,15 @@ document.addEventListener("DOMContentLoaded",()=>{
                     }
                 })
         }
-
+function logout(event:Event){
+    event.preventDefault();
+    axios.post("/logout")
+        .then(()=>{
+            console.log("habe eine response vom Server erhalten");
+            //hier soll alles rein was nachm logout passiert
+        });
+}
+*/
                     
                     
                     
