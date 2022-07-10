@@ -6,6 +6,7 @@
 
 .fontLuxKnives {
     font-family: "Montserrat Thin", serif;
+    color: black;
 }
 
 
@@ -29,6 +30,15 @@
 .row {
     --bs-gutter-x: 0;
 }
+
+a {
+    color: #D94B2B;
+}
+
+a:hover {
+    color: #d9765f;
+}
+
 
 /* Profilseite CSS */
 .cardBioStyle {
