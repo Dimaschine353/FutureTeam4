@@ -83,7 +83,9 @@
                     
                     
                     
-//Sections
+//Deklaration Sections
+
+
 let sectStart: HTMLElement;
 let sectProf: HTMLElement;
 let sectDet: HTMLElement;
@@ -96,7 +98,7 @@ let sectLog: HTMLElement;
 let sectKont: HTMLElement;
                     
                     
-//Nav Leiste
+//Deklaration Nav Leiste
 
                     
 
@@ -109,6 +111,9 @@ let formProfilDatenBearbeiten: HTMLFormElement;
 
 //Deklaration Variablen
 
+//Deklaration globale Variablen
+let eingeloggterBenutzer:String;
+
 //Registrieren
 let regVorname: HTMLInputElement;
 let regNachname: HTMLInputElement;
@@ -117,7 +122,7 @@ let regPasswort: HTMLInputElement;
 //Profil User
 let profilVorname: HTMLInputElement;
 let profilNachname: HTMLInputElement;
-let profilEmail: HTMLInputElement;
+
 let profilUBtnB: HTMLInputElement;
 let profilUBtnA: HTMLInputElement;
 //Login
@@ -155,6 +160,9 @@ document.addEventListener("DOMContentLoaded",()=>{
     formProfilDatenBearbeiten = document.querySelector("#formProfildatenBearbeiten");
     //Initialisierung Variablen
 
+    //Initialisierung globaler Variablen
+    eingeloggterBenutzer = "";
+
     //Registrierung
     regVorname = document.querySelector("#formRegistrieren [name='regVorname']");
     regNachname = document.querySelector("#formRegistrieren [name='regNachname']");
@@ -167,13 +175,17 @@ document.addEventListener("DOMContentLoaded",()=>{
     loginPasswort = document.querySelector("#formLogin [name='loginPasswort']");
 
     formLogin.addEventListener("submit", login);
-    logoutBtn.addEventListener("click", logout);
+
+
+    //logoutBtn.addEventListener("click", logout);
+
     //Profil
     profilNachname = document.querySelector("#profilNachname");
     profilVorname = document.querySelector("#profilVorname");
-    profilEmail = document.querySelector("#profilEmail");
+
+
     profilUBtnB = document.querySelector("#profilUBtnB");
-    profilUBtnB.addEventListener("click",benutzerAuslesen);
+    profilUBtnB.addEventListener("click",benutzerBearbeitenStart);
     profilUBtnA = document.querySelector("#profilUBtnA");
     profilUBtnA.addEventListener("click",benutzerÄndern);
 });
@@ -213,8 +225,45 @@ function benutzerAuslesen(event:Event){
 function benutzerLöschen(event:Event){
     event.preventDefault();
 }
+function benutzerBearbeitenStart(eingeloggterBenutzer){
+
+    console.log("bin in der startEdit");
+
+    formProfilDatenBearbeiten.classList.remove("d-none");
+    profilVorname.removeAttribute("readonly");
+    profilNachname.removeAttribute("readonly");
+   const email: string = eingeloggterBenutzer;
+
+    axios.get("/benutzer/" + email)
+        .then((res:AxiosResponse)=>{
+            const benutzer = res.data.benutzer;
+            profilVorname = benutzer.vName;
+            profilNachname = benutzer.nName;
+            formProfilDatenBearbeiten.dataset.email = benutzer.email;
+
+
+            }
+        )
+
+}
 function benutzerÄndern(event:Event){
     event.preventDefault();
+
+    const vName = profilVorname.value;
+    const nName = profilNachname.value;
+    const email: string = formProfilDatenBearbeiten.dataset.email;
+
+    axios.put("/benutzer/"+email,{
+        vName: vName,
+        nName: nName,
+        email: email
+    }).then((res:AxiosResponse)=>{
+
+        profilNachname.setAttribute("readonly","true");
+        profilVorname.setAttribute("readonly","true");
+
+    })
+
 }
 
 //Login 'n out Funkntionen
@@ -254,6 +303,8 @@ function login(event:Event){
                     sectReg.classList.add("d-none");
                     sectLog.classList.add("d-none");
                     sectKont.classList.add("d-none");
+
+                    eingeloggterBenutzer = loginName.toString();
 
                     console.log("Anmeldung erfolgreich bruh");
 

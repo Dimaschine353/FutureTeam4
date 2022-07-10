@@ -15,13 +15,12 @@
 
 
     <!--Eigenes Skript und CSS-->
-    <link rel="stylesheet" href="CSSLuxKnives.css">
+   <!-- <link rel="stylesheet" href="CSSLuxKnives.css"> -->
+
     <link rel="stylesheet" href="/cMe/CSSLuxKnives.css">
     <script src="/cMe/scripts/Client.js"></script>
 </head>
 <body class="background fontLuxKnives">
-
-
 <!-- NavBar -->
 <div id="navBar">
     <div class="container-fluid p-0 nav">
@@ -247,8 +246,7 @@
                     </div>
                 </div>
             </div>
-<!-- würde die komplette Form löschen. nicht nötig, da der Btn in der normalen form alle nötigen Daten auslesen und abschicken kann-->
-            <form id="profildatenBearbeiten">
+            <form id="formProfildatenBearbeiten" class="d-none">
             <div class="col-5">
                 <div class="input-group mb-3">
                     <input id="profilVorname" type="text" class="form-control" placeholder="Vorname" name="profilVorname"
@@ -256,21 +254,37 @@
                     <input id="profilNachname" type="text" class="form-control" placeholder="Nachname" name="profilNachname"
                            aria-label="Nachname" disabled>
                 </div>
-                <div class="input-group mb-3">
-                    <input id="profilEmail" type="email" class="form-control" placeholder="Email" name="profilE-mail" aria-label="Email"
-                           disabled>
+            </div>
+            </form>
+            <form id="profildatenBearbeitenBtn">
+                <div class="col-5">
+                    <div class="input-group mb-3">
+                        <button type="button" class="btn btn-luxknives rounded-1"  id="profilUBtnB">
+                            Profildaten BearbeitenDima
+                        </button>
+                        <button type="button" class="btn btn-luxknives rounded-1 d-none"   id="profilUBtnA">
+                            Profildaten Abschicken
+                        </button>
+                        <button type="button" class="btn btn-luxknives rounded-1 d-none" id="profilUBtnL">
+                            Profil Löschen
+                        </button>
+                    </div>
                 </div>
+            </form>
+
+
+
+            <!--
                 <div class="input-group mb-3 d-flex justify-content-center">
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-luxknives rounded-1" data-bs-toggle="modal" data-bs-target="#profb" id="profilUBtnB">
+
+                    <button type="button" class="btn btn-luxknives rounded-1" data-bs-toggle="modal" data-bs-target="#profb" id="">
                         Profildaten Bearbeiten
                     </button>
-                    <button type="button" class="btn btn-luxknives rounded-1 d-none" data-bs-toggle="modal"  id="profilUBtnA">
+                    <button type="button" class="btn btn-luxknives rounded-1 d-none" data-bs-toggle="modal"  id="">
                         Profildaten Abschicken
                     </button>
 
 
-                    <!-- Modal -->
                     <div class="modal fade" id="profildatenBearbeitenModal" tabindex="-1" aria-labelledby="profildatenBearbeitenModal" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -304,8 +318,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            </form>
+            -->
+
         </div>
 
         <div class="row">
@@ -525,9 +539,7 @@
         </div>
     </div>
 </section>
-
-<div id="kunden"></div>
-
+<!-- Über uns -->
 <section id="sectÜber" class="d-block">
     <div class="row">
         <div class="col-6">
@@ -646,7 +658,7 @@
     </div>
     <div class="row">
         <div class="col-6 d-flex justify-content-center">
-            <img src="/cMe/images/schleifen.png" width="100%" alt="schleifen">
+           <!-- <img src="/cMe/images/schleifen.png" width="100%" alt="schleifen"> -->
         </div>
         <div class="col d-flex justify-content-center">
             <p>
@@ -673,7 +685,7 @@
             </p>
         </div>
         <div class="col d-flex justify-content-center">
-            <img src="/cMe/images/reperatur.png" width="100%" alt="reparatur">
+           <!-- <img src="/cMe/images/reperatur.png" width="100%" alt="reparatur"> -->
         </div>
     </div>
 </div>
@@ -1128,13 +1140,13 @@
 
 
 
-
+<!--
         <div id="smart-button-container">
             <div style="text-align: center;">
                 <div id="paypal-button-container"></div>
             </div>
         </div>
-        <!-- TODO! script auslagern und anpassen?, ist von paypal direkt übernommen -->
+
         <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
         <script>
             function initPayPalButton() {
@@ -1176,7 +1188,7 @@
             }
             initPayPalButton();
         </script>
-
+-->
 
 
         <btn class="btn btn-luxknives" >Bestellen</btn>
