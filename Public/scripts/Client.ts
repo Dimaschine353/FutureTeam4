@@ -105,6 +105,7 @@ let feedbackReg: HTMLElement;
 let formRegistrieren: HTMLFormElement;
 let formLogin: HTMLFormElement;
 let formLogout: HTMLFormElement;
+let formProfilDatenBearbeiten: HTMLFormElement;
 
 //Deklaration Variablen
 
@@ -113,6 +114,12 @@ let regVorname: HTMLInputElement;
 let regNachname: HTMLInputElement;
 let regEmail: HTMLInputElement;
 let regPasswort: HTMLInputElement;
+//Profil User
+let profilVorname: HTMLInputElement;
+let profilNachname: HTMLInputElement;
+let profilEmail: HTMLInputElement;
+let profilUBtnB: HTMLInputElement;
+let profilUBtnA: HTMLInputElement;
 //Login
 
 let loginName: HTMLInputElement;
@@ -145,6 +152,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     formLogin = document.querySelector("#formLogin");
     logoutBtn = document.querySelector("#logoutBtn");
     formLogout = document.querySelector("#formLogout");
+    formProfilDatenBearbeiten = document.querySelector("#formProfildatenBearbeiten");
     //Initialisierung Variablen
 
     //Registrierung
@@ -160,7 +168,14 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     formLogin.addEventListener("submit", login);
     logoutBtn.addEventListener("click", logout);
-
+    //Profil
+    profilNachname = document.querySelector("#profilNachname");
+    profilVorname = document.querySelector("#profilVorname");
+    profilEmail = document.querySelector("#profilEmail");
+    profilUBtnB = document.querySelector("#profilUBtnB");
+    profilUBtnB.addEventListener("click",benutzerAuslesen);
+    profilUBtnA = document.querySelector("#profilUBtnA");
+    profilUBtnA.addEventListener("click",benutzerÄndern);
 });
 
 
@@ -201,7 +216,7 @@ function benutzerLöschen(event:Event){
 function benutzerÄndern(event:Event){
     event.preventDefault();
 }
-/*
+
 //Login 'n out Funkntionen
 function login(event:Event){
             event.preventDefault();
@@ -216,7 +231,7 @@ function login(event:Event){
                 .then((res: AxiosResponse) => {
                     formLogin.reset();
 
-
+                    sectStart.classList.remove("d-block");
                     sectDet.classList.remove("d-block");
                     sectÜber.classList.remove("d-block");
                     sectServ.classList.remove("d-block");
@@ -229,6 +244,7 @@ function login(event:Event){
                     formLogout.classList.remove("d-none");
                     formLogout.classList.add("d-block");
 
+                    sectStart.classList.add("d-none");
                     sectDet.classList.add("d-none");
                     sectÜber.classList.add("d-none");
                     sectServ.classList.add("d-none");
@@ -261,7 +277,7 @@ function logout(event:Event){
             //hier soll alles rein was nachm logout passiert
         });
 }
-*/
+
                     
                     
                     

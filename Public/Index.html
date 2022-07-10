@@ -219,8 +219,6 @@
         </div>
     </div>
 </section>
-
-
 <!-- Profil -->
 <section id="sectProf"class="d-block">
 <div id="profil">
@@ -249,22 +247,28 @@
                     </div>
                 </div>
             </div>
+<!-- würde die komplette Form löschen. nicht nötig, da der Btn in der normalen form alle nötigen Daten auslesen und abschicken kann-->
+            <form id="profildatenBearbeiten">
             <div class="col-5">
                 <div class="input-group mb-3">
-                    <input id="profilVornameRead" type="text" class="form-control" placeholder="Vorname" name="profilVorname"
+                    <input id="profilVorname" type="text" class="form-control" placeholder="Vorname" name="profilVorname"
                            aria-label="Vorname" disabled>
-                    <input id="profilNachnameRead" type="text" class="form-control" placeholder="Nachname" name="profilNachname"
+                    <input id="profilNachname" type="text" class="form-control" placeholder="Nachname" name="profilNachname"
                            aria-label="Nachname" disabled>
                 </div>
                 <div class="input-group mb-3">
-                    <input id="profilE-mailRead" type="email" class="form-control" placeholder="Email" name="profilE-mail" aria-label="Email"
+                    <input id="profilEmail" type="email" class="form-control" placeholder="Email" name="profilE-mail" aria-label="Email"
                            disabled>
                 </div>
                 <div class="input-group mb-3 d-flex justify-content-center">
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-luxknives rounded-1" data-bs-toggle="modal" data-bs-target="#profildatenBearbeitenModal">
+                    <button type="button" class="btn btn-luxknives rounded-1" data-bs-toggle="modal" data-bs-target="#profb" id="profilUBtnB">
                         Profildaten Bearbeiten
                     </button>
+                    <button type="button" class="btn btn-luxknives rounded-1 d-none" data-bs-toggle="modal"  id="profilUBtnA">
+                        Profildaten Abschicken
+                    </button>
+
 
                     <!-- Modal -->
                     <div class="modal fade" id="profildatenBearbeitenModal" tabindex="-1" aria-labelledby="profildatenBearbeitenModal" aria-hidden="true">
@@ -301,7 +305,9 @@
                     </div>
                 </div>
             </div>
+            </form>
         </div>
+
         <div class="row">
             <div class="col-6 bg-light">
                 <div class="row d-flex justify-content-center">
