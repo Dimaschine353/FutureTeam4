@@ -16,6 +16,15 @@
     font-size: 12rem;
 }
 
+.btn-luxknives {
+    background-color: #D94B2B;
+    color: white;
+}
+
+.btn-luxknives:hover {
+    background-color: #d9765f;
+}
+
 
 .row {
     --bs-gutter-x: 0;
@@ -43,10 +52,6 @@ h1 {
     text-align: center;
 }
 
-.btn-luxknives {
-    background-color: #D94B2B;
-    color: white;
-}
 
 
 .scharf {
@@ -66,6 +71,10 @@ justify-content: center;
 
 
 /* FOOTER */
+.luxKnivesFooterStyle {
+    background-color: #0d0d0d;
+}
+
 footer {
     left: 0;
     bottom: 0;
@@ -99,20 +108,32 @@ footer {
     padding: 2rem;
     color: #D94B2B;
 }
+#facebook:hover {
+    color: #d9765f;
+}
 
 #instagram {
     padding: 2rem;
     color: #D94B2B;
+}
+#instagram:hover {
+    color: #d9765f;
 }
 
 #twitter {
     padding: 2rem;
     color: #D94B2B;
 }
+#twitter:hover {
+    color: #d9765f;
+}
 
 #youtube {
     padding: 2rem;
     color: #D94B2B;
+}
+#youtube:hover {
+    color: #d9765f;
 }
 
 /* Text auf Images */
@@ -290,10 +311,20 @@ tbody {
 }
 
 .icon-style {
+    filter: invert(0) brightness(5);
+    width: 1.5rem;
+}
+
+.icon-style:hover {
+    filter: invert(57%) sepia(65%) saturate(6269%) hue-rotate(345deg) brightness(88%) contrast(91%);
+
+}
+
+
+.icon-style2 {
     filter: invert(100%) sepia(60%) saturate(0%) hue-rotate(180deg) brightness(103%) contrast(90%);
     width: 2.5rem;
 }
-
 
 
 
