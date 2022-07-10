@@ -225,21 +225,20 @@ function benutzerAuslesen(event:Event){
 function benutzerLöschen(event:Event){
     event.preventDefault();
 }
-function benutzerBearbeitenStart(eingeloggterBenutzer){
-
+function benutzerBearbeitenStart(event: Event){
+event.preventDefault();
     console.log("bin in der startEdit");
 
     formProfilDatenBearbeiten.classList.remove("d-none");
-    profilVorname.removeAttribute("readonly");
-    profilNachname.removeAttribute("readonly");
-   const email: string = eingeloggterBenutzer;
 
-    axios.get("/benutzer/" + email)
+
+
+    axios.get("/benutzer/" + eingeloggterBenutzer)
         .then((res:AxiosResponse)=>{
             const benutzer = res.data.benutzer;
-            profilVorname = benutzer.vName;
-            profilNachname = benutzer.nName;
-            formProfilDatenBearbeiten.dataset.email = benutzer.email;
+            profilVorname.value = benutzer.vName;
+            profilNachname.value = benutzer.nName;
+            //formProfilDatenBearbeiten.dataset.email = benutzer.email;
 
 
             }
@@ -251,7 +250,7 @@ function benutzerÄndern(event:Event){
 
     const vName = profilVorname.value;
     const nName = profilNachname.value;
-    const email: string = formProfilDatenBearbeiten.dataset.email;
+    const email = eingeloggterBenutzer;
 
     axios.put("/benutzer/"+email,{
         vName: vName,
@@ -272,14 +271,13 @@ function login(event:Event){
             const data: FormData = new FormData(formLogin);
             const email: string = data.get("loginName").toString();
 
+
             console.log(email + " vom formLogin");
             axios.post("/login", {
                 loginName: data.get("loginName"),
                 loginPasswort: data.get("loginPasswort")
             })
                 .then((res: AxiosResponse) => {
-                    formLogin.reset();
-
                     sectStart.classList.remove("d-block");
                     sectDet.classList.remove("d-block");
                     sectÜber.classList.remove("d-block");
@@ -304,7 +302,9 @@ function login(event:Event){
                     sectLog.classList.add("d-none");
                     sectKont.classList.add("d-none");
 
-                    eingeloggterBenutzer = loginName.toString();
+                    eingeloggterBenutzer = data.get("loginName").toString();
+                    console.log(eingeloggterBenutzer+ " wurde gespeichert");
+                    formLogin.reset();
 
                     console.log("Anmeldung erfolgreich bruh");
 
