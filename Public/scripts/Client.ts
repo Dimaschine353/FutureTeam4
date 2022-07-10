@@ -233,6 +233,32 @@ function benutzerLöschen(event:Event){
     axios.delete("/benutzer/"+email)
         .then((res: AxiosResponse)=>{
             console.log("Ihr Account wurde erfolgreich gelöscht");
+
+            sectStart.classList.remove("d-none");
+            sectDet.classList.remove("d-none");
+            sectÜber.classList.remove("d-none");
+            sectServ.classList.remove("d-none");
+            sectWar.classList.remove("d-none");
+            sectCheck.classList.remove("d-none");
+            sectCheck.classList.remove("d-none");
+            sectReg.classList.remove("d-none");
+            sectLog.classList.remove("d-none");
+
+            formLogout.classList.remove("d-none");
+            formLogout.classList.add("d-block");
+
+            sectProf.classList.remove("d-none");
+
+            sectStart.classList.add("d-block");
+            sectDet.classList.add("d-block");
+            sectÜber.classList.add("d-block");
+            sectServ.classList.add("d-block");
+            sectWar.classList.add("d-block");
+            sectCheck.classList.add("d-block");
+            sectCheck.classList.add("d-block");
+            sectReg.classList.add("d-block");
+            sectLog.classList.add("d-block");
+            sectKont.classList.add("d-block");
         }).catch((err: AxiosError)=>{
 
     });

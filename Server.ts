@@ -88,10 +88,7 @@ app.post("/logout",logout);
 app.post("/benutzer",postBenutzer);
 app.get("/benutzer/:email",checkLogin,getBenutzer);
 
-//TODO! app.delete route mit checklogin wieder aktivieren, sobald checkLogin funktioniert
 app.delete("/benutzer/:email",checkLogin,deleteBenutzer);
-//eine 2te app.delete ohne "checklogin" für Testing zwecke
-//app.delete("/benutzer/:email", deleteBenutzer);
 app.put("/benutzer/:email",checkLogin,putBenutzer);
 
 ///Alle Log- in 'n - out funktionen
@@ -199,18 +196,10 @@ function getBenutzer(req: express.Request, res: express.Response):void{
 
 
 function deleteBenutzer(req: express.Request, res:express.Response):void{
+
     const email: string = req.session.uname;
     const param = [email];
     const sql = "DELETE FROM benutzer WHERE email =?;";
-
-
-    /*console.log("bin in der deleteBenutzer drin");
-    //TODO! email von session uname ziehen, sobald checkLogin fixed ist
-    //const email: string =  req.params.email.toString();
-    const email: string = req.session.uname;
-
-
-     */
 
     if(email === undefined){
         res.status(400);
@@ -223,7 +212,8 @@ function deleteBenutzer(req: express.Request, res:express.Response):void{
                 res.status(200);
                 res.send("Ihr Account wurde erfolgreich gelöscht");
             }
-        )
+        );
+        console.log("Sie haben Ihren Account erfolgreich gelöscht");
     }
 }
 
