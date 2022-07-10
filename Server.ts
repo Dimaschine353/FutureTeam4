@@ -194,7 +194,27 @@ function getBenutzer(req: express.Request, res: express.Response):void{
 }
 
 
-function deleteBenutzer(req: express.Request, res:express.Response):void{}
+function deleteBenutzer(req: express.Request, res:express.Response):void{
+    const email: string =  req.session.uname;
+
+    const param = [email];
+    const sql = "DELETE FROM users WHERE email = ?;";
+
+    if(email === undefined){
+        res.status(400);
+        res.send("Die E-Mail-Adresse fehlt");
+    }else if(email){
+        connection.query(
+            sql,
+            param,
+            (err: mysql.MysqlError | null, result: any) => {
+                res.status(200);
+                res.send("Ihr Account wurde erfolgreich gelöscht");
+            }
+        )
+    }
+}
+
 function putBenutzer(req: express.Request, res:express.Response):void{}
 
 
