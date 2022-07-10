@@ -256,6 +256,8 @@ event.preventDefault();
             //formProfilDatenBearbeiten.dataset.email = benutzer.email;
             profilUBtnA.classList.remove("d-none");
             profilUBtnB.classList.add("d-block");
+            profilUBtnL.classList.remove("d-none");
+
 
             }
         )
