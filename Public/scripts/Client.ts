@@ -125,6 +125,7 @@ let profilNachname: HTMLInputElement;
 
 let profilUBtnB: HTMLInputElement;
 let profilUBtnA: HTMLInputElement;
+let profilUBtnL: HTMLInputElement;
 //Login
 
 let loginName: HTMLInputElement;
@@ -239,7 +240,8 @@ event.preventDefault();
             profilVorname.value = benutzer.vName;
             profilNachname.value = benutzer.nName;
             //formProfilDatenBearbeiten.dataset.email = benutzer.email;
-
+            profilUBtnA.classList.remove("d-none");
+            profilUBtnB.classList.add("d-block");
 
             }
         )
