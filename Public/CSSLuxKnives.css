@@ -291,6 +291,12 @@ tbody {
     width: 1.5rem;
 }
 
+.icon-style:hover {
+    filter: invert(57%) sepia(65%) saturate(6269%) hue-rotate(345deg) brightness(88%) contrast(91%);
+
+}
+
+
 .icon-style2 {
     filter: invert(100%) sepia(60%) saturate(0%) hue-rotate(180deg) brightness(103%) contrast(90%);
     width: 2.5rem;
