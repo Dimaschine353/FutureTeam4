@@ -49,10 +49,21 @@ a:hover {
     background-color: #f0f0f2;
 }
 
-.cardBestellungenStyle {
-    max-width: 35rem;
+.borderLuxKnives {
+    border: solid;
+    border-width: thin;
 }
 
+.cardBestellungenStyle {
+    max-width: 35rem;
+    border: solid;
+    border-width: thin;
+    border-radius: 0;
+}
+
+.card-textBestellungen {
+    font-weight: 300;
+}
 
 /* DETAILSEITE */
 
@@ -76,6 +87,11 @@ h2 {
     font-weight: 300;
 }
 
+h5 {
+    font-family: "Montserrat", serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
 
 
 .scharf {
