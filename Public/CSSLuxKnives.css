@@ -300,13 +300,18 @@ footer {
 .rightTransBox {
     position: absolute;
     top: 20rem;
-    left: 65rem;
+    left: 45rem;
     font-size: 2rem;
-    color: white;
+    color: black;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    background-color: #f0f0f280;
+    background-color: #f0f0f2D8;
     font-family: "Bebas Neue", serif;
+}
+
+.cardLandingpageStyle {
+    background-color: transparent;
+    border: 0;
 }
 
 
