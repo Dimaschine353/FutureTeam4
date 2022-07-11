@@ -84,7 +84,6 @@
                     
                     
 //Deklaration Sections
-
 let sectStart: HTMLElement;
 let sectProf: HTMLElement;
 let sectDet: HTMLElement;
@@ -95,8 +94,6 @@ let sectCheck: HTMLElement;
 let sectReg: HTMLElement;
 let sectLog: HTMLElement;
 let sectKont: HTMLElement;
-                    
-                    
 //Deklaration Nav Leiste
 let navHome: HTMLElement;
 let navLogin: HTMLElement;
@@ -104,26 +101,21 @@ let navWarenkorb: HTMLElement;
 let navÜber: HTMLElement;
 let navService: HTMLElement;
 let navKontakt: HTMLElement;
-
 //Deklaration Forms
 let feedbackReg: HTMLElement;
-let feedbackProfU: HTMLElement
+let feedbackProfU: HTMLElement;
+let feedbackLogin: HTMLElement;
 let formRegistrieren: HTMLFormElement;
 let formLogin: HTMLFormElement;
 let formLogout: HTMLFormElement;
 let formProfilDatenBearbeiten: HTMLFormElement;
-
-//Deklaration Variablen
-
-//Deklaration globale Variablen und Funktionen
+//Deklaration globale Variablen
 let eingeloggterBenutzer:String;
-
 //Registrieren
 let regVorname: HTMLInputElement;
 let regNachname: HTMLInputElement;
 let regEmail: HTMLInputElement;
 let regPasswort: HTMLInputElement;
-
 //Profil User
 let profilVorname: HTMLInputElement;
 let profilNachname: HTMLInputElement;
@@ -134,7 +126,8 @@ let profilUBtnL: HTMLInputElement;
 let loginName: HTMLInputElement;
 let loginPasswort: HTMLInputElement;
 let logoutBtn: HTMLInputElement;
-
+let zumRegistrieren: HTMLElement;
+//Listener
 document.addEventListener("DOMContentLoaded",()=>{
     //initialisierung Sect
     sectStart = document.querySelector("#sectStart");
@@ -170,10 +163,8 @@ document.addEventListener("DOMContentLoaded",()=>{
     navÜber.addEventListener("click",zuÜber);
     navKontakt = document.querySelector("#navKontakt");
     navKontakt.addEventListener("click",zumKontakt);
-
-
-
     //Initialisierung Forms
+    feedbackLogin = document.querySelector("#feedbackLogin");
     feedbackReg = document.querySelector("#feedbackRegistrieren");
     feedbackProfU = document.querySelector("#feedbackProfildatenBearbeiten");
     formRegistrieren = document.querySelector("#formRegistrieren");
@@ -196,7 +187,8 @@ document.addEventListener("DOMContentLoaded",()=>{
     //Login Feld
     loginName = document.querySelector("#formLogin [name='loginName']");
     loginPasswort = document.querySelector("#formLogin [name='loginPasswort']");
-
+    zumRegistrieren = document.querySelector("#zumRegistrieren");
+    zumRegistrieren.addEventListener("click",zumReg);
     formLogin.addEventListener("submit", login);
 
 
@@ -215,10 +207,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     profilUBtnL = document.querySelector("#profilUBtnL");
     profilUBtnL.addEventListener("click",benutzerLöschen);
 });
-
-
-//Funktionen
-
 //Funktionen Benutzer
 function benutzerHinzufügen(event:Event){
                 
@@ -241,8 +229,11 @@ function benutzerHinzufügen(event:Event){
                   //||bessere Alternative suchen
                   feedbackReg.innerText = "Benutzer erfolgreich registriert";
                   setTimeout(feedbackRegLöschen,1000);
+                  sectReg.classList.add("d-none");
+                  sectProf.classList.remove("d-none");
               }).catch((error: AxiosError)=>{
-                  
+                  feedbackReg.innerText = "Registrierung nicht möglich";
+                  setTimeout(feedbackRegLöschen,1000);
               });
           }
 function benutzerLöschen(event:Event){
@@ -255,26 +246,17 @@ function benutzerLöschen(event:Event){
             console.log("Ihr Account wurde erfolgreich gelöscht");
 
             sectStart.classList.remove("d-none");
-            sectDet.classList.remove("d-none");
-            sectÜber.classList.remove("d-none");
-            sectServ.classList.remove("d-none");
-            sectWar.classList.remove("d-none");
-            sectCheck.classList.remove("d-none");
-            sectCheck.classList.remove("d-none");
-            sectReg.classList.remove("d-none");
-            sectLog.classList.remove("d-none");
-            sectProf.classList.remove("d-none");
+            sectDet.classList.add("d-none");
+            sectÜber.classList.add("d-none");
+            sectServ.classList.add("d-none");
+            sectWar.classList.add("d-none");
+            sectCheck.classList.add("d-none");
+            sectCheck.classList.add("d-none");
+            sectReg.classList.add("d-none");
+            sectLog.classList.add("d-none");
+            sectProf.classList.add("d-none");
 
-            sectStart.classList.add("d-block");
-            sectDet.classList.add("d-block");
-            sectÜber.classList.add("d-block");
-            sectServ.classList.add("d-block");
-            sectWar.classList.add("d-block");
-            sectCheck.classList.add("d-block");
-            sectCheck.classList.add("d-block");
-            sectReg.classList.add("d-block");
-            sectLog.classList.add("d-block");
-            sectKont.classList.add("d-block");
+
         }).catch((err: AxiosError)=>{
 
     });
@@ -356,9 +338,11 @@ function login(event:Event){
                 })
                 .catch((err: AxiosError)=>{
                     if(err.response.status = 404){
+                        feedbackLogin.innerText = "Login nicht möglich."
+                        setTimeout(feedbackLoginLöschen,1000);
                         console.log("Anmeldung nicht erfolgreich if vom .catch");
-                        console.log(loginName);
-                        console.log(loginPasswort);
+                        console.log(loginName.value);
+                        console.log(loginPasswort.value);
                     }else{
                         console.log("Anmeldung nicht erfolgreich else vom .catch");
                     }
@@ -375,6 +359,7 @@ function logout(event:Event){
 //Timeout funktionen
 function feedbackProfULöschen(){feedbackProfU.innerText="";}
 function feedbackRegLöschen(){feedbackReg.innerText="";}
+function feedbackLoginLöschen(){feedbackLogin.innerText="";}
 //Navleisten Funktionen
 function zurückNachhause(event:Event){
     event.preventDefault();
@@ -455,6 +440,33 @@ function zumKontakt(event:Event){
         sectStart.classList.add("d-none");
 
     }
+function zumReg(event:Event){
+    event.preventDefault();
+    sectReg.classList.remove("d-none");
+    sectProf.classList.add("d-none");
+    sectDet.classList.add("d-none");
+    sectÜber.classList.add("d-none");
+    sectServ.classList.add("d-none");
+    sectWar.classList.add("d-none");
+    sectCheck.classList.add("d-none");
+    sectLog.classList.add("d-none");
+    sectStart.classList.add("d-none");
+
+
+}
+function zumProfil(event:Event){
+    sectProf.classList.remove("d-none");
+    sectProf.classList.add("d-none");
+    sectDet.classList.add("d-none");
+    sectÜber.classList.add("d-none");
+    sectServ.classList.add("d-none");
+    sectWar.classList.add("d-none");
+    sectCheck.classList.add("d-none");
+    sectLog.classList.add("d-none");
+    sectStart.classList.add("d-none");
+
+
+}
                     
                     
                     

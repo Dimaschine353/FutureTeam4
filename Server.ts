@@ -25,7 +25,6 @@ class Nachricht{
     nName: string;
     email: string;
     inhalt: string;
-
     constructor(vName:string, nName:string, email:string, inhalt:string) {
         this.vName = vName;
         this.nName = nName;
@@ -87,7 +86,6 @@ app.post("/logout",logout);
 //Routen Benutzer
 app.post("/benutzer",postBenutzer);
 app.get("/benutzer/:email",checkLogin,getBenutzer);
-
 app.delete("/benutzer/:email",checkLogin,deleteBenutzer);
 app.put("/benutzer/:email",checkLogin,putBenutzer);
 
@@ -159,7 +157,6 @@ function postBenutzer(req: express.Request, res: express.Response):void {
         res.send("diesen Benutzer gibt es bereits");
     }
 }
-//||MUSS GETESTET WERDEN!!
 function getBenutzer(req: express.Request, res: express.Response):void{
 
     const email: string = req.session.uname;
@@ -193,8 +190,6 @@ function getBenutzer(req: express.Request, res: express.Response):void{
     }
 
 }
-
-
 function deleteBenutzer(req: express.Request, res:express.Response):void{
 
     const email: string = req.session.uname;
@@ -216,7 +211,6 @@ function deleteBenutzer(req: express.Request, res:express.Response):void{
         console.log("Sie haben Ihren Account erfolgreich gelöscht");
     }
 }
-
 function putBenutzer(req: express.Request, res:express.Response):void{
 
     const email: string = req.session.uname;
