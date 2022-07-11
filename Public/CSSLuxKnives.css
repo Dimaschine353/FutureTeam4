@@ -54,6 +54,10 @@ a:hover {
     border-width: thin;
 }
 
+.padding-fragen {
+    padding-left: 2rem;
+}
+
 .cardBestellungenStyle {
     max-width: 35rem;
     border: solid;
