@@ -99,10 +99,10 @@ let sectKont: HTMLElement;
                     
 //Deklaration Nav Leiste
 
-                    
 
 //Deklaration Forms
 let feedbackReg: HTMLElement;
+let feedbackProfU: HTMLElement
 let formRegistrieren: HTMLFormElement;
 let formLogin: HTMLFormElement;
 let formLogout: HTMLFormElement;
@@ -110,7 +110,7 @@ let formProfilDatenBearbeiten: HTMLFormElement;
 
 //Deklaration Variablen
 
-//Deklaration globale Variablen
+//Deklaration globale Variablen und Funktionen
 let eingeloggterBenutzer:String;
 
 //Registrieren
@@ -153,6 +153,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     //Initialisierung Forms
     feedbackReg = document.querySelector("#feedbackRegistrieren");
+    feedbackProfU = document.querySelector("#feedbackProfildatenBearbeiten");
     formRegistrieren = document.querySelector("#formRegistrieren");
     formLogin = document.querySelector("#formLogin");
     logoutBtn = document.querySelector("#logoutBtn");
@@ -216,15 +217,13 @@ function benutzerHinzufügen(event:Event){
               }).then((res: AxiosResponse)=>{
                   formRegistrieren.reset();
                   //||bessere Alternative suchen
-                  feedbackReg.innerText = "Benutzer erfolgreich eingeloggt";
+                  feedbackReg.innerText = "Benutzer erfolgreich registriert";
+                  setTimeout(feedbackRegLöschen,1000);
               }).catch((error: AxiosError)=>{
                   
               });
           }
 
-function benutzerAuslesen(event:Event){
-    event.preventDefault();
-}
 function benutzerLöschen(event:Event){
     event.preventDefault();
 
@@ -289,7 +288,6 @@ event.preventDefault();
         )
 
 }
-//
 function benutzerÄndern(event:Event){
     event.preventDefault();
 
@@ -305,9 +303,15 @@ function benutzerÄndern(event:Event){
 
         profilNachname.setAttribute("readonly","true");
         profilVorname.setAttribute("readonly","true");
+        feedbackProfU.innerText = "Nutzerdaten erfolgreich geupdated.";
+        setTimeout(feedbackProfULöschen,1000);
+        //feedbackProfULöschen();
 
     })
 
+}
+function benutzerAuslesen(event:Event){
+    event.preventDefault();
 }
 //
 //Login 'n out Funkntionen
@@ -373,6 +377,11 @@ function logout(event:Event){
             //hier soll alles rein was nachm logout passiert
         });
 }
+//Timeout funktionen
+function feedbackProfULöschen(){feedbackProfU.innerText="";}
+function feedbackRegLöschen(){feedbackReg.innerText="";}
+//Navleisten Funktionen
+
 
                     
                     
