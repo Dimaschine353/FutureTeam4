@@ -20,7 +20,7 @@
 .btn-luxknives {
     background-color: #D94B2B;
     color: white;
-
+    border-radius: 1px;
 }
 
 .btn-luxknives:hover {
@@ -57,6 +57,7 @@ a:hover {
     mix-blend-mode: lighten;
     font-family: "Bebas Neue", serif;
 }
+
 h1 {
     padding: 4rem;
     font-family: "Engebrechtre", serif;
@@ -64,15 +65,15 @@ h1 {
 }
 
 
-
 .scharf {
-justify-content: center;
+    justify-content: center;
     color: #0d0d0d;
 }
 
-.kommentarBild > img{
+.kommentarBild > img {
     width: 5rem;
 }
+
 /* ÜBER UNS */
 #überunsbild {
     width: 43.8rem;
@@ -119,6 +120,7 @@ footer {
     padding: 2rem;
     color: #D94B2B;
 }
+
 #facebook:hover {
     color: #d9765f;
 }
@@ -127,6 +129,7 @@ footer {
     padding: 2rem;
     color: #D94B2B;
 }
+
 #instagram:hover {
     color: #d9765f;
 }
@@ -135,6 +138,7 @@ footer {
     padding: 2rem;
     color: #D94B2B;
 }
+
 #twitter:hover {
     color: #d9765f;
 }
@@ -143,6 +147,7 @@ footer {
     padding: 2rem;
     color: #D94B2B;
 }
+
 #youtube:hover {
     color: #d9765f;
 }
@@ -194,7 +199,6 @@ footer {
 }
 
 
-
 /* NavLeiste CSS */
 .nav {
     background-color: #0d0d0d;
@@ -218,7 +222,6 @@ footer {
 }
 
 
-
 .rashunique {
     border-color: #595859;
     border-radius: 1px;
@@ -233,6 +236,7 @@ footer {
 #anmeldenbuttonstyle {
     padding-top: 3rem;
 }
+
 /* CHECKOUT */
 
 #checkout {
@@ -307,8 +311,9 @@ tbody {
 }
 
 .btn-secondary:hover {
-    background-color:#D94B2B;
+    background-color: #D94B2B;
 }
+
 .dropdown-toggle {
     align-items: flex-end;
 }
@@ -320,11 +325,13 @@ tbody {
     left: 90rem;
     top: 50rem;
 }
+
 .bearbeitenButtonBL {
     position: absolute;
     left: 1rem;
     top: 50rem;
 }
+
 .bearbeitenButtonBM {
     position: absolute;
     left: 45rem;
@@ -357,134 +364,13 @@ tbody {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#formLogin,#formRegistrieren,#formKontakt,#feedbackRegistrieren{
+#formLogin, #formRegistrieren, #formKontakt, #feedbackRegistrieren {
 
     padding-left: 5rem;
     padding-right: 5rem;
 }
-#formBereitsKunde,#formRechnungsAdresse,#formZahlungsart{
+
+#formBereitsKunde, #formRechnungsAdresse, #formZahlungsart {
     padding-left: 3rem;
     padding-right: 3rem;
 }
