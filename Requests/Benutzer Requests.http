@@ -1,0 +1,29 @@
+POST /benutzer HTTP/2
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "vName": "Apache",
+  "nName": "BleibtGleich",
+  "email": "apache@bleibtgleich.de",
+  "passwort": "1234"
+}
+
+###
+DELETE /benutzer/apache@bleibtgleich.de HTTP/2
+Host: localhost:8080
+
+###
+GET  /benutzer/apache@bleibtgleich.de HTTP/2
+Host: localhost:8080
+
+###
+PUT /benutzer/apache@bleibtgleich.de HTTP/2
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "vName": "ApacheEdit",
+  "nName": "BleibtEdit",
+  "passwert": "edit1234"
+}

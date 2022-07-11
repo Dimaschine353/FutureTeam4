@@ -87,6 +87,7 @@ app.post("/logout",logout);
 //Routen Benutzer
 app.post("/benutzer",postBenutzer);
 app.get("/benutzer/:email",checkLogin,getBenutzer);
+
 app.delete("/benutzer/:email",checkLogin,deleteBenutzer);
 app.put("/benutzer/:email",checkLogin,putBenutzer);
 
@@ -100,7 +101,7 @@ function login(req: express.Request, res: express.Response): void {
         .then((results: any) => {
             //Wenn Eintrag vorhanden ist wird der Loginname zum Sessionnamen
             if (results.length===1) {
-                req.session.uname = req.body.loginName;
+                req.session.uname = req.body.loginName
                 res.sendStatus(200);
                 console.log("wurde eingeloggt");
             }else{
@@ -194,8 +195,57 @@ function getBenutzer(req: express.Request, res: express.Response):void{
 }
 
 
-function deleteBenutzer(req: express.Request, res:express.Response):void{}
-function putBenutzer(req: express.Request, res:express.Response):void{}
+function deleteBenutzer(req: express.Request, res:express.Response):void{
+
+    const email: string = req.session.uname;
+    const param = [email];
+    const sql = "DELETE FROM benutzer WHERE email =?;";
+
+    if(email === undefined){
+        res.status(400);
+        res.send("Die E-Mail-Adresse fehlt");
+    }else if(email){
+        connection.query(
+            sql,
+            param,
+            (err: mysql.MysqlError | null, result: any) => {
+                res.status(200);
+                res.send("Ihr Account wurde erfolgreich gelöscht");
+            }
+        );
+        console.log("Sie haben Ihren Account erfolgreich gelöscht");
+    }
+}
+
+function putBenutzer(req: express.Request, res:express.Response):void{
+
+    const email: string = req.session.uname;
+    const vName: string = req.body.vName;
+    const nName: string = req.body.nName;
+
+    const param = [vName,nName,email];
+    let sql = "UPDATE benutzer SET vName=?,nName=? WHERE email=?;";
+
+    if(email===undefined || vName===undefined || nName===undefined){
+        res.status(400);
+        res.send("undefinierte werte");
+
+    }else if(vName&&nName&&email){
+        connection.query(
+            sql,
+            param,
+            (err: MysqlError | null, result: any)=>{
+
+            }
+        );
+        res.status(200);
+        res.send("benutzer geupdated");
+    }else{
+        res.status(400);
+        res.send("benutzer nicht gefunden");
+    }
+
+}
 
 
 

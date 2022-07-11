@@ -24,13 +24,12 @@
 
 
     <!--Eigenes Skript und CSS-->
-    <link rel="stylesheet" href="CSSLuxKnives.css">
+   <!-- <link rel="stylesheet" href="CSSLuxKnives.css"> -->
+
     <link rel="stylesheet" href="/cMe/CSSLuxKnives.css">
     <script src="/cMe/scripts/Client.js"></script>
 </head>
 <body class="background fontLuxKnives">
-
-
 <!-- NavBar -->
 <div id="navBar">
     <div class="container-fluid p-0 nav">
@@ -41,12 +40,14 @@
                         <a class="nav-link" href="#">Handgefertigte Messer</a>
                     </div>
                     <div class="col-6">
-                        <a class="nav-link" href="#">Über Uns</a>
+                        <a class="nav-link me-5" href="#">Über Uns</a>
                     </div>
                 </div>
             </div>
             <div class="col-1">
-                <img src="/cMe/images/LuxKnivesLogoNew.PNG" alt="LuxKnives Logo" width="100%">
+                <a href="#">
+                    <img src="/cMe/images/LuxKnivesLogoNew.PNG" alt="LuxKnives Logo" width="100%">
+                </a>
             </div>
             <div class="col">
                 <div class="row gx-0">
@@ -59,15 +60,15 @@
                     <div class="col justify-content-start d-flex">
                         <a class="nav-link" href="#">Kontakt</a>
                     </div>
-                    <div class="col">
+                    <div class="col d-flex align-items-center justify-content-center">
                         <div class="row gx-0">
-                            <div class="col d-flex justify-content-center">
+                            <div class="col d-flex justify-content-center px-3">
                                 <a href="#">
                                     <img class="icon-centered icon-style" src="/cMe/SVGIcons/shopping-basket.svg"
                                          alt="Warenkorb Icon"/>
                                 </a>
                             </div>
-                            <div class="col d-flex justify-content-center">
+                            <div class="col d-flex justify-content-center px-3">
 
                                 <a href="#">
                                     <img class="icon-centered icon-style" src="/cMe/SVGIcons/user.svg"
@@ -234,9 +235,79 @@
         </div>
     </div>
 </section>
-
-
 <!-- Profil -->
+<section id="sectProf"class="d-block">
+<div id="profil">
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col-7">
+                <div class="card mb-3 cardBioStyle">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="/cMe/images/PeterHofmannProfilepic.PNG" class="img-fluid" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Bio</h5>
+                                <p class="card-text" id="profilBioRead">
+                                    Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                    Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                    Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                    Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                    Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                    Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                    Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- css benötigt -->
+            <div class="row ">
+                <div class="col">
+                    <p id="feedbackProfildatenBearbeiten"></p>
+                </div>
+            </div>
+            <form id="formProfildatenBearbeiten" class="d-none">
+            <div class="col-5">
+                <div class="input-group mb-3">
+                    <input id="profilVorname" type="text" class="form-control" placeholder="Vorname" name="profilVorname"
+                           aria-label="Vorname"  required>
+                    <input id="profilNachname" type="text" class="form-control" placeholder="Nachname" name="profilNachname"
+                           aria-label="Nachname"  required>
+                </div>
+            </div>
+            </form>
+            <form id="profildatenBearbeitenBtn">
+                <div class="col-5">
+                    <div class="input-group mb-3">
+                        <button type="button" class="btn btn-luxknives rounded-1"  id="profilUBtnB">
+                            Profildaten Bearbeiten
+                        </button>
+                        <button type="button" class="btn btn-luxknives rounded-1 d-none"   id="profilUBtnA">
+                            Profildaten Abschicken
+                        </button>
+                        <!-- d-none rausgenommen -->
+                        <button type="button" class="btn btn-luxknives rounded-1 d-none" id="profilUBtnL">
+                            Profil Löschen
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+
+
+            <!--
+                <div class="input-group mb-3 d-flex justify-content-center">
+
+                    <button type="button" class="btn btn-luxknives rounded-1" data-bs-toggle="modal" data-bs-target="#profb" id="">
+                        Profildaten Bearbeiten
+                    </button>
+                    <button type="button" class="btn btn-luxknives rounded-1 d-none" data-bs-toggle="modal"  id="">
+                        Profildaten Abschicken
+                    </button>
 <section id="sectProf" class="d-block">
     <div id="profil">
         <div class="container-fluid p-0">
@@ -324,7 +395,7 @@
                                         </button>
                                         <button type="button" class="btn btn-primary">Save changes</button>
                                     </div>
-                                </div>
+                               </div>
                             </div>
                         </div>
                     </div>
@@ -481,7 +552,14 @@
 
     <div id="verfügbar"></div>
 
-    <div id="maße"></div>
+    <div id="maße">
+
+
+
+        <div class="justify-content-center d-flex">
+            <a id="bearbeitenBtnDetailseite" class="btn btn-luxknives"><img src="/cMe/SVGIcons/pen.svg" class="icon-centered icon-style"></a>
+        </div>
+    </div>
 
     <div id="kommentare">
         <h1> Kundenrezension </h1>
@@ -501,6 +579,7 @@
             <div>
                 <button class="btn btn-luxknives">Antworten</button>
                 <button class="btn btn-luxknives">delete</button>
+                <a id="bearbeitenBtnKommentare" class="btn btn-luxknives"><img src="/cMe/SVGIcons/trash.svg" class="icon-centered icon-style"></a>
             </div>
         </div>
         <div>
@@ -549,9 +628,7 @@
         </div>
     </div>
 </section>
-
-<div id="kunden"></div>
-
+<!-- Über uns -->
 <section id="sectÜber" class="d-block">
     <div class="row">
         <div class="col-6">
@@ -661,6 +738,9 @@
             </div>
         </div>
     </div>
+    <div class="justify-content-center d-flex">
+        <a id="bearbeitenBtnÜberUns" class="btn btn-luxknives"><img src="/cMe/SVGIcons/pen.svg" class="icon-centered icon-style"></a>
+    </div>
 </section>
 <!--Service -->
 <section id="sectServ" class="d-block">
@@ -671,7 +751,7 @@
         </div>
         <div class="row">
             <div class="col-6 d-flex justify-content-center">
-                <img src="/cMe/images/pexels-luis-quintero-1659746.jpg" width="100%" alt="schleifen">
+               <!-- <img src="/cMe/images/schleifen.png" width="100%" alt="schleifen"> -->
             </div>
             <div class="col d-flex justify-content-center">
                 <p>
@@ -698,7 +778,7 @@
                 </p>
             </div>
             <div class="col d-flex justify-content-center">
-                <img src="/cMe/images/pexels-andrea-piacquadio-3822900.jpg" width="100%" alt="reparatur">
+               <!-- <img src="/cMe/images/reperatur.png" width="100%" alt="reparatur"> -->
             </div>
         </div>
     </div>
@@ -933,6 +1013,12 @@
         </ul>
     </div>
 
+
+    <div class="justify-content-center d-flex">
+        <a id="bearbeitenBtnService" class="btn btn-luxknives"><img src="/cMe/SVGIcons/pen.svg" class="icon-centered icon-style"></a>
+    </div>
+
+    <!-- AGB checkbox -->
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">Ich habe die AGB's gelesen und akzeptiert</span>
@@ -948,6 +1034,7 @@
         <input type="checkbox" id="checkNewsletter" name="checkNewsletter" value="checked">
         <label for="checkNewsletter"></label><br>
     </div>
+
 </section>
 <!-- Warenkorb -->
 <section id="sectWar" class="d-block">
@@ -1153,22 +1240,24 @@
             </div>
 
 
-            <div id="smart-button-container">
-                <div style="text-align: center;">
-                    <div id="paypal-button-container"></div>
-                </div>
+
+
+<!--
+        <div id="smart-button-container">
+            <div style="text-align: center;">
+                <div id="paypal-button-container"></div>
             </div>
-            <!-- TODO! script auslagern und anpassen?, ist von paypal direkt übernommen -->
-            <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD"
-                    data-sdk-integration-source="button-factory"></script>
-            <script>
-                function initPayPalButton() {
-                    paypal.Buttons({
-                        style: {
-                            shape: 'rect',
-                            color: 'gold',
-                            layout: 'vertical',
-                            label: 'paypal',
+        </div>
+
+        <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+        <script>
+            function initPayPalButton() {
+                paypal.Buttons({
+                    style: {
+                        shape: 'rect',
+                        color: 'gold',
+                        layout: 'vertical',
+                        label: 'paypal',
 
                         },
 
@@ -1194,32 +1283,30 @@
                             });
                         },
 
-                        onError: function (err) {
-                            console.log(err);
-                        }
-                    }).render('#paypal-button-container');
-                }
-
-                initPayPalButton();
-            </script>
-
+                    onError: function(err) {
+                        console.log(err);
+                    }
+                }).render('#paypal-button-container');
+            }
+            initPayPalButton();
+        </script>
+-->
 
             <btn class="btn btn-luxknives">Bestellen</btn>
         </form>
     </div>
 </section>
-<br>
-<br>
+<!-- Registrieren-->
 <section id="sectReg" class="d-block">
     <div id="registrieren">
 
-        <!-- css benötigt -->
-        <div class="row ">
-            <div class="col">
-                <p id="feedbackRegistrieren"></p>
+    <!-- css benötigt -->
+    <div class="row ">
+        <div class="col">
+            <p id="feedbackRegistrieren"></p>
 
-            </div>
         </div>
+    </div>
 
         <form id="formRegistrieren">
 
@@ -1300,8 +1387,6 @@
     </form>
 
 </section>
-<br>
-<br>
 <!-- Kontakt -->
 <section id="sectKont" class="d-block">
     <div id="kontakt">
@@ -1449,14 +1534,14 @@
 
 
 <footer>
-    <nav class="navbar navbar-expand-lg bg-dark">
+    <nav class="navbar navbar-expand-lg luxKnivesFooterStyle">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav align-items-center">
                     <li class="footer-item">
                         <a class="nav-link active" aria-current="page" href="#">Kontakt</a>
                     </li>

@@ -83,7 +83,8 @@
                     
                     
                     
-//Sections
+//Deklaration Sections
+
 let sectStart: HTMLElement;
 let sectProf: HTMLElement;
 let sectDet: HTMLElement;
@@ -96,23 +97,34 @@ let sectLog: HTMLElement;
 let sectKont: HTMLElement;
                     
                     
-//Nav Leiste
+//Deklaration Nav Leiste
 
-                    
 
 //Deklaration Forms
 let feedbackReg: HTMLElement;
+let feedbackProfU: HTMLElement
 let formRegistrieren: HTMLFormElement;
 let formLogin: HTMLFormElement;
 let formLogout: HTMLFormElement;
+let formProfilDatenBearbeiten: HTMLFormElement;
 
 //Deklaration Variablen
+
+//Deklaration globale Variablen und Funktionen
+let eingeloggterBenutzer:String;
 
 //Registrieren
 let regVorname: HTMLInputElement;
 let regNachname: HTMLInputElement;
 let regEmail: HTMLInputElement;
 let regPasswort: HTMLInputElement;
+//Profil User
+let profilVorname: HTMLInputElement;
+let profilNachname: HTMLInputElement;
+
+let profilUBtnB: HTMLInputElement;
+let profilUBtnA: HTMLInputElement;
+let profilUBtnL: HTMLInputElement;
 //Login
 
 let loginName: HTMLInputElement;
@@ -141,11 +153,16 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     //Initialisierung Forms
     feedbackReg = document.querySelector("#feedbackRegistrieren");
+    feedbackProfU = document.querySelector("#feedbackProfildatenBearbeiten");
     formRegistrieren = document.querySelector("#formRegistrieren");
     formLogin = document.querySelector("#formLogin");
     logoutBtn = document.querySelector("#logoutBtn");
     formLogout = document.querySelector("#formLogout");
+    formProfilDatenBearbeiten = document.querySelector("#formProfildatenBearbeiten");
     //Initialisierung Variablen
+
+    //Initialisierung globaler Variablen
+    eingeloggterBenutzer = "";
 
     //Registrierung
     regVorname = document.querySelector("#formRegistrieren [name='regVorname']");
@@ -159,8 +176,22 @@ document.addEventListener("DOMContentLoaded",()=>{
     loginPasswort = document.querySelector("#formLogin [name='loginPasswort']");
 
     formLogin.addEventListener("submit", login);
-    logoutBtn.addEventListener("click", logout);
 
+
+    //logoutBtn.addEventListener("click", logout);
+
+    //Profil
+    profilNachname = document.querySelector("#profilNachname");
+    profilVorname = document.querySelector("#profilVorname");
+
+
+    profilUBtnB = document.querySelector("#profilUBtnB");
+    profilUBtnB.addEventListener("click",benutzerBearbeitenStart);
+    profilUBtnA = document.querySelector("#profilUBtnA");
+    profilUBtnA.addEventListener("click",benutzerÄndern);
+
+    profilUBtnL = document.querySelector("#profilUBtnL");
+    profilUBtnL.addEventListener("click", benutzerLöschen);
 });
 
 
@@ -186,27 +217,109 @@ function benutzerHinzufügen(event:Event){
               }).then((res: AxiosResponse)=>{
                   formRegistrieren.reset();
                   //||bessere Alternative suchen
-                  feedbackReg.innerText = "Benutzer erfolgreich eingeloggt";
+                  feedbackReg.innerText = "Benutzer erfolgreich registriert";
+                  setTimeout(feedbackRegLöschen,1000);
               }).catch((error: AxiosError)=>{
                   
               });
           }
 
-function benutzerAuslesen(event:Event){
-    event.preventDefault();
-}
 function benutzerLöschen(event:Event){
     event.preventDefault();
+
+    const email: String = eingeloggterBenutzer;
+
+    axios.delete("/benutzer/"+email)
+        .then((res: AxiosResponse)=>{
+            console.log("Ihr Account wurde erfolgreich gelöscht");
+
+            sectStart.classList.remove("d-none");
+            sectDet.classList.remove("d-none");
+            sectÜber.classList.remove("d-none");
+            sectServ.classList.remove("d-none");
+            sectWar.classList.remove("d-none");
+            sectCheck.classList.remove("d-none");
+            sectCheck.classList.remove("d-none");
+            sectReg.classList.remove("d-none");
+            sectLog.classList.remove("d-none");
+
+            formLogout.classList.remove("d-none");
+            formLogout.classList.add("d-block");
+
+            sectProf.classList.remove("d-none");
+
+            sectStart.classList.add("d-block");
+            sectDet.classList.add("d-block");
+            sectÜber.classList.add("d-block");
+            sectServ.classList.add("d-block");
+            sectWar.classList.add("d-block");
+            sectCheck.classList.add("d-block");
+            sectCheck.classList.add("d-block");
+            sectReg.classList.add("d-block");
+            sectLog.classList.add("d-block");
+            sectKont.classList.add("d-block");
+        }).catch((err: AxiosError)=>{
+
+    });
+
+
+
+}
+function benutzerBearbeitenStart(event: Event){
+event.preventDefault();
+    console.log("bin in der startEdit");
+
+    formProfilDatenBearbeiten.classList.remove("d-none");
+
+
+
+    axios.get("/benutzer/" + eingeloggterBenutzer)
+        .then((res:AxiosResponse)=>{
+            const benutzer = res.data.benutzer;
+            profilVorname.value = benutzer.vName;
+            profilNachname.value = benutzer.nName;
+            //formProfilDatenBearbeiten.dataset.email = benutzer.email;
+            profilUBtnA.classList.remove("d-none");
+            profilUBtnB.classList.add("d-block");
+            profilUBtnL.classList.remove("d-none");
+
+
+            }
+        )
+
 }
 function benutzerÄndern(event:Event){
     event.preventDefault();
+
+    const vName = profilVorname.value;
+    const nName = profilNachname.value;
+    const email = eingeloggterBenutzer;
+
+    axios.put("/benutzer/"+email,{
+        vName: vName,
+        nName: nName,
+        email: email
+    }).then((res:AxiosResponse)=>{
+
+        profilNachname.setAttribute("readonly","true");
+        profilVorname.setAttribute("readonly","true");
+        feedbackProfU.innerText = "Nutzerdaten erfolgreich geupdated.";
+        setTimeout(feedbackProfULöschen,1000);
+        //feedbackProfULöschen();
+
+    })
+
 }
-/*
+function benutzerAuslesen(event:Event){
+    event.preventDefault();
+}
+//
 //Login 'n out Funkntionen
 function login(event:Event){
             event.preventDefault();
             const data: FormData = new FormData(formLogin);
             const email: string = data.get("loginName").toString();
+
 
             console.log(email + " vom formLogin");
             axios.post("/login", {
@@ -214,9 +327,7 @@ function login(event:Event){
                 loginPasswort: data.get("loginPasswort")
             })
                 .then((res: AxiosResponse) => {
-                    formLogin.reset();
-
-
+                    sectStart.classList.remove("d-block");
                     sectDet.classList.remove("d-block");
                     sectÜber.classList.remove("d-block");
                     sectServ.classList.remove("d-block");
@@ -229,6 +340,7 @@ function login(event:Event){
                     formLogout.classList.remove("d-none");
                     formLogout.classList.add("d-block");
 
+                    sectStart.classList.add("d-none");
                     sectDet.classList.add("d-none");
                     sectÜber.classList.add("d-none");
                     sectServ.classList.add("d-none");
@@ -238,6 +350,10 @@ function login(event:Event){
                     sectReg.classList.add("d-none");
                     sectLog.classList.add("d-none");
                     sectKont.classList.add("d-none");
+
+                    eingeloggterBenutzer = data.get("loginName").toString();
+                    console.log(eingeloggterBenutzer+ " wurde gespeichert");
+                    formLogin.reset();
 
                     console.log("Anmeldung erfolgreich bruh");
 
@@ -261,7 +377,12 @@ function logout(event:Event){
             //hier soll alles rein was nachm logout passiert
         });
 }
-*/
+//Timeout funktionen
+function feedbackProfULöschen(){feedbackProfU.innerText="";}
+function feedbackRegLöschen(){feedbackReg.innerText="";}
+//Navleisten Funktionen
+
+
                     
                     
                     

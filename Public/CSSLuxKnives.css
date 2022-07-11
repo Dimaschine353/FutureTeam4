@@ -5,7 +5,8 @@
 }
 
 .fontLuxKnives {
-    font-family: "Montserrat Thin", serif;
+    font-family: "Montserrat", serif;
+    color: black;
 }
 
 
@@ -16,10 +17,28 @@
     font-size: 12rem;
 }
 
+.btn-luxknives {
+    background-color: #D94B2B;
+    color: white;
+}
+
+.btn-luxknives:hover {
+    background-color: #d9765f;
+}
+
 
 .row {
     --bs-gutter-x: 0;
 }
+
+a {
+    color: #D94B2B;
+}
+
+a:hover {
+    color: #d9765f;
+}
+
 
 /* Profilseite CSS */
 .cardBioStyle {
@@ -39,14 +58,10 @@
 }
 h1 {
     padding: 4rem;
-    font-family: "Engebrechtre Rg", serif;
+    font-family: "Engebrechtre", serif;
     text-align: center;
 }
 
-.btn-luxknives {
-    background-color: #D94B2B;
-    color: white;
-}
 
 
 .scharf {
@@ -66,6 +81,10 @@ justify-content: center;
 
 
 /* FOOTER */
+.luxKnivesFooterStyle {
+    background-color: #0d0d0d;
+}
+
 footer {
     left: 0;
     bottom: 0;
@@ -99,20 +118,32 @@ footer {
     padding: 2rem;
     color: #D94B2B;
 }
+#facebook:hover {
+    color: #d9765f;
+}
 
 #instagram {
     padding: 2rem;
     color: #D94B2B;
+}
+#instagram:hover {
+    color: #d9765f;
 }
 
 #twitter {
     padding: 2rem;
     color: #D94B2B;
 }
+#twitter:hover {
+    color: #d9765f;
+}
 
 #youtube {
     padding: 2rem;
     color: #D94B2B;
+}
+#youtube:hover {
+    color: #d9765f;
 }
 
 /* Text auf Images */
@@ -140,10 +171,12 @@ footer {
     position: absolute;
     top: 0rem;
     left: 0rem;
+    bottom: 0rem;
     font-size: 4rem;
     color: white;
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(20px);
+    background-color: #f0f0f280;
     font-family: "Bebas Neue", serif;
 }
 
@@ -154,7 +187,8 @@ footer {
     font-size: 2rem;
     color: white;
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(20px);
+    background-color: #f0f0f280;
     font-family: "Bebas Neue", serif;
 }
 
@@ -183,6 +217,7 @@ footer {
 }
 
 /* CHECKOUT */
+
 #checkout {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -191,6 +226,11 @@ footer {
     grid-row-gap: 0px;
 }
 
+/*
+.grid1 { grid-area: 1 / 1 / 2 / 2; }
+.grid2 { grid-area: 1 / 2 / 2 / 3; }
+.grid3 { grid-area: 1 / 3 / 2 / 4; }
+*/
 
 /* Kalender */
 
@@ -284,10 +324,20 @@ tbody {
 }
 
 .icon-style {
+    filter: invert(0) brightness(5);
+    width: 1.5rem;
+}
+
+.icon-style:hover {
+    filter: invert(57%) sepia(65%) saturate(6269%) hue-rotate(345deg) brightness(88%) contrast(91%);
+
+}
+
+
+.icon-style2 {
     filter: invert(100%) sepia(60%) saturate(0%) hue-rotate(180deg) brightness(103%) contrast(90%);
     width: 2.5rem;
 }
-
 
 
 
