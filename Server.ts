@@ -134,31 +134,45 @@ function checkLogin(req: express.Request, res:express.Response, next: express.Ne
 }
 //Funktionen Benutzer
 function postBenutzer(req: express.Request, res: express.Response):void {
-
     const vName: string = req.body.vName;
     const nName: string = req.body.nName;
     const email: string = req.body.email;
     const passwort: string = req.body.passwort;
 
     const param = [vName,nName,email,passwort];
-    let sql = "INSERT INTO benutzer(vName, nName, email, passwort) VALUES(?,?,?,?)";
+    const param2 = [email];
 
+    let sql = "INSERT INTO benutzer(vName, nName, email, passwort) VALUES(?,?,?,?)";
+    let sql2 = "SELECT * FROM benutzer WHERE email =?;";
     if(email===undefined || vName===undefined || nName===undefined || passwort===undefined){
-        console.log("Einer der Werte fehlt");
-    }else if (email && vName && nName && passwort){
-        connection.query(
-            sql,
-            param,
-            (err: MysqlError | null, result: any) => {
-                res.status(201).send({result});
-            });
+        console.log("Einer der Werte fehlt"); //STATUS EINFÜGEN
     }else{
-        res.status(400);
-        res.send("diesen Benutzer gibt es bereits");
+        connection.query(
+            sql2,
+            param2,
+            (err: MysqlError | null, result: any)=>{
+                if(err!==null){
+                    res.status(400).send("SQL Fehler");
+                }else if(result.length==1){
+                    res.status(400).send("Benutzer existiert bereits");
+                }else{
+                    connection.query(
+                        sql,
+                        param,
+                        (err: MysqlError | null, result: any) => {
+
+                            if(err!==null){
+                                res.status(400).send("SQL Fehler");
+                            }else{
+                                res.status(201).send({result});
+                            }
+                        });
+                }
+            }
+        )
     }
 }
 function getBenutzer(req: express.Request, res: express.Response):void{
-
     const email: string = req.session.uname;
     const param = [email];
     const sql = "SELECT * FROM benutzer WHERE email =?;";
@@ -184,7 +198,6 @@ function getBenutzer(req: express.Request, res: express.Response):void{
                 ({
                     benutzer
                 });
-
             }
         )
     }

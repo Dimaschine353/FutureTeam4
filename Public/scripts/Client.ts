@@ -216,9 +216,7 @@ function benutzerHinzufügen(event:Event){
               const nName: string = regNachname.value;
               const email: string = regEmail.value;
               const passwort: string = regPasswort.value;
-              
-              console.log(vName);
-              
+
               axios.post("/benutzer", {
                   vName: vName,
                   nName: nName,
@@ -226,11 +224,14 @@ function benutzerHinzufügen(event:Event){
                   passwort: passwort
               }).then((res: AxiosResponse)=>{
                   formRegistrieren.reset();
-                  //||bessere Alternative suchen
-                  feedbackReg.innerText = "Benutzer erfolgreich registriert";
-                  setTimeout(feedbackRegLöschen,1000);
-                  sectReg.classList.add("d-none");
-                  sectProf.classList.remove("d-none");
+
+                  if(res.status == 201) {
+                      feedbackReg.innerText = "Benutzer erfolgreich registriert";
+                      setTimeout(feedbackRegLöschen,1000);
+                      sectReg.classList.add("d-none");
+                      sectProf.classList.remove("d-none");
+                  }
+
               }).catch((error: AxiosError)=>{
                   feedbackReg.innerText = "Registrierung nicht möglich";
                   setTimeout(feedbackRegLöschen,1000);
@@ -325,6 +326,7 @@ function login(event:Event){
                 loginPasswort: data.get("loginPasswort")
             })
                 .then((res: AxiosResponse) => {
+
                     sectLog.classList.add("d-none");
                     sectProf.classList.remove("d-none");
 
