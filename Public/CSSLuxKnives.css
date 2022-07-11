@@ -20,6 +20,7 @@
 .btn-luxknives {
     background-color: #D94B2B;
     color: white;
+
 }
 
 .btn-luxknives:hover {
@@ -216,11 +217,22 @@ footer {
     display: flex;
 }
 
+
+
 .rashunique {
+    border-color: #595859;
+    border-radius: 1px;
+    padding: 2rem;
+}
+
+.rashinput {
     border-color: #595859;
     border-radius: 1px;
 }
 
+#anmeldenbuttonstyle {
+    padding-top: 3rem;
+}
 /* CHECKOUT */
 
 #checkout {
