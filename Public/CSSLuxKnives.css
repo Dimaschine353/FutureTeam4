@@ -45,6 +45,14 @@ a:hover {
     max-width: 45rem;
 }
 
+.bg-luxKnives {
+    background-color: #f0f0f2;
+}
+
+.cardBestellungenStyle {
+    max-width: 35rem;
+}
+
 
 /* DETAILSEITE */
 
@@ -60,6 +68,12 @@ h1 {
     padding: 4rem;
     font-family: "Engebrechtre", serif;
     text-align: center;
+}
+
+h2 {
+    font-family: "Montserrat", serif;
+    font-size: 1.3rem;
+    font-weight: 300;
 }
 
 
