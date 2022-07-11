@@ -220,16 +220,18 @@
         </div>
     </div>
 </section>
+
+
 <!-- Profil -->
 <section id="sectProf" class="d-block">
 <div id="profil">
     <div class="container-fluid p-0">
-        <div class="row">
-            <div class="col-7">
+        <div class="row justify-content-evenly">
+            <div class="col-5">
                 <div class="card mb-3 cardBioStyle">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="/cMe/images/PeterHofmannProfilepic.PNG" class="img-fluid" alt="...">
+                            <img src="/cMe/images/PeterHofmannProfilepic.PNG" class="img-fluid profilBildStyle" alt="...">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -250,37 +252,39 @@
             </div>
 
             <!-- css benötigt -->
-            <div class="row ">
-                <div class="col">
+            <div class="col-5">
+                <div class="row">
                     <p id="feedbackProfildatenBearbeiten"></p>
                 </div>
-            </div>
-            <form id="formProfildatenBearbeiten" class="d-none">
-            <div class="col-5">
-                <div class="input-group mb-3">
-                    <input id="profilVorname" type="text" class="form-control" placeholder="Vorname" name="profilVorname"
-                           aria-label="Vorname"  required>
-                    <input id="profilNachname" type="text" class="form-control" placeholder="Nachname" name="profilNachname"
-                           aria-label="Nachname"  required>
+                <div class="row">
+                    <form id="formProfildatenBearbeiten" class="d-none">
+                        <div class="input-group mb-3">
+                            <input id="profilVorname" type="text" class="form-control" placeholder="Vorname" name="profilVorname"
+                                   aria-label="Vorname"  required>
+                            <input id="profilNachname" type="text" class="form-control" placeholder="Nachname" name="profilNachname"
+                                   aria-label="Nachname"  required>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="row">
+                    <form id="profildatenBearbeitenBtn">
+                        <div class="input-group mb-3">
+                            <button type="button" class="btn btn-luxknives rounded-1"  id="profilUBtnB">
+                                Profildaten Bearbeiten
+                            </button>
+                            <button type="button" class="btn btn-luxknives rounded-1 d-none"   id="profilUBtnA">
+                                Profildaten Abschicken
+                            </button>
+                            <!-- d-none rausgenommen -->
+                            <button type="button" class="btn btn-luxknives rounded-1 d-none" id="profilUBtnL">
+                                Profil Löschen
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
-            </form>
-            <form id="profildatenBearbeitenBtn">
-                <div class="col-5">
-                    <div class="input-group mb-3">
-                        <button type="button" class="btn btn-luxknives rounded-1"  id="profilUBtnB">
-                            Profildaten Bearbeiten
-                        </button>
-                        <button type="button" class="btn btn-luxknives rounded-1 d-none"   id="profilUBtnA">
-                            Profildaten Abschicken
-                        </button>
-                        <!-- d-none rausgenommen -->
-                        <button type="button" class="btn btn-luxknives rounded-1 d-none" id="profilUBtnL">
-                            Profil Löschen
-                        </button>
-                    </div>
-                </div>
-            </form>
+
 
 
 

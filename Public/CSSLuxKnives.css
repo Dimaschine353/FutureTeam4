@@ -42,8 +42,29 @@ a:hover {
 
 /* Profilseite CSS */
 .cardBioStyle {
-    max-width: 45rem;
+    max-width: 40rem;
+    border: solid;
+    border-width: thin;
+    border-radius: 0;
 }
+
+.cardBestellungenStyle {
+    max-width: 35rem;
+    border: solid;
+    border-width: thin;
+    border-radius: 0;
+}
+
+.card-textBestellungen {
+    font-weight: 300;
+}
+
+.profilBildStyle {
+    border: solid;
+    border-width: thin;
+    border-radius: 0;
+}
+
 
 .bg-luxKnives {
     background-color: #f0f0f2;
@@ -58,16 +79,7 @@ a:hover {
     padding-left: 2rem;
 }
 
-.cardBestellungenStyle {
-    max-width: 35rem;
-    border: solid;
-    border-width: thin;
-    border-radius: 0;
-}
 
-.card-textBestellungen {
-    font-weight: 300;
-}
 
 /* DETAILSEITE */
 
