@@ -1257,37 +1257,76 @@
         </div>
     </div>
 
-    <form id="formRegistrieren">
-
+    <form class="d-flex justify-content-center" id="formRegistrieren">
+<div class="card col-4 rashunique">
+    <div class="card-body">
         <div class="col text-center">
-            <h5>Geben Sie Ihre Daten zur Registrierung ein:</h5>
+            <h5>Registrieren</h5>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <div>
+                <p class="pmelden align-content-start">Vorname</p>
+                <input type="text" class="rashinput form-control" name="regVorname"
+                       aria-label="Vorname" required>
+            </div>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <div>
+                <p class="pmelden align-content-start">Nachname</p>
+                <input type="text" class="rashinput form-control" name="regVorname"
+                       aria-label="Vorname" required>
+                </div>
         </div>
 
 
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Vor- und Nachname</span>
-            </div>
-            <input type="text" class="form-control" placeholder="Vorname" name="regVorname"
-                   aria-label="Vorname" required>
-            <input type="text" class="form-control" placeholder="Nachname" name="regNachname"
-                   aria-label="Nachname" required>
+        <div class="row d-flex justify-content-center">
+        <div>
+            <p class="pmelden align-content-start">E-Mail</p>
+            <input type="email" class="rashinput form-control"
+                   name="loginName"
+                   aria-label="E-mail"
+                   required="">
         </div>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">E-Mail</span>
+
+            <div class="row d-flex align-content-start">
+                <p class="pmelden align-content-start">Passwort</p>
+                <input type="password" class="rashinput form-control" name="regE-mail"
+                       aria-label="Email" required>
             </div>
-            <input type="email" class="form-control" placeholder="Email" name="regE-mail"
-                   aria-label="Email" required>
-            <div class="input-group-prepend">
-                <span class="input-group-text">Passwort</span>
+
+            <div class="row d-flex align-content-start">
+                <p class="pmelden align-content-start">Passwort wiederholen</p>
+                <input type="password" class="rashinput form-control" name="regE-mail"
+                       aria-label="Email" required>
             </div>
-            <input type="password" class="form-control" placeholder="Passwort" name="regPasswort"
-                   aria-label="Passwort" required>
+
+            <div class="row d-flex justify-content-center">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="agbcheck">
+                    <label class="form-check-label" for="agbcheck">
+
+                        <p>Ich stimme den AGB und Datenschutzrichtlinien zu.</p>
+                    </label>
+                </div>
+            </div>
+
         </div>
-        <div class="input-group mb-3">
-            <button type="submit" class="btn btn-luxknives" name="regFormBtn">Registrieren</button>
+        <div class="row d-flex justify-content-center" id="regBtnstyle">
+            <div class="d-flex justify-content-center input-group">
+                <button type="submit" id="regBtn" class="btn btn-luxknives" name="regFormBtn">Registrieren</button>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <a id="zumLogIn" class="text-center "href="#">Anmelden</a>
+            </div>
         </div>
+
+
+
+    </div>
+</div>
+
 
     </form>
 </div>

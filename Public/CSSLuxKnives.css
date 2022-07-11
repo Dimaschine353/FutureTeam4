@@ -494,3 +494,25 @@ tbody {
     padding-left: 3rem;
     padding-right: 3rem;
 }
+
+#regBtn {
+    padding-inline: 20px;
+}
+
+#regBtnstyle {
+    padding-top: 1rem;
+}
+
+.form-check {
+    margin-top: 20px;
+}
+
+.form-check-input {
+
+    background-color: white;
+}
+
+.form-check-input:checked {
+    background-color: #D94B2B;
+    border-color: white;
+}
