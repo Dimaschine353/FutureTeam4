@@ -216,6 +216,11 @@ footer {
     display: flex;
 }
 
+.rashunique {
+    border-color: #595859;
+    border-radius: 1px;
+}
+
 /* CHECKOUT */
 
 #checkout {
