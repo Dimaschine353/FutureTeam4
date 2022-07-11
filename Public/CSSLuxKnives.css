@@ -322,6 +322,27 @@ footer {
     border: 0;
 }
 
+.zoomEffekt {
+    padding: 1rem;
+    transition: transform .5s;
+    margin: 0 auto;
+}
+
+.zoomEffekt:hover {
+    transform: scale(1.2);
+}
+
+.padding-zoom {
+    padding-left: 10rem;
+}
+
+.zoom-aStyle {
+    font-family: "Montserrat", serif;
+    font-weight: 300;
+    font-size: 1rem;
+    color: white;
+}
+
 
 /* NavLeiste CSS */
 .nav {
