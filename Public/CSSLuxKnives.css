@@ -4,11 +4,18 @@
     background: linear-gradient(white, #f0f0f2);
 }
 
+
+
 .fontLuxKnives {
     font-family: "Montserrat", serif;
     color: black;
 }
 
+h5 {
+    font-family: "Montserrat", serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+}
 
 .fontBigTitle {
     font-family: "Bebas Neue", serif;
@@ -21,6 +28,7 @@
     background-color: #D94B2B;
     color: white;
     border-radius: 1px;
+    padding-inline: 20px;
 }
 
 .btn-luxknives:hover {
@@ -34,6 +42,7 @@
 
 a {
     color: #D94B2B;
+    text-decoration: none;
 }
 
 a:hover {
@@ -232,9 +241,17 @@ footer {
     border-color: #595859;
     border-radius: 1px;
 }
+#loginBtn {
+    padding-inline: 20px;
+}
 
 #anmeldenbuttonstyle {
     padding-top: 3rem;
+}
+
+.pmelden {
+    margin-top: 1rem;
+    margin-bottom: 0rem;
 }
 
 /* CHECKOUT */
