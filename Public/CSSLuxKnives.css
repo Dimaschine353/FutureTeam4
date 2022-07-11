@@ -47,6 +47,7 @@ a {
 
 a:hover {
     color: #d9765f;
+    text-decoration: underline;
 }
 
 
@@ -66,6 +67,12 @@ a:hover {
 }
 
 .card-textBestellungen {
+    font-weight: 300;
+}
+
+.card-Philo {
+    font-family: "Montserrat", serif;
+    font-size: 1rem;
     font-weight: 300;
 }
 
@@ -299,8 +306,9 @@ footer {
 
 .rightTransBox {
     position: absolute;
+    width: 30%;
     top: 20rem;
-    left: 45rem;
+    left: 55rem;
     font-size: 2rem;
     color: black;
     backdrop-filter: blur(20px);
@@ -445,10 +453,16 @@ tbody {
 
 /* Bearbeiten Button CSS */
 
-.bearbeitenButtonBR {
+.bearbeitenButtonBR1 {
     position: absolute;
     left: 90rem;
-    top: 50rem;
+    top: 55rem;
+}
+
+.bearbeitenButtonBR2 {
+    position: absolute;
+    left: 90rem;
+    top: 42rem;
 }
 
 .bearbeitenButtonBL {
