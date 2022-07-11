@@ -68,7 +68,7 @@ a:hover {
 }
 
 h1 {
-    padding: 4rem;
+    padding: 3rem;
     font-family: "Engebrechtre", serif;
     text-align: center;
 }
@@ -90,6 +90,62 @@ h1 {
     Padding: 4rem;
 }
 
+.teamcard {
+    background-color: transparent;
+    border: transparent;
+    border-radius: 1px;
+}
+
+#divsize {
+    height: 30rem;
+}
+
+.fill {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/cMe/images/pexels-andrea-piacquadio-3822844%20(1).jpg');
+    margin-top: 40px;
+    margin-left:80px;
+    margin-right: 20px;
+}
+
+.fill1 {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/cMe/images/pexels-gustavo-fring-4872076%20(1).jpg');
+}
+
+.fill2 {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/cMe/images/pexels-ekrulila-3084334.jpg');
+}
+
+.fill3 {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/cMe/images/adetola-afolabi-W6Xfv9Rq1j0-unsplash.jpg');
+}
+
+.fill4 {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/cMe/images/christian-buehner-KCLqSvoUdxw-unsplash.jpg');
+}
+
+.cardmargin {
+    margin-bottom: 40px;
+}
+
+.puns {
+    font-weight: 400;
+    font-size: 1.1rem;
+}
 
 /* FOOTER */
 .luxKnivesFooterStyle {
@@ -235,6 +291,7 @@ footer {
     border-color: #595859;
     border-radius: 1px;
     padding: 2rem;
+    margin: 3rem;
 }
 
 .rashinput {
