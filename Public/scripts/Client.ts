@@ -98,8 +98,12 @@ let sectKont: HTMLElement;
                     
                     
 //Deklaration Nav Leiste
-let navLogin: HTMLElement;
 let navHome: HTMLElement;
+let navLogin: HTMLElement;
+let navWarenkorb: HTMLElement;
+let navÜber: HTMLElement;
+let navService: HTMLElement;
+let navKontakt: HTMLElement;
 
 //Deklaration Forms
 let feedbackReg: HTMLElement;
@@ -119,6 +123,7 @@ let regVorname: HTMLInputElement;
 let regNachname: HTMLInputElement;
 let regEmail: HTMLInputElement;
 let regPasswort: HTMLInputElement;
+
 //Profil User
 let profilVorname: HTMLInputElement;
 let profilNachname: HTMLInputElement;
@@ -153,10 +158,20 @@ document.addEventListener("DOMContentLoaded",()=>{
     sectKont.classList.add("d-none");
     sectServ.classList.add("d-none");
     //Initialisierung Nav Leiste
-    navLogin = document.querySelector("#navLogin");
-    navLogin.addEventListener("click",zumLogin);
     navHome = document.querySelector("#navHome");
     navHome.addEventListener("click",zurückNachhause);
+    navLogin = document.querySelector("#navLogin");
+    navLogin.addEventListener("click",zumLogin);
+    navWarenkorb = document.querySelector("#navWarenkorb");
+    navWarenkorb.addEventListener("click",zumWarenkorb);
+    navService = document.querySelector("#navService");
+    navService.addEventListener("click",zumService);
+    navÜber = document.querySelector("#navÜber");
+    navÜber.addEventListener("click",zuÜber);
+    navKontakt = document.querySelector("#navKontakt");
+    navKontakt.addEventListener("click",zumKontakt);
+
+
 
     //Initialisierung Forms
     feedbackReg = document.querySelector("#feedbackRegistrieren");
@@ -376,10 +391,70 @@ function zurückNachhause(event:Event){
 }
 function zumLogin (event:Event){
     event.preventDefault();
-  sectStart.classList.add("d-none");
-  sectLog.classList.remove("d-none");
+    sectLog.classList.remove("d-none");
+    sectStart.classList.add("d-none");
+    sectProf.classList.add("d-none");
+    sectDet.classList.add("d-none");
+    sectÜber.classList.add("d-none");
+    sectWar.classList.add("d-none");
+    sectCheck.classList.add("d-none");
+    sectReg.classList.add("d-none");
+    sectKont.classList.add("d-none");
+
 }
-                    
+function zumWarenkorb (event:Event){
+    event.preventDefault();
+    sectWar.classList.remove("d-none");
+    sectProf.classList.add("d-none");
+    sectDet.classList.add("d-none");
+    sectÜber.classList.add("d-none");
+    sectCheck.classList.add("d-none");
+    sectReg.classList.add("d-none");
+    sectLog.classList.add("d-none");
+    sectKont.classList.add("d-none");
+    sectStart.classList.add("d-none");
+
+    }
+function zumService (event:Event){
+    event.preventDefault();
+    sectServ.classList.remove("d-none");
+        sectProf.classList.add("d-none");
+        sectDet.classList.add("d-none");
+        sectÜber.classList.add("d-none");
+        sectWar.classList.add("d-none");
+        sectCheck.classList.add("d-none");
+        sectReg.classList.add("d-none");
+        sectLog.classList.add("d-none");
+        sectKont.classList.add("d-none");
+        sectStart.classList.add("d-none");
+    }
+function zuÜber(event:Event){
+    event.preventDefault();
+    sectÜber.classList.remove("d-none");
+        sectProf.classList.add("d-none");
+        sectDet.classList.add("d-none");
+        sectServ.classList.add("d-none");
+        sectWar.classList.add("d-none");
+        sectCheck.classList.add("d-none");
+        sectReg.classList.add("d-none");
+        sectLog.classList.add("d-none");
+        sectKont.classList.add("d-none");
+        sectStart.classList.add("d-none");
+    }
+function zumKontakt(event:Event){
+    event.preventDefault();
+    sectKont.classList.remove("d-none");
+        sectProf.classList.add("d-none");
+        sectDet.classList.add("d-none");
+        sectÜber.classList.add("d-none");
+        sectServ.classList.add("d-none");
+        sectWar.classList.add("d-none");
+        sectCheck.classList.add("d-none");
+        sectReg.classList.add("d-none");
+        sectLog.classList.add("d-none");
+        sectStart.classList.add("d-none");
+
+    }
                     
                     
                     
