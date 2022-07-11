@@ -500,5 +500,19 @@ tbody {
 }
 
 #regBtnstyle {
-    padding-top: 3rem;
+    padding-top: 1rem;
+}
+
+.form-check {
+    margin-top: 20px;
+}
+
+.form-check-input {
+
+    background-color: white;
+}
+
+.form-check-input:checked {
+    background-color: #D94B2B;
+    border-color: white;
 }
