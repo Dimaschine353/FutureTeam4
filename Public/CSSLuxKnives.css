@@ -494,3 +494,11 @@ tbody {
     padding-left: 3rem;
     padding-right: 3rem;
 }
+
+#regBtn {
+    padding-inline: 20px;
+}
+
+#regBtnstyle {
+    padding-top: 3rem;
+}
