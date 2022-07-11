@@ -169,8 +169,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     feedbackProfU = document.querySelector("#feedbackProfildatenBearbeiten");
     formRegistrieren = document.querySelector("#formRegistrieren");
     formLogin = document.querySelector("#formLogin");
-    logoutBtn = document.querySelector("#logoutBtn");
-    formLogout = document.querySelector("#formLogout");
     formProfilDatenBearbeiten = document.querySelector("#formProfildatenBearbeiten");
     //Initialisierung Variablen
 
@@ -190,19 +188,15 @@ document.addEventListener("DOMContentLoaded",()=>{
     zumRegistrieren = document.querySelector("#zumRegistrieren");
     zumRegistrieren.addEventListener("click",zumReg);
     formLogin.addEventListener("submit", login);
-
-
-    //logoutBtn.addEventListener("click", logout);
-
     //Profil
     profilNachname = document.querySelector("#profilNachname");
     profilVorname = document.querySelector("#profilVorname");
-
-
     profilUBtnB = document.querySelector("#profilUBtnB");
     profilUBtnB.addEventListener("click",benutzerBearbeitenStart);
     profilUBtnA = document.querySelector("#profilUBtnA");
     profilUBtnA.addEventListener("click",benutzerÄndern);
+    logoutBtn = document.querySelector("#profilUBtnLogout");
+    logoutBtn.addEventListener("click", logout);
 
     profilUBtnL = document.querySelector("#profilUBtnL");
     profilUBtnL.addEventListener("click",benutzerLöschen);
@@ -229,7 +223,7 @@ function benutzerHinzufügen(event:Event){
                       feedbackReg.innerText = "Benutzer erfolgreich registriert";
                       setTimeout(feedbackRegLöschen,1000);
                       sectReg.classList.add("d-none");
-                      sectProf.classList.remove("d-none");
+                      sectLog.classList.remove("d-none");
                   }
 
               }).catch((error: AxiosError)=>{
@@ -355,7 +349,19 @@ function logout(event:Event){
     axios.post("/logout")
         .then(()=>{
             console.log("habe eine response vom Server erhalten");
-            //hier soll alles rein was nachm logout passiert
+            eingeloggterBenutzer="";
+            sectStart.classList.remove("d-none");
+            sectProf.classList.add("d-none");
+            sectDet.classList.add("d-none");
+            sectÜber.classList.add("d-none");
+            sectServ.classList.add("d-none");
+            sectWar.classList.add("d-none");
+            sectCheck.classList.add("d-none");
+            sectReg.classList.add("d-none");
+            sectLog.classList.add("d-none");
+            sectKont.classList.add("d-none");
+            alert("Sie wurden ausgeloggt :o")
+
         });
 }
 //Timeout funktionen
@@ -378,15 +384,28 @@ function zurückNachhause(event:Event){
 }
 function zumLogin (event:Event){
     event.preventDefault();
-    sectLog.classList.remove("d-none");
-    sectStart.classList.add("d-none");
-    sectProf.classList.add("d-none");
-    sectDet.classList.add("d-none");
-    sectÜber.classList.add("d-none");
-    sectWar.classList.add("d-none");
-    sectCheck.classList.add("d-none");
-    sectReg.classList.add("d-none");
-    sectKont.classList.add("d-none");
+    if(eingeloggterBenutzer!==""){
+        sectProf.classList.remove("d-none");
+        sectStart.classList.add("d-none");
+        sectLog.classList.add("d-none");
+        sectDet.classList.add("d-none");
+        sectÜber.classList.add("d-none");
+        sectWar.classList.add("d-none");
+        sectCheck.classList.add("d-none");
+        sectReg.classList.add("d-none");
+        sectKont.classList.add("d-none");
+    }else{
+        sectLog.classList.remove("d-none");
+        sectStart.classList.add("d-none");
+        sectProf.classList.add("d-none");
+        sectDet.classList.add("d-none");
+        sectÜber.classList.add("d-none");
+        sectWar.classList.add("d-none");
+        sectCheck.classList.add("d-none");
+        sectReg.classList.add("d-none");
+        sectKont.classList.add("d-none");
+    }
+
 
 }
 function zumWarenkorb (event:Event){
@@ -456,19 +475,7 @@ function zumReg(event:Event){
 
 
 }
-function zumProfil(event:Event){
-    sectProf.classList.remove("d-none");
-    sectProf.classList.add("d-none");
-    sectDet.classList.add("d-none");
-    sectÜber.classList.add("d-none");
-    sectServ.classList.add("d-none");
-    sectWar.classList.add("d-none");
-    sectCheck.classList.add("d-none");
-    sectLog.classList.add("d-none");
-    sectStart.classList.add("d-none");
 
-
-}
                     
                     
                     
