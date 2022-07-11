@@ -215,16 +215,18 @@
         </div>
     </div>
 </section>
+
+
 <!-- Profil -->
-<section id="sectProf"class="d-block">
+<section id="sectProf" class="d-block">
 <div id="profil">
     <div class="container-fluid p-0">
-        <div class="row">
-            <div class="col-7">
+        <div class="row justify-content-evenly">
+            <div class="col-5">
                 <div class="card mb-3 cardBioStyle">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="/cMe/images/PeterHofmannProfilepic.PNG" class="img-fluid" alt="...">
+                            <img src="/cMe/images/PeterHofmannProfilepic.PNG" class="img-fluid profilBildStyle" alt="...">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -245,37 +247,39 @@
             </div>
 
             <!-- css benötigt -->
-            <div class="row ">
-                <div class="col">
+            <div class="col-5">
+                <div class="row">
                     <p id="feedbackProfildatenBearbeiten"></p>
                 </div>
-            </div>
-            <form id="formProfildatenBearbeiten" class="d-none">
-            <div class="col-5">
-                <div class="input-group mb-3">
-                    <input id="profilVorname" type="text" class="form-control" placeholder="Vorname" name="profilVorname"
-                           aria-label="Vorname"  required>
-                    <input id="profilNachname" type="text" class="form-control" placeholder="Nachname" name="profilNachname"
-                           aria-label="Nachname"  required>
+                <div class="row">
+                    <form id="formProfildatenBearbeiten" class="d-none">
+                        <div class="input-group mb-3">
+                            <input id="profilVorname" type="text" class="form-control" placeholder="Vorname" name="profilVorname"
+                                   aria-label="Vorname"  required>
+                            <input id="profilNachname" type="text" class="form-control" placeholder="Nachname" name="profilNachname"
+                                   aria-label="Nachname"  required>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="row">
+                    <form id="profildatenBearbeitenBtn">
+                        <div class="input-group mb-3">
+                            <button type="button" class="btn btn-luxknives rounded-1"  id="profilUBtnB">
+                                Profildaten Bearbeiten
+                            </button>
+                            <button type="button" class="btn btn-luxknives rounded-1 d-none"   id="profilUBtnA">
+                                Profildaten Abschicken
+                            </button>
+                            <!-- d-none rausgenommen -->
+                            <button type="button" class="btn btn-luxknives rounded-1 d-none" id="profilUBtnL">
+                                Profil Löschen
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
-            </form>
-            <form id="profildatenBearbeitenBtn">
-                <div class="col-5">
-                    <div class="input-group mb-3">
-                        <button type="button" class="btn btn-luxknives rounded-1"  id="profilUBtnB">
-                            Profildaten Bearbeiten
-                        </button>
-                        <button type="button" class="btn btn-luxknives rounded-1 d-none"   id="profilUBtnA">
-                            Profildaten Abschicken
-                        </button>
-                        <!-- d-none rausgenommen -->
-                        <button type="button" class="btn btn-luxknives rounded-1 d-none" id="profilUBtnL">
-                            Profil Löschen
-                        </button>
-                    </div>
-                </div>
-            </form>
+
 
 
 
@@ -327,18 +331,21 @@
 
         </div>
 
-        <div class="row">
-            <div class="col-6 bg-light">
-                <div class="row d-flex justify-content-center">
-                    Meine Bestellungen und Fragen
+
+        <!-- Bestellungen und Fragen Sektion -->
+        <div class="row justify-content-evenly">
+            <!-- Bestellungen -->
+            <div class="col-5 bg-luxKnives borderLuxKnives">
+                <div class="row d-flex justify-content-center py-2">
+                    <h2 class="text-center">Meine Bestellungen und Fragen</h2>
                 </div>
                 <div class="row d-flex justify-content-center">
-                    <div class="card mb-3" style="max-width: 540px;">
+                    <div class="card mb-3 cardBestellungenStyle">
                         <div class="row g-0">
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">Bestellung: Nakiri Musashi</h5>
-                                    <p class="card-text">Ihre Bestellung (Nr.32476) vom 12.4.2022 ist in der
+                                    <p class="card-textBestellungen">Ihre Bestellung (Nr.32476) vom 12.4.2022 ist in der
                                         Zustellung.</p>
                                     <a class="card-text" href="#">Mehr Details</a>
                                     <p></p>
@@ -352,19 +359,19 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4 p-4">
                                 <img src="/cMe/images/ProduktMesserBestellungen.PNG" class="img-fluid" alt="Produktfoto">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row d-flex justify-content-center">
-                    <div class="card mb-3" style="max-width: 540px;">
+                    <div class="card mb-3 cardBestellungenStyle">
                         <div class="row g-0">
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">Bestellung: Sujihiki Masako</h5>
-                                    <p class="card-text">Ihre Bestellung (Nr.32477) vom 4.6.2022 ist in der
+                                    <p class="card-textBestellungen">Ihre Bestellung (Nr.32477) vom 4.6.2022 ist in der
                                         Zustellung.</p>
                                     <a class="card-text" href="#">Mehr Details</a>
                                     <p></p>
@@ -378,19 +385,19 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4 p-4">
                                 <img src="/cMe/images/ProduktMesserBestellungen.PNG" class="img-fluid" alt="Produktfoto">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row d-flex justify-content-center">
-                    <div class="card mb-3" style="max-width: 540px;">
+                    <div class="card mb-3 cardBestellungenStyle">
                         <div class="row g-0">
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">Termin: Schleifen am 14.6.2022</h5>
-                                    <p class="card-text">Sie haben sich fur einen Termin am 14.6.2022 um 15 Uhr
+                                    <p class="card-textBestellungen">Sie haben sich fur einen Termin am 14.6.2022 um 15 Uhr
                                         angemeldet.</p>
                                     <p></p>
                                     <div class="row">
@@ -403,40 +410,43 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 d-flex justify-content-center align-items-center">
+                            <div class="col-md-4 d-flex justify-content-center align-items-center p-4">
                                 <i class="fa-solid fa-house-user fa-7x"></i>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-6 bg-danger">
-                <div class="row d-flex justify-content-center">
-                    Neue Infos:
+            <!-- Fragen -->
+            <div class="col-5 bg-luxKnives borderLuxKnives">
+                <div class="row d-flex justify-content-start py-2 padding-fragen">
+                    <h2>Neue Infos:</h2>
                 </div>
                 <div class="row d-flex justify-content-center">
-                    <div class="card" style="width: 100%">
+                    <div class="card mb-3 cardBestellungenStyle">
                         <div class="card-body">
                             <h5 class="card-title">Ihre Frage</h5>
-                            <p class="card-text"> Gibt es eine Moglichkeit die Messer vor Ort auszutesten?</p>
-                            <div class="input-group">
-                                <textarea class="form-control" aria-label="With textarea"></textarea>
+                            <p class="card-textBestellungen"> Gibt es eine Moglichkeit die Messer vor Ort auszutesten?</p>
+                            <div class="input-group mb-3">
+                                <textarea id="antwortSchreiben" class="form-control" aria-label="With textarea"></textarea>
                             </div>
-                            <a href="#" class="btn btn-luxknives">Antworten</a>
-                            <a href="#" class="btn btn-luxknives">Frage Loschen</a>
+                            <button id="antwortenBtn" class="btn btn-luxknives">Antworten</button>
+                            <button id="löschenBtn" class="btn btn-luxknives">Frage Löschen</button>
                         </div>
                     </div>
                 </div>
+                <!--
                 <div class="row d-flex justify-content-center">
-                    <div class="card" style="width: 100%">
+                    <div class="card mb-3 cardBestellungenStyle">
                         <div class="card-body">
                             <h5 class="card-title">Ihre Frage</h5>
-                            <p class="card-text">Haben sie Produkte in anderen Farben?</p>
+                            <p class="card-textBestellungen">Haben sie Produkte in anderen Farben?</p>
                             <a href="#" class="btn btn-luxknives">Antworten</a>
                             <a href="#" class="btn btn-luxknives">Frage Loschen</a>
                         </div>
                     </div>
                 </div>
+                -->
             </div>
         </div>
     </div>
