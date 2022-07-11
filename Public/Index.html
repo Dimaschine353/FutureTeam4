@@ -1360,22 +1360,19 @@
                         <input type="email" class="form-control rashinput" placeholder="" name="regE-mail"
                                aria-label="Email" required>
                     </div>
-
-                    <!-- Absenden Btn -->
-                    <div class="input-group mb-3 justify-content-center">
-                        <button type="submit" class="btn btn-luxknives" name="kontaktFormBtn">Absenden</button>
-                    </div>
                 </div>
-                <div class="col-5">
+
+                <div class="col-5 bg-white borderLuxKnives p-4">
                     <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Betreff</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Betreff" name="kontaktBetreff"
+                        <input type="text" class="form-control rashinput" placeholder="Betreff" name="kontaktBetreff"
                                aria-label="Betreff" required>
                     </div>
                     <div>
-                        <textarea name="Nachricht" cols="35" rows="4"></textarea>
+                        <textarea id="NachrichtSchreiben" class="form-control rashinput" rows="6" aria-label="With textarea" placeholder="Ihre Nachricht..."></textarea>
+                    </div>
+                    <!-- Absenden Btn -->
+                    <div class="input-group my-3 justify-content-center">
+                        <button type="submit" class="btn btn-luxknives" name="kontaktFormBtn">Absenden</button>
                     </div>
                 </div>
             </div>
