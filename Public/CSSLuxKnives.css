@@ -52,8 +52,43 @@ a:hover {
 
 /* Profilseite CSS */
 .cardBioStyle {
-    max-width: 45rem;
+    max-width: 40rem;
+    border: solid;
+    border-width: thin;
+    border-radius: 0;
 }
+
+.cardBestellungenStyle {
+    max-width: 35rem;
+    border: solid;
+    border-width: thin;
+    border-radius: 0;
+}
+
+.card-textBestellungen {
+    font-weight: 300;
+}
+
+.profilBildStyle {
+    border: solid;
+    border-width: thin;
+    border-radius: 0;
+}
+
+
+.bg-luxKnives {
+    background-color: #f0f0f2;
+}
+
+.borderLuxKnives {
+    border: solid;
+    border-width: thin;
+}
+
+.padding-fragen {
+    padding-left: 2rem;
+}
+
 
 
 /* DETAILSEITE */
@@ -73,6 +108,17 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    font-family: "Montserrat", serif;
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+h5 {
+    font-family: "Montserrat", serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
 
 .scharf {
     justify-content: center;
