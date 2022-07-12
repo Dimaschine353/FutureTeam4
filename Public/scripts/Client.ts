@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     sectKont = document.querySelector("#sectKont");
     //Startcontent Einstellung
     sectProf.classList.add("d-none");
-    sectDet.classList.add("d-none");
+    //sectDet.classList.add("d-none");
     sectWar.classList.add("d-none");
     sectCheck.classList.add("d-none");
     sectReg.classList.add("d-none");
