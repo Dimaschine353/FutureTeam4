@@ -139,6 +139,7 @@ let nachrichtNName: HTMLInputElement;
 let nachrichtEmail: HTMLInputElement;
 let nachrichtBetreff: HTMLInputElement;
 let nachrichtEin: HTMLInputElement;
+let nachrichtBtnA: HTMLInputElement;
 //Listener
 document.addEventListener("DOMContentLoaded",()=>{
     //initialisierung Sect
@@ -222,6 +223,8 @@ document.addEventListener("DOMContentLoaded",()=>{
     nachrichtEmail = document.querySelector("#nachrichtEmail");
     nachrichtBetreff = document.querySelector("#nachrichtBetreff");
     nachrichtEin = document.querySelector("#nachricht");
+    nachrichtBtnA = document.querySelector("#nachrichtBtnA");
+    nachrichtBtnA.addEventListener("click", nachrichtHinzufügen);
 });
 //Funktionen Benutzer
 function benutzerHinzufügen(event:Event){
