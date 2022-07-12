@@ -63,6 +63,7 @@ app.listen(8080);
 //notwendige übergabeparameter für JSON und URLencoded
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: false}));
 //Implementierung Session
 app.use(session({
     cookie: {

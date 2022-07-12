@@ -25,5 +25,21 @@ Content-Type: application/json
 {
   "vName": "ApacheEdit",
   "nName": "BleibtEdit",
-  "passwert": "edit1234"
+  "passwort": "edit1234"
 }
+###
+
+
+POST /benutzer HTTP/2
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "vName": "Artir",
+  "nName": "Guri",
+  "email": "artir.guri@outlook.de",
+  "passwort": "1234"
+}
+###
+DELETE /benutzer/artir.guri@outlook.de HTTP/2
+Host: localhost:8080
