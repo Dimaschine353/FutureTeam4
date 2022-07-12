@@ -84,6 +84,8 @@
                     
                     
 //Deklaration Sections
+
+
 let sectStart: HTMLElement;
 let sectProf: HTMLElement;
 let sectDet: HTMLElement;
@@ -144,6 +146,9 @@ let nachrichtEin: HTMLInputElement;
 let nachrichtBtnA: HTMLInputElement;
 //Listener
 document.addEventListener("DOMContentLoaded",()=>{
+
+    //Funktionen die direkt ausgeführt werden sollen
+    benutzerAuslesen();
     //initialisierung Sect
     sectStart = document.querySelector("#sectStart");
     sectProf = document.querySelector("#sectProf");
@@ -217,6 +222,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     logoutBtn.addEventListener("click", logout);
     profilUBtnL = document.querySelector("#profilUBtnL");
     profilUBtnL.addEventListener("click",benutzerLoeschen);
+
     //Nachricht
     nachrichtVName = document.querySelector("#nachrichtVName");
     nachrichtNName = document.querySelector("#nachrichtNName");
@@ -292,21 +298,12 @@ function benutzerLoeschen(event:Event){
 }
 function benutzerBearbeitenStart(event: Event){
 event.preventDefault();
-    console.log("bin in der startEdit");
-    formProfilDatenBearbeiten.classList.remove("d-none");
-    axios.get("/benutzer/" + eingeloggterBenutzer)
-        .then((res:AxiosResponse)=>{
-            const benutzer = res.data.benutzer;
-            profilVorname.value = benutzer.vName;
-            profilNachname.value = benutzer.nName;
-            //formProfilDatenBearbeiten.dataset.email = benutzer.email;
-            profilUBtnA.classList.remove("d-none");
-            profilUBtnB.classList.add("d-none");
-            profilUBtnL.classList.remove("d-none");
 
-
-            }
-        )
+    //formProfilDatenBearbeiten.classList.remove("d-none");
+    profilVorname.removeAttribute("readonly");
+    profilNachname.removeAttribute("readonly");
+    profilUBtnA.classList.remove("d-none");
+    profilUBtnB.classList.add("d-none");
 
 }
 function benutzerAendern(event:Event){
@@ -321,7 +318,6 @@ function benutzerAendern(event:Event){
         nName: nName,
         email: email
     }).then((res:AxiosResponse)=>{
-
         profilNachname.setAttribute("readonly","true");
         profilVorname.setAttribute("readonly","true");
         feedbackProfU.innerText = "Nutzerdaten erfolgreich geupdated.";
@@ -333,11 +329,18 @@ function benutzerAendern(event:Event){
     })
 
 }
-/*
-function benutzerAuslesen(event:Event){
+
+function benutzerAuslesen(){
     event.preventDefault();
+
+    axios.get("/benutzer/"+eingeloggterBenutzer)
+        .then((res:AxiosResponse)=>{
+            const benutzer = res.data.benutzer;
+            profilVorname.value = benutzer.vName;
+            profilNachname.value = benutzer.nName;
+        });
 }
-*/
+
 //Funktionen Nachrichten
 function nachrichtHinzufuegen(event:Event){
     event.preventDefault();
@@ -372,23 +375,17 @@ function nachrichtHinzufuegen(event:Event){
 function login(event:Event){
             event.preventDefault();
             const data: FormData = new FormData(formLogin);
-            const email: string = data.get("loginName").toString();
+            //const email: string = data.get("loginName").toString();
 
-
-            console.log(email + " vom formLogin");
             axios.post("/login", {
                 loginName: data.get("loginName"),
                 loginPasswort: data.get("loginPasswort")
             })
                 .then((res: AxiosResponse) => {
-
+                    eingeloggterBenutzer = data.get("loginName").toString();
+                    formLogin.reset();
                     sectLog.classList.add("d-none");
                     sectProf.classList.remove("d-none");
-
-                    eingeloggterBenutzer = data.get("loginName").toString();
-                    console.log(eingeloggterBenutzer+ " wurde gespeichert");
-                    formLogin.reset();
-
                     console.log("Anmeldung erfolgreich bruh");
 
 
@@ -404,7 +401,9 @@ function login(event:Event){
                         console.log("Anmeldung nicht erfolgreich else vom .catch");
                     }
                 })
-        }
+
+
+}
 function logout(event:Event){
     event.preventDefault();
     axios.post("/logout")
@@ -449,6 +448,7 @@ function zurueckNachhause(event:Event){
 function zumLogin (event:Event){
     event.preventDefault();
     if(eingeloggterBenutzer!==""){
+
         sectProf.classList.remove("d-none");
         sectStart.classList.add("d-none");
         sectLog.classList.add("d-none");
