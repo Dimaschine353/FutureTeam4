@@ -47,7 +47,6 @@ a {
 
 a:hover {
     color: #d9765f;
-    text-decoration: underline;
 }
 
 
@@ -323,7 +322,7 @@ footer {
 }
 
 .zoomEffekt {
-    padding: 1rem;
+    padding: 3rem;
     transition: transform .5s;
     margin: 0 auto;
 }
