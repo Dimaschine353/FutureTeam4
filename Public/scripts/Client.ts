@@ -94,6 +94,7 @@ let sectCheck: HTMLElement;
 let sectReg: HTMLElement;
 let sectLog: HTMLElement;
 let sectKont: HTMLElement;
+let sectImpr: HTMLElement;
 //Deklaration Nav Leiste
 let navHome: HTMLElement;
 let navLogin: HTMLElement;
@@ -101,6 +102,8 @@ let navWarenkorb: HTMLElement;
 let navÜber: HTMLElement;
 let navService: HTMLElement;
 let navKontakt: HTMLElement;
+//Deklaration Footer
+let impressum: HTMLElement;
 //Deklaration Forms
 let feedbackReg: HTMLElement;
 let feedbackProfU: HTMLElement;
@@ -145,6 +148,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     sectReg = document.querySelector("#sectReg");
     sectLog = document.querySelector("#sectLog");
     sectKont = document.querySelector("#sectKont");
+    sectImpr = document.querySelector("#sectImpr")
     //Startcontent Einstellung
     sectProf.classList.add("d-none");
     //sectDet.classList.add("d-none");
@@ -155,6 +159,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     sectÜber.classList.add("d-none");
     sectKont.classList.add("d-none");
     sectServ.classList.add("d-none");
+    sectImpr.classList.add("d-none");
     //Initialisierung Nav Leiste
     navHome = document.querySelector("#navHome");
     navHome.addEventListener("click",zurückNachhause);
@@ -168,6 +173,9 @@ document.addEventListener("DOMContentLoaded",()=>{
     navÜber.addEventListener("click",zuÜber);
     navKontakt = document.querySelector("#navKontakt");
     navKontakt.addEventListener("click",zumKontakt);
+    //Initialisierung Footer
+    impressum = document.querySelector("#zumImpressum");
+    impressum.addEventListener("click",zumImpr);
     //Initialisierung Forms
     feedbackLogin = document.querySelector("#feedbackLogin");
     feedbackReg = document.querySelector("#feedbackRegistrieren");
@@ -253,6 +261,7 @@ function benutzerLöschen(event:Event){
             sectReg.classList.add("d-none");
             sectLog.classList.add("d-none");
             sectProf.classList.add("d-none");
+            sectImpr.classList.add("d-none");
 
 
         }).catch((err: AxiosError)=>{
@@ -392,6 +401,7 @@ function logout(event:Event){
             sectReg.classList.add("d-none");
             sectLog.classList.add("d-none");
             sectKont.classList.add("d-none");
+            sectImpr.classList.add("d-none");
             alert("Sie wurden ausgeloggt :o")
 
         });
@@ -413,6 +423,7 @@ function zurückNachhause(event:Event){
     sectReg.classList.add("d-none");
     sectLog.classList.add("d-none");
     sectKont.classList.add("d-none");
+    sectImpr.classList.add("d-none");
 }
 function zumLogin (event:Event){
     event.preventDefault();
@@ -426,6 +437,7 @@ function zumLogin (event:Event){
         sectCheck.classList.add("d-none");
         sectReg.classList.add("d-none");
         sectKont.classList.add("d-none");
+        sectImpr.classList.add("d-none");
     }else{
         sectLog.classList.remove("d-none");
         sectStart.classList.add("d-none");
@@ -436,6 +448,7 @@ function zumLogin (event:Event){
         sectCheck.classList.add("d-none");
         sectReg.classList.add("d-none");
         sectKont.classList.add("d-none");
+        sectImpr.classList.add("d-none");
     }
 
 
@@ -451,6 +464,7 @@ function zumWarenkorb (event:Event){
     sectLog.classList.add("d-none");
     sectKont.classList.add("d-none");
     sectStart.classList.add("d-none");
+    sectImpr.classList.add("d-none");
 
     }
 function zumService (event:Event){
@@ -465,6 +479,7 @@ function zumService (event:Event){
         sectLog.classList.add("d-none");
         sectKont.classList.add("d-none");
         sectStart.classList.add("d-none");
+        sectImpr.classList.add("d-none");
     }
 function zuÜber(event:Event){
     event.preventDefault();
@@ -478,6 +493,7 @@ function zuÜber(event:Event){
         sectLog.classList.add("d-none");
         sectKont.classList.add("d-none");
         sectStart.classList.add("d-none");
+        sectImpr.classList.add("d-none");
     }
 function zumKontakt(event:Event){
     event.preventDefault();
@@ -491,7 +507,7 @@ function zumKontakt(event:Event){
         sectReg.classList.add("d-none");
         sectLog.classList.add("d-none");
         sectStart.classList.add("d-none");
-
+        sectImpr.classList.add("d-none");
     }
 function zumReg(event:Event){
     event.preventDefault();
@@ -504,7 +520,21 @@ function zumReg(event:Event){
     sectCheck.classList.add("d-none");
     sectLog.classList.add("d-none");
     sectStart.classList.add("d-none");
+    sectImpr.classList.add("d-none");
 
+
+}
+function zumImpr(event:Event){
+    event.preventDefault();
+    sectImpr.classList.remove("d-none");
+    sectProf.classList.add("d-none");
+    sectDet.classList.add("d-none");
+    sectÜber.classList.add("d-none");
+    sectServ.classList.add("d-none");
+    sectWar.classList.add("d-none");
+    sectCheck.classList.add("d-none");
+    sectLog.classList.add("d-none");
+    sectStart.classList.add("d-none");
 
 }
 
