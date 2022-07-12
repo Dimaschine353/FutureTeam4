@@ -84,6 +84,8 @@
                     
                     
 //Deklaration Sections
+
+
 let sectStart: HTMLElement;
 let sectProf: HTMLElement;
 let sectDet: HTMLElement;
@@ -108,9 +110,11 @@ let impressum: HTMLElement;
 let feedbackReg: HTMLElement;
 let feedbackProfU: HTMLElement;
 let feedbackLogin: HTMLElement;
+let feedbackNachricht: HTMLElement;
 let formRegistrieren: HTMLFormElement;
 let formLogin: HTMLFormElement;
 let formProfilDatenBearbeiten: HTMLFormElement;
+let formKontakt: HTMLFormElement;
 //Deklaration globale Variablen
 let eingeloggterBenutzer:String;
 //Registrieren
@@ -134,7 +138,7 @@ let nachrichtVName: HTMLInputElement;
 let nachrichtNName: HTMLInputElement;
 let nachrichtEmail: HTMLInputElement;
 let nachrichtBetreff: HTMLInputElement;
-let nachricht: HTMLInputElement;
+let nachrichtEin: HTMLInputElement;
 //Listener
 document.addEventListener("DOMContentLoaded",()=>{
     //initialisierung Sect
@@ -180,9 +184,11 @@ document.addEventListener("DOMContentLoaded",()=>{
     feedbackLogin = document.querySelector("#feedbackLogin");
     feedbackReg = document.querySelector("#feedbackRegistrieren");
     feedbackProfU = document.querySelector("#feedbackProfildatenBearbeiten");
+    feedbackNachricht = document.querySelector("#feedbackNachricht");
     formRegistrieren = document.querySelector("#formRegistrieren");
     formLogin = document.querySelector("#formLogin");
     formProfilDatenBearbeiten = document.querySelector("#formProfildatenBearbeiten");
+    formKontakt = document.querySelector("#formKontakt");
     //Initialisierung Variablen
 
     //Initialisierung globaler Variablen
@@ -215,7 +221,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     nachrichtNName = document.querySelector("#nachrichtNName");
     nachrichtEmail = document.querySelector("#nachrichtEmail");
     nachrichtBetreff = document.querySelector("#nachrichtBetreff");
-    nachricht = document.querySelector("#nachricht");
+    nachrichtEin = document.querySelector("#nachricht");
 });
 //Funktionen Benutzer
 function benutzerHinzufügen(event:Event){
@@ -322,29 +328,28 @@ function benutzerAuslesen(event:Event){
 //Funktionen Nachrichten
 function nachrichtHinzufügen(event:Event){
     event.preventDefault();
-    /*
-    const vName: string = regVorname.value;
-    const nName: string = regNachname.value;
-    const email: string = regEmail.value;
-    const passwort: string = regPasswort.value;
-        axios.post("/benutzer", {
-                  vName: vName,
-                  nName: nName,
-                  email: email,
-                  passwort: passwort
-              }).then((res: AxiosResponse)=>{
-                  formRegistrieren.reset();
-                  if(res.status == 201) {
-                      feedbackReg.innerText = "Benutzer erfolgreich registriert";
-                      setTimeout(feedbackRegLöschen,1000);
-                      sectReg.classList.add("d-none");
-                      sectLog.classList.remove("d-none");
-                  }
-              }).catch((error: AxiosError)=>{
-                  feedbackReg.innerText = "Registrierung nicht möglich";
-                  setTimeout(feedbackRegLöschen,1000);
-              });
-    */
+
+    const vName: string = nachrichtVName.value;
+    const nName: string = nachrichtNName.value;
+    const email: string = nachrichtEmail.value;
+    const betreff: string = nachrichtBetreff.value;
+    const nachricht: string = nachrichtEin.value;
+    axios.post("/nachricht",{
+        vName: vName,
+        nName: nName,
+        email: email,
+        betreff: betreff,
+        nachricht: nachricht
+    }).then((res:AxiosResponse)=>{
+        //Forms einfügen um diese resetten zu können??
+        formKontakt.reset;
+        if(res.status==201){
+            feedbackNachricht.innerText="Ihre Nachricht wurde gesendet.";
+            setTimeout(feedbackNachrichtLöschen,1000);
+        }
+    }).catch((error: AxiosError)=>{
+        //feedback
+    });
 }
 
 
@@ -410,6 +415,7 @@ function logout(event:Event){
 function feedbackProfULöschen(){feedbackProfU.innerText="";}
 function feedbackRegLöschen(){feedbackReg.innerText="";}
 function feedbackLoginLöschen(){feedbackLogin.innerText="";}
+function feedbackNachrichtLöschen(){feedbackNachricht.innerText="";}
 //Navleisten Funktionen
 function zurückNachhause(event:Event){
     event.preventDefault();
