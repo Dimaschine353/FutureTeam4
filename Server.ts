@@ -24,11 +24,13 @@ class Nachricht{
     vName: string;
     nName: string;
     email: string;
+    betreff: string;
     inhalt: string;
-    constructor(vName:string, nName:string, email:string, inhalt:string) {
+    constructor(vName:string, nName:string, email:string,betreff:string, inhalt:string) {
         this.vName = vName;
         this.nName = nName;
         this.email = email;
+        this.betreff = betreff;
         this.inhalt = inhalt;
     }
 }
@@ -89,6 +91,8 @@ app.post("/benutzer",postBenutzer);
 app.get("/benutzer/:email",checkLogin,getBenutzer);
 app.delete("/benutzer/:email",checkLogin,deleteBenutzer);
 app.put("/benutzer/:email",checkLogin,putBenutzer);
+//Routen Nachricht
+app.post("/nachricht",postNachricht);
 
 ///Alle Log- in 'n - out funktionen
 
@@ -253,6 +257,28 @@ function putBenutzer(req: express.Request, res:express.Response):void{
         res.send("benutzer nicht gefunden");
     }
 
+}
+//Funktionen Nachricht
+function postNachricht(req: express.Request, res:express.Response):void{
+    const vName: string = req.body.vName;
+    const nName: string = req.body.nName;
+    const email: string = req.body.email;
+    const betreff: string = req.body.betreff
+    const inhalt: string = req.body.inhalt;
+    const param = [vName,nName,email,betreff,inhalt];
+    const sql = "INSERT INTO nachrichten (vName, nName, email, betreff, inhalt) VALUES(?,?,?,?,?)";
+    if(vName===undefined || nName===undefined || email===undefined || betreff===undefined || inhalt===undefined){
+        //console.log("einer der werte fehlt");
+        res.status(400).send("Einer der Parameter fehlt");
+    }else{
+        connection.query(
+            sql,
+            param,
+            (err:MysqlError | null, result:any) => {
+                res.status(201).send({result});
+            }
+        );
+    }
 }
 
 

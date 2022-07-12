@@ -1,0 +1,27 @@
+POST /nachricht HTTP/2
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "vName": "Apache",
+  "nName": "Bleibt Gleich",
+  "email": "apache@bleibtgleich.de",
+  "betreff": "Treppenhaus",
+  "inhalt": "Rmmmmm, Rmmmm!"
+}
+
+###
+
+POST /nachricht HTTP/2
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "vName": "Apache",
+  "nName": "Bleibt Gleich",
+  "email": "apache@bleibtgleich.de",
+  "betreff":"xyz",
+  "inhalt": "DROP TABLE nachrichten"
+}
+
+###
