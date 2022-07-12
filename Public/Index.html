@@ -16,6 +16,8 @@
     <script src="/cMe/scripts/Client.js"></script>
 </head>
 <body class="background fontLuxKnives">
+<div class="content">
+    <div class="content-inside">
 <!-- NavBar -->
 <div id="navBar">
     <div class="container-fluid p-0 nav">
@@ -54,70 +56,15 @@
                                 </a>
                             </div>
                             <div class="col d-flex justify-content-center px-3">
-
                                 <a href="#" >
                                     <img id="navLogin" class="icon-centered icon-style" src="/cMe/SVGIcons/user.svg" alt="Profil Icon"/>
                                 </a>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- alte navbar -->
-        <!--
-        <div class="nav row align-items-center">
-            <div class="nav-item col-3 d-flex justify-content-center">
-                <a class="nav-link" href="#">Handgefertigte Messer</a>
-            </div>
-            <div class="nav-item col-2 d-flex justify-content-start">
-                <a class="nav-link" href="#">Über Uns</a>
-            </div>
-            <a class="nav-item d-flex flex-wrap col-1 justify-content-center" href="#">
-                <img src="images/LuxKnivesLogoNew.PNG" alt="LuxKnives Logo" width="100%">
-            </a>
-            <div class="nav-item col-1 d-flex justify-content-center">
-                <a class="nav-link" href="#">Galerie</a>
-            </div>
-            <div class="nav-item col-1 d-flex justify-content-center">
-                <a class="nav-link" href="#">Service</a>
-            </div>
-            <div class="nav-item col-1 d-flex justify-content-center">
-                <a class="nav-link" href="#">Kontakt</a>
-            </div>
-            <div class="nav-item col d-flex justify-content-center">
-                <img class="icon-centered icon-style" src="SVGIcons/shopping-basket.svg" alt="Warenkorb Icon"/>
-            </div>
-            <div class="nav-item col d-flex justify-content-center">
-                <img class="icon-centered icon-style" src="SVGIcons/user.svg" alt="Profil Icon"/>
-            </div>
-        </div>
-        -->
-
-        <!--
-        <ul class="nav justify-content-around">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Handgefertigte Messer</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Über Uns</a>
-            </li>
-            <a class="navbar-brand" href="#">
-                <img src="images/LuxKnivesLogoNew.PNG" alt="LuxKnives Logo" width="5%">
-            </a>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Galerie</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Service</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Kontakt</a>
-            </li>
-        </ul>
-        -->
     </div>
 </div>
 <!-- Startseite / Landingpage -->
@@ -127,35 +74,42 @@
             <img src="/cMe/images/landingpageMesser.png" width="100%" alt="Messer Bild Landingpage">
             <div class="top-left">QUALITY</div>
             <div class="top-left2">FIRST</div>
-            <a id="bearbeitenBtnQualityfirst" class="btn btn-luxknives bearbeitenButtonBR1"><img src="/cMe/SVGIcons/pen.svg" class="icon-centered icon-style"></a>
         </div>
     </div>
     <div id="handgefertigte">
         <div class="container-fluid p-0 position-relative">
-            <img src="/cMe/images/Messer2.png" width="100%" alt="Nakiri Musashi Messer">
+            <img src="/cMe/images/Messer2.png" width="100%" alt="Nakiri Musashi Messer" onmouseover="">
             <div class="container-fluid p-0">
-                <div class="row p-0">
+                <div class="row p-0 justify-content-end">
                     <div class="col-6 leftTransBox">
                         <div class="">
                             <div>
                                 <h1>Handgefertigte Messer</h1>
                             </div>
                             <div class="padding-zoom">
-                                <div class="zoomEffekt">
-                                    <a href="#" class="zoom-aStyle">Nakiri Musashi</a>
-                                </div>
-                                <div class="zoomEffekt">
-                                    <a href="#" class="zoom-aStyle">Santoku Kenshin</a>
-                                </div>
-                                <div class="zoomEffekt">
-                                    <a href="#" class="zoom-aStyle">Sujihinki Masako</a>
-                                </div>
+                                <a id="startNakiri" href="#" class="zoom-aStyle">
+                                    <div class="zoomEffekt">
+                                        <p>Nakiri Musashi</p>
+                                    </div>
+                                </a>
+                                <a id="startSantoku" href="#" class="zoom-aStyle">
+                                    <div class="zoomEffekt">
+                                        Santoku Kenshin
+                                    </div>
+                                </a>
+                                <a id="startSujihinki" href="#" class="zoom-aStyle">
+                                    <div class="zoomEffekt">
+                                        Sujihinki Masako
+                                    </div>
+                                </a>
                             </div>
                         </div>
-                        <a id="bearbeitenBtnHandgefertigte" class="btn btn-luxknives bearbeitenButtonBL"><img src="/cMe/SVGIcons/pen.svg" class="icon-centered icon-style"></a>
                     </div>
                     <div class="col-6">
-
+                        <div class="imageFlipper">
+                            <img src="/cMe/images/knivemuser1.jpeg" width="100%" alt="test bild">
+                            <img src="/cMe/images/Messer1" width="100%" alt="test bild">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -185,32 +139,31 @@
                         </div>
                     </div>
                 </div>
-                <a id="bearbeitenBtnPhilo" class="btn btn-luxknives bearbeitenButtonBR2"><img src="/cMe/SVGIcons/pen.svg" class="icon-centered icon-style"></a>
             </div>
         </div>
     </div>
 
     <div id="content">
         <div class="container-fluid p-0 pt-3 d-flex justify-content-center position-relative">
-            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div id="carouselContent" class="carousel slide" data-bs-interval="false">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <video width="320" height="240" controls>
+                        <video width="960px" controls>
                             <source src="/cMe/videos/pexels-arvin-latifi-6466763.mp4" type="video/mp4">
                         </video>
                     </div>
                     <div class="carousel-item">
-                        <video width="320" height="240" controls>
+                        <video width="960px" controls>
                             <source src="/cMe/videos/pexels-nothing-ahead-10505868.mp4" type="video/mp4">
                         </video>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselContent"
                         data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselContent"
                         data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
@@ -1537,7 +1490,8 @@
 
 </div>
 </section>
-
+    </div>
+</div>
 <footer>
     <nav class="navbar-expand-lg luxKnivesFooterStyle">
         <div class="">
