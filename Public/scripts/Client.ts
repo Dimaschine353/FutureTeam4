@@ -225,7 +225,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     nachrichtEin = document.querySelector("#nachrichtEin");
     nachrichtBtnA = document.querySelector("#nachrichtBtnA");
     nachrichtBtnA.addEventListener("click",nachrichtHinzufuegen);
-    nachrichtBtnA.addEventListener("click", nachrichtHinzufügen);
+    nachrichtBtnA.addEventListener("click", nachrichtHinzufuegen);
 
     //Startseite/Landingpage
     startNakiri = document.querySelector("#startNakiri");
@@ -241,33 +241,33 @@ function benutzerHinzufuegen(event:Event){
     const nName: string = regNachname.value;
     const email: string = regEmail.value;
     const passwort: string = regPasswort.value;
-        axios.post("/benutzer", {
+    axios.post("/benutzer", {
                   vName: vName,
                   nName: nName,
                   email: email,
                   passwort: passwort
               }).then((res: AxiosResponse)=>{
                   formRegistrieren.reset();
-                  if(res.status == 201) {
+
                       feedbackReg.innerText = "Benutzer erfolgreich registriert";
                       setTimeout(feedbackRegLoeschen,1000);
                       sectReg.classList.add("d-none");
                       sectLog.classList.remove("d-none");
+
+              }).catch((err: AxiosError)=>{
+                  if(err!==null){
+                      feedbackReg.innerText = "Registrierung nicht moeglich";
+                      setTimeout(feedbackRegLoeschen,1000);
                   }
-              }).catch((error: AxiosError)=>{
-                  feedbackReg.innerText = "Registrierung nicht moeglich";
-                  setTimeout(feedbackRegLoeschen,1000);
+
               });
           }
 function benutzerLoeschen(event:Event){
     event.preventDefault();
-
-    const email: String = eingeloggterBenutzer;
-
-    axios.delete("/benutzer/"+email)
+    axios.delete("/benutzer/"+eingeloggterBenutzer)
         .then((res: AxiosResponse)=>{
-            console.log("Ihr Account wurde erfolgreich gelöscht");
-
+            alert("Benutzer "+eingeloggterBenutzer+" wurde gelöscht.")
+            eingeloggterBenutzer = "";
             sectStart.classList.remove("d-none");
             sectDet.classList.add("d-none");
             sectUeber.classList.add("d-none");
@@ -282,7 +282,10 @@ function benutzerLoeschen(event:Event){
 
 
         }).catch((err: AxiosError)=>{
-
+            if(err!==null){
+                feedbackProfU.innerText="Löschen nicht möglich."
+                setTimeout(feedbackProfULoeschen,1000);
+            }
     });
 
 
@@ -333,9 +336,11 @@ function benutzerAendern(event:Event){
     })
 
 }
+/*
 function benutzerAuslesen(event:Event){
     event.preventDefault();
 }
+*/
 //Funktionen Nachrichten
 function nachrichtHinzufuegen(event:Event){
     event.preventDefault();
@@ -353,12 +358,15 @@ function nachrichtHinzufuegen(event:Event){
     }).then((res:AxiosResponse)=>{
         //Forms einfügen um diese resetten zu können??
         formKontakt.reset();
-        if(res.status==201){
             feedbackNachricht.innerText="Ihre Nachricht wurde gesendet.";
             setTimeout(feedbackNachrichtLoeschen,1000);
+
+    }).catch((err: AxiosError)=>{
+        if(err!==null){
+            feedbackNachricht.innerText="Nachricht kann nicht gesendet werden.";
+            setTimeout(feedbackNachrichtLoeschen,1000);
+
         }
-    }).catch((error: AxiosError)=>{
-        //feedback
     });
 }
 
@@ -389,7 +397,7 @@ function login(event:Event){
 
                 })
                 .catch((err: AxiosError)=>{
-                    if(err.response.status = 404){
+                    if(err.response.status == 404){
                         feedbackLogin.innerText = "Login nicht möglich."
                         setTimeout(feedbackLoginLoeschen,1000);
                         console.log("Anmeldung nicht erfolgreich if vom .catch");

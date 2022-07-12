@@ -108,7 +108,7 @@
                     <div class="col-6">
                         <div class="imageFlipper">
                             <img src="/cMe/images/knivemuser1.jpeg" width="100%" alt="test bild">
-                            <img src="/cMe/images/Messer1" width="100%" alt="test bild">
+                            <!--<img src="/cMe/images/Messer1" width="100%" alt="test bild">-->
                         </div>
                     </div>
                 </div>
@@ -929,6 +929,7 @@
     </div>
 
     <!-- AGB checkbox -->
+
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text">Ich habe die AGB's gelesen und akzeptiert</span>
@@ -1212,13 +1213,13 @@
 <div id="registrieren">
 
     <!--Feedback nach Reg-->
-    <div class="row "name="feedbackNachReg">
+    <div class="row ">
         <div class="col">
             <p id="feedbackRegistrieren"></p>
         </div>
     </div>
 
-    <form class="d-flex justify-content-center" id="formRegistrieren">
+<form class="d-flex justify-content-center" id="formRegistrieren">
 <div class="card col-4 rashunique">
     <div class="card-body">
         <div class="col text-center">
@@ -1228,7 +1229,7 @@
         <div class="row d-flex justify-content-center">
             <div>
                 <p class="pmelden align-content-start">Vorname</p>
-                <input type="text" class="rashinput form-control" name="regVorname"
+                <input  type="text" class="rashinput form-control" name="regVorname"
                        aria-label="Vorname" required>
             </div>
         </div>
@@ -1236,7 +1237,7 @@
         <div class="row d-flex justify-content-center">
             <div>
                 <p class="pmelden align-content-start">Nachname</p>
-                <input type="text" class="rashinput form-control" name="regVorname"
+                <input type="text" class="rashinput form-control" name="regNachname"
                        aria-label="Vorname" required>
                 </div>
         </div>
@@ -1245,33 +1246,35 @@
         <div class="row d-flex justify-content-center">
         <div>
             <p class="pmelden align-content-start">E-Mail</p>
-            <input type="email" class="rashinput form-control"
-                   name="loginName"
+            <input  type="email" class="rashinput form-control"
+                   name="regE-mail"
                    aria-label="E-mail"
                    required="">
         </div>
 
             <div class="row d-flex align-content-start">
                 <p class="pmelden align-content-start">Passwort</p>
-                <input type="password" class="rashinput form-control" name="regE-mail"
-                       aria-label="Email" required>
+                <input id="passwort" type="password" class="rashinput form-control" name="regPasswort"
+                       aria-label="Passwort" required>
             </div>
-
+            <!--
             <div class="row d-flex align-content-start">
                 <p class="pmelden align-content-start">Passwort wiederholen</p>
                 <input type="password" class="rashinput form-control" name="regE-mail"
                        aria-label="Email" required>
             </div>
 
+
             <div class="row d-flex justify-content-center">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="agbcheck">
                     <label class="form-check-label" for="agbcheck">
 
-                        <p>Ich stimme den AGB und Datenschutzrichtlinien zu.</p>
+                      <p>Ich stimme den AGB und Datenschutzrichtlinien zu.</p>
                     </label>
                 </div>
             </div>
+            -->
 
         </div>
         <div class="row d-flex justify-content-center" id="regBtnstyle">
