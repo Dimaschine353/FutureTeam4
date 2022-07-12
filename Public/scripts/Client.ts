@@ -247,7 +247,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 
 
-    //Startseite/Landingpage Foto
+    //Startseite/Landingpage FotoFlipper
     startNakiri.addEventListener('mouseover', (event) => {
         startIMGFlipper.src = "/cMe/images/Messer1.png"
     });
