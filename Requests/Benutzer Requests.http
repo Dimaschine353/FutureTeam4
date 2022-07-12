@@ -45,8 +45,14 @@ DELETE /benutzer/artir.guri@outlook.de HTTP/2
 Host: localhost:8080
 
 
+###
 ###nachher in Nachrichten http auslagern - mit git wird momentan overwritten?
 ###NACHRICHTEN
-
 DELETE /nachrichten/abcd HTTP/2
 Host: localhost:8080
+
+###
+DELETE /nachrichten/abc HTTP/2
+Host: localhost:8080
+Cookie: connect.sid=s:Be61dO5tYJiwiL1_jq3fvBvyPTEad2GN.jlB0pvaVS3s0Ez8YE6y+cyfXJwtrpDWl5yakmCXHa3M
+###aktuelle connect.sid aus devtools > network > Cookie rausnehmen ( direkt nachdem man sich eingeloggt hat)
