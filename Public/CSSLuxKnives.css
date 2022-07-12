@@ -191,6 +191,24 @@ h5 {
     background-image: url('/cMe/images/christian-buehner-KCLqSvoUdxw-unsplash.jpg');
 }
 
+.fill5 {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    height: 280px;
+    margin-bottom: 40px;
+    background-image: url('/cMe/images/pexels-luis-quintero-1659746.jpg');
+}
+
+.fill6 {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    width: 700px;
+    height: 280px;
+    background-image: url('/cMe/images/pexels-andrea-piacquadio-3822900.jpg');
+}
+
 .cardmargin {
     margin-bottom: 40px;
 }
@@ -372,6 +390,18 @@ footer {
     border-radius: 1px;
     padding: 2rem;
     margin: 3rem;
+}
+
+.rashunique1 {
+    border-color: #595859;
+    border-radius: 1px;
+    margin: 3rem;
+}
+
+.rashunique2 {
+    border-color: #595859;
+    border-radius: 1px;
+    margin-top: 1rem;
 }
 
 .rashinput {
@@ -574,3 +604,57 @@ footer {
     height: 50px;
     margin-top: -50px;
 }
+
+#h1service {
+    padding-bottom: 20px;
+}
+
+.rowrow {
+    height: 100px;
+}
+
+#machmamargin {
+    margin-top: 60px;
+}
+
+.btncalendar {
+    height: 35px;
+    width: 35px;
+    filter: invert(57%) sepia(65%) saturate(6269%) hue-rotate(345deg) brightness(88%) contrast(91%);
+}
+
+.btncalendar:hover {
+    cursor: pointer;
+}
+
+.klassecard {
+    margin-top: 5px;
+    border: solid;
+    border-width: 2px;
+    border-color: #f0f0f2;
+}
+
+.klasserow {
+    border:solid;
+    border-bottom-width: 2px;
+    border-color: #f0f0f2;
+}
+
+.klasserow2 {
+    border:solid;
+    border-top-width: 2px;
+    border-color: #f0f0f2;
+}
+
+.klassecol {
+    border:solid;
+    border-right-width: 2px;
+    border-color: #f0f0f2;
+}
+
+.klassecol2 {
+    border: solid;
+    border-left-width: 2px;
+    border-color: #f0f0f2;
+}
+
