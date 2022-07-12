@@ -25,5 +25,34 @@ Content-Type: application/json
 {
   "vName": "ApacheEdit",
   "nName": "BleibtEdit",
-  "passwert": "edit1234"
+  "passwort": "edit1234"
 }
+###
+
+
+POST /benutzer HTTP/2
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "vName": "Artir",
+  "nName": "Guri",
+  "email": "artir.guri@outlook.de",
+  "passwort": "1234"
+}
+###
+DELETE /benutzer/artir.guri@outlook.de HTTP/2
+Host: localhost:8080
+
+
+###
+###nachher in Nachrichten http auslagern - mit git wird momentan overwritten?
+###NACHRICHTEN
+DELETE /nachrichten/abcd HTTP/2
+Host: localhost:8080
+
+###
+DELETE /nachrichten/abc HTTP/2
+Host: localhost:8080
+Cookie: connect.sid=s:Be61dO5tYJiwiL1_jq3fvBvyPTEad2GN.jlB0pvaVS3s0Ez8YE6y+cyfXJwtrpDWl5yakmCXHa3M
+###aktuelle connect.sid aus devtools > network > Cookie rausnehmen ( direkt nachdem man sich eingeloggt hat)

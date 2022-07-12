@@ -65,6 +65,7 @@ app.listen(8080);
 //notwendige übergabeparameter für JSON und URLencoded
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: false}));
 //Implementierung Session
 app.use(session({
     cookie: {
@@ -131,7 +132,7 @@ function checkLogin(req: express.Request, res:express.Response, next: express.Ne
         next();
         console.log("Der User ist eingeloggt und berechtigt");
     }else{
-        console.log("User ist nciht eingelogt");
+        console.log("User ist nicht eingelogt");
         res.status(401);
     }
 
@@ -286,5 +287,132 @@ function postNachricht(req: express.Request, res:express.Response):void{
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Routen Nachricht
+app.delete("/nachrichten/:betreff", checkLogin, deleteNachricht);
+
+//Funktionen Nachricht 9:00
+function deleteNachricht(req: express.Request, res:express.Response):void{
+    //warum fehler?
+    const betreff: string = req.params.betreff;
+    const email: string = req.session.uname;
+
+    const param = [betreff, email];
+    const sql = "DELETE FROM nachrichten WHERE betreff = ? AND email = ?"
+
+    if(betreff === undefined){
+        res.status(400);
+        res.send("Keine zu löschende Nachricht");
+        console.log("if betreff");
+    }else if (email === undefined){
+        res.status(500);
+        res.send("Keine verknüpfte Email zur Nachricht ")
+        console.log("else if email undefined");
+    }
+    else if(email){
+        connection.query(
+            sql,
+            param,
+            (err:mysql.MysqlError| null, results: any)=>{
+                res.status(200);
+                res.send("Nachricht gelöscht");
+                console.log("else if email ");
+            }
+        )
+    }else{
+        res.status(500);
+        res.send("Benutzer hat keine Session");
+        console.log("else");
+    }
+
+}
 
 
