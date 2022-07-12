@@ -108,6 +108,7 @@ let impressum: HTMLElement;
 let startNakiri: HTMLElement;
 let startSantoku: HTMLElement;
 let startSujihinki: HTMLElement;
+let startIMGFlipper: HTMLImageElement;
 //Deklaration Forms
 let feedbackReg: HTMLElement;
 let feedbackProfU: HTMLElement;
@@ -231,8 +232,34 @@ document.addEventListener("DOMContentLoaded",()=>{
     startNakiri = document.querySelector("#startNakiri");
     startSantoku = document.querySelector("#startSantoku");
     startSujihinki = document.querySelector("#startSujihinki");
+    startIMGFlipper = document.querySelector("#produktBildFlipper");
+
+
+
+
+
+
+
+
+
+
+
+    //Startseite/Landingpage FotoFlipper
+    startNakiri.addEventListener('mouseover', (event) => {
+        startIMGFlipper.src = "/cMe/images/Messer1.png"
+    });
+
+    startSantoku.addEventListener('mouseover', (event) => {
+        startIMGFlipper.src = "/cMe/images/Messer2.png"
+    });
+
+    startSujihinki.addEventListener('mouseover', (event) => {
+        startIMGFlipper.src = "/cMe/images/Messer1.png"
+    });
+
+
 });
-//Funktionen Startseite/Landingpage IMG wechsel on hover
+
 
 //Funktionen Benutzer
 function benutzerHinzufuegen(event:Event){
