@@ -43,3 +43,10 @@ Content-Type: application/json
 ###
 DELETE /benutzer/artir.guri@outlook.de HTTP/2
 Host: localhost:8080
+
+
+###nachher in Nachrichten http auslagern - mit git wird momentan overwritten?
+###NACHRICHTEN
+
+DELETE /nachrichten/abcd HTTP/2
+Host: localhost:8080

@@ -90,7 +90,7 @@ app.get("/benutzer/:email",checkLogin,getBenutzer);
 app.delete("/benutzer/:email",checkLogin,deleteBenutzer);
 app.put("/benutzer/:email",checkLogin,putBenutzer);
 //Routen Nachricht
-app.delete("/nachrichten/:inhalt",checkLogin,deleteNachricht);
+app.delete("/nachrichten/:nachricht",deleteNachricht);
 
 ///Alle Log- in 'n - out funktionen
 
@@ -260,22 +260,22 @@ function putBenutzer(req: express.Request, res:express.Response):void{
 //Funktionen Nachricht 9:00
 function deleteNachricht(req: express.Request, res:express.Response):void{
     //warum fehler?
-    const inhalt: string = req.params.inhalt;
+    const betreff: string = req.params.betreff;
     const email: string = req.session.uname;
 
-    const param = [inhalt, email];
-    const sql = "DELETE FROM nachrichten WHERE inhalt = ? AND email = ?"
+    const param = [betreff, email];
+    const sql = "DELETE FROM nachrichten WHERE betreff = ? AND email = ?"
 
-    if(inhalt === undefined){
+    if(betreff === undefined){
         res.status(400);
         res.send("Kein zu löschender Inhalt");
-    }else if(inhalt){
+    }else if(betreff){
         connection.query(
             sql,
             param,
             (err:mysql.MysqlError| null, results: any)=>{
                 res.status(200);
-                res.send("Nachricht gelöscht")
+                res.send("Nachricht gelöscht");
             }
         )
     }
