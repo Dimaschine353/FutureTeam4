@@ -107,7 +107,6 @@ let feedbackProfU: HTMLElement;
 let feedbackLogin: HTMLElement;
 let formRegistrieren: HTMLFormElement;
 let formLogin: HTMLFormElement;
-let formLogout: HTMLFormElement;
 let formProfilDatenBearbeiten: HTMLFormElement;
 //Deklaration globale Variablen
 let eingeloggterBenutzer:String;
@@ -127,6 +126,12 @@ let loginName: HTMLInputElement;
 let loginPasswort: HTMLInputElement;
 let logoutBtn: HTMLInputElement;
 let zumRegistrieren: HTMLElement;
+//Nachricht
+let nachrichtVName: HTMLInputElement;
+let nachrichtNName: HTMLInputElement;
+let nachrichtEmail: HTMLInputElement;
+let nachrichtBetreff: HTMLInputElement;
+let nachricht: HTMLInputElement;
 //Listener
 document.addEventListener("DOMContentLoaded",()=>{
     //initialisierung Sect
@@ -174,14 +179,12 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     //Initialisierung globaler Variablen
     eingeloggterBenutzer = "";
-
     //Registrierung
     regVorname = document.querySelector("#formRegistrieren [name='regVorname']");
     regNachname = document.querySelector("#formRegistrieren [name='regNachname']");
     regEmail = document.querySelector("#formRegistrieren [name='regE-mail']");
     regPasswort = document.querySelector("#formRegistrieren [name='regPasswort']");
     document.querySelector("#formRegistrieren").addEventListener("submit",benutzerHinzufügen);
-
     //Login Feld
     loginName = document.querySelector("#formLogin [name='loginName']");
     loginPasswort = document.querySelector("#formLogin [name='loginPasswort']");
@@ -197,35 +200,35 @@ document.addEventListener("DOMContentLoaded",()=>{
     profilUBtnA.addEventListener("click",benutzerÄndern);
     logoutBtn = document.querySelector("#profilUBtnLogout");
     logoutBtn.addEventListener("click", logout);
-
     profilUBtnL = document.querySelector("#profilUBtnL");
     profilUBtnL.addEventListener("click",benutzerLöschen);
+    //Nachricht
+    nachrichtVName = document.querySelector("#nachrichtVName");
+    nachrichtNName = document.querySelector("#nachrichtNName");
+    nachrichtEmail = document.querySelector("#nachrichtEmail");
+    nachrichtBetreff = document.querySelector("#nachrichtBetreff");
+    nachricht = document.querySelector("#nachricht");
 });
 //Funktionen Benutzer
 function benutzerHinzufügen(event:Event){
-                
-              event.preventDefault();
-              
-              const vName: string = regVorname.value;
-              const nName: string = regNachname.value;
-              const email: string = regEmail.value;
-              const passwort: string = regPasswort.value;
-
-              axios.post("/benutzer", {
+    event.preventDefault();
+    const vName: string = regVorname.value;
+    const nName: string = regNachname.value;
+    const email: string = regEmail.value;
+    const passwort: string = regPasswort.value;
+        axios.post("/benutzer", {
                   vName: vName,
                   nName: nName,
                   email: email,
                   passwort: passwort
               }).then((res: AxiosResponse)=>{
                   formRegistrieren.reset();
-
                   if(res.status == 201) {
                       feedbackReg.innerText = "Benutzer erfolgreich registriert";
                       setTimeout(feedbackRegLöschen,1000);
                       sectReg.classList.add("d-none");
                       sectLog.classList.remove("d-none");
                   }
-
               }).catch((error: AxiosError)=>{
                   feedbackReg.innerText = "Registrierung nicht möglich";
                   setTimeout(feedbackRegLöschen,1000);
@@ -307,6 +310,35 @@ function benutzerÄndern(event:Event){
 function benutzerAuslesen(event:Event){
     event.preventDefault();
 }
+//Funktionen Nachrichten
+function nachrichtHinzufügen(event:Event){
+    event.preventDefault();
+    /*
+    const vName: string = regVorname.value;
+    const nName: string = regNachname.value;
+    const email: string = regEmail.value;
+    const passwort: string = regPasswort.value;
+        axios.post("/benutzer", {
+                  vName: vName,
+                  nName: nName,
+                  email: email,
+                  passwort: passwort
+              }).then((res: AxiosResponse)=>{
+                  formRegistrieren.reset();
+                  if(res.status == 201) {
+                      feedbackReg.innerText = "Benutzer erfolgreich registriert";
+                      setTimeout(feedbackRegLöschen,1000);
+                      sectReg.classList.add("d-none");
+                      sectLog.classList.remove("d-none");
+                  }
+              }).catch((error: AxiosError)=>{
+                  feedbackReg.innerText = "Registrierung nicht möglich";
+                  setTimeout(feedbackRegLöschen,1000);
+              });
+    */
+}
+
+
 //Login 'n out Funkntionen
 function login(event:Event){
             event.preventDefault();

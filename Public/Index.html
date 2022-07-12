@@ -1391,8 +1391,6 @@
     </form>
 
 </section>
-
-
 <!-- Kontakt -->
 <section id="sectKont" class="d-block">
     <div id="kontakt" class="mt-5">
@@ -1403,36 +1401,36 @@
                     <!-- NACHNAME -->
                     <p class="m-0">Nachname</p>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control rashinput" placeholder="" name="kontaktNName"
+                        <input id="nachrichtNName" type="text" class="form-control rashinput" placeholder="" name="kontaktName"
                                aria-label="Nachname" required>
                     </div>
 
                     <!-- VORNAME -->
                     <p class="m-0">Vorname</p>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control rashinput" placeholder="" name="kontaktVName"
+                        <input id="nachrichtVName" type="text" class="form-control rashinput" placeholder="" name="kontaktVName"
                                aria-label="Vorname" required>
                     </div>
 
                     <!-- E-MAIL -->
                     <p class="m-0">E-Mail</p>
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control rashinput" placeholder="" name="regE-mail"
+                        <input id="nachrichtEmail" type="email" class="form-control rashinput" placeholder="" name="regE-mail"
                                aria-label="Email" required>
                     </div>
                 </div>
 
                 <div class="col-5 bg-white borderLuxKnives p-4">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control rashinput" placeholder="Betreff" name="kontaktBetreff"
+                        <input id="nachrichtBetreff" type="text" class="form-control rashinput" placeholder="Betreff" name="kontaktBetreff"
                                aria-label="Betreff" required>
                     </div>
                     <div>
-                        <textarea id="NachrichtSchreiben" class="form-control rashinput" rows="6" aria-label="With textarea" placeholder="Ihre Nachricht..."></textarea>
+                        <textarea id="nachricht" class="form-control rashinput" rows="6" aria-label="With textarea" placeholder="Ihre Nachricht..."></textarea>
                     </div>
                     <!-- Absenden Btn -->
                     <div class="input-group my-3 justify-content-center">
-                        <button type="submit" class="btn btn-luxknives" name="kontaktFormBtn">Absenden</button>
+                        <button id="nachrichtBtnA" type="submit" class="btn btn-luxknives" name="kontaktFormBtn">Absenden</button>
                     </div>
                 </div>
             </div>
@@ -1443,8 +1441,6 @@
 
     </div>
 </section>
-
-
 <!-- Impressum -->
 <div class="container" id="impressum">
     <h1>Impressum</h1>
@@ -1476,6 +1472,7 @@
 
     <p>Quelle: <a href="https://www.e-recht24.de">eRecht24</a></p>
 </div>
+
 <div class="container">
     <h1>
         Quellen der Verwendeten Bilder
