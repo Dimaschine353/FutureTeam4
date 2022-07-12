@@ -247,16 +247,15 @@ function benutzerHinzufuegen(event:Event){
                   email: email,
                   passwort: passwort
               }).then((res: AxiosResponse)=>{
-                  formRegistrieren.reset();
-
-                      feedbackReg.innerText = "Benutzer erfolgreich registriert";
-                      setTimeout(feedbackRegLoeschen,1000);
+                      formRegistrieren.reset();
                       sectReg.classList.add("d-none");
                       sectLog.classList.remove("d-none");
+                      feedbackLogin.innerText = "Benutzer erfolgreich registriert. Bitte loggen Sie sich ein.";
+                      setTimeout(feedbackLoginLoeschen,3000);
 
               }).catch((err: AxiosError)=>{
                   if(err!==null){
-                      feedbackReg.innerText = "Registrierung nicht moeglich";
+                      feedbackReg.innerText = "Registrierung nicht möglich";
                       setTimeout(feedbackRegLoeschen,1000);
                   }
 
@@ -284,7 +283,7 @@ function benutzerLoeschen(event:Event){
         }).catch((err: AxiosError)=>{
             if(err!==null){
                 feedbackProfU.innerText="Löschen nicht möglich."
-                setTimeout(feedbackProfULoeschen,1000);
+                setTimeout(feedbackProfULoeschen,2000);
             }
     });
 
@@ -294,11 +293,7 @@ function benutzerLoeschen(event:Event){
 function benutzerBearbeitenStart(event: Event){
 event.preventDefault();
     console.log("bin in der startEdit");
-
     formProfilDatenBearbeiten.classList.remove("d-none");
-
-
-
     axios.get("/benutzer/" + eingeloggterBenutzer)
         .then((res:AxiosResponse)=>{
             const benutzer = res.data.benutzer;
@@ -306,7 +301,7 @@ event.preventDefault();
             profilNachname.value = benutzer.nName;
             //formProfilDatenBearbeiten.dataset.email = benutzer.email;
             profilUBtnA.classList.remove("d-none");
-            profilUBtnB.classList.add("d-block");
+            profilUBtnB.classList.add("d-none");
             profilUBtnL.classList.remove("d-none");
 
 
@@ -330,6 +325,8 @@ function benutzerAendern(event:Event){
         profilNachname.setAttribute("readonly","true");
         profilVorname.setAttribute("readonly","true");
         feedbackProfU.innerText = "Nutzerdaten erfolgreich geupdated.";
+        profilUBtnB.classList.remove("d-none");
+        profilUBtnA.classList.add("d-none");
         setTimeout(feedbackProfULoeschen,1000);
 
 
