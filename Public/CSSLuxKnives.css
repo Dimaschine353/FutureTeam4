@@ -102,8 +102,17 @@ a:hover {
 .nakiri {
     position: absolute;
     left: 2rem;
-    font-size: 20rem;
-    color: red;
+    font-size: 15rem;
+    color: #D94B2B;
+    mix-blend-mode: lighten;
+    font-family: "Bebas Neue", serif;
+}
+.musashi {
+    position: absolute;
+    left: 2rem;
+    top: 15rem;
+    font-size: 15rem;
+    color: #D94B2B;
     mix-blend-mode: lighten;
     font-family: "Bebas Neue", serif;
 }
@@ -275,7 +284,7 @@ footer {
     top: 2rem;
     left: 4rem;
     font-size: 12rem;
-    color: red;
+    color: #D94B2B;
     mix-blend-mode: lighten;
     font-family: "Bebas Neue", serif;
 }
@@ -285,7 +294,7 @@ footer {
     top: 11rem;
     left: 4rem;
     font-size: 12rem;
-    color: red;
+    color: #D94B2B;
     mix-blend-mode: lighten;
     font-family: "Bebas Neue", serif;
 }
