@@ -106,6 +106,10 @@ let navService: HTMLElement;
 let navKontakt: HTMLElement;
 //Deklaration Footer
 let impressum: HTMLElement;
+//Deklaration Startseite/Landingpage
+let startNakiri: HTMLElement;
+let startSantoku: HTMLElement;
+let startSujihinki: HTMLElement;
 //Deklaration Forms
 let feedbackReg: HTMLElement;
 let feedbackProfU: HTMLElement;
@@ -225,7 +229,14 @@ document.addEventListener("DOMContentLoaded",()=>{
     nachrichtEin = document.querySelector("#nachricht");
     nachrichtBtnA = document.querySelector("#nachrichtBtnA");
     nachrichtBtnA.addEventListener("click", nachrichtHinzufügen);
+
+    //Startseite/Landingpage
+    startNakiri = document.querySelector("#startNakiri");
+    startSantoku = document.querySelector("#startSantoku");
+    startSujihinki = document.querySelector("#startSujihinki");
 });
+//Funktionen Startseite/Landingpage IMG wechsel on hover
+
 //Funktionen Benutzer
 function benutzerHinzufügen(event:Event){
     event.preventDefault();

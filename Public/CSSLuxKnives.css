@@ -47,7 +47,6 @@ a {
 
 a:hover {
     color: #d9765f;
-    text-decoration: underline;
 }
 
 
@@ -322,8 +321,19 @@ footer {
     border: 0;
 }
 
+.landingpageIMG1 {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/cMe/images/pexels-gustavo-fring-4872076%20(1).jpg');
+}
+
+.imageFlipper {
+
+}
+
 .zoomEffekt {
-    padding: 1rem;
+    padding: 3rem;
     transition: transform .5s;
     margin: 0 auto;
 }
