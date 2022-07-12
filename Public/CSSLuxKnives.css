@@ -556,3 +556,21 @@ tbody {
     background-color: #D94B2B;
     border-color: white;
 }
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.content {
+    min-height: 100%;
+}
+
+.content-inside {
+    padding-bottom: 50px;
+}
+
+footer {
+    height: 50px;
+    margin-top: -50px;
+}
