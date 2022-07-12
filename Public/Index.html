@@ -78,7 +78,8 @@
     </div>
     <div id="handgefertigte">
         <div class="container-fluid p-0 position-relative">
-            <img src="/cMe/images/Messer2.png" width="100%" alt="Nakiri Musashi Messer" onmouseover="">
+            <img id="produktBildFlipper" src="/cMe/images/Messer2.png" width="100%" alt="Nakiri Musashi Messer"
+            onmouseover="imageFlipper(this, '/cMe/images/Messer1.png')" onmouseout="imageFlipper(this, '/cMe/images/Messer2.png')">
             <div class="container-fluid p-0">
                 <div class="row p-0 justify-content-end">
                     <div class="col-6 leftTransBox">
@@ -87,7 +88,7 @@
                                 <h1>Handgefertigte Messer</h1>
                             </div>
                             <div class="padding-zoom">
-                                <a id="startNakiri" href="#" class="zoom-aStyle">
+                                <a id="startNakiri" href="#" class="zoom-aStyle" onmouseover="imageFlipper(this, '/cMe/images/Messer2.png')">
                                     <div class="zoomEffekt">
                                         <p>Nakiri Musashi</p>
                                     </div>

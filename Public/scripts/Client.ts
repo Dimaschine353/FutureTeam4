@@ -110,6 +110,7 @@ let impressum: HTMLElement;
 let startNakiri: HTMLElement;
 let startSantoku: HTMLElement;
 let startSujihinki: HTMLElement;
+let startIMGFlipper: HTMLElement;
 //Deklaration Forms
 let feedbackReg: HTMLElement;
 let feedbackProfU: HTMLElement;
@@ -234,9 +235,12 @@ document.addEventListener("DOMContentLoaded",()=>{
     startNakiri = document.querySelector("#startNakiri");
     startSantoku = document.querySelector("#startSantoku");
     startSujihinki = document.querySelector("#startSujihinki");
+    startIMGFlipper = document.querySelector("#produktBildFlipper");
 });
 //Funktionen Startseite/Landingpage IMG wechsel on hover
-
+function imageFlipper(img, src) {
+    img.src = src
+}
 //Funktionen Benutzer
 function benutzerHinzufügen(event:Event){
     event.preventDefault();
