@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 13. Jul 2022 um 11:22
+-- Erstellungszeit: 13. Jul 2022 um 17:25
 -- Server-Version: 10.4.24-MariaDB
 -- PHP-Version: 8.1.6
 
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `benutzer` (
+  `uId` int(11) NOT NULL,
   `vName` varchar(100) NOT NULL,
   `nName` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
@@ -38,8 +39,9 @@ CREATE TABLE `benutzer` (
 -- Daten für Tabelle `benutzer`
 --
 
-INSERT INTO `benutzer` (`vName`, `nName`, `email`, `passwort`) VALUES
-('Dima', 'Skorbyashchenskyy', 'dimaschine@outlook.com', '123');
+INSERT INTO `benutzer` (`uId`, `vName`, `nName`, `email`, `passwort`) VALUES
+(2, 'Alex', 'Schine', 'a.schine@outlook.com', '123'),
+(3, 'Dmytro', 'Skorbyashchenskyy', 'dimaschine@outlook.com', '123');
 
 -- --------------------------------------------------------
 
@@ -48,11 +50,25 @@ INSERT INTO `benutzer` (`vName`, `nName`, `email`, `passwort`) VALUES
 --
 
 CREATE TABLE `nachrichten` (
+  `nId` int(11) NOT NULL,
+  `uId` int(11) NOT NULL,
   `vName` varchar(100) NOT NULL,
   `nNAme` varchar(100) NOT NULL,
-  `email` varchar(100) DEFAULT NULL,
+  `email` varchar(100) NOT NULL,
   `betreff` varchar(100) NOT NULL,
   `nachricht` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `zuordnung benutzer nachrichten`
+--
+
+CREATE TABLE `zuordnung benutzer nachrichten` (
+  `zID` int(11) NOT NULL,
+  `uId` int(11) NOT NULL,
+  `nId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -63,14 +79,44 @@ CREATE TABLE `nachrichten` (
 -- Indizes für die Tabelle `benutzer`
 --
 ALTER TABLE `benutzer`
-  ADD PRIMARY KEY (`email`);
+  ADD PRIMARY KEY (`uId`);
 
 --
 -- Indizes für die Tabelle `nachrichten`
 --
 ALTER TABLE `nachrichten`
-  ADD PRIMARY KEY (`betreff`),
-  ADD KEY `email` (`email`);
+  ADD PRIMARY KEY (`nId`),
+  ADD KEY `uId` (`uId`);
+
+--
+-- Indizes für die Tabelle `zuordnung benutzer nachrichten`
+--
+ALTER TABLE `zuordnung benutzer nachrichten`
+  ADD PRIMARY KEY (`zID`),
+  ADD KEY `uId` (`uId`),
+  ADD KEY `nId` (`nId`);
+
+--
+-- AUTO_INCREMENT für exportierte Tabellen
+--
+
+--
+-- AUTO_INCREMENT für Tabelle `benutzer`
+--
+ALTER TABLE `benutzer`
+  MODIFY `uId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT für Tabelle `nachrichten`
+--
+ALTER TABLE `nachrichten`
+  MODIFY `nId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT für Tabelle `zuordnung benutzer nachrichten`
+--
+ALTER TABLE `zuordnung benutzer nachrichten`
+  MODIFY `zID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints der exportierten Tabellen
@@ -81,6 +127,13 @@ ALTER TABLE `nachrichten`
 --
 ALTER TABLE `nachrichten`
   ADD CONSTRAINT `nachrichten_ibfk_1` FOREIGN KEY (`email`) REFERENCES `benutzer` (`email`);
+
+--
+-- Constraints der Tabelle `zuordnung benutzer nachrichten`
+--
+ALTER TABLE `zuordnung benutzer nachrichten`
+  ADD CONSTRAINT `zuordnung benutzer nachrichten_ibfk_1` FOREIGN KEY (`uId`) REFERENCES `benutzer` (`uId`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `zuordnung benutzer nachrichten_ibfk_2` FOREIGN KEY (`nId`) REFERENCES `nachrichten` (`nId`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

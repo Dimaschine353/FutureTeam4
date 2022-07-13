@@ -14,7 +14,7 @@ class Benutzer{
         this.email = email;
     }
 }
-//kRez
+/*
 class Nachricht{
     vName: string;
     nName: string;
@@ -28,7 +28,7 @@ class Nachricht{
         this.betreff = betreff;
         this.nachricht = nachricht;
     }
-}
+}*/
 //Verbindung zu DB
 const connection: mysql.Connection = mysql.createConnection({
     database:"luxknives"  ,
@@ -91,16 +91,40 @@ app.get("/nachricht/:email",checkLogin,getAlleNachrichten);
 app.post("/nachricht",postNachricht);
 app.delete("/nachricht/:betreff/:email",checkLogin,deleteNachricht);
 //Funktion Login
+/*
 function login(req: express.Request, res: express.Response): void {
-    //Selektiert "nichts", aber unter der Bedingung, dass Name und Passwort stimmen
-    query("SELECT NULL FROM benutzer WHERE email = ? AND passwort = ?",
+       query("SELECT uid FROM benutzer WHERE email = ? AND passwort = ?",
         [req.body.loginName, req.body.loginPasswort])
         .then((results: any) => {
             //Wenn Eintrag vorhanden ist wird der Loginname zum Sessionnamen
             if (results.length===1) {
-                req.session.uname = req.body.loginName
+                req.session.uid = results[0].uid;
                 res.sendStatus(200);
                 console.log("wurde eingeloggt");
+            }else{
+                //Wenn keine Übereinstimmung erfolgt ist sende Fehlercode
+                res.sendStatus(404);
+            }
+            })
+        .catch((err: mysql.MysqlError) => {
+           //Leere Ergebnisse (siehe 404) sind kein Fehler; Login nur nicht möglich da keine Überstimmung mit DB. Fehler sind DB-Probleme
+           res.sendStatus(500);
+           console.log(err);
+        });
+}
+*/
+function login(req: express.Request, res: express.Response): void {
+    //Selektiert "nichts", aber unter der Bedingung, dass Name und Passwort stimmen
+    query("SELECT uId FROM benutzer WHERE email = ? AND passwort = ?",
+        [req.body.loginName, req.body.loginPasswort])
+        .then((results: any) => {
+            //Wenn Eintrag vorhanden ist wird der Loginname zum Sessionnamen
+            if (results.length===1) {
+                req.session.uid = results[0].uId;
+                console.log(req.session.uid+ " in der LoginFkt");
+                req.session.uname = req.body.loginName
+                res.sendStatus(200);
+                console.log("User wurde eingeloggt");
             }else{
                 //Wenn keine Übereinstimmung erfolgt ist sende Fehlercode
                 res.sendStatus(404);
@@ -171,8 +195,8 @@ function postBenutzer(req: express.Request, res: express.Response):void {
     }
 }
 function getBenutzer(req: express.Request, res: express.Response):void{
-    //const email: string = req.session.uname;
-    const email: string = req.params.email;
+    const email: string = req.session.uname;
+    //const email: string = req.params.email;
     const param = [email];
     const sql = "SELECT * FROM benutzer WHERE email =?;";
     //console.log(email+ " inder getBenutzerServer");
@@ -206,6 +230,7 @@ function deleteBenutzer(req: express.Request, res:express.Response):void{
     const email: string = req.session.uname;
     const param = [email];
     const sql = "DELETE FROM benutzer WHERE email =?;";
+
     if(email === undefined){
         res.status(400);
         res.send("Die E-Mail-Adresse fehlt");
@@ -214,6 +239,7 @@ function deleteBenutzer(req: express.Request, res:express.Response):void{
             sql,
             param,
             (err: mysql.MysqlError | null, result: any) => {
+
                 res.status(200);
                 res.send("Ihr Account wurde erfolgreich gelöscht");
             }
@@ -257,8 +283,11 @@ function postNachricht(req: express.Request, res:express.Response):void{
     const email: string = req.body.email;
     const betreff: string = req.body.betreff;
     const nachricht: string = req.body.nachricht;
-    const param = [vName,nName,email,betreff,nachricht];
-    const sql = "INSERT INTO nachrichten (vName, nName, email, betreff, nachricht) VALUES(?,?,?,?,?)";
+    const uId: number = req.session.uid;
+    console.log(uId+" in der PostNachricht");
+
+    const param = [vName,nName,email,betreff,nachricht,uId];
+    const sql = "INSERT INTO nachrichten (vName, nName, email, betreff, nachricht,uId) VALUES(?,?,?,?,?,?)";
     if(vName===undefined || nName===undefined || email===undefined || betreff===undefined || nachricht===undefined){
           res.status(400).send("Einer der Parameter fehlt");
     }else{
@@ -303,17 +332,21 @@ function deleteNachricht(req: express.Request, res:express.Response):void{
 
 }
 function getAlleNachrichten(req:express.Request, res:express.Response):void{
-    const email = req.params.email;
+    //const email = req.params.email;
+    const uId: number = req.session.uid;
+    console.log(uId+" in der getAll nachrichten")
     //console.log(email+" in der Server getAllNachrichten Fkt");
-    const param = [email];
-    //console.log(param+"(parameter) in der Server getAllNachrichten Fkt");
-    const sql = "SELECT * FROM nachrichten WHERE email=?;";
-    if(email!==undefined){
+    const param = [uId];
+    console.log(uId);
+    console.log(param+"(parameter) in der Server getAllNachrichten Fkt");
+    const sql = "SELECT * FROM nachrichten WHERE uId=?;";
+    if(uId!==undefined){
         connection.query(
             sql,
             param,
             (err:MysqlError | null, results: any) => {
                 res.send(results);
+                console.log(results);
             }
         )
     }
