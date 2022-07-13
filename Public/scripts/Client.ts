@@ -370,6 +370,7 @@ function renderNachrichtenListe(){
     axios.get("/nachricht/"+email)
         .then((res: AxiosResponse)=>{
             for(const n of res.data){
+                console.log(res.data);
                 const tr: HTMLElement = document.createElement("tr");
                 tr.innerHTML =`
                     <td>${n.betreff}</td>

@@ -120,7 +120,8 @@ function login(req: express.Request, res: express.Response): void {
         .then((results: any) => {
             //Wenn Eintrag vorhanden ist wird der Loginname zum Sessionnamen
             if (results.length===1) {
-                req.session.uid = results[0].uid;
+                req.session.uid = results[0].uId;
+                console.log(req.session.uid+ " in der LoginFkt");
                 req.session.uname = req.body.loginName
                 res.sendStatus(200);
                 console.log("User wurde eingeloggt");
@@ -229,6 +230,7 @@ function deleteBenutzer(req: express.Request, res:express.Response):void{
     const email: string = req.session.uname;
     const param = [email];
     const sql = "DELETE FROM benutzer WHERE email =?;";
+
     if(email === undefined){
         res.status(400);
         res.send("Die E-Mail-Adresse fehlt");
@@ -281,9 +283,11 @@ function postNachricht(req: express.Request, res:express.Response):void{
     const email: string = req.body.email;
     const betreff: string = req.body.betreff;
     const nachricht: string = req.body.nachricht;
+    const uId: number = req.session.uid;
+    console.log(uId+" in der PostNachricht");
 
-    const param = [vName,nName,email,betreff,nachricht];
-    const sql = "INSERT INTO nachrichten (vName, nName, email, betreff, nachricht) VALUES(?,?,?,?,?)";
+    const param = [vName,nName,email,betreff,nachricht,uId];
+    const sql = "INSERT INTO nachrichten (vName, nName, email, betreff, nachricht,uId) VALUES(?,?,?,?,?,?)";
     if(vName===undefined || nName===undefined || email===undefined || betreff===undefined || nachricht===undefined){
           res.status(400).send("Einer der Parameter fehlt");
     }else{
@@ -329,10 +333,12 @@ function deleteNachricht(req: express.Request, res:express.Response):void{
 }
 function getAlleNachrichten(req:express.Request, res:express.Response):void{
     //const email = req.params.email;
-    const uId = req.session.uid;
+    const uId: number = req.session.uid;
+    console.log(uId+" in der getAll nachrichten")
     //console.log(email+" in der Server getAllNachrichten Fkt");
     const param = [uId];
-    //console.log(param+"(parameter) in der Server getAllNachrichten Fkt");
+    console.log(uId);
+    console.log(param+"(parameter) in der Server getAllNachrichten Fkt");
     const sql = "SELECT * FROM nachrichten WHERE uId=?;";
     if(uId!==undefined){
         connection.query(
@@ -340,6 +346,7 @@ function getAlleNachrichten(req:express.Request, res:express.Response):void{
             param,
             (err:MysqlError | null, results: any) => {
                 res.send(results);
+                console.log(results);
             }
         )
     }
