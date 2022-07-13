@@ -91,28 +91,7 @@ app.get("/nachricht/:email",checkLogin,getAlleNachrichten);
 app.post("/nachricht",postNachricht);
 app.delete("/nachricht/:betreff/:email",checkLogin,deleteNachricht);
 //Funktion Login
-/*
-function login(req: express.Request, res: express.Response): void {
-       query("SELECT uid FROM benutzer WHERE email = ? AND passwort = ?",
-        [req.body.loginName, req.body.loginPasswort])
-        .then((results: any) => {
-            //Wenn Eintrag vorhanden ist wird der Loginname zum Sessionnamen
-            if (results.length===1) {
-                req.session.uid = results[0].uid;
-                res.sendStatus(200);
-                console.log("wurde eingeloggt");
-            }else{
-                //Wenn keine Übereinstimmung erfolgt ist sende Fehlercode
-                res.sendStatus(404);
-            }
-            })
-        .catch((err: mysql.MysqlError) => {
-           //Leere Ergebnisse (siehe 404) sind kein Fehler; Login nur nicht möglich da keine Überstimmung mit DB. Fehler sind DB-Probleme
-           res.sendStatus(500);
-           console.log(err);
-        });
-}
-*/
+
 function login(req: express.Request, res: express.Response): void {
     //Selektiert "nichts", aber unter der Bedingung, dass Name und Passwort stimmen
     query("SELECT uId FROM benutzer WHERE email = ? AND passwort = ?",
