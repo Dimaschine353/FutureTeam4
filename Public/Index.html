@@ -618,14 +618,19 @@
         </div>
 
         <!-- Kommentar schreiben area -->
-        <div>
-            <button class="btn btn-luxknives">Kommentare Laden</button>
-            <button class="btn btn-luxknives">Kommentar verfassen</button>
-            <button class="btn btn-luxknives">edit</button>
-            <br>
-            <textarea></textarea>
-            <btn class="btn btn-luxknives">Absenden</btn>
-
+        <div class="kommentarTextStyle">
+            <div class="py-3">
+                <a id="kommentareLaden" href="#" class="btn btn-luxknives">weitere Kommentare Laden</a>
+                <a id="kommentarVerfassenBtn" href="#" class="btn btn-luxknives">Kommentar verfassen</a>
+            </div>
+            <div class="row">
+                <div class="">
+                    <textarea id="kommentarfeldInput" class="form-control rashinput" rows="6" aria-label="With textarea" placeholder="Ihr Kommentar..."></textarea>
+                    <div class="py-3">
+                        <a id="kommentarfeldAbsenden" href="#" class="btn btn-luxknives">Absenden</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
