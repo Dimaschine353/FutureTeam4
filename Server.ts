@@ -282,6 +282,7 @@ function deleteNachricht(req: express.Request, res:express.Response):void{
     const email: string = req.session.uname;
     //console.log(betreff+" in der delete Nachricht Server");
     //console.log(email + " inder delete Nachricht Server");
+    //
     const param = [betreff,email];
     const sql = "DELETE FROM nachrichten WHERE betreff=? AND email=?;";
     if(betreff === undefined||email === undefined){
