@@ -14,7 +14,7 @@ class Benutzer{
         this.email = email;
     }
 }
-//kRez
+/*
 class Nachricht{
     vName: string;
     nName: string;
@@ -28,7 +28,7 @@ class Nachricht{
         this.betreff = betreff;
         this.nachricht = nachricht;
     }
-}
+}*/
 //Verbindung zu DB
 const connection: mysql.Connection = mysql.createConnection({
     database:"luxknives"  ,
@@ -194,8 +194,8 @@ function postBenutzer(req: express.Request, res: express.Response):void {
     }
 }
 function getBenutzer(req: express.Request, res: express.Response):void{
-    //const email: string = req.session.uname;
-    const email: string = req.params.email;
+    const email: string = req.session.uname;
+    //const email: string = req.params.email;
     const param = [email];
     const sql = "SELECT * FROM benutzer WHERE email =?;";
     //console.log(email+ " inder getBenutzerServer");
@@ -237,6 +237,7 @@ function deleteBenutzer(req: express.Request, res:express.Response):void{
             sql,
             param,
             (err: mysql.MysqlError | null, result: any) => {
+
                 res.status(200);
                 res.send("Ihr Account wurde erfolgreich gelöscht");
             }
@@ -280,6 +281,7 @@ function postNachricht(req: express.Request, res:express.Response):void{
     const email: string = req.body.email;
     const betreff: string = req.body.betreff;
     const nachricht: string = req.body.nachricht;
+
     const param = [vName,nName,email,betreff,nachricht];
     const sql = "INSERT INTO nachrichten (vName, nName, email, betreff, nachricht) VALUES(?,?,?,?,?)";
     if(vName===undefined || nName===undefined || email===undefined || betreff===undefined || nachricht===undefined){

@@ -125,6 +125,7 @@ let regVorname: HTMLInputElement;
 let regNachname: HTMLInputElement;
 let regEmail: HTMLInputElement;
 let regPasswort: HTMLInputElement;
+let zumLoginBtn: HTMLElement;
 //Profil User
 let profilVorname: HTMLInputElement;
 let profilNachname: HTMLInputElement;
@@ -204,6 +205,8 @@ document.addEventListener("DOMContentLoaded",()=>{
     regNachname = document.querySelector("#formRegistrieren [name='regNachname']");
     regEmail = document.querySelector("#formRegistrieren [name='regE-mail']");
     regPasswort = document.querySelector("#formRegistrieren [name='regPasswort']");
+    zumLoginBtn = document.querySelector("#zumLogIn");
+    zumLoginBtn.addEventListener("click",zumLogin);
     document.querySelector("#formRegistrieren").addEventListener("submit",benutzerHinzufuegen);
     //Login Feld
     loginName = document.querySelector("#formLogin [name='loginName']");
@@ -246,12 +249,15 @@ document.addEventListener("DOMContentLoaded",()=>{
     startIMGFlipper = document.querySelector("#produktBildFlipper");
     //Startseite/Landingpage FotoFlipper
     startNakiri.addEventListener('mouseover', (event) => {
+        event.preventDefault();
         startIMGFlipper.src = "/cMe/images/Messer1.png"
     });
     startSantoku.addEventListener('mouseover', (event) => {
+        event.preventDefault();
         startIMGFlipper.src = "/cMe/images/Messer2.png"
     });
     startSujihinki.addEventListener('mouseover', (event) => {
+        event.preventDefault();
         startIMGFlipper.src = "/cMe/images/Messer1.png"
     });
 });
@@ -276,8 +282,8 @@ function benutzerHinzufuegen(event:Event){
 
               }).catch((err: AxiosError)=>{
                   if(err!==null){
-                      feedbackReg.innerText = "Registrierung nicht möglich";
-                      setTimeout(feedbackRegLoeschen,1000);
+                      feedbackReg.innerText = "Die e-mail ist bereits vergeben.";
+                      setTimeout(feedbackRegLoeschen,2000);
                   }
 
               });
@@ -288,7 +294,9 @@ function benutzerLoeschen(event:Event){
         .then((res: AxiosResponse)=>{
             alert("Benutzer "+eingeloggterBenutzer+" wurde gelöscht.")
             eingeloggterBenutzer = "";
+            navigieren();
             sectStart.classList.remove("d-none");
+            /*
             sectDet.classList.add("d-none");
             sectUeber.classList.add("d-none");
             sectServ.classList.add("d-none");
@@ -299,8 +307,7 @@ function benutzerLoeschen(event:Event){
             sectLog.classList.add("d-none");
             sectProf.classList.add("d-none");
             sectImpr.classList.add("d-none");
-
-
+            */
         }).catch((err: AxiosError)=>{
             if(err!==null){
                 feedbackProfU.innerText="Löschen nicht möglich."
@@ -346,8 +353,8 @@ function benutzerAendern(event:Event){
 }
 function benutzerAuslesen(eingeloggterBenutzer:String){
 
-    const email = eingeloggterBenutzer;
-    axios.get("/benutzer/"+email)
+    //const email = eingeloggterBenutzer;
+    axios.get("/benutzer/"+eingeloggterBenutzer)
         .then((res:AxiosResponse)=>{
             const benutzer = res.data.benutzer;
             profilVorname.value = benutzer.vName;
@@ -409,15 +416,14 @@ function nachrichtLoeschen(target:HTMLElement){
         .then((res:AxiosResponse)=>{
           renderNachrichtenListe();
         }).catch((err:AxiosError)=>{
-            /*
+
             if(err!==null){
                 feedbackProfU.innerText = "Löschen nicht möglich."
                 setTimeout(feedbackNachrichtLoeschen,2000);
             }
-            */
+
     });
 }
-
 //Login 'n out Funkntionen
 function login(event:Event){
             event.preventDefault();
@@ -427,27 +433,28 @@ function login(event:Event){
                 loginPasswort: data.get("loginPasswort")
             })
                 .then((res: AxiosResponse) => {
-                    eingeloggterBenutzer = data.get("loginName").toString();
-                    formLogin.reset();
-                    sectLog.classList.add("d-none");
-                    sectProf.classList.remove("d-none");
-                    feedbackLogin.innerText = "Der Benutzer wurde erfolgreich eingeloggt."
-                    setTimeout(feedbackLoginLoeschen,2000);
-                    console.log("Anmeldung erfolgreich bruh");
-                    benutzerAuslesen(eingeloggterBenutzer);
-                    renderNachrichtenListe();
+
+                        eingeloggterBenutzer = data.get("loginName").toString();
+                        formLogin.reset();
+                        sectLog.classList.add("d-none");
+                        sectProf.classList.remove("d-none");
+                        feedbackLogin.innerText = "Der Benutzer wurde erfolgreich eingeloggt."
+                        setTimeout(feedbackLoginLoeschen,2000);
+                        console.log("Anmeldung erfolgreich bruh");
+                        benutzerAuslesen(eingeloggterBenutzer);
+                        renderNachrichtenListe();
+
+
                 })
                 .catch((err: AxiosError)=>{
-                    /*
                     if(err.response.status == 404){
-                        feedbackLogin.innerText = "Login nicht möglich."
-                        setTimeout(feedbackLoginLoeschen,1000);
+                        feedbackLogin.innerText = "E-Mail, oder Passwort falsch."
+                        setTimeout(feedbackLoginLoeschen,2000);
                         console.log("Anmeldung nicht erfolgreich if vom .catch");
-
                     }else{
                         console.log("Anmeldung nicht erfolgreich else vom .catch");
                     }
-                    */
+
                 })
 
 
@@ -460,7 +467,9 @@ function logout(event:Event){
         .then(()=>{
             console.log("habe eine response vom Server erhalten");
             eingeloggterBenutzer="";
+            navigieren();
             sectStart.classList.remove("d-none");
+            /*
             sectProf.classList.add("d-none");
             sectDet.classList.add("d-none");
             sectUeber.classList.add("d-none");
@@ -471,6 +480,7 @@ function logout(event:Event){
             sectLog.classList.add("d-none");
             sectKont.classList.add("d-none");
             sectImpr.classList.add("d-none");
+            */
             alert("Sie wurden ausgeloggt :o")
 
         });
@@ -483,7 +493,9 @@ function feedbackNachrichtLoeschen(){feedbackNachricht.innerText="";}
 //Navleisten Funktionen
 function zurueckNachhause(event:Event){
     event.preventDefault();
+    navigieren();
     sectStart.classList.remove("d-none");
+    /*
     sectProf.classList.add("d-none");
     sectDet.classList.add("d-none");
     sectUeber.classList.add("d-none");
@@ -494,13 +506,16 @@ function zurueckNachhause(event:Event){
     sectLog.classList.add("d-none");
     sectKont.classList.add("d-none");
     sectImpr.classList.add("d-none");
+    */
 }
 function zumLogin (event:Event){
     event.preventDefault();
     if(eingeloggterBenutzer!==""){
         //benutzerAuslesen(eingeloggterBenutzer);
+        navigieren();
         renderNachrichtenListe();
         sectProf.classList.remove("d-none");
+        /*
         sectStart.classList.add("d-none");
         sectLog.classList.add("d-none");
         sectDet.classList.add("d-none");
@@ -510,8 +525,11 @@ function zumLogin (event:Event){
         sectReg.classList.add("d-none");
         sectKont.classList.add("d-none");
         sectImpr.classList.add("d-none");
+        */
     }else{
+        navigieren();
         sectLog.classList.remove("d-none");
+        /*
         sectStart.classList.add("d-none");
         sectProf.classList.add("d-none");
         sectDet.classList.add("d-none");
@@ -521,13 +539,16 @@ function zumLogin (event:Event){
         sectReg.classList.add("d-none");
         sectKont.classList.add("d-none");
         sectImpr.classList.add("d-none");
+        */
     }
 
 
 }
 function zumWarenkorb (event:Event){
     event.preventDefault();
+    navigieren();
     sectWar.classList.remove("d-none");
+    /*
     sectProf.classList.add("d-none");
     sectDet.classList.add("d-none");
     sectUeber.classList.add("d-none");
@@ -537,11 +558,13 @@ function zumWarenkorb (event:Event){
     sectKont.classList.add("d-none");
     sectStart.classList.add("d-none");
     sectImpr.classList.add("d-none");
-
+    */
     }
 function zumService (event:Event){
     event.preventDefault();
+    navigieren();
     sectServ.classList.remove("d-none");
+        /*
         sectProf.classList.add("d-none");
         sectDet.classList.add("d-none");
         sectUeber.classList.add("d-none");
@@ -552,10 +575,13 @@ function zumService (event:Event){
         sectKont.classList.add("d-none");
         sectStart.classList.add("d-none");
         sectImpr.classList.add("d-none");
+        */
     }
 function zuUeber(event:Event){
     event.preventDefault();
+    navigieren();
     sectUeber.classList.remove("d-none");
+    /*
         sectProf.classList.add("d-none");
         sectDet.classList.add("d-none");
         sectServ.classList.add("d-none");
@@ -566,10 +592,14 @@ function zuUeber(event:Event){
         sectKont.classList.add("d-none");
         sectStart.classList.add("d-none");
         sectImpr.classList.add("d-none");
+        */
+
     }
 function zumKontakt(event:Event){
     event.preventDefault();
+    navigieren();
     sectKont.classList.remove("d-none");
+        /*
         sectProf.classList.add("d-none");
         sectDet.classList.add("d-none");
         sectUeber.classList.add("d-none");
@@ -580,10 +610,13 @@ function zumKontakt(event:Event){
         sectLog.classList.add("d-none");
         sectStart.classList.add("d-none");
         sectImpr.classList.add("d-none");
+        */
     }
 function zumReg(event:Event){
     event.preventDefault();
+    navigieren()
     sectReg.classList.remove("d-none");
+    /*
     sectProf.classList.add("d-none");
     sectDet.classList.add("d-none");
     sectUeber.classList.add("d-none");
@@ -593,12 +626,14 @@ function zumReg(event:Event){
     sectLog.classList.add("d-none");
     sectStart.classList.add("d-none");
     sectImpr.classList.add("d-none");
-
+    */
 
 }
 function zumImpr(event:Event){
     event.preventDefault();
+
     sectImpr.classList.remove("d-none");
+    /*
     sectProf.classList.add("d-none");
     sectDet.classList.add("d-none");
     sectUeber.classList.add("d-none");
@@ -607,11 +642,21 @@ function zumImpr(event:Event){
     sectCheck.classList.add("d-none");
     sectLog.classList.add("d-none");
     sectStart.classList.add("d-none");
-
+    */
 }
-
-                    
-                    
+function navigieren(){
+    sectStart.classList.add("d-none");
+    sectProf.classList.add("d-none");
+    sectDet.classList.add("d-none");
+    sectUeber.classList.add("d-none");
+    sectServ.classList.add("d-none");
+    sectWar.classList.add("d-none");
+    sectCheck.classList.add("d-none");
+    sectReg.classList.add("d-none");
+    sectLog.classList.add("d-none");
+    sectKont.classList.add("d-none");
+    sectImpr.classList.add("d-none");
+}
                     
                     
                     
