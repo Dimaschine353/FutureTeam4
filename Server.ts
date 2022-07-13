@@ -92,6 +92,7 @@ app.get("/benutzer/:email",checkLogin,getBenutzer);
 app.delete("/benutzer/:email",checkLogin,deleteBenutzer);
 app.put("/benutzer/:email",checkLogin,putBenutzer);
 //Routen Nachricht
+app.get("/nachricht/:email",checkLogin,getAlleNachrichten):
 app.post("/nachricht",postNachricht);
 app.delete("/nachrichten/:betreff", checkLogin, deleteNachricht);
 
@@ -200,7 +201,7 @@ function getBenutzer(req: express.Request, res: express.Response):void{
                     results[0].email,
                     results[0].passwort
                 )
-                // console.log(benutzer);
+
                 res.status(200).send
                 ({
                     benutzer
@@ -323,6 +324,20 @@ function deleteNachricht(req: express.Request, res:express.Response):void{
 
 }
 
+function getAlleNachrichten(req:express.Request, res:express.Response):void{
+    const email = req.params.eingeloggterBenutzer;
+    const param = [email];
+    const sql = "SELECT * FROM nachrichten WHERE email=?;";
+    if(email!==undefined){
+        connection.query(
+            sql,
+            param,
+            (err:MysqlError | null, results: any) => {
+                res.send(results);
+            }
+        )
+    }
+}
 
 
 

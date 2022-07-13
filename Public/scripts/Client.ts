@@ -86,6 +86,8 @@
 //Deklaration Sections
 
 
+
+
 let sectStart: HTMLElement;
 let sectProf: HTMLElement;
 let sectDet: HTMLElement;
@@ -145,12 +147,13 @@ let nachrichtEmail: HTMLInputElement;
 let nachrichtBetreff: HTMLInputElement;
 let nachrichtEin: HTMLInputElement;
 let nachrichtBtnA: HTMLInputElement;
+let tabelleNachrichten: HTMLElement;
 //Listener
 document.addEventListener("DOMContentLoaded",()=>{
 
     //Funktionen die direkt ausgeführt werden sollen
 
-    //initialisierung Sect
+    //Initialisierung Sect
     sectStart = document.querySelector("#sectStart");
     sectProf = document.querySelector("#sectProf");
     sectDet = document.querySelector("#sectDet");
@@ -223,8 +226,8 @@ document.addEventListener("DOMContentLoaded",()=>{
     logoutBtn.addEventListener("click", logout);
     profilUBtnL = document.querySelector("#profilUBtnL");
     profilUBtnL.addEventListener("click",benutzerLoeschen);
-
     //Nachricht
+    tabelleNachrichten = document.querySelector("#tabelleNachrichten");
     nachrichtVName = document.querySelector("#nachrichtVName");
     nachrichtNName = document.querySelector("#nachrichtNName");
     nachrichtEmail = document.querySelector("#nachrichtEmail");
@@ -233,6 +236,15 @@ document.addEventListener("DOMContentLoaded",()=>{
     nachrichtBtnA = document.querySelector("#nachrichtBtnA");
     nachrichtBtnA.addEventListener("click",nachrichtHinzufuegen);
     nachrichtBtnA.addEventListener("click", nachrichtHinzufuegen);
+    /*
+    tabelleNachrichten.addEventListener("click",(event:Event)=>{
+        let target: HTMLElement = event.target as HTMLElement;
+        target = target.closest("button");
+        if(target.matches(".delete")){
+            löscheNachricht(target);
+        }
+    });
+    */
     //Startseite/Landingpage
     startNakiri = document.querySelector("#startNakiri");
     startSantoku = document.querySelector("#startSantoku");
@@ -349,6 +361,24 @@ function benutzerAuslesen(eingeloggterBenutzer:String){
         });
 }
 //Funktionen Nachrichten
+function renderNachrichtenListe(){
+    const email: string = eingeloggterBenutzer.toString();
+    tabelleNachrichten.innerHTML = "";
+    axios.get("/nachricht/"+email)
+        .then((res: AxiosResponse)=>{
+            for(const n of res.data){
+                const tr: HTMLElement = document.createElement("tr");
+                tr.innerHTML =`
+                    <td>${n.betreff}</td>
+                    <td>${n.nachricht}</td>
+                <td>
+                <button class="btn btn-primary delete" data-betreff="${n.betreff}">Löschen</button>
+                </td>
+                `;
+                tabelleNachrichten.append(tr);
+            }
+        });
+}
 function nachrichtHinzufuegen(event:Event){
     event.preventDefault();
     const vName: string = nachrichtVName.value;
@@ -387,23 +417,25 @@ function login(event:Event){
                 .then((res: AxiosResponse) => {
                     eingeloggterBenutzer = data.get("loginName").toString();
                     formLogin.reset();
-                    benutzerAuslesen(eingeloggterBenutzer);
                     sectLog.classList.add("d-none");
                     sectProf.classList.remove("d-none");
                     feedbackLogin.innerText = "Der Benutzer wurde erfolgreich eingeloggt."
                     setTimeout(feedbackLoginLoeschen,2000);
                     console.log("Anmeldung erfolgreich bruh");
+                    benutzerAuslesen(eingeloggterBenutzer);
+                    //renderNachrichtenListe();
                 })
                 .catch((err: AxiosError)=>{
+                    /*
                     if(err.response.status == 404){
                         feedbackLogin.innerText = "Login nicht möglich."
                         setTimeout(feedbackLoginLoeschen,1000);
                         console.log("Anmeldung nicht erfolgreich if vom .catch");
-                        //console.log(loginName.value);
-                        //console.log(loginPasswort.value);
+
                     }else{
                         console.log("Anmeldung nicht erfolgreich else vom .catch");
                     }
+                    */
                 })
 
 
