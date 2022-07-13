@@ -182,6 +182,12 @@ h5 {
     font-weight: 400;
 }
 
+.kommentarTextStyle {
+    margin-inline: 3rem;
+    padding-inline: 3rem;
+    padding-block: 2rem;
+}
+
 /* ÜBER UNS */
 #überunsbild {
     width: 43.8rem;
