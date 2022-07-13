@@ -190,6 +190,24 @@ h5 {
     background-image: url('/cMe/images/christian-buehner-KCLqSvoUdxw-unsplash.jpg');
 }
 
+.fill5 {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    height: 280px;
+    margin-bottom: 40px;
+    background-image: url('/cMe/images/pexels-luis-quintero-1659746.jpg');
+}
+
+.fill6 {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    width: 700px;
+    height: 280px;
+    background-image: url('/cMe/images/pexels-andrea-piacquadio-3822900.jpg');
+}
+
 .cardmargin {
     margin-bottom: 40px;
 }
@@ -382,11 +400,23 @@ footer {
     margin: 3rem;
 }
 
+.rashunique1 {
+    border-color: #595859;
+    border-radius: 1px;
+    margin: 3rem;
+}
+
+.rashunique2 {
+    border-color: #595859;
+    border-radius: 1px;
+    margin-top: 1rem;
+}
+
 .rashinput {
     border-color: #595859;
     border-radius: 1px;
 }
-#loginBtn {
+.btnluxknives2 {
     padding-inline: 20px;
 }
 
@@ -464,7 +494,7 @@ tbody {
     width: 30rem;
 }
 
-.btn-secondary {
+.accbutton{
     width: 60rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -478,6 +508,39 @@ tbody {
 
 .dropdown-toggle {
     align-items: flex-end;
+}
+
+.accstyle {
+    border: solid;
+    border-color: #595859;
+    margin-bottom: 0.5rem;
+}
+
+.accordion-button:focus {
+    color: #0d0d0d;
+    border-color: #0d0d0d;
+    background-color: #D94B2B;
+}
+
+.accordion-button:not(.collapsed)::after {
+background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e")
+
+}
+.accordion-item {
+    background: transparent;
+}
+.accordion-body {
+    border:solid;
+    border-color: #0d0d0d;
+}
+
+.accordion-button:focus {
+    border-color: #0d0d0d;
+    box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #f0f0f2;
 }
 
 /* Bearbeiten Button CSS */
@@ -582,3 +645,66 @@ footer {
     height: 50px;
     margin-top: -50px;
 }
+
+#h1service {
+    padding-bottom: 20px;
+}
+
+.rowrow {
+    height: 100px;
+}
+
+#machmamargin {
+    margin-top: 60px;
+}
+
+.btncalendar {
+    height: 35px;
+    width: 35px;
+    filter: invert(57%) sepia(65%) saturate(6269%) hue-rotate(345deg) brightness(88%) contrast(91%);
+}
+
+.btncalendar:hover {
+    cursor: pointer;
+}
+
+.klassecard {
+    margin-top: 5px;
+    border: solid;
+    border-width: 2px;
+    border-color: #f0f0f2;
+    margin-left: 2rem;
+    padding-inline: 7rem;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.klasserow {
+    border:solid;
+    border-bottom-width: 2px;
+    border-color: #f0f0f2;
+}
+
+.klasserow2 {
+    border:solid;
+    border-top-width: 2px;
+    border-color: #f0f0f2;
+}
+
+.klassecol {
+    border:solid;
+    border-right-width: 2px;
+    border-color: #f0f0f2;
+}
+
+.klassecol2 {
+    border: solid;
+    border-left-width: 2px;
+    border-color: #f0f0f2;
+}
+
+#penis {
+    font-weight: 400;
+    font-size: 24px;
+}
+
