@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
           crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+            crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@0.27.2/dist/axios.min.js"></script>
     <!--Eigenes Skript und CSS-->
     <link rel="stylesheet" href="CSSLuxKnives.css">
@@ -18,612 +20,628 @@
 <body class="background fontLuxKnives">
 <div class="content">
     <div class="content-inside">
-<!-- NavBar -->
-<div id="navBar">
-    <div class="container-fluid p-0 nav">
-        <div class="row justify-content-center align-items-center gx-0">
-            <div class="col">
-                <div class="row">
-                    <div class="col-6 d-flex justify-content-center">
-                        <a class="nav-link" href="#">Handgefertigte Messer</a>
-                    </div>
-                    <div class="col-6">
-                        <a id="navUeber" class="nav-link me-5" href="#">Über Uns</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-1">
-                <a href="#">
-                    <img id="navHome" src="/cMe/images/LuxKnivesLogoNew.PNG" alt="LuxKnives Logo" width="100%">
-                </a>
-            </div>
-            <div class="col">
-                <div class="row gx-0">
-                    <div class="col justify-content-end d-flex">
-                        <a class="nav-link" href="#">Galerie</a>
-                    </div>
-                    <div class="col justify-content-center d-flex">
-                        <a id="navService" class="nav-link" href="#">Service</a>
-                    </div>
-                    <div class="col justify-content-start d-flex">
-                        <a id="navKontakt" class="nav-link" href="#">Kontakt</a>
-                    </div>
-                    <div class="col d-flex align-items-center justify-content-center">
-                        <div class="row gx-0">
-                            <div class="col d-flex justify-content-center px-3">
-                                <a href="#">
-                                    <img id ="navWarenkorb" class="icon-centered icon-style" src="/cMe/SVGIcons/shopping-basket.svg" alt="Warenkorb Icon"/>
-                                </a>
-                            </div>
-                            <div class="col d-flex justify-content-center px-3">
-                                <a href="#" >
-                                    <img id="navLogin" class="icon-centered icon-style" src="/cMe/SVGIcons/user.svg" alt="Profil Icon"/>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Startseite / Landingpage -->
-<section id="sectStart" class="d-block">
-    <div id="qualityfirst">
-        <div class="container-fluid p-0 position-relative">
-            <img src="/cMe/images/landingpageMesser.png" width="100%" alt="Messer Bild Landingpage">
-            <div class="top-left">QUALITY</div>
-            <div class="top-left2">FIRST</div>
-        </div>
-    </div>
-    <div id="handgefertigte">
-        <div class="container-fluid p-0 position-relative">
-            <img id="produktBildFlipper" src="/cMe/images/Messer2.png" width="100%" alt="Nakiri Musashi Messer">
-            <div class="container-fluid p-0">
-                <div class="row p-0 justify-content-end">
-                    <div class="col-4 leftTransBox">
-                        <div class="">
-                            <div>
-                                <h1>Handgefertigte Messer</h1>
-                            </div>
-                            <div class="padding-zoom">
-                                <a id="startNakiri" href="#" class="zoom-aStyle">
-                                    <div class="zoomEffekt">
-                                        <p>Nakiri Musashi</p>
-                                    </div>
-                                </a>
-                                <a id="startSantoku" href="#" class="zoom-aStyle">
-                                    <div class="zoomEffekt">
-                                        Santoku Kenshin
-                                    </div>
-                                </a>
-                                <a id="startSujihinki" href="#" class="zoom-aStyle">
-                                    <div class="zoomEffekt">
-                                        Sujihinki Masako
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="philo">
-        <div class="container-fluid p-0 position-relative">
-            <img src="/cMe/images/landingpagePhiloV3.png" width="100%" alt="Nakiri Musashi Messer">
-            <div class="top-left">PHILOSOPHIE</div>
-            <div class="container-fluid p-0">
-                <div class="row justify-content-evenly">
-                    <div class="rightTransBox">
-                        <div class="card cardLandingpageStyle">
-                            <div class="card-body">
-                                <p class="card-text card-Philo">
-                                    LuxKnives ist ein traditionsbewusstes Unternehmen.
-                                    Wir haben es uns zur Aufabe gemacht die hochwertigste
-                                    Schmiedekunst breitflächig, dennoch limitiert zu vertreiben.
-                                    <br>
-                                    <br>
-                                    Mit einem lebenslangen Schleifservice für unsere Kunden
-                                    bringen wir Ihnen einen Messer, welches Ihr Leben begleitet.
-                                </p>
-                                <a href="#" class="card-text card-Philo">Mehr Erfahren</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="content">
-        <div class="container-fluid p-0 pt-3 d-flex justify-content-center position-relative">
-            <div id="carouselContent" class="carousel slide" data-bs-interval="false">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <video width="960px" controls>
-                            <source src="/cMe/videos/pexels-arvin-latifi-6466763.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="carousel-item">
-                        <video width="960px" controls>
-                            <source src="/cMe/videos/pexels-nothing-ahead-10505868.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselContent"
-                        data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselContent"
-                        data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </div>
-        <div class="container-fluid p-0 d-flex justify-content-center my-5">
-            <a id="bearbeitenBtnContent" class="btn btn-luxknives"><img src="/cMe/SVGIcons/pen.svg" class="icon-centered icon-style"></a>
-        </div>
-    </div>
-</section>
-<!-- Profil -->
-<section id="sectProf" class="d-block">
-<div id="profil">
-    <div class="container-fluid p-0">
-        <div class="row justify-content-evenly">
-            <div class="col-5">
-                <div class="card mb-3 cardBioStyle">
-                    <div class="row g-0">
-                        <div class="col-md-4">
-                            <img src="/cMe/images/PeterHofmannProfilepic.PNG" class="img-fluid profilBildStyle" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Bio</h5>
-                                <p class="card-text" id="profilBioRead">
-                                    Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
-                                    Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
-                                    Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
-                                    Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
-                                    Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
-                                    Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
-                                    Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Form für Bearbeiten -->
-            <div class="col-5">
-                <div class="row">
-                    <p id="feedbackProfildatenBearbeiten"></p>
-                </div>
-                <div class="row">
-                    <form id="formProfildatenBearbeiten">
-                        <div class="input-group mb-3">
-                            <input id="profilVorname" type="text" class="form-control" placeholder="Vorname" name="profilVorname"
-                                   aria-label="Vorname"  required readonly>
-                            <input id="profilNachname" type="text" class="form-control" placeholder="Nachname" name="profilNachname"
-                                   aria-label="Nachname"  required readonly>
-                        </div>
-                    </form>
-                </div>
-            <!-- Form für Btns -->
-
-                    <form id="profildatenBearbeitenBtn">
-                        <div class = "row">
-                            <div class="input-group mb-3">
-                            <button type="button" class="btn btn-luxknives rounded-1"  id="profilUBtnB">
-                                    Profildaten Bearbeiten
-                                </button>
-                                &nbsp;
-                                <button type="button" class="btn btn-luxknives rounded-1 d-none"   id="profilUBtnA">
-                                    Änderungen Speichern
-                                </button>
-                                &nbsp;
-                            </div>
-                        </div>
-                        <div class = "row">
-                            <div class="input-group mb-3">
-                                <button type="button" class="btn btn-luxknives rounded-1"  id="profilUBtnLogout">
-                                    Abmelden
-                                </button>
-                                &nbsp;
-                                <button type="button" class="btn btn-luxknives rounded-1 " id="profilUBtnL">
-                                    Profil Löschen
-                                </button>
-                            </div>
-                        </div>
-
-                    </form>
-                <!--Nchrichtenliste-->
-                <div class="row" id="Nachrichtenliste">
+        <!-- NavBar -->
+        <div id="navBar">
+            <div class="container-fluid p-0 nav">
+                <div class="row justify-content-center align-items-center gx-0">
                     <div class="col">
                         <div class="row">
-                            <div class="col text-center">
-                                <h5>Nachrichtenliste</h5>
+                            <div class="col-6 d-flex justify-content-center">
+                                <a class="nav-link" href="#">Handgefertigte Messer</a>
+                            </div>
+                            <div class="col-6">
+                                <a id="navUeber" class="nav-link me-5" href="#">Über Uns</a>
                             </div>
                         </div>
-                        <table class="table table-striped">
-                            <thead class="thead-light">
-                            <tr>
-                                <th scope="col">Betreff</th>
-                                <th scope="col">Inhalt</th>
-                            </tr>
-                            </thead>
-                            <tbody id="tabelleNachrichten">
-                            </tbody>
-                        </table>
+                    </div>
+                    <div class="col-1">
+                        <a href="#">
+                            <img id="navHome" src="/cMe/images/LuxKnivesLogoNew.PNG" alt="LuxKnives Logo" width="100%">
+                        </a>
+                    </div>
+                    <div class="col">
+                        <div class="row gx-0">
+                            <div class="col justify-content-end d-flex">
+                                <a class="nav-link" href="#">Galerie</a>
+                            </div>
+                            <div class="col justify-content-center d-flex">
+                                <a id="navService" class="nav-link" href="#">Service</a>
+                            </div>
+                            <div class="col justify-content-start d-flex">
+                                <a id="navKontakt" class="nav-link" href="#">Kontakt</a>
+                            </div>
+                            <div class="col d-flex align-items-center justify-content-center">
+                                <div class="row gx-0">
+                                    <div class="col d-flex justify-content-center px-3">
+                                        <a href="#">
+                                            <img id="navWarenkorb" class="icon-centered icon-style"
+                                                 src="/cMe/SVGIcons/shopping-basket.svg" alt="Warenkorb Icon"/>
+                                        </a>
+                                    </div>
+                                    <div class="col d-flex justify-content-center px-3">
+                                        <a href="#">
+                                            <img id="navLogin" class="icon-centered icon-style"
+                                                 src="/cMe/SVGIcons/user.svg" alt="Profil Icon"/>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Startseite / Landingpage -->
+        <section id="sectStart" class="d-block">
+            <div id="qualityfirst">
+                <div class="container-fluid p-0 position-relative">
+                    <img src="/cMe/images/landingpageMesser.png" width="100%" alt="Messer Bild Landingpage">
+                    <div class="top-left">QUALITY</div>
+                    <div class="top-left2">FIRST</div>
+                </div>
+            </div>
+            <div id="handgefertigte">
+                <div class="container-fluid p-0 position-relative">
+                    <img id="produktBildFlipper" src="/cMe/images/Messer2.png" width="100%" alt="Nakiri Musashi Messer">
+                    <div class="container-fluid p-0">
+                        <div class="row p-0 justify-content-end">
+                            <div class="col-4 leftTransBox">
+                                <div class="">
+                                    <div>
+                                        <h1>Handgefertigte Messer</h1>
+                                    </div>
+                                    <div class="padding-zoom">
+                                        <a id="startNakiri" href="#" class="zoom-aStyle">
+                                            <div class="zoomEffekt">
+                                                <p>Nakiri Musashi</p>
+                                            </div>
+                                        </a>
+                                        <a id="startSantoku" href="#" class="zoom-aStyle">
+                                            <div class="zoomEffekt">
+                                                Santoku Kenshin
+                                            </div>
+                                        </a>
+                                        <a id="startSujihinki" href="#" class="zoom-aStyle">
+                                            <div class="zoomEffekt">
+                                                Sujihinki Masako
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!--
-                <div class="input-group mb-3 d-flex justify-content-center">
-
-                    <button type="button" class="btn btn-luxknives rounded-1" data-bs-toggle="modal" data-bs-target="#profb" id="">
-                        Profildaten Bearbeiten
-                    </button>
-                    <button type="button" class="btn btn-luxknives rounded-1 d-none" data-bs-toggle="modal"  id="">
-                        Profildaten Abschicken
-                    </button>
-
-
-                    <div class="modal fade" id="profildatenBearbeitenModal" tabindex="-1" aria-labelledby="profildatenBearbeitenModal" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Ihre Profildaten</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div id="philo">
+                <div class="container-fluid p-0 position-relative">
+                    <img src="/cMe/images/landingpagePhiloV3.png" width="100%" alt="Nakiri Musashi Messer">
+                    <div class="top-left">PHILOSOPHIE</div>
+                    <div class="container-fluid p-0">
+                        <div class="row justify-content-evenly">
+                            <div class="rightTransBox">
+                                <div class="card cardLandingpageStyle">
+                                    <div class="card-body">
+                                        <p class="card-text card-Philo">
+                                            LuxKnives ist ein traditionsbewusstes Unternehmen.
+                                            Wir haben es uns zur Aufabe gemacht die hochwertigste
+                                            Schmiedekunst breitflächig, dennoch limitiert zu vertreiben.
+                                            <br>
+                                            <br>
+                                            Mit einem lebenslangen Schleifservice für unsere Kunden
+                                            bringen wir Ihnen einen Messer, welches Ihr Leben begleitet.
+                                        </p>
+                                        <a href="#" class="card-text card-Philo">Mehr Erfahren</a>
+                                    </div>
                                 </div>
-                                <div class="modal-body">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="content">
+                <div class="container-fluid p-0 pt-3 d-flex justify-content-center position-relative">
+                    <div id="carouselContent" class="carousel slide" data-bs-interval="false">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <video width="960px" controls>
+                                    <source src="/cMe/videos/pexels-arvin-latifi-6466763.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="carousel-item">
+                                <video width="960px" controls>
+                                    <source src="/cMe/videos/pexels-nothing-ahead-10505868.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselContent"
+                                data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselContent"
+                                data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="container-fluid p-0 d-flex justify-content-center my-5">
+                    <a id="bearbeitenBtnContent" class="btn btn-luxknives"><img src="/cMe/SVGIcons/pen.svg"
+                                                                                class="icon-centered icon-style"></a>
+                </div>
+            </div>
+        </section>
+        <!-- Profil -->
+        <section id="sectProf" class="d-block">
+            <div id="profil">
+                <div class="container-fluid p-0">
+                    <div class="row justify-content-evenly">
+                        <div class="col-5">
+                            <div class="card mb-3 cardBioStyle">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="/cMe/images/PeterHofmannProfilepic.PNG"
+                                             class="img-fluid profilBildStyle" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Bio</h5>
+                                            <p class="card-text" id="profilBioRead">
+                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Form für Bearbeiten -->
+                        <div class="col-5">
+                            <div class="row">
+                                <p id="feedbackProfildatenBearbeiten"></p>
+                            </div>
+                            <div class="row">
+                                <form id="formProfildatenBearbeiten">
                                     <div class="input-group mb-3">
-                                        <input id="profilVornameUpdate" type="text" class="form-control" placeholder="Vorname" name="profilVorname"
-                                               aria-label="Vorname">
-                                        <input id="profilNachnameUpdate" type="text" class="form-control" placeholder="Nachname" name="profilNachname"
-                                               aria-label="Nachname">
+                                        <input id="profilVorname" type="text" class="form-control" placeholder="Vorname"
+                                               name="profilVorname"
+                                               aria-label="Vorname" required readonly>
+                                        <input id="profilNachname" type="text" class="form-control"
+                                               placeholder="Nachname" name="profilNachname"
+                                               aria-label="Nachname" required readonly>
                                     </div>
+                                </form>
+                            </div>
+                            <!-- Form für Btns -->
+
+                            <form id="profildatenBearbeitenBtn">
+                                <div class="row">
                                     <div class="input-group mb-3">
-                                        <input id="profilE-mailUpdate" type="email" class="form-control" placeholder="Email" name="profilE-mail" aria-label="Email">
+                                        <button type="button" class="btn btn-luxknives rounded-1" id="profilUBtnB">
+                                            Profildaten Bearbeiten
+                                        </button>
+                                        &nbsp;
+                                        <button type="button" class="btn btn-luxknives rounded-1 d-none"
+                                                id="profilUBtnA">
+                                            Änderungen Speichern
+                                        </button>
+                                        &nbsp;
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="profilbildUpdate" class="form-label">Profilbild Hochladen</label>
-                                        <input class="form-control" type="file" id="profilbildUpdate">
-                                    </div>
+                                </div>
+                                <div class="row">
                                     <div class="input-group mb-3">
-                                        <textarea id="profilBioUpdate" class="form-control" aria-label="profilBioUpdate" placeholder="Bio Schreiben"></textarea>
+                                        <button type="button" class="btn btn-luxknives rounded-1" id="profilUBtnLogout">
+                                            Abmelden
+                                        </button>
+                                        &nbsp;
+                                        <button type="button" class="btn btn-luxknives rounded-1 " id="profilUBtnL">
+                                            Profil Löschen
+                                        </button>
                                     </div>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            -->
 
-        </div>
-        <!-- Bestellungen und Fragen Sektion -->
-        <div class="row justify-content-evenly">
-            <!-- Bestellungen -->
-            <div class="col-5 bg-luxKnives borderLuxKnives">
-                <div class="row d-flex justify-content-center py-2">
-                    <h2 class="text-center">Meine Bestellungen und Fragen</h2>
-                </div>
-                <div class="row d-flex justify-content-center">
-                    <div class="card mb-3 cardBestellungenStyle">
-                        <div class="row g-0">
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Bestellung: Nakiri Musashi</h5>
-                                    <p class="card-textBestellungen">Ihre Bestellung (Nr.32476) vom 12.4.2022 ist in der
-                                        Zustellung.</p>
-                                    <a class="card-text" href="#">Mehr Details</a>
-                                    <p></p>
+                            </form>
+                            <!--Nchrichtenliste-->
+                            <div class="row" id="Nachrichtenliste">
+                                <div class="col">
                                     <div class="row">
-                                        <div class="col-6">
-                                            <a class="btn btn-luxknives" href="#">Lieferung Verfolgen</a>
+                                        <div class="col text-center">
+                                            <h5>Nachrichtenliste</h5>
                                         </div>
-                                        <div class="col-6">
-                                            <a class="btn btn-luxknives" href="#">Lieferung Stonieren</a>
+                                    </div>
+                                    <table class="table table-striped">
+                                        <thead class="thead-light">
+                                        <tr>
+                                            <th scope="col">Betreff</th>
+                                            <th scope="col">Inhalt</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="tabelleNachrichten">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--
+                            <div class="input-group mb-3 d-flex justify-content-center">
+
+                                <button type="button" class="btn btn-luxknives rounded-1" data-bs-toggle="modal" data-bs-target="#profb" id="">
+                                    Profildaten Bearbeiten
+                                </button>
+                                <button type="button" class="btn btn-luxknives rounded-1 d-none" data-bs-toggle="modal"  id="">
+                                    Profildaten Abschicken
+                                </button>
+
+
+                                <div class="modal fade" id="profildatenBearbeitenModal" tabindex="-1" aria-labelledby="profildatenBearbeitenModal" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Ihre Profildaten</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="input-group mb-3">
+                                                    <input id="profilVornameUpdate" type="text" class="form-control" placeholder="Vorname" name="profilVorname"
+                                                           aria-label="Vorname">
+                                                    <input id="profilNachnameUpdate" type="text" class="form-control" placeholder="Nachname" name="profilNachname"
+                                                           aria-label="Nachname">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <input id="profilE-mailUpdate" type="email" class="form-control" placeholder="Email" name="profilE-mail" aria-label="Email">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="profilbildUpdate" class="form-label">Profilbild Hochladen</label>
+                                                    <input class="form-control" type="file" id="profilbildUpdate">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <textarea id="profilBioUpdate" class="form-control" aria-label="profilBioUpdate" placeholder="Bio Schreiben"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 p-4">
-                                <img src="/cMe/images/ProduktMesserBestellungen.PNG" class="img-fluid" alt="Produktfoto">
-                            </div>
-                        </div>
+                        -->
+
                     </div>
-                </div>
-                <div class="row d-flex justify-content-center">
-                    <div class="card mb-3 cardBestellungenStyle">
-                        <div class="row g-0">
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Bestellung: Sujihiki Masako</h5>
-                                    <p class="card-textBestellungen">Ihre Bestellung (Nr.32477) vom 4.6.2022 ist in der
-                                        Zustellung.</p>
-                                    <a class="card-text" href="#">Mehr Details</a>
-                                    <p></p>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <a class="btn btn-luxknives" href="#">Lieferung Verfolgen</a>
-                                        </div>
-                                        <div class="col-6">
-                                            <a class="btn btn-luxknives" href="#">Lieferung Stonieren</a>
-                                        </div>
-                                    </div>
-                                </div>
+                    <!-- Bestellungen und Fragen Sektion -->
+                    <div class="row justify-content-evenly">
+                        <!-- Bestellungen -->
+                        <div class="col-5 bg-luxKnives borderLuxKnives">
+                            <div class="row d-flex justify-content-center py-2">
+                                <h2 class="text-center">Meine Bestellungen und Fragen</h2>
                             </div>
-                            <div class="col-md-4 p-4">
-                                <img src="/cMe/images/ProduktMesserBestellungen.PNG" class="img-fluid" alt="Produktfoto">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row d-flex justify-content-center">
-                    <div class="card mb-3 cardBestellungenStyle">
-                        <div class="row g-0">
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Termin: Schleifen am 14.6.2022</h5>
-                                    <p class="card-textBestellungen">Sie haben sich fur einen Termin am 14.6.2022 um 15 Uhr
-                                        angemeldet.</p>
-                                    <p></p>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <a class="btn btn-luxknives" href="#">Termin Bearbeiten</a>
+                            <div class="row d-flex justify-content-center">
+                                <div class="card mb-3 cardBestellungenStyle">
+                                    <div class="row g-0">
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Bestellung: Nakiri Musashi</h5>
+                                                <p class="card-textBestellungen">Ihre Bestellung (Nr.32476) vom
+                                                    12.4.2022 ist in der
+                                                    Zustellung.</p>
+                                                <a class="card-text" href="#">Mehr Details</a>
+                                                <p></p>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <a class="btn btn-luxknives" href="#">Lieferung Verfolgen</a>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <a class="btn btn-luxknives" href="#">Lieferung Stonieren</a>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="col-6">
-                                            <a class="btn btn-luxknives" href="#">Termin Stonieren</a>
+                                        <div class="col-md-4 p-4">
+                                            <img src="/cMe/images/ProduktMesserBestellungen.PNG" class="img-fluid"
+                                                 alt="Produktfoto">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4 d-flex justify-content-center align-items-center p-4">
-                                <i class="fa-solid fa-house-user fa-7x"></i>
+                            <div class="row d-flex justify-content-center">
+                                <div class="card mb-3 cardBestellungenStyle">
+                                    <div class="row g-0">
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Bestellung: Sujihiki Masako</h5>
+                                                <p class="card-textBestellungen">Ihre Bestellung (Nr.32477) vom 4.6.2022
+                                                    ist in der
+                                                    Zustellung.</p>
+                                                <a class="card-text" href="#">Mehr Details</a>
+                                                <p></p>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <a class="btn btn-luxknives" href="#">Lieferung Verfolgen</a>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <a class="btn btn-luxknives" href="#">Lieferung Stonieren</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 p-4">
+                                            <img src="/cMe/images/ProduktMesserBestellungen.PNG" class="img-fluid"
+                                                 alt="Produktfoto">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row d-flex justify-content-center">
+                                <div class="card mb-3 cardBestellungenStyle">
+                                    <div class="row g-0">
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Termin: Schleifen am 14.6.2022</h5>
+                                                <p class="card-textBestellungen">Sie haben sich fur einen Termin am
+                                                    14.6.2022 um 15 Uhr
+                                                    angemeldet.</p>
+                                                <p></p>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <a class="btn btn-luxknives" href="#">Termin Bearbeiten</a>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <a class="btn btn-luxknives" href="#">Termin Stonieren</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 d-flex justify-content-center align-items-center p-4">
+                                            <i class="fa-solid fa-house-user fa-7x"></i>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Fragen -->
-            <div class="col-5 bg-luxKnives borderLuxKnives">
-                <div class="row d-flex justify-content-start py-2 padding-fragen">
-                    <h2>Neue Infos:</h2>
-                </div>
-                <div class="row d-flex justify-content-center">
-                    <div class="card mb-3 cardBestellungenStyle">
-                        <div class="card-body">
-                            <h5 class="card-title">Ihre Frage</h5>
-                            <p class="card-textBestellungen"> Gibt es eine Moglichkeit die Messer vor Ort auszutesten?</p>
-                            <div class="input-group mb-3">
-                                <textarea id="antwortSchreiben" class="form-control" aria-label="With textarea"></textarea>
+                        <!-- Fragen -->
+                        <div class="col-5 bg-luxKnives borderLuxKnives">
+                            <div class="row d-flex justify-content-start py-2 padding-fragen">
+                                <h2>Neue Infos:</h2>
                             </div>
-                            <button id="antwortenBtn" class="btn btn-luxknives">Antworten</button>
-                            <button id="loeschenBtn" class="btn btn-luxknives">Frage Löschen</button>
+                            <div class="row d-flex justify-content-center">
+                                <div class="card mb-3 cardBestellungenStyle">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Ihre Frage</h5>
+                                        <p class="card-textBestellungen"> Gibt es eine Moglichkeit die Messer vor Ort
+                                            auszutesten?</p>
+                                        <div class="input-group mb-3">
+                                            <textarea id="antwortSchreiben" class="form-control"
+                                                      aria-label="With textarea"></textarea>
+                                        </div>
+                                        <button id="antwortenBtn" class="btn btn-luxknives">Antworten</button>
+                                        <button id="loeschenBtn" class="btn btn-luxknives">Frage Löschen</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--
+                            <div class="row d-flex justify-content-center">
+                                <div class="card mb-3 cardBestellungenStyle">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Ihre Frage</h5>
+                                        <p class="card-textBestellungen">Haben sie Produkte in anderen Farben?</p>
+                                        <a href="#" class="btn btn-luxknives">Antworten</a>
+                                        <a href="#" class="btn btn-luxknives">Frage Loschen</a>
+                                    </div>
+                                </div>
+                            </div>
+                            -->
                         </div>
                     </div>
                 </div>
-                <!--
-                <div class="row d-flex justify-content-center">
-                    <div class="card mb-3 cardBestellungenStyle">
-                        <div class="card-body">
-                            <h5 class="card-title">Ihre Frage</h5>
-                            <p class="card-textBestellungen">Haben sie Produkte in anderen Farben?</p>
-                            <a href="#" class="btn btn-luxknives">Antworten</a>
-                            <a href="#" class="btn btn-luxknives">Frage Loschen</a>
-                        </div>
+            </div>
+        </section>
+        <!-- Detailseite -->
+        <section id="sectDet" class="d-block">
+
+            <div id="produktbild1">
+                <div class="nakiri">Nakiri</div>
+                <img src="/cMe/images/Nakiricut.jpg" width="100%" alt="Nakiri Messer">
+            </div>
+            <div>
+                <h1 id="qf">
+                    Quality First
+                </h1>
+            </div>
+
+
+            <div class="row">
+                <div class="col-6">
+                    <img id="muster" src="/cMe/images/knivemuser1.jpeg" width="100%">
+                </div>
+
+                <div class="col-6">
+                    Eine unvergleichbare Kocherfahrung!
+                    <br>
+                    <br>
+                    Lass dich von der Klingenschärfe verführen. Glaube deinem Bauchgefühl und schneide Gemüse als würde
+                    es sich
+                    um Butter handeln.
+                </div>
+
+            </div>
+            <div>
+
+            </div>
+
+            <div id="verfuegbar"></div>
+
+            <div id="maße">
+
+
+                <div class="justify-content-center d-flex">
+                    <a id="bearbeitenBtnDetailseite" class="btn btn-luxknives"><img src="/cMe/SVGIcons/pen.svg"
+                                                                                    class="icon-centered icon-style"></a>
+                </div>
+            </div>
+
+            <div id="kommentare">
+                <h1> Kundenrezension </h1>
+
+                <div>
+                    <div class="kommentarBild">
+                        <img src="/cMe/images/placeholder-person.png" alt="snoop">
+                    </div>
+                    <div>
+                        <p>Habe alle drei Messer gekauft</p>
+                        <p>
+                            Man sollte bei der Handhabung aufpassen, aber wenn
+                            man es im Griff hat, ist jedes dieser Messer der beste
+                            Freund jedes Koches.
+                        </p>
+                    </div>
+                    <div>
+                        <button class="btn btn-luxknives">Antworten</button>
+                        <button class="btn btn-luxknives">delete</button>
+                        <a id="bearbeitenBtnKommentare" class="btn btn-luxknives"><img src="/cMe/SVGIcons/trash.svg"
+                                                                                       class="icon-centered icon-style"></a>
                     </div>
                 </div>
-                -->
-            </div>
-        </div>
-    </div>
-</div>
-</section>
-<!-- Detailseite -->
-<section id="sectDet" class="d-block">
+                <div>
+                    <div class="kommentarBild">
+                        <img src="/cMe/images/placeholder-person.png" alt="snoop">
+                    </div>
+                    <div>
+                        <p>Klasse Messer</p>
+                        <p>
+                            Ich bin nach mehrmaligem kochen sehr überzeugt von
+                            diesem Messer. Es hält sein versprechen! Gratis
+                            Schleifservice für Käufer und die tolle Beratung im Laden.
+                        </p>
+                    </div>
+                    <div>
+                        <button class="btn btn-luxknives">Antworten</button>
+                        <button class="btn btn-luxknives">delete</button>
+                    </div>
+                </div>
+                <div>
+                    <div class="kommentarBild">
+                        <img src="/cMe/images/placeholder-person.png" alt="snoop">
+                    </div>
+                    <div>
+                        <p>Aufpassen sehr scharf!</p>
+                        <p>
+                            Das Messer schneidet durch Fleisch wie durch Butter.
+                            Filetieren und ausbeinen absolut kein Problem.
+                        </p>
+                    </div>
+                    <div>
+                        <button class="btn btn-luxknives">Antworten</button>
+                        <button class="btn btn-luxknives">delete</button>
+                    </div>
+                </div>
 
-    <div id="produktbild1">
-        <div class="nakiri">Nakiri</div>
-        <img src="/cMe/images/Nakiricut.jpg" width="100%" alt="Nakiri Messer">
-    </div>
-    <div>
-        <h1 id="qf">
-            Quality First
-        </h1>
-    </div>
-
-
-    <div class="row">
-        <div class="col-6">
-            <img id="muster" src="/cMe/images/knivemuser1.jpeg" width="100%">
-        </div>
-
-        <div class="col-6">
-            Eine unvergleichbare Kocherfahrung!
-            <br>
-            <br>
-            Lass dich von der Klingenschärfe verführen. Glaube deinem Bauchgefühl und schneide Gemüse als würde es sich
-            um Butter handeln.
-        </div>
-
-    </div>
-    <div>
-
-    </div>
-
-    <div id="verfuegbar"></div>
-
-    <div id="maße">
-
-
-
-        <div class="justify-content-center d-flex">
-            <a id="bearbeitenBtnDetailseite" class="btn btn-luxknives"><img src="/cMe/SVGIcons/pen.svg" class="icon-centered icon-style"></a>
-        </div>
-    </div>
-
-    <div id="kommentare">
-        <h1> Kundenrezension </h1>
-
-        <div>
-            <div class="kommentarBild">
-                <img src="/cMe/images/placeholder-person.png" alt="snoop">
-            </div>
-            <div>
-                <p>Habe alle drei Messer gekauft</p>
-                <p>
-                    Man sollte bei der Handhabung aufpassen, aber wenn
-                    man es im Griff hat, ist jedes dieser Messer der beste
-                    Freund jedes Koches.
-                </p>
-            </div>
-            <div>
-                <button class="btn btn-luxknives">Antworten</button>
-                <button class="btn btn-luxknives">delete</button>
-                <a id="bearbeitenBtnKommentare" class="btn btn-luxknives"><img src="/cMe/SVGIcons/trash.svg" class="icon-centered icon-style"></a>
-            </div>
-        </div>
-        <div>
-            <div class="kommentarBild">
-                <img src="/cMe/images/placeholder-person.png" alt="snoop">
-            </div>
-            <div>
-                <p>Klasse Messer</p>
-                <p>
-                    Ich bin nach mehrmaligem kochen sehr überzeugt von
-                    diesem Messer. Es hält sein versprechen! Gratis
-                    Schleifservice für Käufer und die tolle Beratung im Laden.
-                </p>
-            </div>
-            <div>
-                <button class="btn btn-luxknives">Antworten</button>
-                <button class="btn btn-luxknives">delete</button>
-            </div>
-        </div>
-        <div>
-            <div class="kommentarBild">
-                <img src="/cMe/images/placeholder-person.png" alt="snoop">
-            </div>
-            <div>
-                <p>Aufpassen sehr scharf!</p>
-                <p>
-                    Das Messer schneidet durch Fleisch wie durch Butter.
-                    Filetieren und ausbeinen absolut kein Problem.
-                </p>
-            </div>
-            <div>
-                <button class="btn btn-luxknives">Antworten</button>
-                <button class="btn btn-luxknives">delete</button>
-            </div>
-        </div>
-
-        <br>
-        <div>
-            <button class="btn btn-luxknives">Kommentare Laden</button>
-            <button class="btn btn-luxknives">Kommentar verfassen</button>
-            <button class="btn btn-luxknives">edit</button>
-            <br>
-            <textarea></textarea>
-            <btn class="btn btn-luxknives">Absenden</btn>
-
-        </div>
-    </div>
-</section>
-<!-- Über uns -->
-<section id="sectUeber" class="d-block">
-    <div class="row">
-        <div class="fill col-7" id="divsize"></div>
-
-        <div class="col-4">
-
-            <h1>Über Uns</h1>
-
-            <p class="align-content-start puns">
-                LuxKnives ist ein traditionsbewusstes
-                Unternehmen.<br>
-                Wir haben es uns zur
-                Aufgabe gemacht die hochwertigste
-                Schmiedekunst breitflächig, <br>
-                dennoch
-                limitiert zu vertreiben. Mit einem
-                lebenslangen Schleifservice unserer
-                Kunden, <br>
-                bringen wir Ihnen ein
-                Luxusmesser, welches Sie ein Leben
-                lang begleitet.
                 <br>
-                <br>
-                Unser lokaler Laden bietet Köchen
-                und Kochinteressierten einen Ort,
-                um sich gegenseitig auszutauschen,
-                Bekanntschaften zu schließen und
-                die Kochleidenschaft zu zelebrieren.
-            </p>
-        </div>
-    </div>
+                <div>
+                    <button class="btn btn-luxknives">Kommentare Laden</button>
+                    <button class="btn btn-luxknives">Kommentar verfassen</button>
+                    <button class="btn btn-luxknives">edit</button>
+                    <br>
+                    <textarea></textarea>
+                    <btn class="btn btn-luxknives">Absenden</btn>
 
-    <div>
-        <h1>Das Team</h1>
-    </div>
-    <div class="row">
-        <div class="col-6 d-flex justify-content-center cardmargin">
-            <div class="card teamcard mb-3" style="max-width: 540px;">
-                <div class="row">
-                    <div class="col-md-4 fill4"></div>
+                </div>
+            </div>
+        </section>
+        <!-- Über uns -->
+        <section id="sectUeber" class="d-block">
+            <div class="row">
+                <div class="fill col-7" id="divsize"></div>
 
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Geschäftsführer</h5>
-                            <br>
-                            <p class="card-text">
-                                Ich bin Christian Valjak, der
-                                Geschäftsführer von LuxKnives.
-                                Qualität und Kundenzufriedenheit
-                                sind mein wichtigstes anliegen.
-                                Fühlen Sie sich frei und besuchen
-                                Sie uns in Gießen vor Ort.
-                            </p>
+                <div class="col-4">
+
+                    <h1>Über Uns</h1>
+
+                    <p class="align-content-start puns">
+                        LuxKnives ist ein traditionsbewusstes
+                        Unternehmen.<br>
+                        Wir haben es uns zur
+                        Aufgabe gemacht die hochwertigste
+                        Schmiedekunst breitflächig, <br>
+                        dennoch
+                        limitiert zu vertreiben. Mit einem
+                        lebenslangen Schleifservice unserer
+                        Kunden, <br>
+                        bringen wir Ihnen ein
+                        Luxusmesser, welches Sie ein Leben
+                        lang begleitet.
+                        <br>
+                        <br>
+                        Unser lokaler Laden bietet Köchen
+                        und Kochinteressierten einen Ort,
+                        um sich gegenseitig auszutauschen,
+                        Bekanntschaften zu schließen und
+                        die Kochleidenschaft zu zelebrieren.
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                <h1>Das Team</h1>
+            </div>
+            <div class="row">
+                <div class="col-6 d-flex justify-content-center cardmargin">
+                    <div class="card teamcard mb-3" style="max-width: 540px;">
+                        <div class="row">
+                            <div class="col-md-4 fill4"></div>
+
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Geschäftsführer</h5>
+                                    <br>
+                                    <p class="card-text">
+                                        Ich bin Christian Valjak, der
+                                        Geschäftsführer von LuxKnives.
+                                        Qualität und Kundenzufriedenheit
+                                        sind mein wichtigstes anliegen.
+                                        Fühlen Sie sich frei und besuchen
+                                        Sie uns in Gießen vor Ort.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 d-flex justify-content-center">
+                    <div class="card teamcard  mb-3" style="max-width: 540px;">
+                        <div class="row">
+                            <div class="col-md-4 fill3">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Administrator</h5>
+                                    <br>
+                                    <p class="card-text">
+                                        Mein Name ist Tumelo Bawela.
+                                        Ich sorge dafür, dass Sie sicher auf
+                                        unserer Plattform unterwegs sind
+                                        und Sie problemlos alle
+                                        angebotenen
+                                        Features nutzen können.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-6 d-flex justify-content-center">
-            <div class="card teamcard  mb-3" style="max-width: 540px;">
-                <div class="row">
-                    <div class="col-md-4 fill3">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Administrator</h5>
-                            <br>
-                            <p class="card-text">
-                                Mein Name ist Tumelo Bawela.
-                                Ich sorge dafür, dass Sie sicher auf
-                                unserer Plattform unterwegs sind
-                                und Sie problemlos alle
-                                angebotenen
-                                Features nutzen können.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
             <div class="row ">
                 <div class="col-6 d-flex justify-content-center">
@@ -672,7 +690,8 @@
                 </div>
             </div>
             <div class="justify-content-center d-flex">
-        <a id="bearbeitenBtnUeberUns" class="btn btn-luxknives"><img src="/cMe/SVGIcons/pen.svg" class="icon-centered icon-style"></a>
+                <a id="bearbeitenBtnUeberUns" class="btn btn-luxknives"><img src="/cMe/SVGIcons/pen.svg"
+                                                                             class="icon-centered icon-style"></a>
             </div>
         </section>
         <!--Service -->
@@ -1006,20 +1025,20 @@
                             </div>
                         </div>
 
-    <!-- AGB checkbox -->
+                        <!-- AGB checkbox -->
 
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <span class="input-group-text">Ich habe die AGB's gelesen und akzeptiert</span>
-                    </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Ich habe die AGB's gelesen und akzeptiert</span>
+                            </div>
 
-                </div>
+                        </div>
 
-                <div class="justify-content-center d-flex">
-                    <a id="bearbeitenBtnService" class="btn btn-luxknives"><img src="/cMe/SVGIcons/pen.svg"
+                        <div class="justify-content-center d-flex">
+                            <a id="bearbeitenBtnService" class="btn btn-luxknives"><img src="/cMe/SVGIcons/pen.svg"
 
-                                                                                class="icon-centered icon-style"></a>
-                </div>
+                                                                                        class="icon-centered icon-style"></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1071,410 +1090,419 @@
                             <div class="row">
                                 <button class="btn btn-luxknives">Check-Out</button>
 
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</section>
-<!-- Checkout -->
-<section id="sectCheck" class="d-block">
-<div id="checkout">
-
-    <form id="formBereitsKunde">
-        <h5>Ich bin bereits Kunde</h5>
-        <br>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">E-Mail</span>
-            </div>
-            <input type="email" class="form-control" placeholder="Email" name="regE-mail"
-                   aria-label="Email" required>
-
-            <div class="input-group-prepend">
-                <span class="input-group-text">Passwort</span>
-            </div>
-            <input type="password" class="form-control" placeholder="Passwort" name="regPasswort"
-                   aria-label="Passwort" required>
-        </div>
-        <div class="input-group mb-3">
-            <button type="submit" class="btn btn-luxknives" name="regFormBtn">Einloggen</button>
-        </div>
-    </form>
-
-    <form id="formRechnungsAdresse">
-        <h5>Liefer-Rechnungsadresse</h5>
-        <br>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Vorname</span>
-            </div>
-            <input type="text" class="form-control" placeholder="Vorname" name="rechnungVorname"
-                   aria-label="Vorname" required>
-
-            <div class="input-group-prepend">
-                <span class="input-group-text">Nachname</span>
-            </div>
-            <input type="text" class="form-control" placeholder="Nachname" name="rechnungNachname"
-                   aria-label="Vorname" required>
-        </div>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Firma</span>
-            </div>
-            <input type="text" class="form-control" placeholder="Firma" name="rechnungFirma"
-                   aria-label="Firma">
-
-            <div class="input-group-prepend">
-                <span class="input-group-text">Firmenzusatz</span>
-            </div>
-            <input type="text" class="form-control" placeholder="Firmenzusatz" name="rechnungFirma"
-                   aria-label="Firma">
-        </div>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Straße</span>
-            </div>
-            <input type="text" class="form-control" placeholder="Straße" name="rechnungStraße"
-                   aria-label="Straße">
-
-            <div class="input-group-prepend">
-                <span class="input-group-text">Hausnummer</span>
-            </div>
-            <input type="text" class="form-control" placeholder="Hausnummer" name="rechnungHausnummer"
-                   aria-label="Hausnummer">
-        </div>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Plz</span>
-            </div>
-            <input type="text" class="form-control" placeholder="Postleihzahl" name="rechnungPlz"
-                   aria-label="Postleihzahl">
-
-            <div class="input-group-prepend">
-                <span class="input-group-text">Ort</span>
-            </div>
-            <input type="text" class="form-control" placeholder="Ort" name="rechnungOrt"
-                   aria-label="Ort">
-        </div>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Land</span>
-            </div>
-            <input type="text" class="form-control" placeholder="Land" name="rechnungLand"
-                   aria-label="Land">
-        </div>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">E-Mail</span>
-            </div>
-            <input type="email" class="form-control" placeholder="E-Mail-Adresse" name="rechnungEmail"
-                   aria-label="Land">
-        </div>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Telefon</span>
-            </div>
-            <input type="tel" class="form-control" placeholder="Telefonnummer" name="rechnungTelefon"
-                   aria-label="Telefonnummer">
-        </div>
-
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Versandart</span>
-            </div>
-            <input type="text" class="form-control" placeholder="Versandart" name="rechnungVersandart"
-                   aria-label="Versandart">
-        </div>
-
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Rechnungsadresse als Lieferadresse verwenden</span>
-            </div>
-            <input type="checkbox" id="checkAdresse" name="checkAdresse" value="checked">
-            <label for="checkAdresse"></label><br>
-        </div>
-    </form>
-
-    <form id="formZahlungsart">
-        <h5>Zahlungsart</h5>
-        <br>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Kartennummer</span>
-            </div>
-            <input type="text" class="form-control" placeholder="Kartennummer" name="zahlungsartKartenNr"
-                   aria-label="Kartennummer" required>
-        </div>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Name des Karteninhabers</span>
-            </div>
-            <input type="text" class="form-control" placeholder="Name" name="zahlungsartKartenName"
-                   aria-label="Name des Karteninhabers" required>
-        </div>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Gültig bis</span>
-            </div>
-            <input type="text" class="form-control" placeholder="Gültig bis" name="zahlungsartGültigkeit"
-                   aria-label="Gültig bis">
-
-            <div class="input-group-prepend">
-                <span class="input-group-text">Sicherheitscode</span>
-            </div>
-            <input type="text" class="form-control" placeholder="Sicherheitscode" name="zahlungsartSicherheitscode"
-                   aria-label="Sicherheitscode">
-        </div>
-
-
-
-
-<!--
-        <div id="smart-button-container">
-            <div style="text-align: center;">
-                <div id="paypal-button-container"></div>
-            </div>
-        </div>
-
-        <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
-        <script>
-            function initPayPalButton() {
-                paypal.Buttons({
-                    style: {
-                        shape: 'rect',
-                        color: 'gold',
-                        layout: 'vertical',
-                        label: 'paypal',
-
-                    },
-
-                    createOrder: function(data, actions) {
-                        return actions.order.create({
-                            purchase_units: [{"amount":{"currency_code":"USD","value":1}}]
-                        });
-                    },
-
-                    onApprove: function(data, actions) {
-                        return actions.order.capture().then(function(orderData) {
-
-                            // Full available details
-                            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-
-                            // Show a success message within this page, e.g.
-                            const element = document.getElementById('paypal-button-container');
-                            element.innerHTML = '';
-                            element.innerHTML = '<h3>Thank you for your payment!</h3>';
-
-                            // Or go to another URL:  actions.redirect('thank_you.html');
-
-                        });
-                    },
-
-                    onError: function(err) {
-                        console.log(err);
-                    }
-                }).render('#paypal-button-container');
-            }
-            initPayPalButton();
-        </script>
--->
-
-
-        <btn class="btn btn-luxknives" >Bestellen</btn>
-    </form>
-</div>
-</section>
-<!-- Registrieren-->
-<section id="sectReg" class="d-block">
-<div id="registrieren">
-
-    <!--Feedback nach Reg-->
-    <div class="row ">
-        <div class="col">
-            <p id="feedbackRegistrieren"></p>
-        </div>
-    </div>
-
-<form class="d-flex justify-content-center" id="formRegistrieren">
-<div class="card col-4 rashunique">
-    <div class="card-body">
-        <div class="col text-center">
-            <h5>Registrieren</h5>
-        </div>
-
-        <div class="row d-flex justify-content-center">
-            <div>
-                <p class="pmelden align-content-start">Vorname</p>
-                <input  type="text" class="rashinput form-control" name="regVorname"
-                       aria-label="Vorname" required>
-            </div>
-        </div>
-
-        <div class="row d-flex justify-content-center">
-            <div>
-                <p class="pmelden align-content-start">Nachname</p>
-                <input type="text" class="rashinput form-control" name="regNachname"
-                       aria-label="Vorname" required>
-                </div>
-        </div>
-
-
-        <div class="row d-flex justify-content-center">
-        <div>
-            <p class="pmelden align-content-start">E-Mail</p>
-            <input  type="email" class="rashinput form-control"
-                   name="regE-mail"
-                   aria-label="E-mail"
-                   required="">
-        </div>
-
-            <div class="row d-flex align-content-start">
-                <p class="pmelden align-content-start">Passwort</p>
-                <input id="passwort" type="password" class="rashinput form-control" name="regPasswort"
-                       aria-label="Passwort" required>
-            </div>
-            <!--
-            <div class="row d-flex align-content-start">
-                <p class="pmelden align-content-start">Passwort wiederholen</p>
-                <input type="password" class="rashinput form-control" name="regE-mail"
-                       aria-label="Email" required>
-            </div>
-
-
-            <div class="row d-flex justify-content-center">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="agbcheck">
-                    <label class="form-check-label" for="agbcheck">
-
-                      <p>Ich stimme den AGB und Datenschutzrichtlinien zu.</p>
-                    </label>
-                </div>
-            </div>
-            -->
-
-        </div>
-        <div class="row d-flex justify-content-center" id="regBtnstyle">
-            <div class="d-flex justify-content-center input-group">
-                <button type="submit" id="regBtn" class="btn btn-luxknives" name="regFormBtn">Registrieren</button>
-            </div>
-            <div class="row d-flex justify-content-center">
-                <a id="zumLogIn" class="text-center "href="#">Anmelden</a>
-            </div>
-        </div>
-
-
-
-    </div>
-</div>
-
-
-    </form>
-</div>
-</section>
-<!-- Login -->
-<section id="sectLog" class="d-block">
-
-    <form class="d-flex justify-content-center" id="formLogin">
-        <div class="card col-4 rashunique">
-            <div class="card-body">
-                <div class="text-center">
-                    <h5>Anmelden</h5>
-                </div>
-                <div class="row d-flex justify-content-center">
-                    <div>
-                       <p class="pmelden align-content-start">E-Mail</p>
-                        <input id="loginName" type="email" class="rashinput form-control"
-                               name="loginName"
-                               aria-label="E-mail"
-                               required="">
-                    </div>
-                </div>
-
-                <div class="row d-flex justify-content-center">
-                    <div>
-                      <p class="pmelden align-content-start">Passwort</p>
-
-                        <input id="loginPasswort" type="password" class="rashinput form-control" name="loginPasswort"
-                               aria-label="Passwort"
-                               required="">
-                    </div>
-                </div>
-                <div class="row d-flex justify-content-center" id="anmeldenbuttonstyle">
-                    <div class=" d-flex justify-content-center input-group" >
-
-                        <!--Feedback nach Login-->
-                        <div class="row ">
-                            <div class="col">
-                                <p id="feedbackLogin"></p>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-luxknives" id="loginBtn">Anmelden</button>
                     </div>
-                </div>
-                <div class="row d-flex justify-content-center">
-                    <a id="zumRegistrieren" class="text-center "href="#">Registrieren</a>
-                </div>
-
-
-                <div class="col-4 pt-3 d-flex justify-content-center" id="login">
                 </div>
             </div>
-        </div>
-    </form>
+        </section>
+        <!-- Checkout -->
+        <section id="sectCheck" class="d-block">
+            <div id="checkout">
 
-</section>
-<!-- Kontakt -->
-<section id="sectKont" class="d-block">
-    <div id="kontakt" class="mt-5">
-        <form id="formKontakt">
-            <div class="row justify-content-evenly">
-
-                <div class="row">
-                    <p id="feedbackNachricht"></p>
-                </div>
-
-                <div class="col-5 bg-white borderLuxKnives p-4">
-
-                    <!-- NACHNAME -->
-                    <p class="m-0">Nachname</p>
+                <form id="formBereitsKunde">
+                    <h5>Ich bin bereits Kunde</h5>
+                    <br>
                     <div class="input-group mb-3">
-                        <input id="nachrichtNName" type="text" class="form-control rashinput" placeholder="" name="kontaktName"
-                               aria-label="Nachname" required>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">E-Mail</span>
+                        </div>
+                        <input type="email" class="form-control" placeholder="Email" name="regE-mail"
+                               aria-label="Email" required>
+
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Passwort</span>
+                        </div>
+                        <input type="password" class="form-control" placeholder="Passwort" name="regPasswort"
+                               aria-label="Passwort" required>
                     </div>
-
-                    <!-- VORNAME -->
-                    <p class="m-0">Vorname</p>
                     <div class="input-group mb-3">
-                        <input id="nachrichtVName" type="text" class="form-control rashinput" placeholder="" name="kontaktVName"
+                        <button type="submit" class="btn btn-luxknives" name="regFormBtn">Einloggen</button>
+                    </div>
+                </form>
+
+                <form id="formRechnungsAdresse">
+                    <h5>Liefer-Rechnungsadresse</h5>
+                    <br>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Vorname</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Vorname" name="rechnungVorname"
+                               aria-label="Vorname" required>
+
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Nachname</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Nachname" name="rechnungNachname"
                                aria-label="Vorname" required>
                     </div>
-
-                    <!-- E-MAIL -->
-                    <p class="m-0">E-Mail</p>
                     <div class="input-group mb-3">
-                        <input id="nachrichtEmail" type="email" class="form-control rashinput" placeholder="" name="regE-mail"
-                               aria-label="Email" required>
-                    </div>
-                </div>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Firma</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Firma" name="rechnungFirma"
+                               aria-label="Firma">
 
-                <div class="col-5 bg-white borderLuxKnives p-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Firmenzusatz</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Firmenzusatz" name="rechnungFirma"
+                               aria-label="Firma">
+                    </div>
                     <div class="input-group mb-3">
-                        <input id="nachrichtBetreff" type="text" class="form-control rashinput" placeholder="Betreff" name="kontaktBetreff"
-                               aria-label="Betreff" required>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Straße</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Straße" name="rechnungStraße"
+                               aria-label="Straße">
+
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Hausnummer</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Hausnummer" name="rechnungHausnummer"
+                               aria-label="Hausnummer">
                     </div>
-                    <div>
-                        <textarea id="nachrichtEin" class="form-control rashinput" rows="6" aria-label="With textarea" placeholder="Ihre Nachricht..."></textarea>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Plz</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Postleihzahl" name="rechnungPlz"
+                               aria-label="Postleihzahl">
+
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Ort</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Ort" name="rechnungOrt"
+                               aria-label="Ort">
                     </div>
-                    <!-- Absenden Btn -->
-                    <div class="input-group my-3 justify-content-center">
-                        <button id="nachrichtBtnA" type="submit" class="btn btn-luxknives" name="kontaktFormBtn">Absenden</button>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Land</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Land" name="rechnungLand"
+                               aria-label="Land">
                     </div>
-                </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">E-Mail</span>
+                        </div>
+                        <input type="email" class="form-control" placeholder="E-Mail-Adresse" name="rechnungEmail"
+                               aria-label="Land">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Telefon</span>
+                        </div>
+                        <input type="tel" class="form-control" placeholder="Telefonnummer" name="rechnungTelefon"
+                               aria-label="Telefonnummer">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Versandart</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Versandart" name="rechnungVersandart"
+                               aria-label="Versandart">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Rechnungsadresse als Lieferadresse verwenden</span>
+                        </div>
+                        <input type="checkbox" id="checkAdresse" name="checkAdresse" value="checked">
+                        <label for="checkAdresse"></label><br>
+                    </div>
+                </form>
+
+                <form id="formZahlungsart">
+                    <h5>Zahlungsart</h5>
+                    <br>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Kartennummer</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Kartennummer" name="zahlungsartKartenNr"
+                               aria-label="Kartennummer" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Name des Karteninhabers</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Name" name="zahlungsartKartenName"
+                               aria-label="Name des Karteninhabers" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Gültig bis</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Gültig bis" name="zahlungsartGültigkeit"
+                               aria-label="Gültig bis">
+
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Sicherheitscode</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Sicherheitscode"
+                               name="zahlungsartSicherheitscode"
+                               aria-label="Sicherheitscode">
+                    </div>
+
+
+                    <!--
+                            <div id="smart-button-container">
+                                <div style="text-align: center;">
+                                    <div id="paypal-button-container"></div>
+                                </div>
+                            </div>
+
+                            <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+                            <script>
+                                function initPayPalButton() {
+                                    paypal.Buttons({
+                                        style: {
+                                            shape: 'rect',
+                                            color: 'gold',
+                                            layout: 'vertical',
+                                            label: 'paypal',
+
+                                        },
+
+                                        createOrder: function(data, actions) {
+                                            return actions.order.create({
+                                                purchase_units: [{"amount":{"currency_code":"USD","value":1}}]
+                                            });
+                                        },
+
+                                        onApprove: function(data, actions) {
+                                            return actions.order.capture().then(function(orderData) {
+
+                                                // Full available details
+                                                console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+                                                // Show a success message within this page, e.g.
+                                                const element = document.getElementById('paypal-button-container');
+                                                element.innerHTML = '';
+                                                element.innerHTML = '<h3>Thank you for your payment!</h3>';
+
+                                                // Or go to another URL:  actions.redirect('thank_you.html');
+
+                                            });
+                                        },
+
+                                        onError: function(err) {
+                                            console.log(err);
+                                        }
+                                    }).render('#paypal-button-container');
+                                }
+                                initPayPalButton();
+                            </script>
+                    -->
+
+
+                    <btn class="btn btn-luxknives">Bestellen</btn>
+                </form>
             </div>
-        </form>
-    </div>
-</section>
+        </section>
+        <!-- Registrieren-->
+        <section id="sectReg" class="d-block">
+            <div id="registrieren">
+
+                <!--Feedback nach Reg-->
+                <div class="row ">
+                    <div class="col">
+                        <p id="feedbackRegistrieren"></p>
+                    </div>
+                </div>
+
+                <form class="d-flex justify-content-center" id="formRegistrieren">
+                    <div class="card col-4 rashunique">
+                        <div class="card-body">
+                            <div class="col text-center">
+                                <h5>Registrieren</h5>
+                            </div>
+
+                            <div class="row d-flex justify-content-center">
+                                <div>
+                                    <p class="pmelden align-content-start">Vorname</p>
+                                    <input type="text" class="rashinput form-control" name="regVorname"
+                                           aria-label="Vorname" required>
+                                </div>
+                            </div>
+
+                            <div class="row d-flex justify-content-center">
+                                <div>
+                                    <p class="pmelden align-content-start">Nachname</p>
+                                    <input type="text" class="rashinput form-control" name="regNachname"
+                                           aria-label="Vorname" required>
+                                </div>
+                            </div>
+
+
+                            <div class="row d-flex justify-content-center">
+                                <div>
+                                    <p class="pmelden align-content-start">E-Mail</p>
+                                    <input type="email" class="rashinput form-control"
+                                           name="regE-mail"
+                                           aria-label="E-mail"
+                                           required="">
+                                </div>
+
+                                <div class="row d-flex align-content-start">
+                                    <p class="pmelden align-content-start">Passwort</p>
+                                    <input id="passwort" type="password" class="rashinput form-control"
+                                           name="regPasswort"
+                                           aria-label="Passwort" required>
+                                </div>
+                                <!--
+                                <div class="row d-flex align-content-start">
+                                    <p class="pmelden align-content-start">Passwort wiederholen</p>
+                                    <input type="password" class="rashinput form-control" name="regE-mail"
+                                           aria-label="Email" required>
+                                </div>
+
+
+                                <div class="row d-flex justify-content-center">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="agbcheck">
+                                        <label class="form-check-label" for="agbcheck">
+
+                                          <p>Ich stimme den AGB und Datenschutzrichtlinien zu.</p>
+                                        </label>
+                                    </div>
+                                </div>
+                                -->
+
+                            </div>
+                            <div class="row d-flex justify-content-center" id="regBtnstyle">
+                                <div class="d-flex justify-content-center input-group">
+                                    <button type="submit" id="regBtn" class="btn btn-luxknives" name="regFormBtn">
+                                        Registrieren
+                                    </button>
+                                </div>
+                                <div class="row d-flex justify-content-center">
+                                    <a id="zumLogIn" class="text-center " href="#">Anmelden</a>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+        </section>
+        <!-- Login -->
+        <section id="sectLog" class="d-block">
+
+            <form class="d-flex justify-content-center" id="formLogin">
+                <div class="card col-4 rashunique">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <h5>Anmelden</h5>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <div>
+                                <p class="pmelden align-content-start">E-Mail</p>
+                                <input id="loginName" type="email" class="rashinput form-control"
+                                       name="loginName"
+                                       aria-label="E-mail"
+                                       required="">
+                            </div>
+                        </div>
+
+                        <div class="row d-flex justify-content-center">
+                            <div>
+                                <p class="pmelden align-content-start">Passwort</p>
+
+                                <input id="loginPasswort" type="password" class="rashinput form-control"
+                                       name="loginPasswort"
+                                       aria-label="Passwort"
+                                       required="">
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center" id="anmeldenbuttonstyle">
+                            <div class=" d-flex justify-content-center input-group">
+
+                                <!--Feedback nach Login-->
+                                <div class="row ">
+                                    <div class="col">
+                                        <p id="feedbackLogin"></p>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-luxknives" id="loginBtn">Anmelden</button>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <a id="zumRegistrieren" class="text-center " href="#">Registrieren</a>
+                        </div>
+
+
+                        <div class="col-4 pt-3 d-flex justify-content-center" id="login">
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </section>
+        <!-- Kontakt -->
+        <section id="sectKont" class="d-block">
+            <div id="kontakt" class="mt-5">
+                <form id="formKontakt">
+                    <div class="row justify-content-evenly">
+
+                        <div class="row">
+                            <p id="feedbackNachricht"></p>
+                        </div>
+
+                        <div class="col-5 bg-white borderLuxKnives p-4">
+
+                            <!-- NACHNAME -->
+                            <p class="m-0">Nachname</p>
+                            <div class="input-group mb-3">
+                                <input id="nachrichtNName" type="text" class="form-control rashinput" placeholder=""
+                                       name="kontaktName"
+                                       aria-label="Nachname" required>
+                            </div>
+
+                            <!-- VORNAME -->
+                            <p class="m-0">Vorname</p>
+                            <div class="input-group mb-3">
+                                <input id="nachrichtVName" type="text" class="form-control rashinput" placeholder=""
+                                       name="kontaktVName"
+                                       aria-label="Vorname" required>
+                            </div>
+
+                            <!-- E-MAIL -->
+                            <p class="m-0">E-Mail</p>
+                            <div class="input-group mb-3">
+                                <input id="nachrichtEmail" type="email" class="form-control rashinput" placeholder=""
+                                       name="regE-mail"
+                                       aria-label="Email" required>
+                            </div>
+                        </div>
+
+                        <div class="col-5 bg-white borderLuxKnives p-4">
+                            <div class="input-group mb-3">
+                                <input id="nachrichtBetreff" type="text" class="form-control rashinput"
+                                       placeholder="Betreff" name="kontaktBetreff"
+                                       aria-label="Betreff" required>
+                            </div>
+                            <div>
+                                <textarea id="nachrichtEin" class="form-control rashinput" rows="6"
+                                          aria-label="With textarea" placeholder="Ihre Nachricht..."></textarea>
+                            </div>
+                            <!-- Absenden Btn -->
+                            <div class="input-group my-3 justify-content-center">
+                                <button id="nachrichtBtnA" type="submit" class="btn btn-luxknives"
+                                        name="kontaktFormBtn">Absenden
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
         <!-- NAME -->
 
         <section id="sectAGB">
@@ -1489,10 +1517,14 @@
                 <div class="col-2"></div>
                 <div class="col-8 d-flex justify-content-center">
 
-                    <p>Diese Geschäftsbedingungen gelten für alle Käufe bei LuxKnives, die von Privatkunden getätigt werden.
-                        Privatkunden in diesem Sinne sind Personen mit Wohnsitz und Lieferadresse in der Bundesrepublik Deutschland,
-                        soweit die von ihnen bestellten Waren weder ihrer gewerblichen noch ihrer selbstständigen beruflichen Tätigkeit zugerechnet werden können.
-                        Geschäftskunden werden gebeten, Bestellungen auf den über den Geschäftskunden-Login erreichbaren Bestellseiten zu tätigen.
+                    <p>Diese Geschäftsbedingungen gelten für alle Käufe bei LuxKnives, die von Privatkunden getätigt
+                        werden.
+                        Privatkunden in diesem Sinne sind Personen mit Wohnsitz und Lieferadresse in der Bundesrepublik
+                        Deutschland,
+                        soweit die von ihnen bestellten Waren weder ihrer gewerblichen noch ihrer selbstständigen
+                        beruflichen Tätigkeit zugerechnet werden können.
+                        Geschäftskunden werden gebeten, Bestellungen auf den über den Geschäftskunden-Login erreichbaren
+                        Bestellseiten zu tätigen.
                     </p>
                 </div>
                 <div class="col-2"></div>
@@ -1510,11 +1542,15 @@
                 <div class="col-8 d-flex justify-content-center">
 
                     <p>Die ausgezeichneten Preise sind Endpreise inkl. Umsatzsteuer. Es gilt der Betrag,
-                        der jeweils zum Zeitpunkt der verbindlichen Bestellung ausgewiesen ist. Hinzu kommen Versandkosten,
-                        die von der Versandart und der Größe und dem Gewicht der von Ihnen bestellten Ware(n) abhängig sind.
-                        Über die Einzelheiten können Sie sich unter informieren. Die regelmäßigen Kosten der Rücksendung,
+                        der jeweils zum Zeitpunkt der verbindlichen Bestellung ausgewiesen ist. Hinzu kommen
+                        Versandkosten,
+                        die von der Versandart und der Größe und dem Gewicht der von Ihnen bestellten Ware(n) abhängig
+                        sind.
+                        Über die Einzelheiten können Sie sich unter informieren. Die regelmäßigen Kosten der
+                        Rücksendung,
                         die im Falle einer Rückgabe der Ware durch Sie in Ausübung Ihres Widerrufsrechts
-                        entstehen, tragen wir. Bei Ausübung Ihres Widerrufsrechts erstatten wir Ihnen auch die Versandkosten zurück.
+                        entstehen, tragen wir. Bei Ausübung Ihres Widerrufsrechts erstatten wir Ihnen auch die
+                        Versandkosten zurück.
                     </p>
                 </div>
                 <div class="col-2"></div>
@@ -1535,13 +1571,13 @@
                             PayPal
                         </li>
                         <li>
-                          Kreditkarte
+                            Kreditkarte
                         </li>
                         <li>
-                           Klarna
+                            Klarna
                         </li>
                         <li>
-                           Lastschrift
+                            Lastschrift
                         </li>
                     </ul>
                 </div>
@@ -1558,9 +1594,12 @@
                 <div class="col-2"></div>
                 <div class="col-8 d-flex justify-content-center">
 
-                    <p>Kommen Sie in Zahlungsverzug, so ist LuxKnives berechtigt, Verzugszinsen in Höhe von 5 Prozentpunkten
-                        über dem von der Deutschen Bundesbank für den Zeitpunkt der Bestellung bekannt gegebenen Basiszinssatz
-                        p.a. zu fordern. Falls LuxKnives ein höherer Verzugsschaden nachweisbar entstanden ist, ist LuxKnives berechtigt,
+                    <p>Kommen Sie in Zahlungsverzug, so ist LuxKnives berechtigt, Verzugszinsen in Höhe von 5
+                        Prozentpunkten
+                        über dem von der Deutschen Bundesbank für den Zeitpunkt der Bestellung bekannt gegebenen
+                        Basiszinssatz
+                        p.a. zu fordern. Falls LuxKnives ein höherer Verzugsschaden nachweisbar entstanden ist, ist
+                        LuxKnives berechtigt,
                         diesen geltend zu machen.
                     </p>
                 </div>
@@ -1604,15 +1643,22 @@
                         <br>
 
                         <li>
-                            Macht höhere Gewalt (Naturkatastrophen, Krieg, Bürgerkrieg, Terroranschlag) die Lieferung oder eine sonstige Leistung dauerhaft unmöglich, ist eine Leistungspflicht von LuxKnives ausgeschlossen. Bereits gezahlte Beträge werden von LuxKnives unverzüglich erstattet.
+                            Macht höhere Gewalt (Naturkatastrophen, Krieg, Bürgerkrieg, Terroranschlag) die Lieferung
+                            oder eine sonstige Leistung dauerhaft unmöglich, ist eine Leistungspflicht von LuxKnives
+                            ausgeschlossen. Bereits gezahlte Beträge werden von LuxKnives unverzüglich erstattet.
                         </li>
                         <br>
                         <li>
-                            LuxKnives kann außerdem die Leistung verweigern, soweit diese einen Aufwand erfordert, der unter Beachtung des Inhalts des Kaufvertrages und der Gebote von Treu und Glauben in einem groben Missverhältnis zu dem Interesse des Kunden an der Erfüllung des Kaufvertrages steht. Bereits gezahlte Beträge werden von LuxKnives unverzüglich erstattet.
+                            LuxKnives kann außerdem die Leistung verweigern, soweit diese einen Aufwand erfordert, der
+                            unter Beachtung des Inhalts des Kaufvertrages und der Gebote von Treu und Glauben in einem
+                            groben Missverhältnis zu dem Interesse des Kunden an der Erfüllung des Kaufvertrages steht.
+                            Bereits gezahlte Beträge werden von LuxKnives unverzüglich erstattet.
                         </li>
                         <br>
                         <li>
-                            Sperrgut (Pakete mit einem größeren Volumen als 1 qm) werden in der Regel per Spedition geliefert. LuxKnives weist ausdrücklich darauf hin, dass diese Ware nicht ins Haus getragen wird.
+                            Sperrgut (Pakete mit einem größeren Volumen als 1 qm) werden in der Regel per Spedition
+                            geliefert. LuxKnives weist ausdrücklich darauf hin, dass diese Ware nicht ins Haus getragen
+                            wird.
                         </li>
 
                     </ol>
@@ -1630,17 +1676,24 @@
             <div class="row">
                 <div class="col-2"></div>
                 <div class="col-8 d-flex justify-content-center">
-                   <ol>
-                       <li>
-                           (1) Bitte verwenden Sie bei der Rücksendung der Ware und des Zubehörs nach Möglichkeit die Originalverpackung, auch wenn diese durch eine Öffnung zur Funktionsprüfung beschädigt sein sollte.
+                    <ol>
+                        <li>
+                            (1) Bitte verwenden Sie bei der Rücksendung der Ware und des Zubehörs nach Möglichkeit die
+                            Originalverpackung, auch wenn diese durch eine Öffnung zur Funktionsprüfung beschädigt sein
+                            sollte.
 
-                       </li>
-                       <br>
-                       <li>
-                           (2) Bitte verwenden Sie zur Rücksendung den der Warenlieferung beigefügten, vollständig frankierten und adressierten Rücksendeaufkleber. Es handelt sich dabei um die einfachste und kostengünstigste Versandmöglichkeit. Sie trifft keine Verpflichtung zur Verwendung dieses Rücksendeverfahrens. Wenn Sie allerdings eine unnötig teure Versandart wählen, können Sie unter Umständen verpflichtet sein, die gegenüber einer günstigen Versandart erhöhten Kosten an uns zu zahlen.
+                        </li>
+                        <br>
+                        <li>
+                            (2) Bitte verwenden Sie zur Rücksendung den der Warenlieferung beigefügten, vollständig
+                            frankierten und adressierten Rücksendeaufkleber. Es handelt sich dabei um die einfachste und
+                            kostengünstigste Versandmöglichkeit. Sie trifft keine Verpflichtung zur Verwendung dieses
+                            Rücksendeverfahrens. Wenn Sie allerdings eine unnötig teure Versandart wählen, können Sie
+                            unter Umständen verpflichtet sein, die gegenüber einer günstigen Versandart erhöhten Kosten
+                            an uns zu zahlen.
 
-                       </li>
-                   </ol>
+                        </li>
+                    </ol>
                 </div>
                 <div class="col-2"></div>
             </div>
@@ -1655,9 +1708,11 @@
                 <div class="col-2"></div>
                 <div class="col-8 d-flex justify-content-center">
 
-                    <p>Bis zur vollständigen Begleichung aller gegen den Kunden bestehender Ansprüche aus dem Kaufvertrag
+                    <p>Bis zur vollständigen Begleichung aller gegen den Kunden bestehender Ansprüche aus dem
+                        Kaufvertrag
                         bleibt die gelieferte Ware im Eigentum von LuxKnives. Solange dieser Eigentumsvorbehalt besteht,
-                        darf der Kunde die Ware weder weiterveräußern noch über die Ware verfügen; insbesondere darf der Kunde
+                        darf der Kunde die Ware weder weiterveräußern noch über die Ware verfügen; insbesondere darf der
+                        Kunde
                         Dritten vertraglich keine Nutzung an der Ware einräumen.
                     </p>
                 </div>
@@ -1674,79 +1729,121 @@
                 <div class="col-2"></div>
                 <div class="col-8 d-flex justify-content-center">
                     <p>
-                        <ol>
-                    <li>
-                        Ein bereits bei der Lieferung mangelhaftes Produkt (Gewährleistungsfall) wird LuxKnives nach Wahl des
-                        Kunden auf Kosten von LuxKnives durch ein mangelfreies ersetzen oder fachgerecht reparieren lassen (Nacherfüllung).
-                        Der Kunde wird darauf hingewiesen, dass kein Gewährleistungsfall vorliegt, wenn das Produkt bei Gefahrübergang die
-                        vereinbarte Beschaffenheit hatte. Ein Gewährleistungsfall liegt insbesondere in folgenden Fällen nicht vor:
-                        <br>
-                        <br>
-                        a) bei Schäden, die beim Kunden durch Missbrauch oder unsachgemäßen Gebrauch entstanden sind,
-                        <br>
-                        b) bei Schäden, die dadurch entstanden sind, dass die Produkte beim Kunden schädlichen äußeren Einflüssen
-                        ausgesetzt worden sind (insbesondere extremen Temperaturen, Feuchtigkeit, außergewöhnlicher physikalischer
-                        oder elektrischer Beanspruchung, Spannungsschwankungen, Blitzschlag, statischer Elektrizität, Feuer).
+                    <ol>
+                        <li>
+                            Ein bereits bei der Lieferung mangelhaftes Produkt (Gewährleistungsfall) wird LuxKnives nach
+                            Wahl des
+                            Kunden auf Kosten von LuxKnives durch ein mangelfreies ersetzen oder fachgerecht reparieren
+                            lassen (Nacherfüllung).
+                            Der Kunde wird darauf hingewiesen, dass kein Gewährleistungsfall vorliegt, wenn das Produkt
+                            bei Gefahrübergang die
+                            vereinbarte Beschaffenheit hatte. Ein Gewährleistungsfall liegt insbesondere in folgenden
+                            Fällen nicht vor:
+                            <br>
+                            <br>
+                            a) bei Schäden, die beim Kunden durch Missbrauch oder unsachgemäßen Gebrauch entstanden
+                            sind,
+                            <br>
+                            b) bei Schäden, die dadurch entstanden sind, dass die Produkte beim Kunden schädlichen
+                            äußeren Einflüssen
+                            ausgesetzt worden sind (insbesondere extremen Temperaturen, Feuchtigkeit, außergewöhnlicher
+                            physikalischer
+                            oder elektrischer Beanspruchung, Spannungsschwankungen, Blitzschlag, statischer
+                            Elektrizität, Feuer).
 
-                    </li>
-                    <br>
-                    <li>
-                        LuxKnives leistet ferner keine Gewähr für einen Fehler, der durch unsachgemäße Reparatur durch einen nicht vom Hersteller autorisierten Servicepartner entstanden ist.
-                    </li>
-                    <br>
-                    <li>
-                        Erfordert die vom Kunden gewünschte Art der Nacherfüllung (Ersatzlieferung oder Reparatur) einen Aufwand, der in Anbetracht des Produktpreises unter Beachtung des Vertragsinhaltes und der Gebote von Treu und Glauben in einem groben Missverhältnis zu dem Leistungsinteresse des Kunden steht – wobei insbesondere der Wert des Kaufgegenstandes im mangelfreien Zustand, die Bedeutung des Mangels und die Frage zu berücksichtigen sind, ob auf die andere Art der Nacherfüllung ohne erhebliche Nachteile für den Kunden zurückgegriffen werden kann – beschränkt sich der Anspruch des Kunden auf die jeweils andere Art der Nacherfüllung. Das Recht von LuxKnives, auch diese andere Art der Nacherfüllung unter der vorgenannten Voraussetzung zu verweigern, bleibt unberührt.
-                    </li>
-                    <br>
-                    <li>
-                        Sowohl für den Fall der Reparatur als auch für den Fall der Ersatzlieferung ist der Kunde verpflichtet,
-                        das Produkt auf Kosten von LuxKnives unter Angabe der Auftragsnummer an die von ihr angegebene Rücksendeadresse einzusenden.
-                        Vor der Einsendung hat der Kunde von ihm eingefügte Gegenstände aus dem Produkt zu entfernen. LuxKnives ist nicht verpflichtet,
-                        das Produkt auf den Einbau solcher Gegenstände zu untersuchen. Für den Verlust solcher Gegenstände haftet LuxKnives nicht, es sei denn,
-                        es war bei Rücknahme des Produktes für LuxKnives ohne Weiteres erkennbar, dass ein solcher Gegenstand in das Produkt eingefügt worden ist
-                        (in diesem Fall informiert LuxKnives den Kunden und hält den Gegenstand für den Kunden zur Abholung bereit; der Kunde trägt die dabei entstehenden Kosten).
-                        Der Kunde hat zudem, bevor er ein Produkt zur Reparatur oder zum Austausch einsendet, gegebenenfalls separate Sicherungskopien der auf dem Produkt
-                        befindlichen Systemsoftware, der Anwendungen und aller Daten auf einem separaten Datenträger zu erstellen und alle Passwörter zu deaktivieren.
-                        Eine Haftung für Datenverlust wird nicht übernommen. Ebenso obliegt es dem Kunden, nachdem ihm das reparierte Produkt oder das Ersatzprodukt
-                        zurückgesandt worden ist, die Software und Daten zu installieren und die Passwörter zu reaktivieren.
-                    </li>
-                    <br>
-                    <li>
-                        Sendet der Kunde die Ware ein, um ein Austauschprodukt zu bekommen, richtet sich die Rückgewähr des mangelhaften
-                        Produktes nach folgender Maßgabe: Sofern der Kunde die Ware zwischen Lieferung und Rücksendung in mangelfreiem Zustand benutzen konnte,
-                        hat dieser den Wert der von ihm gezogenen Nutzungen zu erstatten. Für einen nicht durch den Mangel eingetretenen Untergang oder die
-                        weitere Verschlechterung der Ware sowie für die nicht durch den Mangel eingetretene Unmöglichkeit
-                        der Herausgabe der Ware im Zeitraum zwischen Lieferung der Ware und Rücksendung der Ware hat der Kunde Wertersatz zu leisten.
-                        Der Kunde hat keinen Wertersatz für die durch den bestimmungsgemäßen Gebrauch der Ware entstandene Verschlechterung der Ware zu leisten.
-                        Die Pflicht zum Wertersatz entfällt für die Rücksendung eines mangelhaften Produktes im Gewährleistungsfall ferner,
+                        </li>
                         <br>
+                        <li>
+                            LuxKnives leistet ferner keine Gewähr für einen Fehler, der durch unsachgemäße Reparatur
+                            durch einen nicht vom Hersteller autorisierten Servicepartner entstanden ist.
+                        </li>
                         <br>
-                        a) wenn sich der zum Rücktritt berechtigende Mangel erst während der Verarbeitung oder Umgestaltung gezeigt hat,
+                        <li>
+                            Erfordert die vom Kunden gewünschte Art der Nacherfüllung (Ersatzlieferung oder Reparatur)
+                            einen Aufwand, der in Anbetracht des Produktpreises unter Beachtung des Vertragsinhaltes und
+                            der Gebote von Treu und Glauben in einem groben Missverhältnis zu dem Leistungsinteresse des
+                            Kunden steht – wobei insbesondere der Wert des Kaufgegenstandes im mangelfreien Zustand, die
+                            Bedeutung des Mangels und die Frage zu berücksichtigen sind, ob auf die andere Art der
+                            Nacherfüllung ohne erhebliche Nachteile für den Kunden zurückgegriffen werden kann –
+                            beschränkt sich der Anspruch des Kunden auf die jeweils andere Art der Nacherfüllung. Das
+                            Recht von LuxKnives, auch diese andere Art der Nacherfüllung unter der vorgenannten
+                            Voraussetzung zu verweigern, bleibt unberührt.
+                        </li>
                         <br>
-                        b) wenn LuxKnives die Verschlechterung oder den Untergang zu vertreten hat oder der Schaden auch bei LuxKnives eingetreten wäre,
+                        <li>
+                            Sowohl für den Fall der Reparatur als auch für den Fall der Ersatzlieferung ist der Kunde
+                            verpflichtet,
+                            das Produkt auf Kosten von LuxKnives unter Angabe der Auftragsnummer an die von ihr
+                            angegebene Rücksendeadresse einzusenden.
+                            Vor der Einsendung hat der Kunde von ihm eingefügte Gegenstände aus dem Produkt zu
+                            entfernen. LuxKnives ist nicht verpflichtet,
+                            das Produkt auf den Einbau solcher Gegenstände zu untersuchen. Für den Verlust solcher
+                            Gegenstände haftet LuxKnives nicht, es sei denn,
+                            es war bei Rücknahme des Produktes für LuxKnives ohne Weiteres erkennbar, dass ein solcher
+                            Gegenstand in das Produkt eingefügt worden ist
+                            (in diesem Fall informiert LuxKnives den Kunden und hält den Gegenstand für den Kunden zur
+                            Abholung bereit; der Kunde trägt die dabei entstehenden Kosten).
+                            Der Kunde hat zudem, bevor er ein Produkt zur Reparatur oder zum Austausch einsendet,
+                            gegebenenfalls separate Sicherungskopien der auf dem Produkt
+                            befindlichen Systemsoftware, der Anwendungen und aller Daten auf einem separaten Datenträger
+                            zu erstellen und alle Passwörter zu deaktivieren.
+                            Eine Haftung für Datenverlust wird nicht übernommen. Ebenso obliegt es dem Kunden, nachdem
+                            ihm das reparierte Produkt oder das Ersatzprodukt
+                            zurückgesandt worden ist, die Software und Daten zu installieren und die Passwörter zu
+                            reaktivieren.
+                        </li>
                         <br>
-                        c) wenn die Verschlechterung oder der Untergang beim Kunden eingetreten ist, obwohl dieser diejenige Sorgfalt beachtet hat, die er in eigenen Angelegenheiten anzuwenden pflegt.
-                    </li>
-                    <br>
-                    <li>
-                        Die Schadensersatzpflicht des Kunden bei einer vom Kunden zu vertretenden Verletzung der Rücksendungspflicht
-                        richtet sich nach Maßgabe der gesetzlichen Bestimmungen.
-                    </li>
-                    <br>
-                    <li>
-                        Der Kunde kann nach seiner Wahl vom Vertrag zurücktreten oder den Kaufpreis mindern, wenn die Reparatur oder Ersatzlieferung
-                        innerhalb einer angemessenen Frist nicht zu einem vertragsgerechten Zustand des Produktes geführt hat.
-                    </li>
-                    <br>
-                    <li>
-                        Darüber hinaus können auch Ansprüche gegen den Hersteller im Rahmen einer von diesem eingeräumten Garantie bestehen,
-                        die sich nach den entsprechenden Garantiebedingungen richten.
-                    </li>
-                    <br>
-                    <li>
-                        Die gesetzliche Gewährleistung von LuxKnives endet zwei Jahre ab Lieferung der Ware. Die Frist beginnt mit dem Erhalt der Ware.
-                    </li>
-                </ol>
+                        <li>
+                            Sendet der Kunde die Ware ein, um ein Austauschprodukt zu bekommen, richtet sich die
+                            Rückgewähr des mangelhaften
+                            Produktes nach folgender Maßgabe: Sofern der Kunde die Ware zwischen Lieferung und
+                            Rücksendung in mangelfreiem Zustand benutzen konnte,
+                            hat dieser den Wert der von ihm gezogenen Nutzungen zu erstatten. Für einen nicht durch den
+                            Mangel eingetretenen Untergang oder die
+                            weitere Verschlechterung der Ware sowie für die nicht durch den Mangel eingetretene
+                            Unmöglichkeit
+                            der Herausgabe der Ware im Zeitraum zwischen Lieferung der Ware und Rücksendung der Ware hat
+                            der Kunde Wertersatz zu leisten.
+                            Der Kunde hat keinen Wertersatz für die durch den bestimmungsgemäßen Gebrauch der Ware
+                            entstandene Verschlechterung der Ware zu leisten.
+                            Die Pflicht zum Wertersatz entfällt für die Rücksendung eines mangelhaften Produktes im
+                            Gewährleistungsfall ferner,
+                            <br>
+                            <br>
+                            a) wenn sich der zum Rücktritt berechtigende Mangel erst während der Verarbeitung oder
+                            Umgestaltung gezeigt hat,
+                            <br>
+                            b) wenn LuxKnives die Verschlechterung oder den Untergang zu vertreten hat oder der Schaden
+                            auch bei LuxKnives eingetreten wäre,
+                            <br>
+                            c) wenn die Verschlechterung oder der Untergang beim Kunden eingetreten ist, obwohl dieser
+                            diejenige Sorgfalt beachtet hat, die er in eigenen Angelegenheiten anzuwenden pflegt.
+                        </li>
+                        <br>
+                        <li>
+                            Die Schadensersatzpflicht des Kunden bei einer vom Kunden zu vertretenden Verletzung der
+                            Rücksendungspflicht
+                            richtet sich nach Maßgabe der gesetzlichen Bestimmungen.
+                        </li>
+                        <br>
+                        <li>
+                            Der Kunde kann nach seiner Wahl vom Vertrag zurücktreten oder den Kaufpreis mindern, wenn
+                            die Reparatur oder Ersatzlieferung
+                            innerhalb einer angemessenen Frist nicht zu einem vertragsgerechten Zustand des Produktes
+                            geführt hat.
+                        </li>
+                        <br>
+                        <li>
+                            Darüber hinaus können auch Ansprüche gegen den Hersteller im Rahmen einer von diesem
+                            eingeräumten Garantie bestehen,
+                            die sich nach den entsprechenden Garantiebedingungen richten.
+                        </li>
+                        <br>
+                        <li>
+                            Die gesetzliche Gewährleistung von LuxKnives endet zwei Jahre ab Lieferung der Ware. Die
+                            Frist beginnt mit dem Erhalt der Ware.
+                        </li>
+                    </ol>
 
                     </p>
                 </div>
@@ -1766,7 +1863,8 @@
                     <p>
                         Der zwischen Ihnen und LuxKnives abgeschlossene Vertrag unterliegt ausschließlich dem Recht der
                         Bundesrepublik Deutschland unter ausdrücklichem Ausschluss des UN-Kaufrechts.
-                        Unberührt davon bleiben die zwingenden Bestimmungen des Staates, in dem Sie Ihren gewöhnlichen Aufenthalt haben.
+                        Unberührt davon bleiben die zwingenden Bestimmungen des Staates, in dem Sie Ihren gewöhnlichen
+                        Aufenthalt haben.
                     </p>
                 </div>
                 <div class="col-2"></div>
@@ -1784,9 +1882,12 @@
                 <div class="col-8 d-flex justify-content-center">
 
                     <p>
-                        Sofern Sie entgegen Ihren Angaben bei der Bestellung keinen Wohnsitz in der Bundesrepublik Deutschland haben
-                        oder nach Vertragsabschluss Ihren Wohnsitz ins Ausland verlegen oder Ihr Wohnsitz zum Zeitpunkt der
-                        Klageerhebung nicht bekannt ist, ist Gerichtsstand für alle Streitigkeiten aus und im Zusammenhang mit dem Vertragsverhältnis
+                        Sofern Sie entgegen Ihren Angaben bei der Bestellung keinen Wohnsitz in der Bundesrepublik
+                        Deutschland haben
+                        oder nach Vertragsabschluss Ihren Wohnsitz ins Ausland verlegen oder Ihr Wohnsitz zum Zeitpunkt
+                        der
+                        Klageerhebung nicht bekannt ist, ist Gerichtsstand für alle Streitigkeiten aus und im
+                        Zusammenhang mit dem Vertragsverhältnis
                     </p>
                 </div>
                 <div class="col-2"></div>
@@ -1804,11 +1905,13 @@
                 <div class="col-8 d-flex justify-content-center">
 
                     <p>
-                        Allgemeine Informationspflichten zur alternativen Streitbeilegung nach Art. 14 Abs. 1 ODR-VO und § 36 VSBG
+                        Allgemeine Informationspflichten zur alternativen Streitbeilegung nach Art. 14 Abs. 1 ODR-VO und
+                        § 36 VSBG
                         (Verbraucherstreitbeilegungsgesetz):
                         Die europäische Kommission stellt eine Plattform zur Online-Streitbelegung (OS) zur Verfügung,
                         die Sie unter dieser Adresse finden: http://ec.europa.eu/consumers/odr/ .
-                        Zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle sind wir nicht
+                        Zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle sind
+                        wir nicht
                         verpflichtet und auch nicht bereit.
 
                     </p>
@@ -1829,7 +1932,8 @@
                     <ol>
                         <li>
                             Sollten einzelne Bestimmungen dieses Vertrages ganz oder teilweise unwirksam
-                            oder nichtig sein oder werden, so wird dadurch die Wirksamkeit des Vertrages im Übrigen nicht berührt,
+                            oder nichtig sein oder werden, so wird dadurch die Wirksamkeit des Vertrages im Übrigen
+                            nicht berührt,
                             insoweit ein Vertragspartner hierdurch nicht unangemessen benachteiligt wird.
                         </li>
                         <br>
@@ -1842,96 +1946,604 @@
             </div>
         </section>
 
+        <section id="sectDS">
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8 d-flex justify-content-center">
+                    <h1>Datenschutzerklärung</h1>
+                </div>
+                <div class="col-2"></div>
+            </div>
 
-<!-- Impressum -->
-<section id="sectImpr">
-<div class="container" id="impressum">
-    <h1>Impressum</h1>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8 d-flex justify-content-center">
+                    <h5>Inhaltsverzeichnis</h5>
+                </div>
+                <div class="col-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8 d-flex justify-content-start">
+                    <ul>
+                        <li>
+                            Einleitung und Überblick
+                        </li>
+                        <br>
+                        <li>
+                            Anwendungsbereich
+                        </li>
+                        <br>
+                        <li>
+                            Rechtsgrundlagen
+                        </li>
+                        <br>
+                        <li>
+                            Kontaktdaten des Verantwortlichen
+                        </li>
+                        <br>
+                        <li>
+                            Speicherdauer
+                        </li>
+                        <br>
+                        <li>
+                            Rechte laut Datenschutz-Grundverordnung
+                        </li>
+                        <br>
+                        <li>
+                            Messenger & Kommunikation Einleitung
+                        </li>
+                        <br>
+                        <li>
+                            Social Media Einleitung
+                        </li>
+                        <br>
+                        <li>
+                            Online-Marketing Einleitung
+                        </li>
+                        <br>
+                        <li>
+                            Cookie Consent Management Platform Einleitung
+                        </li>
+                        <br>
+                        <li>
+                            Audio & Video Einleitung
+                        </li>
+                        <br>
+                    </ul>
+                </div>
+                <div class="col-2"></div>
+            </div>
 
-    <h2>Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
-    <p>LuxKnives UG (haftungsbeschr&auml;nkt)<br/>
-        Seltersweg 54<br/>
-        35390 Gie&szlig;en</p>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8 d-flex justify-content-center">
+                    <h5>Einleitung und Überblick</h5>
+                </div>
+                <div class="col-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8 d-flex justify-content-center">
 
-    <p><strong>Vertreten durch:</strong><br/>
-        Christian Valjack</p>
+                    <p>
+                        Wir haben diese Datenschutzerklärung (Fassung 13.07.2022-312060005) verfasst, um Ihnen gemäß der
+                        Vorgaben der Datenschutz-Grundverordnung (EU) 2016/679 und anwendbaren nationalen Gesetzen zu
+                        erklären,
+                        welche personenbezogenen Daten (kurz Daten) wir als Verantwortliche – und die von uns
+                        beauftragten Auftragsverarbeiter
+                        (z. B. Provider) – verarbeiten, zukünftig verarbeiten werden und welche rechtmäßigen
+                        Möglichkeiten Sie haben.
+                        Die verwendeten Begriffe sind geschlechtsneutral zu verstehen.
+                        Kurz gesagt: Wir informieren Sie umfassend über Daten, die wir über Sie verarbeiten.
+                        <br>
+                        Datenschutzerklärungen klingen für gewöhnlich sehr technisch und verwenden juristische
+                        Fachbegriffe.
+                        Diese Datenschutzerklärung soll Ihnen hingegen die wichtigsten Dinge so einfach und transparent
+                        wie möglich beschreiben. Soweit es der Transparenz förderlich ist, werden technische Begriffe
+                        leserfreundlich erklärt,
+                        Links zu weiterführenden Informationen geboten und Grafiken zum Einsatz gebracht. Wir
+                        informieren damit in klarer
+                        und einfacher Sprache, dass wir im Rahmen unserer Geschäftstätigkeiten nur dann personenbezogene
+                        Daten verarbeiten,
+                        wenn eine entsprechende gesetzliche Grundlage gegeben ist. Das ist sicher nicht möglich, wenn
+                        man möglichst knappe, unklare und juristisch-technische Erklärungen abgibt, so wie sie im
+                        Internet oft Standard sind, wenn es um Datenschutz geht. Ich hoffe, Sie finden die folgenden
+                        Erläuterungen interessant und informativ und vielleicht ist die eine oder andere Information
+                        dabei, die Sie noch nicht kannten.
+                        Wenn trotzdem Fragen bleiben, möchten wir Sie bitten, sich an die unten bzw. im Impressum
+                        genannte verantwortliche Stelle zu wenden, den vorhandenen Links zu folgen und sich weitere
+                        Informationen auf Drittseiten anzusehen. Unsere Kontaktdaten finden Sie selbstverständlich auch
+                        im Impressum.
+                    </p>
+                </div>
+                <div class="col-2"></div>
+            </div>
 
-    <h2>Kontakt</h2>
-    <p>Telefon: +49 (0) 160 93163671<br/>
-        E-Mail: ChristianValjak@luxknives.com</p>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8 d-flex justify-content-center">
+                    <h5>Anwendungsbereich</h5>
+                </div>
+                <div class="col-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8 justify-content-center">
 
-    <h2>Umsatzsteuer-ID</h2>
-    <p>Umsatzsteuer-Identifikationsnummer gem&auml;&szlig; &sect; 27 a Umsatzsteuergesetz:<br/>
-        DE999999999</p>
+                    <p>
+                        Diese Datenschutzerklärung gilt für alle von uns im Unternehmen verarbeiteten personenbezogenen
+                        Daten und für alle personenbezogenen Daten, die von uns beauftragte Firmen (Auftragsverarbeiter)
+                        verarbeiten.
+                        Mit personenbezogenen Daten meinen wir Informationen im Sinne des Art. 4 Nr. 1 DSGVO wie zum
+                        Beispiel Name,
+                        E-Mail-Adresse und postalische Anschrift einer Person.
+                        Die Verarbeitung personenbezogener Daten sorgt dafür, dass wir unsere Dienstleistungen
+                        und Produkte anbieten und abrechnen können, sei es online oder offline. Der Anwendungsbereich
+                        dieser Datenschutzerklärung umfasst:
 
-    <h2>EU-Streitschlichtung</h2>
-    <p>Die Europ&auml;ische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a
-            href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr/</a>.<br/>
-        Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
+                        <br>
+                        <br>
+                        Kurz gesagt: Die Datenschutzerklärung gilt für alle Bereiche, in denen personenbezogene Daten im
+                        Unternehmen
+                        über die genannten Kanäle strukturiert verarbeitet werden. Sollten wir außerhalb dieser Kanäle
+                        mit Ihnen in
+                        Rechtsbeziehungen eintreten, werden wir Sie gegebenenfalls gesondert informieren.
+                    </p>
+                    <ul>
+                        <li>
+                            alle Onlineauftritte (Websites, Onlineshops), die wir betreiben
+                        </li>
+                        <li>
+                            Social Media Auftritte und E-Mail-Kommunikation
+                        </li>
+                        <li>
+                            mobile Apps für Smartphones und andere Geräte
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8 d-flex justify-content-center">
+                    <h5>Rechtsgrundlagen</h5>
+                </div>
+                <div class="col-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8 justify-content-center">
 
-    <h2>Verbraucher&shy;streit&shy;beilegung/Universal&shy;schlichtungs&shy;stelle</h2>
-    <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
-        teilzunehmen.</p>
+                    <p>
+                        In der folgenden Datenschutzerklärung geben wir Ihnen transparente Informationen zu den
+                        rechtlichen Grundsätzen und Vorschriften, also den Rechtsgrundlagen der
+                        Datenschutz-Grundverordnung,
+                        die uns ermöglichen, personenbezogene Daten zu verarbeiten.
+                        Was das EU-Recht betrifft, beziehen wir uns auf die VERORDNUNG (EU) 2016/679 DES EUROPÄISCHEN
+                        PARLAMENTS
+                        UND DES RATES vom 27. April 2016. Diese Datenschutz-Grundverordnung der
+                        EU können Sie selbstverständlich online auf EUR-Lex, dem Zugang zum EU-Recht,
+                        unter https://eur-lex.europa.eu/legal-content/DE/ALL/?uri=celex%3A32016R0679 nachlesen.
 
-    <p>Quelle: <a href="https://www.e-recht24.de">eRecht24</a></p>
-</div>
-<div class="container">
-    <h1>
-        Quellen der Verwendeten Bilder
-    </h1>
+                        <br>
 
-    <h2>Startseite</h2>
+                        Wir verarbeiten Ihre Daten nur, wenn mindestens eine der folgenden Bedingungen zutrifft:
+                    </p>
+                    <ul>
+                        <li>
+                            Einwilligung (Artikel 6 Absatz 1 lit. a DSGVO): Sie haben uns Ihre Einwilligung gegeben,
+                            Daten zu einem bestimmten
+                            Zweck zu verarbeiten. Ein Beispiel wäre die Speicherung Ihrer eingegebenen Daten eines
+                            Kontaktformulars.
+                        </li>
+                        <li>
+                            Vertrag (Artikel 6 Absatz 1 lit. b DSGVO): Um einen Vertrag oder vorvertragliche
+                            Verpflichtungen
+                            mit Ihnen zu erfüllen, verarbeiten wir Ihre Daten. Wenn wir zum Beispiel einen Kaufvertrag
+                            mit Ihnen
+                            abschließen, benötigen wir vorab personenbezogene Informationen.
+                        </li>
+                        <li>
+                            Rechtliche Verpflichtung (Artikel 6 Absatz 1 lit. c DSGVO): Wenn wir einer rechtlichen
+                            Verpflichtung
+                            unterliegen, verarbeiten wir Ihre Daten. Zum Beispiel sind wir gesetzlich verpflichtet
+                            Rechnungen für
+                            die Buchhaltung aufzuheben. Diese enthalten in der Regel personenbezogene Daten.
+                        </li>
+                        <li>
+                            Berechtigte Interessen (Artikel 6 Absatz 1 lit. f DSGVO): Im Falle berechtigter Interessen,
+                            die Ihre Grundrechte nicht einschränken, behalten wir uns die Verarbeitung personenbezogener
+                            Daten vor.
+                            Wir müssen zum Beispiel gewisse Daten verarbeiten, um unsere Website sicher und
+                            wirtschaftlich effizient
+                            betreiben zu können. Diese Verarbeitung ist somit ein berechtigtes Interesse.
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-2"></div>
+            </div>
 
-    <h4>Abb. 1 Quality First</h4>
-    <p></p>
-    <a href="https://unsplash.com/photos/5jSiuqPSv_U">black handled silver kitchen knife (unsplash.com) (24.10.2020)</a>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8 d-flex justify-content-center">
+                    <h5>Kontaktdaten des Verantwortlichen</h5>
+                </div>
+                <div class="col-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8 d-flex justify-content-center">
 
-    <h4>Abb. 2 Handgefertigte Messer</h4>
-    <a href="https://unsplash.com/photos/VLVffkaSrOo">Free Grey Image on Unsplash (27.09.2019)</a>
+                    <p>
+                        Sollten Sie Fragen zum Datenschutz oder zur Verarbeitung personenbezogener Daten haben, finden
+                        Sie nachfolgend die Kontaktdaten der verantwortlichen Person bzw. Stelle:
+                        <br>
+                        <br>
+                        LuxKnives UG
+                        <br>
+                        Christian Valjack
+                        <br>
+                        Seltersweg 54, 35390 Gießen, Deutschland
+                        <br>
+                        Vertretungsberechtigt: Christian Valjack
+                        <br>
+                        E-Mail: ChristianValjak@luxknives.com
+                        <br>
+                        Telefon: +49 (0) 160 93163671
+                        <br>
+                        Impressum: https://www.LuxKnives.de/impressum/
+                        <br>
+                    </p>
+                </div>
+                <div class="col-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8 d-flex justify-content-center">
+                    <h5>Speicherdauer</h5>
+                </div>
+                <div class="col-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8 d-flex justify-content-center">
 
-    <h4>Abb. 3 Philosophie</h4>
-    <a href="https://unsplash.com/photos/uFuzc93FfN0">knife set box (unsplash.com) (01.02.2019)</a>
+                    <p>
+                        Dass wir personenbezogene Daten nur so lange speichern, wie es für die Bereitstellung unserer
+                        Dienstleistungen und Produkte unbedingt notwendig ist, gilt als generelles Kriterium bei uns.
+                        Das bedeutet, dass wir personenbezogene Daten löschen, sobald der Grund für die
+                        Datenverarbeitung nicht mehr vorhanden ist. In einigen Fällen sind wir gesetzlich dazu
+                        verpflichtet, bestimmte Daten auch nach Wegfall des ursprüngliches Zwecks zu speichern, zum
+                        Beispiel zu Zwecken der Buchführung.
 
-    <h2>Über Uns</h2>
+                        Sollten Sie die Löschung Ihrer Daten wünschen oder die Einwilligung zur Datenverarbeitung
+                        widerrufen, werden die Daten so rasch wie möglich und soweit keine Pflicht zur Speicherung
+                        besteht, gelöscht.
 
-    <h4>Abb. 4 Mann in Werkstatt</h4>
-    <a href="https://www.pexels.com/de-de/foto/mannlicher-meister-der-mit-metallwerkzeugen-in-der-garage-arbeitet-3822844/">Männlicher
-        Meister, Der Mit Metallwerkzeugen In Der Garage Arbeitet · Kostenloses Stock-Foto (pexels.com) (27.02.2022)</a>
+                        Über die konkrete Dauer der jeweiligen Datenverarbeitung informieren wir Sie weiter unten,
+                        sofern wir weitere Informationen dazu haben.
+                    </p>
+                </div>
+                <div class="col-2"></div>
+            </div>
 
-    <h2>Das Team</h2>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8 d-flex justify-content-center">
+                    <h5>Rechte laut Datenschutz-Grundverordnung</h5>
+                </div>
+                <div class="col-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8 justify-content-center">
 
-    <h4>Abb. 5 Geschäftsführer</h4>
-    <a href="https://unsplash.com/photos/KCLqSvoUdxw">man in purple crew neck t-shirt (unsplash.com) (27.07.2021)</a>
+                    <p>
+                        Gemäß Artikel 13, 14 DSGVO informieren wir Sie über die folgenden Rechte, die Ihnen zustehen,
+                        damit es zu einer fairen und transparenten Verarbeitung von Daten kommt:
 
-    <h4>Abb. 6 Administrator</h4>
-    <a href="https://unsplash.com/photos/W6Xfv9Rq1j0">HD photo by Adetola Afolabi (unsplash.com) (23.11.2021)</a>
+                        <br>
+                        <br>
+                    </p>
 
-    <h4>Abb. 7 Service Schleifen Mitarbeiter</h4>
-    <a href="https://www.pexels.com/de-de/foto/grunes-und-weisses-poloshirt-der-manner-3084334/">Grünes Und Weißes
-        Poloshirt Der Männer · Kostenloses Stock-Foto (pexels.com) (03.10.2019)</a>
+                    <ul>
+                        <li>
+                            Sie haben laut Artikel 15 DSGVO ein Auskunftsrecht darüber, ob wir Daten von Ihnen
+                            verarbeiten.
+                            Sollte das zutreffen, haben Sie Recht darauf eine Kopie der Daten zu erhalten
+                            und die folgenden Informationen zu erfahren:
+                            <br>
+                            <br>
+                            <ul>
+                                <li>
+                                    zu welchem Zweck wir die Verarbeitung durchführen;
+                                </li>
+                                <li>
+                                    die Kategorien, also die Arten von Daten, die verarbeitet werden;
 
-    <h4>Abb. 8 Einkauf</h4>
-    <a href="https://www.pexels.com/de-de/foto/geschaftsmann-mann-buro-stehen-4872076/">Kostenloses Foto zum Thema:
-        büro, büroangestellter, büroarbeiter, gefaltete hände, geschäftsmann, <br>
-        mann, porträt, quadratischen format, stehen, white collar-arbeiter (pexels.com) (21.05.2021)</a>
+                                </li>
+                                <li>
+                                    wer diese Daten erhält und wenn die Daten an Drittländer übermittelt werden, wie die
+                                    Sicherheit garantiert werden kann;
 
-    <h2>Profil</h2>
-    <h4>Abb. 9 Kunde</h4>
-    <a href="https://unsplash.com/photos/n4ymhyyFY7A">man and woman standing in front of table photo – Free Kitchen
-        Image on Unsplash (03.05.2019)</a>
+                                </li>
+                                <li>
+                                    wie lange die Daten gespeichert werden;
+
+                                </li>
+                                <li>
+                                    das Bestehen des Rechts auf Berichtigung, Löschung oder Einschränkung der
+                                    Verarbeitung und dem Widerspruchsrecht gegen die Verarbeitung;
+
+                                </li>
+                                <li>
+                                    dass Sie sich bei einer Aufsichtsbehörde beschweren können (Links zu diesen Behörden
+                                    finden Sie weiter unten);
+
+                                </li>
+                                <li>
+                                    die Herkunft der Daten, wenn wir sie nicht bei Ihnen erhoben haben;
+
+                                </li>
+                                <li>
+                                    ob Profiling durchgeführt wird, ob also Daten automatisch ausgewertet werden, um zu
+                                    einem persönlichen Profil von Ihnen zu gelangen.
+
+                                </li>
+                            </ul>
+                        </li>
+                        <br>
+                        <li>
+                            Sie haben laut Artikel 16 DSGVO ein Recht auf Berichtigung der Daten, was bedeutet, dass wir
+                            Daten richtig stellen müssen, falls Sie Fehler finden.
+                        </li>
+                        <br>
+                        <li>
+                            Sie haben laut Artikel 17 DSGVO das Recht auf Löschung („Recht auf Vergessenwerden“), was
+                            konkret bedeutet, dass Sie die Löschung Ihrer Daten verlangen dürfen.
+                        </li>
+                        <br>
+                        <li>
+                            Sie haben laut Artikel 18 DSGVO das Recht auf Einschränkung der Verarbeitung, was bedeutet,
+                            dass wir die Daten nur mehr speichern dürfen aber nicht weiter verwenden.
+                        </li>
+                        <br>
+                        <li>
+                            Sie haben laut Artikel 20 DSGVO das Recht auf Datenübertragbarkeit, was bedeutet, dass wir
+                            Ihnen auf Anfrage Ihre Daten in einem gängigen Format zur Verfügung stellen.
+                        </li>
+                        <br>
 
 
-    <h2>Service</h2>
-    <h4>Abb. 10 Schleifen</h4>
-    <a href="https://www.pexels.com/de-de/foto/person-die-ein-werkzeug-schleift-1659746/">Person, Die Ein Werkzeug
-        Schleift · Kostenloses Stock-Foto (pexels.com) (20.04.2018)</a>
+                        <li>
+                            Sie haben laut Artikel 21 DSGVO ein Widerspruchsrecht, welches nach Durchsetzung eine
+                            Änderung der Verarbeitung mit sich bringt.
+                            <ul>
+                                <li>
+                                    Werden Daten verwendet, um Direktwerbung zu betreiben, können Sie jederzeit gegen
+                                    diese Art der Datenverarbeitung widersprechen. Wir dürfen Ihre Daten danach nicht
+                                    mehr für Direktmarketing verwenden.
+                                </li>
 
-    <h4>Abb. 11 Reparatur</h4>
-    <a href="https://www.pexels.com/de-de/foto/person-die-ein-werkzeug-schleift-1659746/">Selbständiger Männlicher
-        Mechaniker, Der In Der Garage Arbeitet · Kostenloses Stock-Foto (pexels.com) (27.02.2020)</a>
+                                <li>
+                                    Werden Daten verwendet, um Direktwerbung zu betreiben, können Sie jederzeit gegen
+                                    diese Art der Datenverarbeitung
+                                </li>
 
-</div>
-</section>
+                                <li>
+                                    Werden Daten verwendet, um Profiling zu betreiben, können Sie jederzeit gegen diese
+                                    Art der Datenverarbeitung widersprechen. Wir dürfen Ihre Daten danach nicht mehr für
+                                    Profiling verwenden.
+                                </li>
+                            </ul>
+                            <br>
+                        </li>
+
+                        <li>
+                            Sie haben laut Artikel 22 DSGVO unter Umständen das Recht, nicht einer ausschließlich auf
+                            einer automatisierten Verarbeitung (zum Beispiel Profiling) beruhenden Entscheidung
+                            unterworfen zu werden.
+                        </li>
+                        <br>
+                        <li>
+                            Sie haben laut Artikel 77 DSGVO das Recht auf Beschwerde. Das heißt, Sie können sich
+                            jederzeit bei der Datenschutzbehörde beschweren, wenn Sie der Meinung sind, dass die
+                            Datenverarbeitung von personenbezogenen Daten gegen die DSGVO verstößt.
+                        </li>
+                    </ul>
+                    <br>
+                    <p>
+                        Kurz gesagt:
+                        <br>
+                        Sie haben Rechte – zögern Sie nicht, die oben gelistete verantwortliche Stelle bei
+                        uns zu kontaktieren!
+                        <br>
+                        <br>
+                        Wenn Sie glauben, dass die Verarbeitung Ihrer Daten gegen das Datenschutzrecht verstößt oder
+                        Ihre datenschutzrechtlichen Ansprüche in sonst einer Weise verletzt worden sind, können Sie sich
+                        bei der Aufsichtsbehörde beschweren. Diese ist für Österreich die Datenschutzbehörde, deren
+                        Website Sie unter https://www.dsb.gv.at/ finden. In Deutschland gibt es für jedes Bundesland
+                        einen Datenschutzbeauftragten. Für nähere Informationen können Sie sich an die Bundesbeauftragte
+                        für den Datenschutz und die Informationsfreiheit (BfDI) wenden. Für unser Unternehmen ist die
+                        folgende lokale Datenschutzbehörde zuständig:
+                    </p>
+                </div>
+                <div class="col-2"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8 d-flex justify-content-center">
+                    <h5>Was sind Messenger- & Kommunikationsfunktionen?</h5>
+                </div>
+                <div class="col-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8 justify-content-center">
+                    <ol>
+                        <p>
+                            <br>
+                            Wir bieten auf unserer Website verschiedene Möglichkeiten (etwa Messenger- und Chatfunktionen,
+                            Online- bzw. Kontaktformulare, E-Mail, Telefon), um mit uns zu kommunizieren. Dabei werden auch Ihre Daten,
+                            soweit es für die Beantwortung Ihrer Anfrage und unseren darauffolgenden Maßnahmen nötig ist, verarbeitet und gespeichert.
+                            <br>
+                            <br>
+
+                            Wir nutzen neben klassischen Kommunikationsmitteln wie E-Mail, Kontaktformularen oder Telefon auch Chats bzw. Messenger. Die derzeit am häufigsten verwendete Messenger-Funktion ist WhatsApp, aber es gibt natürlich speziell für Websites viele verschiedene Anbieter, die Messenger-Funktionen anbieten. Wenn Inhalte Ende zu Ende
+                            verschlüsselt sind, wird darauf in den einzelnen Datenschutztexten oder in der Datenschutzerklärung des jeweiligen Anbieters hingewiesen.
+                            Eine Ende-zu-Ende-Verschlüsselung bedeutet nichts anders, als dass Inhalte einer Nachricht selbst für den Anbieter nicht sichtbar
+                            sind. Allerdings können trotzdem Informationen zu Ihrem Gerät, Standorteinstellungen und andere technische Daten verarbeitet und
+                            gespeichert werden.
+                        </p>
+                    </ol>
+                </div>
+                <div class="col-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8 d-flex justify-content-center">
+                    <h5>Warum nutzen wir Messenger- & Kommunikationsfunktionen?</h5>
+                </div>
+                <div class="col-2"></div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8 justify-content-center">
+                    <ol>
+                        <p>
+                            <br>
+                            Kommunikationsmöglichkeiten mit Ihnen sind für uns von großer Bedeutung. Schließlich wollen wir mit Ihnen sprechen und alle möglichen Fragen zu unserem Service bestmöglich beantworten.
+                            Eine gut funktionierende Kommunikation ist bei uns ein wichtiger Teil unserer Dienstleistung.
+                            Mit den praktischen Messenger- & Kommunikationsfunktionen können Sie jederzeit jene wählen, die Ihnen am liebsten sind.
+                            In Ausnahmefällen kann es aber auch vorkommen, dass wir bestimmte Fragen über Chat bzw. Messenger nicht beantworten.
+                            Das ist der Fall, wenn es etwa um interne vertragliche Angelegenheiten geht. Hier empfehlen wir andere Kommunikationsmöglichkeiten
+                            wie E-Mail oder Telefon.
+                            <br>
+                            <br>
+                            Wir gehen in der Regel davon aus, dass wir datenschutzrechtlich verantwortlich bleiben, auch wenn
+                            wir Dienste einer Social-Media-Plattform nutzen. Der Europäische Gerichtshof hat jedoch entschieden,
+                            dass in bestimmten Fällen der Betreiber der Social-Media-Plattform zusammen mit uns gemeinsam verantwortlich
+                            im Sinne des Art. 26 DSGVO sein kann. Soweit dies der Fall ist, weisen wir gesondert darauf hin und arbeiten
+                            auf Grundlage einer diesbezüglichen Vereinbarung. Das Wesentliche der Vereinbarung ist weiter unten bei der
+                            betroffenen Plattform wiedergegeben.
+                            <br>
+                            <br>
+                            Bitte beachten Sie, dass bei der Nutzung unserer eingebauten Elemente auch Daten
+                            von Ihnen außerhalb der Europäischen Union verarbeitet werden können, da viele Anbieter, beispielsweise
+                            Facebook-Messenger oder WhatsApp amerikanische Unternehmen sind. Dadurch können Sie möglicherweise Ihre Rechte
+                            in Bezug auf Ihre personenbezogenen Daten nicht mehr so leicht einfordern bzw. durchsetzen.
+                        </p>
+                    </ol>
+                </div>
+                <div class="col-2"></div>
+            </div>
+
+
+
+        </section>
+
+
+        <!-- Impressum -->
+        <section id="sectImpr">
+            <div class="container" id="impressum">
+                <h1>Impressum</h1>
+
+                <h2>Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
+                <p>LuxKnives UG (haftungsbeschr&auml;nkt)<br/>
+                    Seltersweg 54<br/>
+                    35390 Gie&szlig;en</p>
+
+                <p><strong>Vertreten durch:</strong><br/>
+                    Christian Valjack</p>
+
+                <h2>Kontakt</h2>
+                <p>Telefon: +49 (0) 160 93163671<br/>
+                    E-Mail: ChristianValjak@luxknives.com</p>
+
+                <h2>Umsatzsteuer-ID</h2>
+                <p>Umsatzsteuer-Identifikationsnummer gem&auml;&szlig; &sect; 27 a Umsatzsteuergesetz:<br/>
+                    DE999999999</p>
+
+                <h2>EU-Streitschlichtung</h2>
+                <p>Die Europ&auml;ische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a
+                        href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr/</a>.<br/>
+                    Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
+
+                <h2>Verbraucher&shy;streit&shy;beilegung/Universal&shy;schlichtungs&shy;stelle</h2>
+                <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
+                    Verbraucherschlichtungsstelle
+                    teilzunehmen.</p>
+
+                <p>Quelle: <a href="https://www.e-recht24.de">eRecht24</a></p>
+            </div>
+            <div class="container">
+                <h1>
+                    Quellen der Verwendeten Bilder
+                </h1>
+
+                <h2>Startseite</h2>
+
+                <h4>Abb. 1 Quality First</h4>
+                <p></p>
+                <a href="https://unsplash.com/photos/5jSiuqPSv_U">black handled silver kitchen knife (unsplash.com)
+                    (24.10.2020)</a>
+
+                <h4>Abb. 2 Handgefertigte Messer</h4>
+                <a href="https://unsplash.com/photos/VLVffkaSrOo">Free Grey Image on Unsplash (27.09.2019)</a>
+
+                <h4>Abb. 3 Philosophie</h4>
+                <a href="https://unsplash.com/photos/uFuzc93FfN0">knife set box (unsplash.com) (01.02.2019)</a>
+
+                <h2>Über Uns</h2>
+
+                <h4>Abb. 4 Mann in Werkstatt</h4>
+                <a href="https://www.pexels.com/de-de/foto/mannlicher-meister-der-mit-metallwerkzeugen-in-der-garage-arbeitet-3822844/">Männlicher
+                    Meister, Der Mit Metallwerkzeugen In Der Garage Arbeitet · Kostenloses Stock-Foto (pexels.com)
+                    (27.02.2022)</a>
+
+                <h2>Das Team</h2>
+
+                <h4>Abb. 5 Geschäftsführer</h4>
+                <a href="https://unsplash.com/photos/KCLqSvoUdxw">man in purple crew neck t-shirt (unsplash.com)
+                    (27.07.2021)</a>
+
+                <h4>Abb. 6 Administrator</h4>
+                <a href="https://unsplash.com/photos/W6Xfv9Rq1j0">HD photo by Adetola Afolabi (unsplash.com)
+                    (23.11.2021)</a>
+
+                <h4>Abb. 7 Service Schleifen Mitarbeiter</h4>
+                <a href="https://www.pexels.com/de-de/foto/grunes-und-weisses-poloshirt-der-manner-3084334/">Grünes Und
+                    Weißes
+                    Poloshirt Der Männer · Kostenloses Stock-Foto (pexels.com) (03.10.2019)</a>
+
+                <h4>Abb. 8 Einkauf</h4>
+                <a href="https://www.pexels.com/de-de/foto/geschaftsmann-mann-buro-stehen-4872076/">Kostenloses Foto zum
+                    Thema:
+                    büro, büroangestellter, büroarbeiter, gefaltete hände, geschäftsmann, <br>
+                    mann, porträt, quadratischen format, stehen, white collar-arbeiter (pexels.com) (21.05.2021)</a>
+
+                <h2>Profil</h2>
+                <h4>Abb. 9 Kunde</h4>
+                <a href="https://unsplash.com/photos/n4ymhyyFY7A">man and woman standing in front of table photo – Free
+                    Kitchen
+                    Image on Unsplash (03.05.2019)</a>
+
+
+                <h2>Service</h2>
+                <h4>Abb. 10 Schleifen</h4>
+                <a href="https://www.pexels.com/de-de/foto/person-die-ein-werkzeug-schleift-1659746/">Person, Die Ein
+                    Werkzeug
+                    Schleift · Kostenloses Stock-Foto (pexels.com) (20.04.2018)</a>
+
+                <h4>Abb. 11 Reparatur</h4>
+                <a href="https://www.pexels.com/de-de/foto/person-die-ein-werkzeug-schleift-1659746/">Selbständiger
+                    Männlicher
+                    Mechaniker, Der In Der Garage Arbeitet · Kostenloses Stock-Foto (pexels.com) (27.02.2020)</a>
+
+            </div>
+        </section>
     </div>
 </div>
 <footer>

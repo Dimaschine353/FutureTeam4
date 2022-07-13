@@ -18,35 +18,35 @@ h5 {
 }
 
 .fontBigTitle {
-    font-family: "Bebas Neue", serif;
-    color: #D94B2B;
-    mix-blend-mode: lighten;
-    font-size: 12rem;
+font-family: "Bebas Neue", serif;
+color: #D94B2B;
+mix-blend-mode: lighten;
+font-size: 12rem;
 }
 
 .btn-luxknives {
-    background-color: #D94B2B;
-    color: white;
-    border-radius: 1px;
-    padding-inline: 20px;
+background-color: #D94B2B;
+color: white;
+border-radius: 1px;
+padding-inline: 20px;
 }
 
 .btn-luxknives:hover {
-    background-color: #d9765f;
+background-color: #d9765f;
 }
 
 
 .row {
-    --bs-gutter-x: 0;
+--bs-gutter-x: 0;
 }
 
 a {
-    color: #D94B2B;
-    text-decoration: none;
+color: #D94B2B;
+text-decoration: none;
 }
 
 a:hover {
-    color: #d9765f;
+color: #d9765f;
 }
 
 
