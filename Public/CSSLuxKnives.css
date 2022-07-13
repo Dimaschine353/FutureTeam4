@@ -261,6 +261,21 @@ h5 {
     background-image: url('/cMe/images/pexels-andrea-piacquadio-3822900.jpg');
 }
 
+.fillProfilPic {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/cMe/images/placeholder-person.png');
+}
+
+.fillImage {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/cMe/images/NakiriMusashi1.jpg');
+}
+
+
 .cardmargin {
     margin-bottom: 40px;
 }
@@ -358,6 +373,16 @@ footer {
     font-size: 12rem;
     color: #D94B2B;
     mix-blend-mode: lighten;
+    font-family: "Bebas Neue", serif;
+}
+
+.top-leftPhilo {
+    position: absolute;
+    top: 0rem;
+    left: 2rem;
+    font-size: 12rem;
+    color: #D94B2B;
+    mix-blend-mode: hard-light;
     font-family: "Bebas Neue", serif;
 }
 
