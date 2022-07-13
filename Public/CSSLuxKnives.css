@@ -152,6 +152,18 @@ h5 {
     padding-inline: 5rem;
 }
 
+.scharf2 {
+    color: #0d0d0d;
+    font-family: "Montserrat", serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+.unvergleichbar {
+    padding-top: 3rem;
+    padding-right: 5rem;
+}
+
 .kommentarBild > img {
     width: 5rem;
 }
