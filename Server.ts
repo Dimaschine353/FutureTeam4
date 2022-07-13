@@ -292,7 +292,7 @@ function deleteNachricht(req: express.Request, res:express.Response):void{
     const email: string = req.session.uname;
 
     const param = [betreff, email];
-    const sql = "DELETE FROM nachrichten WHERE betreff = ? AND email = ?"
+    const sql = "DELETE FROM nachrichten WHERE betreff = ? AND email = ?;";
 
     if(betreff === undefined){
         res.status(400);
@@ -423,7 +423,8 @@ function getAlleNachrichten(req:express.Request, res:express.Response):void{
 
 
 
+app.put("/nachrichten/:betreff");
 
-
-
-
+function putNachrichten(req: express.Request, res: express.Response): void {
+    const
+}

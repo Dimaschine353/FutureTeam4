@@ -375,6 +375,7 @@ function renderNachrichtenListe(){
                     <td>${n.nachricht}</td>
                 <td>
                 <button class="btn btn-primary delete" data-betreff="${n.betreff}">Löschen</button>
+                <button class="btn btn-primary edit" data-betreff="${n.betreff}" data-nachricht="${n.nachricht}">Bearbeiten</button>
                 </td>
                 `;
                 tabelleNachrichten.append(tr);
