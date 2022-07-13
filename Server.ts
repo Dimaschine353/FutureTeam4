@@ -8,15 +8,10 @@ class Benutzer{
     vName: string;
     nName: string;
     email: string;
-    passwort: string;
-
-    constructor(vName:string, nName:string, email:string, passwort:string) {
+    constructor(vName:string, nName:string, email:string) {
         this.vName = vName;
         this.nName = nName;
         this.email = email;
-        this.passwort = passwort;
-
-
     }
 }
 //kRez
@@ -94,7 +89,7 @@ app.put("/benutzer/:email",checkLogin,putBenutzer);
 //Routen Nachricht
 app.get("/nachricht/:email",checkLogin,getAlleNachrichten);
 app.post("/nachricht",postNachricht);
-app.delete("/nachrichten/:betreff/:email",checkLogin,deleteNachricht);
+app.delete("/nachricht/:betreff/:email",checkLogin,deleteNachricht);
 //Funktion Login
 function login(req: express.Request, res: express.Response): void {
     //Selektiert "nichts", aber unter der Bedingung, dass Name und Passwort stimmen
@@ -134,7 +129,6 @@ function checkLogin(req: express.Request, res:express.Response, next: express.Ne
         console.log("User ist nicht eingelogt");
         res.status(401);
     }
-
 }
 //Funktionen Benutzer
 function postBenutzer(req: express.Request, res: express.Response):void {
@@ -196,7 +190,7 @@ function getBenutzer(req: express.Request, res: express.Response):void{
                     results[0].vName,
                     results[0].nName,
                     results[0].email,
-                    results[0].passwort
+
                 )
 
                 res.status(200).send
@@ -268,17 +262,15 @@ function postNachricht(req: express.Request, res:express.Response):void{
     if(vName===undefined || nName===undefined || email===undefined || betreff===undefined || nachricht===undefined){
           res.status(400).send("Einer der Parameter fehlt");
     }else{
-
         connection.query(
             sql,
             param,
             (err:MysqlError | null, result:any) => {
                 if(err!==null){
-                    res.status(404).send("SQL Fehler")
+                    res.status(500).send("SQL Fehler")
                 }else{
                     res.status(201).send({result});
                 }
-
             }
         );
     }

@@ -405,7 +405,7 @@ function nachrichtHinzufuegen(event:Event){
 function nachrichtLoeschen(target:HTMLElement){
     const email: string = eingeloggterBenutzer.toString();
     const betreff: string = target.dataset.betreff;
-    axios.delete("/nachrichten/"+betreff+"/"+email)
+    axios.delete("/nachricht/"+betreff+"/"+email)
         .then((res:AxiosResponse)=>{
           renderNachrichtenListe();
         }).catch((err:AxiosError)=>{
