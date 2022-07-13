@@ -361,6 +361,16 @@ footer {
     font-family: "Bebas Neue", serif;
 }
 
+.top-leftPhilo {
+    position: absolute;
+    top: 0rem;
+    left: 2rem;
+    font-size: 12rem;
+    color: #D94B2B;
+    mix-blend-mode: hard-light;
+    font-family: "Bebas Neue", serif;
+}
+
 .leftTransBox {
     position: absolute;
     top: 0rem;
