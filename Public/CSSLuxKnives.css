@@ -168,6 +168,20 @@ h5 {
     width: 5rem;
 }
 
+.detailTextB {
+    color: #0d0d0d;
+    font-family: "Montserrat", serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+.detailTextC {
+    color: #D94B2B;
+    font-family: "Montserrat", serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
 /* ÜBER UNS */
 #überunsbild {
     width: 43.8rem;
