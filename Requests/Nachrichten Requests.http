@@ -7,7 +7,7 @@ Content-Type: application/json
   "nName": "Bleibt Gleich",
   "email": "apache@bleibtgleich.de",
   "betreff": "Treppenhaus",
-  "inhalt": "Rmmmmm, Rmmmm!"
+  "nachricht": "Rmmmmm, Rmmmm!"
 }
 
 ###
@@ -21,7 +21,17 @@ Content-Type: application/json
   "nName": "Bleibt Gleich",
   "email": "apache@bleibtgleich.de",
   "betreff":"xyz",
-  "inhalt": "DROP TABLE nachrichten"
+  "nachricht": "DROP TABLE nachrichten"
 }
 
 ###
+###PUT
+###
+
+PUT /nachricht/xyz HTTP/2
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "nachricht": "Nachricht nach PUT"
+}
