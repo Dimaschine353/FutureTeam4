@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     sectImpr = document.querySelector("#sectImpr")
     //Startcontent Einstellung
     sectProf.classList.add("d-none");
-    //sectDet.classList.add("d-none");
+    sectDet.classList.add("d-none");
     sectWar.classList.add("d-none");
     sectCheck.classList.add("d-none");
     sectReg.classList.add("d-none");
@@ -187,6 +187,25 @@ document.addEventListener("DOMContentLoaded",()=>{
     navUeber.addEventListener("click",zuUeber);
     navKontakt = document.querySelector("#navKontakt");
     navKontakt.addEventListener("click",zumKontakt);
+
+
+
+
+
+
+
+
+    //Initialisierung Zur Detailseite
+    startNakiri = document.querySelector("#startNakiri");
+    startNakiri.addEventListener("click",zumDet);
+
+
+
+
+
+
+
+
     //Initialisierung Footer
     impressum = document.querySelector("#zumImpressum");
     impressum.addEventListener("click",zumImpr);
@@ -667,10 +686,33 @@ function navigieren(){
     sectKont.classList.add("d-none");
     sectImpr.classList.add("d-none");
 }
-                    
-                    
-                    
-                    
+
+
+
+
+
+
+
+
+
+
+
+function zumDet(event:Event){
+    event.preventDefault();
+    navigieren()
+    sectDet.classList.remove("d-none");
+    window.scrollTo(0, 0);
+    /*
+    sectProf.classList.add("d-none");
+    sectDet.classList.add("d-none");
+    sectUeber.classList.add("d-none");
+    sectServ.classList.add("d-none");
+    sectWar.classList.add("d-none");
+    sectCheck.classList.add("d-none");
+    sectLog.classList.add("d-none");
+    sectStart.classList.add("d-none");
+    */
+}
                     
                     
                     

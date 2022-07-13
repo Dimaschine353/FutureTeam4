@@ -102,16 +102,16 @@ color: #d9765f;
 .nakiri {
     position: absolute;
     left: 2rem;
-    font-size: 15rem;
+    font-size: 12rem;
     color: #D94B2B;
     mix-blend-mode: lighten;
     font-family: "Bebas Neue", serif;
 }
 .musashi {
     position: absolute;
-    left: 2rem;
-    top: 15rem;
-    font-size: 15rem;
+    left: 7rem;
+    top: 10rem;
+    font-size: 12rem;
     color: #D94B2B;
     mix-blend-mode: lighten;
     font-family: "Bebas Neue", serif;
