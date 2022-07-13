@@ -261,6 +261,21 @@ h5 {
     background-image: url('/cMe/images/pexels-andrea-piacquadio-3822900.jpg');
 }
 
+.fillProfilPic {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/cMe/images/placeholder-person.png');
+}
+
+.fillImage {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/cMe/images/NakiriMusashi1.jpg');
+}
+
+
 .cardmargin {
     margin-bottom: 40px;
 }
