@@ -109,6 +109,7 @@ let startNakiri: HTMLElement;
 let startSantoku: HTMLElement;
 let startSujihinki: HTMLElement;
 let startIMGFlipper: HTMLImageElement;
+let startHandgefertigte: HTMLElement;
 //Deklaration Forms
 let feedbackReg: HTMLElement;
 let feedbackProfU: HTMLElement;
@@ -247,18 +248,25 @@ document.addEventListener("DOMContentLoaded",()=>{
     startSantoku = document.querySelector("#startSantoku");
     startSujihinki = document.querySelector("#startSujihinki");
     startIMGFlipper = document.querySelector("#produktBildFlipper");
+    startHandgefertigte = document.querySelector("#startHandgefertigte");
     //Startseite/Landingpage FotoFlipper
     startNakiri.addEventListener('mouseover', (event) => {
         event.preventDefault();
         startIMGFlipper.src = "/cMe/images/Messer1.png"
+        startIMGFlipper.src = "/cMe/images/NakiriMusashi5Edit.jpg"
     });
     startSantoku.addEventListener('mouseover', (event) => {
         event.preventDefault();
         startIMGFlipper.src = "/cMe/images/Messer2.png"
+        startIMGFlipper.src = "/cMe/images/SantokuKenshinEdit.jpg"
     });
     startSujihinki.addEventListener('mouseover', (event) => {
         event.preventDefault();
         startIMGFlipper.src = "/cMe/images/Messer1.png"
+        startIMGFlipper.src = "/cMe/images/SujihikiMasakoEdit.jpg"
+    });
+    startHandgefertigte.addEventListener('mouseover', () => {
+       startIMGFlipper.src = "/cMe/images/MesserGruppenPhotoEditFinal.png"
     });
 });
 //Funktionen Benutzer
@@ -452,6 +460,7 @@ function login(event:Event){
                         feedbackLogin.innerText = "E-Mail, oder Passwort falsch."
                         setTimeout(feedbackLoginLoeschen,2000);
                         console.log("Anmeldung nicht erfolgreich if vom .catch");
+
                     }else{
                         console.log("Anmeldung nicht erfolgreich else vom .catch");
                     }
