@@ -200,7 +200,7 @@ function getBenutzer(req: express.Request, res: express.Response):void{
                     results[0].email,
                     results[0].passwort
                 )
-                console.log(benutzer);
+                // console.log(benutzer);
                 res.status(200).send
                 ({
                     benutzer
