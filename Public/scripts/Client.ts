@@ -274,9 +274,7 @@ document.addEventListener("DOMContentLoaded",()=>{
        startIMGFlipper.src = "/cMe/images/MesserGruppenPhotoEditFinal.png"
     });
 });
-let nachrichtEin: HTMLInputElement;
-let nachrichtBtnA: HTMLInputElement;
-let tabelleNachrichten: HTMLElement;
+
 
 let nachrichtEdit: HTMLInputElement;
 //Listener
