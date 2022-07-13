@@ -93,6 +93,7 @@ app.delete("/benutzer/:email",checkLogin,deleteBenutzer);
 app.put("/benutzer/:email",checkLogin,putBenutzer);
 //Routen Nachricht
 app.post("/nachricht",postNachricht);
+app.delete("/nachrichten/:betreff", checkLogin, deleteNachricht);
 
 ///Alle Log- in 'n - out funktionen
 
@@ -178,7 +179,8 @@ function postBenutzer(req: express.Request, res: express.Response):void {
     }
 }
 function getBenutzer(req: express.Request, res: express.Response):void{
-    const email: string = req.session.uname;
+    //const email: string = req.session.uname;
+    const email: string = req.params.email;
     const param = [email];
     const sql = "SELECT * FROM benutzer WHERE email =?;";
     console.log(email+ " inder getBenutzerServer");
@@ -286,100 +288,6 @@ function postNachricht(req: express.Request, res:express.Response):void{
         );
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Routen Nachricht
-app.delete("/nachrichten/:betreff", checkLogin, deleteNachricht);
-
-//Funktionen Nachricht 9:00
 function deleteNachricht(req: express.Request, res:express.Response):void{
     //warum fehler?
     const betreff: string = req.params.betreff;
@@ -414,5 +322,94 @@ function deleteNachricht(req: express.Request, res:express.Response):void{
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -149,7 +149,7 @@ let nachrichtBtnA: HTMLInputElement;
 document.addEventListener("DOMContentLoaded",()=>{
 
     //Funktionen die direkt ausgeführt werden sollen
-    benutzerAuslesen();
+
     //initialisierung Sect
     sectStart = document.querySelector("#sectStart");
     sectProf = document.querySelector("#sectProf");
@@ -233,40 +233,22 @@ document.addEventListener("DOMContentLoaded",()=>{
     nachrichtBtnA = document.querySelector("#nachrichtBtnA");
     nachrichtBtnA.addEventListener("click",nachrichtHinzufuegen);
     nachrichtBtnA.addEventListener("click", nachrichtHinzufuegen);
-
     //Startseite/Landingpage
     startNakiri = document.querySelector("#startNakiri");
     startSantoku = document.querySelector("#startSantoku");
     startSujihinki = document.querySelector("#startSujihinki");
     startIMGFlipper = document.querySelector("#produktBildFlipper");
-
-
-
-
-
-
-
-
-
-
-
     //Startseite/Landingpage FotoFlipper
     startNakiri.addEventListener('mouseover', (event) => {
         startIMGFlipper.src = "/cMe/images/Messer1.png"
     });
-
     startSantoku.addEventListener('mouseover', (event) => {
         startIMGFlipper.src = "/cMe/images/Messer2.png"
     });
-
     startSujihinki.addEventListener('mouseover', (event) => {
         startIMGFlipper.src = "/cMe/images/Messer1.png"
     });
-
-
 });
-
-
 //Funktionen Benutzer
 function benutzerHinzufuegen(event:Event){
     event.preventDefault();
@@ -356,18 +338,16 @@ function benutzerAendern(event:Event){
     })
 
 }
+function benutzerAuslesen(eingeloggterBenutzer:String){
 
-function benutzerAuslesen(){
-    event.preventDefault();
-
-    axios.get("/benutzer/"+eingeloggterBenutzer)
+    const email = eingeloggterBenutzer;
+    axios.get("/benutzer/"+email)
         .then((res:AxiosResponse)=>{
             const benutzer = res.data.benutzer;
             profilVorname.value = benutzer.vName;
             profilNachname.value = benutzer.nName;
         });
 }
-
 //Funktionen Nachrichten
 function nachrichtHinzufuegen(event:Event){
     event.preventDefault();
@@ -396,38 +376,37 @@ function nachrichtHinzufuegen(event:Event){
         }
     });
 }
-
-
 //Login 'n out Funkntionen
 function login(event:Event){
             event.preventDefault();
             const data: FormData = new FormData(formLogin);
-            //const email: string = data.get("loginName").toString();
-
-            axios.post("/login", {
+                axios.post("/login", {
                 loginName: data.get("loginName"),
                 loginPasswort: data.get("loginPasswort")
             })
                 .then((res: AxiosResponse) => {
                     eingeloggterBenutzer = data.get("loginName").toString();
                     formLogin.reset();
+                    benutzerAuslesen(eingeloggterBenutzer);
                     sectLog.classList.add("d-none");
                     sectProf.classList.remove("d-none");
+                    feedbackLogin.innerText = "Der Benutzer wurde erfolgreich eingeloggt."
+                    setTimeout(feedbackLoginLoeschen,2000);
                     console.log("Anmeldung erfolgreich bruh");
-
-
                 })
                 .catch((err: AxiosError)=>{
                     if(err.response.status == 404){
                         feedbackLogin.innerText = "Login nicht möglich."
                         setTimeout(feedbackLoginLoeschen,1000);
                         console.log("Anmeldung nicht erfolgreich if vom .catch");
-                        console.log(loginName.value);
-                        console.log(loginPasswort.value);
+                        //console.log(loginName.value);
+                        //console.log(loginPasswort.value);
                     }else{
                         console.log("Anmeldung nicht erfolgreich else vom .catch");
                     }
                 })
+
+
 
 
 }
@@ -475,7 +454,7 @@ function zurueckNachhause(event:Event){
 function zumLogin (event:Event){
     event.preventDefault();
     if(eingeloggterBenutzer!==""){
-
+        //benutzerAuslesen(eingeloggterBenutzer);
         sectProf.classList.remove("d-none");
         sectStart.classList.add("d-none");
         sectLog.classList.add("d-none");
