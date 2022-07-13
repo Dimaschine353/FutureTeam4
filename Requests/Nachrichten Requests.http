@@ -35,3 +35,13 @@ Content-Type: application/json
 {
   "nachricht": "Nachricht nach PUT"
 }
+
+###
+
+PUT /nachricht/schleifen HTTP/2
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "nachricht": "angepasst"
+}
