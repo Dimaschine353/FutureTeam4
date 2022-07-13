@@ -91,16 +91,39 @@ app.get("/nachricht/:email",checkLogin,getAlleNachrichten);
 app.post("/nachricht",postNachricht);
 app.delete("/nachricht/:betreff/:email",checkLogin,deleteNachricht);
 //Funktion Login
+/*
 function login(req: express.Request, res: express.Response): void {
-    //Selektiert "nichts", aber unter der Bedingung, dass Name und Passwort stimmen
-    query("SELECT NULL FROM benutzer WHERE email = ? AND passwort = ?",
+       query("SELECT uid FROM benutzer WHERE email = ? AND passwort = ?",
         [req.body.loginName, req.body.loginPasswort])
         .then((results: any) => {
             //Wenn Eintrag vorhanden ist wird der Loginname zum Sessionnamen
             if (results.length===1) {
-                req.session.uname = req.body.loginName
+                req.session.uid = results[0].uid;
                 res.sendStatus(200);
                 console.log("wurde eingeloggt");
+            }else{
+                //Wenn keine Übereinstimmung erfolgt ist sende Fehlercode
+                res.sendStatus(404);
+            }
+            })
+        .catch((err: mysql.MysqlError) => {
+           //Leere Ergebnisse (siehe 404) sind kein Fehler; Login nur nicht möglich da keine Überstimmung mit DB. Fehler sind DB-Probleme
+           res.sendStatus(500);
+           console.log(err);
+        });
+}
+*/
+function login(req: express.Request, res: express.Response): void {
+    //Selektiert "nichts", aber unter der Bedingung, dass Name und Passwort stimmen
+    query("SELECT uId FROM benutzer WHERE email = ? AND passwort = ?",
+        [req.body.loginName, req.body.loginPasswort])
+        .then((results: any) => {
+            //Wenn Eintrag vorhanden ist wird der Loginname zum Sessionnamen
+            if (results.length===1) {
+                req.session.uid = results[0].uid;
+                req.session.uname = req.body.loginName
+                res.sendStatus(200);
+                console.log("User wurde eingeloggt");
             }else{
                 //Wenn keine Übereinstimmung erfolgt ist sende Fehlercode
                 res.sendStatus(404);
@@ -303,12 +326,13 @@ function deleteNachricht(req: express.Request, res:express.Response):void{
 
 }
 function getAlleNachrichten(req:express.Request, res:express.Response):void{
-    const email = req.params.email;
+    //const email = req.params.email;
+    const uId = req.session.uid;
     //console.log(email+" in der Server getAllNachrichten Fkt");
-    const param = [email];
+    const param = [uId];
     //console.log(param+"(parameter) in der Server getAllNachrichten Fkt");
-    const sql = "SELECT * FROM nachrichten WHERE email=?;";
-    if(email!==undefined){
+    const sql = "SELECT * FROM nachrichten WHERE uId=?;";
+    if(uId!==undefined){
         connection.query(
             sql,
             param,
