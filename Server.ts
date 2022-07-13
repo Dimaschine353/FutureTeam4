@@ -92,7 +92,7 @@ app.get("/benutzer/:email",checkLogin,getBenutzer);
 app.delete("/benutzer/:email",checkLogin,deleteBenutzer);
 app.put("/benutzer/:email",checkLogin,putBenutzer);
 //Routen Nachricht
-app.get("/nachricht/:email",checkLogin,getAlleNachrichten):
+app.get("/nachricht/:email",checkLogin,getAlleNachrichten);
 app.post("/nachricht",postNachricht);
 app.delete("/nachrichten/:betreff", checkLogin, deleteNachricht);
 
