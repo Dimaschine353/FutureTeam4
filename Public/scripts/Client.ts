@@ -84,10 +84,6 @@
                     
                     
 //Deklaration Sections
-
-
-
-
 let sectStart: HTMLElement;
 let sectProf: HTMLElement;
 let sectDet: HTMLElement;
@@ -236,15 +232,13 @@ document.addEventListener("DOMContentLoaded",()=>{
     nachrichtBtnA = document.querySelector("#nachrichtBtnA");
     nachrichtBtnA.addEventListener("click",nachrichtHinzufuegen);
     nachrichtBtnA.addEventListener("click", nachrichtHinzufuegen);
-    /*
     tabelleNachrichten.addEventListener("click",(event:Event)=>{
         let target: HTMLElement = event.target as HTMLElement;
         target = target.closest("button");
         if(target.matches(".delete")){
-            löscheNachricht(target);
+            nachrichtLoeschen(target);
         }
     });
-    */
     //Startseite/Landingpage
     startNakiri = document.querySelector("#startNakiri");
     startSantoku = document.querySelector("#startSantoku");
@@ -408,6 +402,22 @@ function nachrichtHinzufuegen(event:Event){
         }
     });
 }
+function nachrichtLoeschen(target:HTMLElement){
+    const email: string = eingeloggterBenutzer.toString();
+    const betreff: string = target.dataset.betreff;
+    axios.delete("/nachrichten/"+betreff+"/"+email)
+        .then((res:AxiosResponse)=>{
+          renderNachrichtenListe();
+        }).catch((err:AxiosError)=>{
+            /*
+            if(err!==null){
+                feedbackProfU.innerText = "Löschen nicht möglich."
+                setTimeout(feedbackNachrichtLoeschen,2000);
+            }
+            */
+    });
+}
+
 //Login 'n out Funkntionen
 function login(event:Event){
             event.preventDefault();
@@ -425,7 +435,7 @@ function login(event:Event){
                     setTimeout(feedbackLoginLoeschen,2000);
                     console.log("Anmeldung erfolgreich bruh");
                     benutzerAuslesen(eingeloggterBenutzer);
-                    //renderNachrichtenListe();
+                    renderNachrichtenListe();
                 })
                 .catch((err: AxiosError)=>{
                     /*

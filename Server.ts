@@ -94,7 +94,7 @@ app.put("/benutzer/:email",checkLogin,putBenutzer);
 //Routen Nachricht
 app.get("/nachricht/:email",checkLogin,getAlleNachrichten);
 app.post("/nachricht",postNachricht);
-app.delete("/nachrichten/:betreff", checkLogin, deleteNachricht);
+app.delete("/nachrichten/:betreff/:email",checkLogin,deleteNachricht);
 //Funktion Login
 function login(req: express.Request, res: express.Response): void {
     //Selektiert "nichts", aber unter der Bedingung, dass Name und Passwort stimmen
@@ -117,7 +117,7 @@ function login(req: express.Request, res: express.Response): void {
            console.log(err);
         });
 }
-//Funktion Logout beendet Session MUSS GETESTET WERDEN
+//Funktion Logout
 function logout(req: express.Request, res: express.Response): void {
     console.log("bin in der Logout Fkt")
     req.session.destroy(()=>{
@@ -181,11 +181,11 @@ function getBenutzer(req: express.Request, res: express.Response):void{
     const email: string = req.params.email;
     const param = [email];
     const sql = "SELECT * FROM benutzer WHERE email =?;";
-    console.log(email+ " inder getBenutzerServer");
+    //console.log(email+ " inder getBenutzerServer");
     if(email === undefined){
         console.log("email fehlt");
     }else if(email){
-        console.log("bin in der elseIF von der getBenutzer Server");
+        //console.log("bin in der elseIF von der getBenutzer Server");
         connection.query
         (
             sql,
@@ -209,11 +209,9 @@ function getBenutzer(req: express.Request, res: express.Response):void{
 
 }
 function deleteBenutzer(req: express.Request, res:express.Response):void{
-
     const email: string = req.session.uname;
     const param = [email];
     const sql = "DELETE FROM benutzer WHERE email =?;";
-
     if(email === undefined){
         res.status(400);
         res.send("Die E-Mail-Adresse fehlt");
@@ -260,7 +258,6 @@ function putBenutzer(req: express.Request, res:express.Response):void{
 }
 //Funktionen Nachricht
 function postNachricht(req: express.Request, res:express.Response):void{
-
     const vName: string = req.body.vName;
     const nName: string = req.body.nName;
     const email: string = req.body.email;
@@ -287,45 +284,36 @@ function postNachricht(req: express.Request, res:express.Response):void{
     }
 }
 function deleteNachricht(req: express.Request, res:express.Response):void{
-    //warum fehler?
+    //console.log("bin in der delete Nachricht im Server");
     const betreff: string = req.params.betreff;
+    //const email: string = req.params.email;
     const email: string = req.session.uname;
-
-    const param = [betreff, email];
-    const sql = "DELETE FROM nachrichten WHERE betreff = ? AND email = ?"
-
-    if(betreff === undefined){
+    //console.log(betreff+" in der delete Nachricht Server");
+    //console.log(email + " inder delete Nachricht Server");
+    const param = [betreff,email];
+    const sql = "DELETE FROM nachrichten WHERE betreff=? AND email=?;";
+    if(betreff === undefined||email === undefined){
         res.status(400);
-        res.send("Keine zu löschende Nachricht");
-        console.log("if betreff");
-    }else if (email === undefined){
-        res.status(500);
-        res.send("Keine verknüpfte Email zur Nachricht ")
-        console.log("else if email undefined");
-    }
-    else if(email){
+        res.send("Email, oder Betreff fehlen");
+        console.log("Betreff, oder Email fehlen");
+    }else{
         connection.query(
             sql,
             param,
             (err:mysql.MysqlError| null, results: any)=>{
                 res.status(200);
                 res.send("Nachricht gelöscht");
-                console.log("else if email ");
+                console.log("nachricht wurde gelöscht ");
             }
         )
-    }else{
-        res.status(500);
-        res.send("Benutzer hat keine Session");
-        console.log("else");
     }
 
 }
-
 function getAlleNachrichten(req:express.Request, res:express.Response):void{
     const email = req.params.email;
-    console.log(email+" in der Server getAllNachrichten Fkt");
+    //console.log(email+" in der Server getAllNachrichten Fkt");
     const param = [email];
-    console.log(param+"(parameter) in der Server getAllNachrichten Fkt");
+    //console.log(param+"(parameter) in der Server getAllNachrichten Fkt");
     const sql = "SELECT * FROM nachrichten WHERE email=?;";
     if(email!==undefined){
         connection.query(
