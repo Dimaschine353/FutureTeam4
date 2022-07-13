@@ -362,7 +362,9 @@ function benutzerAuslesen(eingeloggterBenutzer:String){
 }
 //Funktionen Nachrichten
 function renderNachrichtenListe(){
+    console.log("bin in der renderNachrichten");
     const email: string = eingeloggterBenutzer.toString();
+    console.log(email+" in der renderNachrichten")
     tabelleNachrichten.innerHTML = "";
     axios.get("/nachricht/"+email)
         .then((res: AxiosResponse)=>{
@@ -487,6 +489,7 @@ function zumLogin (event:Event){
     event.preventDefault();
     if(eingeloggterBenutzer!==""){
         //benutzerAuslesen(eingeloggterBenutzer);
+        renderNachrichtenListe();
         sectProf.classList.remove("d-none");
         sectStart.classList.add("d-none");
         sectLog.classList.add("d-none");

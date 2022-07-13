@@ -95,10 +95,7 @@ app.put("/benutzer/:email",checkLogin,putBenutzer);
 app.get("/nachricht/:email",checkLogin,getAlleNachrichten);
 app.post("/nachricht",postNachricht);
 app.delete("/nachrichten/:betreff", checkLogin, deleteNachricht);
-
-///Alle Log- in 'n - out funktionen
-
-//Funktion Login zugriff auf DB MUSS GETESTET WERDEN
+//Funktion Login
 function login(req: express.Request, res: express.Response): void {
     //Selektiert "nichts", aber unter der Bedingung, dass Name und Passwort stimmen
     query("SELECT NULL FROM benutzer WHERE email = ? AND passwort = ?",
@@ -325,8 +322,10 @@ function deleteNachricht(req: express.Request, res:express.Response):void{
 }
 
 function getAlleNachrichten(req:express.Request, res:express.Response):void{
-    const email = req.params.eingeloggterBenutzer;
+    const email = req.params.email;
+    console.log(email+" in der Server getAllNachrichten Fkt");
     const param = [email];
+    console.log(param+"(parameter) in der Server getAllNachrichten Fkt");
     const sql = "SELECT * FROM nachrichten WHERE email=?;";
     if(email!==undefined){
         connection.query(
