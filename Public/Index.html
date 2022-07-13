@@ -9,61 +9,543 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
           crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@0.27.2/dist/axios.min.js"></script>
     <!--Eigenes Skript und CSS-->
-    <link rel="stylesheet" href="CSSLuxKnives.css">
+    <link rel="stylesheet" href="/cMe/CSSLuxKnives.css">
     <script src="/cMe/scripts/Client.js"></script>
 </head>
 <body class="background fontLuxKnives">
 <div class="content">
     <div class="content-inside">
-        <!-- NavBar -->
-        <div id="navBar">
-            <div class="container-fluid p-0 nav">
-                <div class="row justify-content-center align-items-center gx-0">
-                    <div class="col">
-                        <div class="row">
-                            <div class="col-6 d-flex justify-content-center">
-                                <a class="nav-link" href="#">Handgefertigte Messer</a>
+<!-- NavBar -->
+<div id="navBar">
+    <div class="container-fluid p-0 nav">
+        <div class="row justify-content-center align-items-center gx-0">
+            <div class="col">
+                <div class="row">
+                    <div class="col-6 d-flex justify-content-center">
+                        <a class="nav-link" href="#">Handgefertigte Messer</a>
+                    </div>
+                    <div class="col-6">
+                        <a id="navUeber" class="nav-link me-5" href="#">Über Uns</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-1">
+                <a href="#">
+                    <img id="navHome" src="/cMe/images/LuxKnivesLogoNew.PNG" alt="LuxKnives Logo" width="100%">
+                </a>
+            </div>
+            <div class="col">
+                <div class="row gx-0">
+                    <div class="col justify-content-end d-flex">
+                        <a class="nav-link" href="#">Galerie</a>
+                    </div>
+                    <div class="col justify-content-center d-flex">
+                        <a id="navService" class="nav-link" href="#">Service</a>
+                    </div>
+                    <div class="col justify-content-start d-flex">
+                        <a id="navKontakt" class="nav-link" href="#">Kontakt</a>
+                    </div>
+                    <div class="col d-flex align-items-center justify-content-center">
+                        <div class="row gx-0">
+                            <div class="col d-flex justify-content-center px-3">
+                                <a href="#">
+                                    <img id ="navWarenkorb" class="icon-centered icon-style" src="/cMe/SVGIcons/shopping-basket.svg" alt="Warenkorb Icon"/>
+                                </a>
                             </div>
-                            <div class="col-6">
-                                <a id="navUeber" class="nav-link me-5" href="#">Über Uns</a>
+                            <div class="col d-flex justify-content-center px-3">
+                                <a href="#" >
+                                    <img id="navLogin" class="icon-centered icon-style" src="/cMe/SVGIcons/user.svg" alt="Profil Icon"/>
+                                </a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-1">
-                        <a href="#">
-                            <img id="navHome" src="/cMe/images/LuxKnivesLogoNew.PNG" alt="LuxKnives Logo" width="100%">
-                        </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Startseite / Landingpage -->
+<section id="sectStart" class="d-block">
+    <div id="qualityfirst">
+        <div class="container-fluid p-0 position-relative">
+            <img src="/cMe/images/landingpageMesser.png" width="100%" alt="Messer Bild Landingpage">
+            <div class="top-left">QUALITY</div>
+            <div class="top-left2">FIRST</div>
+        </div>
+    </div>
+    <div id="handgefertigte">
+        <div class="container-fluid p-0 position-relative">
+            <img id="produktBildFlipper" src="/cMe/images/Messer2.png" width="100%" alt="Nakiri Musashi Messer">
+            <div class="container-fluid p-0">
+                <div class="row p-0 justify-content-end">
+                    <div class="col-4 leftTransBox">
+                        <div class="">
+                            <div>
+                                <h1>Handgefertigte Messer</h1>
+                            </div>
+                            <div class="padding-zoom">
+                                <a id="startNakiri" href="#" class="zoom-aStyle">
+                                    <div class="zoomEffekt">
+                                        <p>Nakiri Musashi</p>
+                                    </div>
+                                </a>
+                                <a id="startSantoku" href="#" class="zoom-aStyle">
+                                    <div class="zoomEffekt">
+                                        Santoku Kenshin
+                                    </div>
+                                </a>
+                                <a id="startSujihinki" href="#" class="zoom-aStyle">
+                                    <div class="zoomEffekt">
+                                        Sujihinki Masako
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
                     </div>
+                    <div class="col-6">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="philo">
+        <div class="container-fluid p-0 position-relative">
+            <img src="/cMe/images/landingpagePhiloV3.png" width="100%" alt="Nakiri Musashi Messer">
+            <div class="top-left">PHILOSOPHIE</div>
+            <div class="container-fluid p-0">
+                <div class="row justify-content-evenly">
+                    <div class="rightTransBox">
+                        <div class="card cardLandingpageStyle">
+                            <div class="card-body">
+                                <p class="card-text card-Philo">
+                                    LuxKnives ist ein traditionsbewusstes Unternehmen.
+                                    Wir haben es uns zur Aufabe gemacht die hochwertigste
+                                    Schmiedekunst breitflächig, dennoch limitiert zu vertreiben.
+                                    <br>
+                                    <br>
+                                    Mit einem lebenslangen Schleifservice für unsere Kunden
+                                    bringen wir Ihnen einen Messer, welches Ihr Leben begleitet.
+                                </p>
+                                <a href="#" class="card-text card-Philo">Mehr Erfahren</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="content">
+        <div class="container-fluid p-0 pt-3 d-flex justify-content-center position-relative">
+            <div id="carouselContent" class="carousel slide" data-bs-interval="false">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <video width="960px" controls>
+                            <source src="/cMe/videos/pexels-arvin-latifi-6466763.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="carousel-item">
+                        <video width="960px" controls>
+                            <source src="/cMe/videos/pexels-nothing-ahead-10505868.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselContent"
+                        data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselContent"
+                        data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <div class="container-fluid p-0 d-flex justify-content-center my-5">
+            <a id="bearbeitenBtnContent" class="btn btn-luxknives"><img src="/cMe/SVGIcons/pen.svg" class="icon-centered icon-style"></a>
+        </div>
+    </div>
+</section>
+<!-- Profil -->
+<section id="sectProf" class="d-block">
+<div id="profil">
+    <div class="container-fluid p-0">
+        <div class="row justify-content-evenly">
+            <div class="col-5">
+                <div class="card mb-3 cardBioStyle">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="/cMe/images/PeterHofmannProfilepic.PNG" class="img-fluid profilBildStyle" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Bio</h5>
+                                <p class="card-text" id="profilBioRead">
+                                    Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                    Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                    Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                    Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                    Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                    Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                    Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form für Bearbeiten -->
+            <div class="col-5">
+                <div class="row">
+                    <p id="feedbackProfildatenBearbeiten"></p>
+                </div>
+                <div class="row">
+                    <form id="formProfildatenBearbeiten">
+                        <div class="input-group mb-3">
+                            <input id="profilVorname" type="text" class="form-control" placeholder="Vorname" name="profilVorname"
+                                   aria-label="Vorname"  required readonly>
+                            <input id="profilNachname" type="text" class="form-control" placeholder="Nachname" name="profilNachname"
+                                   aria-label="Nachname"  required readonly>
+                        </div>
+                    </form>
+                </div>
+            <!-- Form für Btns -->
+
+                    <form id="profildatenBearbeitenBtn">
+                        <div class = "row">
+                            <div class="input-group mb-3">
+                            <button type="button" class="btn btn-luxknives rounded-1"  id="profilUBtnB">
+                                    Profildaten Bearbeiten
+                                </button>
+                                &nbsp;
+                                <button type="button" class="btn btn-luxknives rounded-1 d-none"   id="profilUBtnA">
+                                    Änderungen Speichern
+                                </button>
+                                &nbsp;
+                            </div>
+                        </div>
+                        <div class = "row">
+                            <div class="input-group mb-3">
+                                <button type="button" class="btn btn-luxknives rounded-1"  id="profilUBtnLogout">
+                                    Abmelden
+                                </button>
+                                &nbsp;
+                                <button type="button" class="btn btn-luxknives rounded-1 " id="profilUBtnL">
+                                    Profil Löschen
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                <!--Nchrichtenliste-->
+                <div class="row" id="Nachrichtenliste">
                     <div class="col">
-                        <div class="row gx-0">
-                            <div class="col justify-content-end d-flex">
-                                <a class="nav-link" href="#">Galerie</a>
+                        <div class="row">
+                            <div class="col text-center">
+                                <h5>Nachrichtenliste</h5>
                             </div>
-                            <div class="col justify-content-center d-flex">
-                                <a id="navService" class="nav-link" href="#">Service</a>
-                            </div>
-                            <div class="col justify-content-start d-flex">
-                                <a id="navKontakt" class="nav-link" href="#">Kontakt</a>
-                            </div>
-                            <div class="col d-flex align-items-center justify-content-center">
-                                <div class="row gx-0">
-                                    <div class="col d-flex justify-content-center px-3">
-                                        <a href="#">
-                                            <img id="navWarenkorb" class="icon-centered icon-style"
-                                                 src="/cMe/SVGIcons/shopping-basket.svg" alt="Warenkorb Icon"/>
-                                        </a>
+                        </div>
+                        <table class="table table-striped">
+                            <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Betreff</th>
+                                <th scope="col">Inhalt</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tabelleNachrichten">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!--
+                <div class="input-group mb-3 d-flex justify-content-center">
+
+                    <button type="button" class="btn btn-luxknives rounded-1" data-bs-toggle="modal" data-bs-target="#profb" id="">
+                        Profildaten Bearbeiten
+                    </button>
+                    <button type="button" class="btn btn-luxknives rounded-1 d-none" data-bs-toggle="modal"  id="">
+                        Profildaten Abschicken
+                    </button>
+
+
+                    <div class="modal fade" id="profildatenBearbeitenModal" tabindex="-1" aria-labelledby="profildatenBearbeitenModal" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Ihre Profildaten</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="input-group mb-3">
+                                        <input id="profilVornameUpdate" type="text" class="form-control" placeholder="Vorname" name="profilVorname"
+                                               aria-label="Vorname">
+                                        <input id="profilNachnameUpdate" type="text" class="form-control" placeholder="Nachname" name="profilNachname"
+                                               aria-label="Nachname">
                                     </div>
-                                    <div class="col d-flex justify-content-center px-3">
-                                        <a href="#">
-                                            <img id="navLogin" class="icon-centered icon-style"
-                                                 src="/cMe/SVGIcons/user.svg" alt="Profil Icon"/>
-                                        </a>
+                                    <div class="input-group mb-3">
+                                        <input id="profilE-mailUpdate" type="email" class="form-control" placeholder="Email" name="profilE-mail" aria-label="Email">
                                     </div>
+                                    <div class="mb-3">
+                                        <label for="profilbildUpdate" class="form-label">Profilbild Hochladen</label>
+                                        <input class="form-control" type="file" id="profilbildUpdate">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <textarea id="profilBioUpdate" class="form-control" aria-label="profilBioUpdate" placeholder="Bio Schreiben"></textarea>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            -->
+
+        </div>
+        <!-- Bestellungen und Fragen Sektion -->
+        <div class="row justify-content-evenly">
+            <!-- Bestellungen -->
+            <div class="col-5 bg-luxKnives borderLuxKnives">
+                <div class="row d-flex justify-content-center py-2">
+                    <h2 class="text-center">Meine Bestellungen und Fragen</h2>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <div class="card mb-3 cardBestellungenStyle">
+                        <div class="row g-0">
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Bestellung: Nakiri Musashi</h5>
+                                    <p class="card-textBestellungen">Ihre Bestellung (Nr.32476) vom 12.4.2022 ist in der
+                                        Zustellung.</p>
+                                    <a class="card-text" href="#">Mehr Details</a>
+                                    <p></p>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <a class="btn btn-luxknives" href="#">Lieferung Verfolgen</a>
+                                        </div>
+                                        <div class="col-6">
+                                            <a class="btn btn-luxknives" href="#">Lieferung Stonieren</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 p-4">
+                                <img src="/cMe/images/ProduktMesserBestellungen.PNG" class="img-fluid" alt="Produktfoto">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <div class="card mb-3 cardBestellungenStyle">
+                        <div class="row g-0">
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Bestellung: Sujihiki Masako</h5>
+                                    <p class="card-textBestellungen">Ihre Bestellung (Nr.32477) vom 4.6.2022 ist in der
+                                        Zustellung.</p>
+                                    <a class="card-text" href="#">Mehr Details</a>
+                                    <p></p>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <a class="btn btn-luxknives" href="#">Lieferung Verfolgen</a>
+                                        </div>
+                                        <div class="col-6">
+                                            <a class="btn btn-luxknives" href="#">Lieferung Stonieren</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 p-4">
+                                <img src="/cMe/images/ProduktMesserBestellungen.PNG" class="img-fluid" alt="Produktfoto">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <div class="card mb-3 cardBestellungenStyle">
+                        <div class="row g-0">
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Termin: Schleifen am 14.6.2022</h5>
+                                    <p class="card-textBestellungen">Sie haben sich fur einen Termin am 14.6.2022 um 15 Uhr
+                                        angemeldet.</p>
+                                    <p></p>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <a class="btn btn-luxknives" href="#">Termin Bearbeiten</a>
+                                        </div>
+                                        <div class="col-6">
+                                            <a class="btn btn-luxknives" href="#">Termin Stonieren</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 d-flex justify-content-center align-items-center p-4">
+                                <i class="fa-solid fa-house-user fa-7x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fragen -->
+            <div class="col-5 bg-luxKnives borderLuxKnives">
+                <div class="row d-flex justify-content-start py-2 padding-fragen">
+                    <h2>Neue Infos:</h2>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <div class="card mb-3 cardBestellungenStyle">
+                        <div class="card-body">
+                            <h5 class="card-title">Ihre Frage</h5>
+                            <p class="card-textBestellungen"> Gibt es eine Moglichkeit die Messer vor Ort auszutesten?</p>
+                            <div class="input-group mb-3">
+                                <textarea id="antwortSchreiben" class="form-control" aria-label="With textarea"></textarea>
+                            </div>
+                            <button id="antwortenBtn" class="btn btn-luxknives">Antworten</button>
+                            <button id="loeschenBtn" class="btn btn-luxknives">Frage Löschen</button>
+                        </div>
+                    </div>
+                </div>
+                <!--
+                <div class="row d-flex justify-content-center">
+                    <div class="card mb-3 cardBestellungenStyle">
+                        <div class="card-body">
+                            <h5 class="card-title">Ihre Frage</h5>
+                            <p class="card-textBestellungen">Haben sie Produkte in anderen Farben?</p>
+                            <a href="#" class="btn btn-luxknives">Antworten</a>
+                            <a href="#" class="btn btn-luxknives">Frage Loschen</a>
+                        </div>
+                    </div>
+                </div>
+                -->
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<!-- Detailseite -->
+<section id="sectDet" class="d-block">
+    <div class="container-fluid p-0 position-relative">
+        <div id="produktbild1">
+            <div class="nakiri">Nakiri</div>
+            <div class="musashi">MUSASHI</div>
+            <img src="/cMe/images/Nakiricut.jpg" width="100%" alt="Nakiri Messer">
+        </div>
+        <div>
+            <h1 id="qf" class="qualityFirstTitleStyle">
+                Quality First
+            </h1>
+            <p class="scharf">
+                Scharf und Schneidefreudig. Die form passt sich Ihrer Hand an und vermittelt ein wolkenleichtes Schneidegefühl.
+            </p>
+        </div>
+    </div>
+
+    <div id="verfuegbar">
+        <div class="row">
+            <div class="position-relative">
+                <img id="muster" src="/cMe/images/damask.png" width="100%">
+            </div>
+            <div class="position-absolute">
+                <div class="row">
+                    <div class="col-7">
+                    </div>
+                    <div class="col-5 unvergleichbar">
+                        <div class="justify-content-center">
+                            <p class="scharf2">
+                                Eine unvergleichbare Kocherfahrung!
+                                <br>
+                                <br>
+                                Lass dich von der Klingenschärfe verführen. Glaube deinem Bauchgefühl und schneide Gemüse als würde es sich
+                                um Butter handeln. Ob Fleisch, Fisch oder Butter, alles wird geschnitten.
+                                Verlasse dich auf Schärfe des höchsten Grades. Kauf dieses Messer!
+                                <br>
+                                <br>
+                                Bleib scharf!
+                            </p>
+                            <div class="justify-content-center d-flex p-4">
+                                <a href="#" class="text-center scharf2">Verfügbar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Produktdetails -->
+    <div id="maße">
+        <div class="row p-5">
+            <div class="col-6">
+                <div class="d-flex">
+                    <p class="detailTextB pe-2">Stahl:</p>
+                    <p class="detailTextC">Damaststahl</p>
+                </div>
+                <div class="d-flex">
+                    <p class="detailTextB pe-2">Härte: </p>
+                    <p class="detailTextC">60 HRC Rockwell</p>
+                </div>
+                <div class="d-flex">
+                    <p class="detailTextB pe-2">Klingenfinish: </p>
+                    <p class="detailTextC">Schmiederauh</p>
+                </div>
+                <div class="d-flex">
+                    <p class="detailTextB pe-2">Klingenlänge: </p>
+                    <p class="detailTextC">21.0 cm</p>
+                </div>
+            </div>
+            <div class="col-6 justify-content-end">
+                <div class="d-flex">
+                    <p class="detailTextB pe-2">Klingenhöhe: </p>
+                    <p class="detailTextC">9.8 cm</p>
+                </div>
+                <div class="d-flex">
+                    <p class="detailTextB pe-2">Rückenstärke: </p>
+                    <p class="detailTextC">3.5 mm</p>
+                </div>
+                <div class="d-flex">
+                    <p class="detailTextB pe-2">Grifflänge: </p>
+                    <p class="detailTextC">16.2 cm</p>
+                </div>
+                <div class="d-flex">
+                    <p class="detailTextB pe-2">Griff: </p>
+                    <p class="detailTextC">Mahagoni</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service vor Ort -->
+    <div>
+        <div class="container-fluid p-0 position-relative">
+            <img src="/cMe/images/NCUT.jpg" width="100%" alt="Nakiri Musashi Messer">
+            <div class="container-fluid p-0">
+                <div class="row justify-content-evenly">
+                    <div class="rightTransBoxService">
+                        <div class="card cardLandingpageStyle">
+                            <div class="card-body">
+                                <p class="card-text card-Philo text-center scharf2">
+                                    Service vor Ort
+                                    <br>
+                                    <br>
+                                    Ein Leben lang Scharfe Kochmesser ohne Arbeit.
+                                    Kommen sie zu uns in den Laden und lassen Sie Ihre Messer
+                                    professionell schleifen
+                                </p>
+                                <div class="justify-content-center d-flex">
+                                    <a href="#" class="btn btn-luxknives2">
+                                        Service
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -71,577 +553,185 @@
                 </div>
             </div>
         </div>
-        <!-- Startseite / Landingpage -->
-        <section id="sectStart" class="d-block">
-            <div id="qualityfirst">
-                <div class="container-fluid p-0 position-relative">
-                    <img src="/cMe/images/landingpageMesser.png" width="100%" alt="Messer Bild Landingpage">
-                    <div class="top-left">QUALITY</div>
-                    <div class="top-left2">FIRST</div>
-                </div>
-            </div>
-            <div id="handgefertigte">
-                <div class="container-fluid p-0 position-relative">
-                    <img id="produktBildFlipper" src="/cMe/images/Messer2.png" width="100%" alt="Nakiri Musashi Messer">
-                    <div class="container-fluid p-0">
-                        <div class="row p-0 justify-content-end">
-                            <div class="col-4 leftTransBox">
-                                <div class="">
-                                    <div>
-                                        <h1>Handgefertigte Messer</h1>
-                                    </div>
-                                    <div class="padding-zoom">
-                                        <a id="startNakiri" href="#" class="zoom-aStyle">
-                                            <div class="zoomEffekt">
-                                                <p>Nakiri Musashi</p>
-                                            </div>
-                                        </a>
-                                        <a id="startSantoku" href="#" class="zoom-aStyle">
-                                            <div class="zoomEffekt">
-                                                Santoku Kenshin
-                                            </div>
-                                        </a>
-                                        <a id="startSujihinki" href="#" class="zoom-aStyle">
-                                            <div class="zoomEffekt">
-                                                Sujihinki Masako
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6">
+    </div>
 
-                            </div>
-                        </div>
-                    </div>
+    <!-- bearbeiten btn -->
+    <div class="justify-content-center d-flex p-4">
+        <a id="bearbeitenBtnDetailseite" class="btn btn-luxknives"><img src="/cMe/SVGIcons/pen.svg" class="icon-centered icon-style"></a>
+    </div>
+
+    <!-- Kommentare -->
+    <div id="kommentare">
+        <div class="pb-5">
+            <p class="scharf"> Kundenrezension </p>
+        </div>
+
+        <!-- Kommentar 1 -->
+        <div class="row kommentarTextStyle">
+            <div class="col-1">
+                <div class="kommentarBild">
+                    <img src="/cMe/images/placeholder-person.png" alt="snoop">
                 </div>
             </div>
 
-            <div id="philo">
-                <div class="container-fluid p-0 position-relative">
-                    <img src="/cMe/images/landingpagePhiloV3.png" width="100%" alt="Nakiri Musashi Messer">
-                    <div class="top-left">PHILOSOPHIE</div>
-                    <div class="container-fluid p-0">
-                        <div class="row justify-content-evenly">
-                            <div class="rightTransBox">
-                                <div class="card cardLandingpageStyle">
-                                    <div class="card-body">
-                                        <p class="card-text card-Philo">
-                                            LuxKnives ist ein traditionsbewusstes Unternehmen.
-                                            Wir haben es uns zur Aufabe gemacht die hochwertigste
-                                            Schmiedekunst breitflächig, dennoch limitiert zu vertreiben.
-                                            <br>
-                                            <br>
-                                            Mit einem lebenslangen Schleifservice für unsere Kunden
-                                            bringen wir Ihnen einen Messer, welches Ihr Leben begleitet.
-                                        </p>
-                                        <a href="#" class="card-text card-Philo">Mehr Erfahren</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="col-8 px-3">
+                <p>Habe alle drei Messer gekauft</p>
+                <p>
+                    Man sollte bei der Handhabung aufpassen, aber wenn
+                    man es im Griff hat, ist jedes dieser Messer der beste
+                    Freund jedes Koches.
+                </p>
+            </div>
+
+            <div class="col-3">
+                <button class="btn btn-luxknives">Antworten</button>
+                <a id="bearbeitenBtnKommentare1" class="btn btn-luxknives"><img src="/cMe/SVGIcons/trash.svg" class="icon-centered icon-style"></a>
+            </div>
+        </div>
+
+        <!-- Kommentar 2 -->
+        <div class="row kommentarTextStyle">
+            <div class="col-1">
+                <div class="kommentarBild">
+                    <img src="/cMe/images/placeholder-person.png" alt="snoop">
                 </div>
             </div>
 
-            <div id="content">
-                <div class="container-fluid p-0 pt-3 d-flex justify-content-center position-relative">
-                    <div id="carouselContent" class="carousel slide" data-bs-interval="false">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <video width="960px" controls>
-                                    <source src="/cMe/videos/pexels-arvin-latifi-6466763.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="carousel-item">
-                                <video width="960px" controls>
-                                    <source src="/cMe/videos/pexels-nothing-ahead-10505868.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselContent"
-                                data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselContent"
-                                data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="container-fluid p-0 d-flex justify-content-center my-5">
-                    <a id="bearbeitenBtnContent" class="btn btn-luxknives"><img src="/cMe/SVGIcons/pen.svg"
-                                                                                class="icon-centered icon-style"></a>
+            <div class="col-8 px-3">
+                <p>Klasse Messer</p>
+                <p>
+                    Ich bin nach mehrmaligem kochen sehr überzeugt von
+                    diesem Messer. Es hält sein versprechen! Gratis
+                    Schleifservice für Käufer und die tolle Beratung im Laden.
+                </p>
+            </div>
+
+            <div class="col-3">
+                <button class="btn btn-luxknives">Antworten</button>
+                <a id="bearbeitenBtnKommentare2" class="btn btn-luxknives"><img src="/cMe/SVGIcons/trash.svg" class="icon-centered icon-style"></a>
+            </div>
+        </div>
+
+        <!-- Kommentar 3 -->
+        <div class="row kommentarTextStyle">
+            <div class="col-1">
+                <div class="kommentarBild">
+                    <img src="/cMe/images/placeholder-person.png" alt="snoop">
                 </div>
             </div>
-        </section>
-        <!-- Profil -->
-        <section id="sectProf" class="d-block">
-            <div id="profil">
-                <div class="container-fluid p-0">
-                    <div class="row justify-content-evenly">
-                        <div class="col-5">
-                            <div class="card mb-3 cardBioStyle">
-                                <div class="row g-0">
-                                    <div class="col-md-4">
-                                        <img src="/cMe/images/PeterHofmannProfilepic.PNG"
-                                             class="img-fluid profilBildStyle" alt="...">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Bio</h5>
-                                            <p class="card-text" id="profilBioRead">
-                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
-                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
-                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
-                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
-                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
-                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
-                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- Form für Bearbeiten -->
-                        <div class="col-5">
-                            <div class="row">
-                                <p id="feedbackProfildatenBearbeiten"></p>
-                            </div>
-                            <div class="row">
-                                <form id="formProfildatenBearbeiten">
-                                    <div class="input-group mb-3">
-                                        <input id="profilVorname" type="text" class="form-control" placeholder="Vorname"
-                                               name="profilVorname"
-                                               aria-label="Vorname" required readonly>
-                                        <input id="profilNachname" type="text" class="form-control"
-                                               placeholder="Nachname" name="profilNachname"
-                                               aria-label="Nachname" required readonly>
-                                    </div>
-                                </form>
-                            </div>
-                            <!-- Form für Btns -->
-
-                            <form id="profildatenBearbeitenBtn">
-                                <div class="row">
-                                    <div class="input-group mb-3">
-                                        <button type="button" class="btn btn-luxknives rounded-1" id="profilUBtnB">
-                                            Profildaten Bearbeiten
-                                        </button>
-                                        &nbsp;
-                                        <button type="button" class="btn btn-luxknives rounded-1 d-none"
-                                                id="profilUBtnA">
-                                            Änderungen Speichern
-                                        </button>
-                                        &nbsp;
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-group mb-3">
-                                        <button type="button" class="btn btn-luxknives rounded-1" id="profilUBtnLogout">
-                                            Abmelden
-                                        </button>
-                                        &nbsp;
-                                        <button type="button" class="btn btn-luxknives rounded-1 " id="profilUBtnL">
-                                            Profil Löschen
-                                        </button>
-                                    </div>
-                                </div>
-
-                            </form>
-                            <!--Nchrichtenliste-->
-                            <div class="row" id="Nachrichtenliste">
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col text-center">
-                                            <h5>Nachrichtenliste</h5>
-                                        </div>
-                                    </div>
-                                    <table class="table table-striped">
-                                        <thead class="thead-light">
-                                        <tr>
-                                            <th scope="col">Betreff</th>
-                                            <th scope="col">Inhalt</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody id="tabelleNachrichten">
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--
-                            <div class="input-group mb-3 d-flex justify-content-center">
-
-                                <button type="button" class="btn btn-luxknives rounded-1" data-bs-toggle="modal" data-bs-target="#profb" id="">
-                                    Profildaten Bearbeiten
-                                </button>
-                                <button type="button" class="btn btn-luxknives rounded-1 d-none" data-bs-toggle="modal"  id="">
-                                    Profildaten Abschicken
-                                </button>
-
-
-                                <div class="modal fade" id="profildatenBearbeitenModal" tabindex="-1" aria-labelledby="profildatenBearbeitenModal" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Ihre Profildaten</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="input-group mb-3">
-                                                    <input id="profilVornameUpdate" type="text" class="form-control" placeholder="Vorname" name="profilVorname"
-                                                           aria-label="Vorname">
-                                                    <input id="profilNachnameUpdate" type="text" class="form-control" placeholder="Nachname" name="profilNachname"
-                                                           aria-label="Nachname">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <input id="profilE-mailUpdate" type="email" class="form-control" placeholder="Email" name="profilE-mail" aria-label="Email">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="profilbildUpdate" class="form-label">Profilbild Hochladen</label>
-                                                    <input class="form-control" type="file" id="profilbildUpdate">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <textarea id="profilBioUpdate" class="form-control" aria-label="profilBioUpdate" placeholder="Bio Schreiben"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        -->
-
-                    </div>
-                    <!-- Bestellungen und Fragen Sektion -->
-                    <div class="row justify-content-evenly">
-                        <!-- Bestellungen -->
-                        <div class="col-5 bg-luxKnives borderLuxKnives">
-                            <div class="row d-flex justify-content-center py-2">
-                                <h2 class="text-center">Meine Bestellungen und Fragen</h2>
-                            </div>
-                            <div class="row d-flex justify-content-center">
-                                <div class="card mb-3 cardBestellungenStyle">
-                                    <div class="row g-0">
-                                        <div class="col-md-8">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Bestellung: Nakiri Musashi</h5>
-                                                <p class="card-textBestellungen">Ihre Bestellung (Nr.32476) vom
-                                                    12.4.2022 ist in der
-                                                    Zustellung.</p>
-                                                <a class="card-text" href="#">Mehr Details</a>
-                                                <p></p>
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <a class="btn btn-luxknives" href="#">Lieferung Verfolgen</a>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <a class="btn btn-luxknives" href="#">Lieferung Stonieren</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 p-4">
-                                            <img src="/cMe/images/ProduktMesserBestellungen.PNG" class="img-fluid"
-                                                 alt="Produktfoto">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row d-flex justify-content-center">
-                                <div class="card mb-3 cardBestellungenStyle">
-                                    <div class="row g-0">
-                                        <div class="col-md-8">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Bestellung: Sujihiki Masako</h5>
-                                                <p class="card-textBestellungen">Ihre Bestellung (Nr.32477) vom 4.6.2022
-                                                    ist in der
-                                                    Zustellung.</p>
-                                                <a class="card-text" href="#">Mehr Details</a>
-                                                <p></p>
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <a class="btn btn-luxknives" href="#">Lieferung Verfolgen</a>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <a class="btn btn-luxknives" href="#">Lieferung Stonieren</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 p-4">
-                                            <img src="/cMe/images/ProduktMesserBestellungen.PNG" class="img-fluid"
-                                                 alt="Produktfoto">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row d-flex justify-content-center">
-                                <div class="card mb-3 cardBestellungenStyle">
-                                    <div class="row g-0">
-                                        <div class="col-md-8">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Termin: Schleifen am 14.6.2022</h5>
-                                                <p class="card-textBestellungen">Sie haben sich fur einen Termin am
-                                                    14.6.2022 um 15 Uhr
-                                                    angemeldet.</p>
-                                                <p></p>
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <a class="btn btn-luxknives" href="#">Termin Bearbeiten</a>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <a class="btn btn-luxknives" href="#">Termin Stonieren</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 d-flex justify-content-center align-items-center p-4">
-                                            <i class="fa-solid fa-house-user fa-7x"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Fragen -->
-                        <div class="col-5 bg-luxKnives borderLuxKnives">
-                            <div class="row d-flex justify-content-start py-2 padding-fragen">
-                                <h2>Neue Infos:</h2>
-                            </div>
-                            <div class="row d-flex justify-content-center">
-                                <div class="card mb-3 cardBestellungenStyle">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ihre Frage</h5>
-                                        <p class="card-textBestellungen"> Gibt es eine Moglichkeit die Messer vor Ort
-                                            auszutesten?</p>
-                                        <div class="input-group mb-3">
-                                            <textarea id="antwortSchreiben" class="form-control"
-                                                      aria-label="With textarea"></textarea>
-                                        </div>
-                                        <button id="antwortenBtn" class="btn btn-luxknives">Antworten</button>
-                                        <button id="loeschenBtn" class="btn btn-luxknives">Frage Löschen</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--
-                            <div class="row d-flex justify-content-center">
-                                <div class="card mb-3 cardBestellungenStyle">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ihre Frage</h5>
-                                        <p class="card-textBestellungen">Haben sie Produkte in anderen Farben?</p>
-                                        <a href="#" class="btn btn-luxknives">Antworten</a>
-                                        <a href="#" class="btn btn-luxknives">Frage Loschen</a>
-                                    </div>
-                                </div>
-                            </div>
-                            -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Detailseite -->
-        <section id="sectDet" class="d-block">
-
-            <div id="produktbild1">
-                <div class="nakiri">Nakiri</div>
-                <img src="/cMe/images/Nakiricut.jpg" width="100%" alt="Nakiri Messer">
-            </div>
-            <div>
-                <h1 id="qf">
-                    Quality First
-                </h1>
+            <div class="col-8 px-3">
+                <p>Aufpassen sehr scharf!</p>
+                <p>
+                    Das Messer schneidet durch Fleisch wie durch Butter.
+                    Filetieren und ausbeinen absolut kein Problem.
+                </p>
             </div>
 
+            <div class="col-3">
+                <button class="btn btn-luxknives">Antworten</button>
+                <a id="bearbeitenBtnKommentare3" class="btn btn-luxknives"><img src="/cMe/SVGIcons/trash.svg" class="icon-centered icon-style"></a>
+            </div>
+        </div>
 
+        <!-- Kommentar schreiben area -->
+        <div class="kommentarTextStyle">
+            <div class="py-3">
+                <a id="kommentareLaden" href="#" class="btn btn-luxknives">weitere Kommentare Laden</a>
+                <a id="kommentarVerfassenBtn" href="#" class="btn btn-luxknives">Kommentar verfassen</a>
+            </div>
             <div class="row">
-                <div class="col-6">
-                    <img id="muster" src="/cMe/images/knivemuser1.jpeg" width="100%">
-                </div>
-
-                <div class="col-6">
-                    Eine unvergleichbare Kocherfahrung!
-                    <br>
-                    <br>
-                    Lass dich von der Klingenschärfe verführen. Glaube deinem Bauchgefühl und schneide Gemüse als würde
-                    es sich
-                    um Butter handeln.
-                </div>
-
-            </div>
-            <div>
-
-            </div>
-
-            <div id="verfuegbar"></div>
-
-            <div id="maße">
-
-
-                <div class="justify-content-center d-flex">
-                    <a id="bearbeitenBtnDetailseite" class="btn btn-luxknives"><img src="/cMe/SVGIcons/pen.svg"
-                                                                                    class="icon-centered icon-style"></a>
+                <div class="">
+                    <textarea id="kommentarfeldInput" class="form-control rashinput" rows="6" aria-label="With textarea" placeholder="Ihr Kommentar..."></textarea>
+                    <div class="py-3">
+                        <a id="kommentarfeldAbsenden" href="#" class="btn btn-luxknives">Absenden</a>
+                    </div>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+<!-- Über uns -->
+<section id="sectUeber" class="d-block">
+    <div class="row">
+        <div class="fill col-7" id="divsize"></div>
 
-            <div id="kommentare">
-                <h1> Kundenrezension </h1>
+        <div class="col-4">
 
-                <div>
-                    <div class="kommentarBild">
-                        <img src="/cMe/images/placeholder-person.png" alt="snoop">
-                    </div>
-                    <div>
-                        <p>Habe alle drei Messer gekauft</p>
-                        <p>
-                            Man sollte bei der Handhabung aufpassen, aber wenn
-                            man es im Griff hat, ist jedes dieser Messer der beste
-                            Freund jedes Koches.
-                        </p>
-                    </div>
-                    <div>
-                        <button class="btn btn-luxknives">Antworten</button>
-                        <button class="btn btn-luxknives">delete</button>
-                        <a id="bearbeitenBtnKommentare" class="btn btn-luxknives"><img src="/cMe/SVGIcons/trash.svg"
-                                                                                       class="icon-centered icon-style"></a>
-                    </div>
-                </div>
-                <div>
-                    <div class="kommentarBild">
-                        <img src="/cMe/images/placeholder-person.png" alt="snoop">
-                    </div>
-                    <div>
-                        <p>Klasse Messer</p>
-                        <p>
-                            Ich bin nach mehrmaligem kochen sehr überzeugt von
-                            diesem Messer. Es hält sein versprechen! Gratis
-                            Schleifservice für Käufer und die tolle Beratung im Laden.
-                        </p>
-                    </div>
-                    <div>
-                        <button class="btn btn-luxknives">Antworten</button>
-                        <button class="btn btn-luxknives">delete</button>
-                    </div>
-                </div>
-                <div>
-                    <div class="kommentarBild">
-                        <img src="/cMe/images/placeholder-person.png" alt="snoop">
-                    </div>
-                    <div>
-                        <p>Aufpassen sehr scharf!</p>
-                        <p>
-                            Das Messer schneidet durch Fleisch wie durch Butter.
-                            Filetieren und ausbeinen absolut kein Problem.
-                        </p>
-                    </div>
-                    <div>
-                        <button class="btn btn-luxknives">Antworten</button>
-                        <button class="btn btn-luxknives">delete</button>
-                    </div>
-                </div>
+            <h1>Über Uns</h1>
 
+            <p class="align-content-start puns">
+                LuxKnives ist ein traditionsbewusstes
+                Unternehmen.<br>
+                Wir haben es uns zur
+                Aufgabe gemacht die hochwertigste
+                Schmiedekunst breitflächig, <br>
+                dennoch
+                limitiert zu vertreiben. Mit einem
+                lebenslangen Schleifservice unserer
+                Kunden, <br>
+                bringen wir Ihnen ein
+                Luxusmesser, welches Sie ein Leben
+                lang begleitet.
                 <br>
-                <div>
-                    <button class="btn btn-luxknives">Kommentare Laden</button>
-                    <button class="btn btn-luxknives">Kommentar verfassen</button>
-                    <button class="btn btn-luxknives">edit</button>
-                    <br>
-                    <textarea></textarea>
-                    <btn class="btn btn-luxknives">Absenden</btn>
+                <br>
+                Unser lokaler Laden bietet Köchen
+                und Kochinteressierten einen Ort,
+                um sich gegenseitig auszutauschen,
+                Bekanntschaften zu schließen und
+                die Kochleidenschaft zu zelebrieren.
+            </p>
+        </div>
+    </div>
 
-                </div>
-            </div>
-        </section>
-        <!-- Über uns -->
-        <section id="sectUeber" class="d-block">
-            <div class="row">
-                <div class="fill col-7" id="divsize"></div>
+    <div>
+        <h1>Das Team</h1>
+    </div>
+    <div class="row">
+        <div class="col-6 d-flex justify-content-center cardmargin">
+            <div class="card teamcard mb-3" style="max-width: 540px;">
+                <div class="row">
+                    <div class="col-md-4 fill4"></div>
 
-                <div class="col-4">
-
-                    <h1>Über Uns</h1>
-
-                    <p class="align-content-start puns">
-                        LuxKnives ist ein traditionsbewusstes
-                        Unternehmen.<br>
-                        Wir haben es uns zur
-                        Aufgabe gemacht die hochwertigste
-                        Schmiedekunst breitflächig, <br>
-                        dennoch
-                        limitiert zu vertreiben. Mit einem
-                        lebenslangen Schleifservice unserer
-                        Kunden, <br>
-                        bringen wir Ihnen ein
-                        Luxusmesser, welches Sie ein Leben
-                        lang begleitet.
-                        <br>
-                        <br>
-                        Unser lokaler Laden bietet Köchen
-                        und Kochinteressierten einen Ort,
-                        um sich gegenseitig auszutauschen,
-                        Bekanntschaften zu schließen und
-                        die Kochleidenschaft zu zelebrieren.
-                    </p>
-                </div>
-            </div>
-
-            <div>
-                <h1>Das Team</h1>
-            </div>
-            <div class="row">
-                <div class="col-6 d-flex justify-content-center cardmargin">
-                    <div class="card teamcard mb-3" style="max-width: 540px;">
-                        <div class="row">
-                            <div class="col-md-4 fill4"></div>
-
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Geschäftsführer</h5>
-                                    <br>
-                                    <p class="card-text">
-                                        Ich bin Christian Valjak, der
-                                        Geschäftsführer von LuxKnives.
-                                        Qualität und Kundenzufriedenheit
-                                        sind mein wichtigstes anliegen.
-                                        Fühlen Sie sich frei und besuchen
-                                        Sie uns in Gießen vor Ort.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 d-flex justify-content-center">
-                    <div class="card teamcard  mb-3" style="max-width: 540px;">
-                        <div class="row">
-                            <div class="col-md-4 fill3">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">Administrator</h5>
-                                    <br>
-                                    <p class="card-text">
-                                        Mein Name ist Tumelo Bawela.
-                                        Ich sorge dafür, dass Sie sicher auf
-                                        unserer Plattform unterwegs sind
-                                        und Sie problemlos alle
-                                        angebotenen
-                                        Features nutzen können.</p>
-                                </div>
-                            </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Geschäftsführer</h5>
+                            <br>
+                            <p class="card-text">
+                                Ich bin Christian Valjak, der
+                                Geschäftsführer von LuxKnives.
+                                Qualität und Kundenzufriedenheit
+                                sind mein wichtigstes anliegen.
+                                Fühlen Sie sich frei und besuchen
+                                Sie uns in Gießen vor Ort.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="col-6 d-flex justify-content-center">
+            <div class="card teamcard  mb-3" style="max-width: 540px;">
+                <div class="row">
+                    <div class="col-md-4 fill3">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">Administrator</h5>
+                            <br>
+                            <p class="card-text">
+                                Mein Name ist Tumelo Bawela.
+                                Ich sorge dafür, dass Sie sicher auf
+                                unserer Plattform unterwegs sind
+                                und Sie problemlos alle
+                                angebotenen
+                                Features nutzen können.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
             <div class="row ">
                 <div class="col-6 d-flex justify-content-center">
@@ -690,8 +780,7 @@
                 </div>
             </div>
             <div class="justify-content-center d-flex">
-                <a id="bearbeitenBtnUeberUns" class="btn btn-luxknives"><img src="/cMe/SVGIcons/pen.svg"
-                                                                             class="icon-centered icon-style"></a>
+        <a id="bearbeitenBtnUeberUns" class="btn btn-luxknives"><img src="/cMe/SVGIcons/pen.svg" class="icon-centered icon-style"></a>
             </div>
         </section>
         <!--Service -->
@@ -705,6 +794,7 @@
                         <div class="col-6 fill5"></div>
                         <div class="col-6 d-flex justify-content-center align-items-center">
                             <div class="row">
+
                                 <h5>Schleifen</h5>
                                 <p>
                                     Beim Kauf eines unserer Messer bekommen Sie den
@@ -1025,20 +1115,20 @@
                             </div>
                         </div>
 
-                        <!-- AGB checkbox -->
+    <!-- AGB checkbox -->
 
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Ich habe die AGB's gelesen und akzeptiert</span>
-                            </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Ich habe die AGB's gelesen und akzeptiert</span>
+                    </div>
 
-                        </div>
+                </div>
 
-                        <div class="justify-content-center d-flex">
-                            <a id="bearbeitenBtnService" class="btn btn-luxknives"><img src="/cMe/SVGIcons/pen.svg"
+                <div class="justify-content-center d-flex">
+                    <a id="bearbeitenBtnService" class="btn btn-luxknives"><img src="/cMe/SVGIcons/pen.svg"
 
-                                                                                        class="icon-centered icon-style"></a>
-                        </div>
+                                                                                class="icon-centered icon-style"></a>
+                </div>
                     </div>
                 </div>
             </div>
@@ -1090,419 +1180,409 @@
                             <div class="row">
                                 <button class="btn btn-luxknives">Check-Out</button>
 
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
-        </section>
-        <!-- Checkout -->
-        <section id="sectCheck" class="d-block">
-            <div id="checkout">
+        </div>
+    </div>
+</div>
+</section>
+<!-- Checkout -->
+<section id="sectCheck" class="d-block">
+<div id="checkout">
 
-                <form id="formBereitsKunde">
-                    <h5>Ich bin bereits Kunde</h5>
-                    <br>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">E-Mail</span>
+    <form id="formBereitsKunde">
+        <h5>Ich bin bereits Kunde</h5>
+        <br>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">E-Mail</span>
+            </div>
+            <input type="email" class="form-control" placeholder="Email" name="regE-mail"
+                   aria-label="Email" required>
+
+            <div class="input-group-prepend">
+                <span class="input-group-text">Passwort</span>
+            </div>
+            <input type="password" class="form-control" placeholder="Passwort" name="regPasswort"
+                   aria-label="Passwort" required>
+        </div>
+        <div class="input-group mb-3">
+            <button type="submit" class="btn btn-luxknives" name="regFormBtn">Einloggen</button>
+        </div>
+    </form>
+
+    <form id="formRechnungsAdresse">
+        <h5>Liefer-Rechnungsadresse</h5>
+        <br>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Vorname</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Vorname" name="rechnungVorname"
+                   aria-label="Vorname" required>
+
+            <div class="input-group-prepend">
+                <span class="input-group-text">Nachname</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Nachname" name="rechnungNachname"
+                   aria-label="Vorname" required>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Firma</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Firma" name="rechnungFirma"
+                   aria-label="Firma">
+
+            <div class="input-group-prepend">
+                <span class="input-group-text">Firmenzusatz</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Firmenzusatz" name="rechnungFirma"
+                   aria-label="Firma">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Straße</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Straße" name="rechnungStraße"
+                   aria-label="Straße">
+
+            <div class="input-group-prepend">
+                <span class="input-group-text">Hausnummer</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Hausnummer" name="rechnungHausnummer"
+                   aria-label="Hausnummer">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Plz</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Postleihzahl" name="rechnungPlz"
+                   aria-label="Postleihzahl">
+
+            <div class="input-group-prepend">
+                <span class="input-group-text">Ort</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Ort" name="rechnungOrt"
+                   aria-label="Ort">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Land</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Land" name="rechnungLand"
+                   aria-label="Land">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">E-Mail</span>
+            </div>
+            <input type="email" class="form-control" placeholder="E-Mail-Adresse" name="rechnungEmail"
+                   aria-label="Land">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Telefon</span>
+            </div>
+            <input type="tel" class="form-control" placeholder="Telefonnummer" name="rechnungTelefon"
+                   aria-label="Telefonnummer">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Versandart</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Versandart" name="rechnungVersandart"
+                   aria-label="Versandart">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Rechnungsadresse als Lieferadresse verwenden</span>
+            </div>
+            <input type="checkbox" id="checkAdresse" name="checkAdresse" value="checked">
+            <label for="checkAdresse"></label><br>
+        </div>
+    </form>
+
+    <form id="formZahlungsart">
+        <h5>Zahlungsart</h5>
+        <br>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Kartennummer</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Kartennummer" name="zahlungsartKartenNr"
+                   aria-label="Kartennummer" required>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Name des Karteninhabers</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Name" name="zahlungsartKartenName"
+                   aria-label="Name des Karteninhabers" required>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Gültig bis</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Gültig bis" name="zahlungsartGültigkeit"
+                   aria-label="Gültig bis">
+
+            <div class="input-group-prepend">
+                <span class="input-group-text">Sicherheitscode</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Sicherheitscode" name="zahlungsartSicherheitscode"
+                   aria-label="Sicherheitscode">
+        </div>
+
+
+
+
+<!--
+        <div id="smart-button-container">
+            <div style="text-align: center;">
+                <div id="paypal-button-container"></div>
+            </div>
+        </div>
+
+        <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+        <script>
+            function initPayPalButton() {
+                paypal.Buttons({
+                    style: {
+                        shape: 'rect',
+                        color: 'gold',
+                        layout: 'vertical',
+                        label: 'paypal',
+
+                    },
+
+                    createOrder: function(data, actions) {
+                        return actions.order.create({
+                            purchase_units: [{"amount":{"currency_code":"USD","value":1}}]
+                        });
+                    },
+
+                    onApprove: function(data, actions) {
+                        return actions.order.capture().then(function(orderData) {
+
+                            // Full available details
+                            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+                            // Show a success message within this page, e.g.
+                            const element = document.getElementById('paypal-button-container');
+                            element.innerHTML = '';
+                            element.innerHTML = '<h3>Thank you for your payment!</h3>';
+
+                            // Or go to another URL:  actions.redirect('thank_you.html');
+
+                        });
+                    },
+
+                    onError: function(err) {
+                        console.log(err);
+                    }
+                }).render('#paypal-button-container');
+            }
+            initPayPalButton();
+        </script>
+-->
+
+
+        <btn class="btn btn-luxknives" >Bestellen</btn>
+    </form>
+</div>
+</section>
+<!-- Registrieren-->
+<section id="sectReg" class="d-block">
+<div id="registrieren">
+
+    <!--Feedback nach Reg-->
+    <div class="row ">
+        <div class="col">
+            <p id="feedbackRegistrieren"></p>
+        </div>
+    </div>
+
+<form class="d-flex justify-content-center" id="formRegistrieren">
+<div class="card col-4 rashunique">
+    <div class="card-body">
+        <div class="col text-center">
+            <h5>Registrieren</h5>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <div>
+                <p class="pmelden align-content-start">Vorname</p>
+                <input  type="text" class="rashinput form-control" name="regVorname"
+                       aria-label="Vorname" required>
+            </div>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <div>
+                <p class="pmelden align-content-start">Nachname</p>
+                <input type="text" class="rashinput form-control" name="regNachname"
+                       aria-label="Vorname" required>
+                </div>
+        </div>
+
+
+        <div class="row d-flex justify-content-center">
+        <div>
+            <p class="pmelden align-content-start">E-Mail</p>
+            <input  type="email" class="rashinput form-control"
+                   name="regE-mail"
+                   aria-label="E-mail"
+                   required="">
+        </div>
+
+            <div class="row d-flex align-content-start">
+                <p class="pmelden align-content-start">Passwort</p>
+                <input id="passwort" type="password" class="rashinput form-control" name="regPasswort"
+                       aria-label="Passwort" required>
+            </div>
+            <!--
+            <div class="row d-flex align-content-start">
+                <p class="pmelden align-content-start">Passwort wiederholen</p>
+                <input type="password" class="rashinput form-control" name="regE-mail"
+                       aria-label="Email" required>
+            </div>
+
+
+            <div class="row d-flex justify-content-center">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="agbcheck">
+                    <label class="form-check-label" for="agbcheck">
+
+                      <p>Ich stimme den AGB und Datenschutzrichtlinien zu.</p>
+                    </label>
+                </div>
+            </div>
+            -->
+
+        </div>
+        <div class="row d-flex justify-content-center" id="regBtnstyle">
+            <div class="d-flex justify-content-center input-group">
+                <button type="submit" id="regBtn" class="btn btn-luxknives" name="regFormBtn">Registrieren</button>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <a id="zumLogIn" class="text-center "href="#">Anmelden</a>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+    </form>
+</div>
+</section>
+<!-- Login -->
+<section id="sectLog" class="d-block">
+
+    <form class="d-flex justify-content-center" id="formLogin">
+        <div class="card col-4 rashunique">
+            <div class="card-body">
+                <div class="text-center">
+                    <h5>Anmelden</h5>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <div>
+                       <p class="pmelden align-content-start">E-Mail</p>
+                        <input id="loginName" type="email" class="rashinput form-control"
+                               name="loginName"
+                               aria-label="E-mail"
+                               required="">
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-center">
+                    <div>
+                      <p class="pmelden align-content-start">Passwort</p>
+
+                        <input id="loginPasswort" type="password" class="rashinput form-control" name="loginPasswort"
+                               aria-label="Passwort"
+                               required="">
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-center" id="anmeldenbuttonstyle">
+                    <div class=" d-flex justify-content-center input-group" >
+
+                        <!--Feedback nach Login-->
+                        <div class="row ">
+                            <div class="col">
+                                <p id="feedbackLogin"></p>
+                            </div>
                         </div>
-                        <input type="email" class="form-control" placeholder="Email" name="regE-mail"
+                        <button type="submit" class="btn btn-luxknives" id="loginBtn">Anmelden</button>
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <a id="zumRegistrieren" class="text-center "href="#">Registrieren</a>
+                </div>
+
+
+                <div class="col-4 pt-3 d-flex justify-content-center" id="login">
+                </div>
+            </div>
+        </div>
+    </form>
+
+</section>
+<!-- Kontakt -->
+<section id="sectKont" class="d-block">
+    <div id="kontakt" class="mt-5">
+        <form id="formKontakt">
+            <div class="row justify-content-evenly">
+
+                <div class="row">
+                    <p id="feedbackNachricht"></p>
+                </div>
+
+                <div class="col-5 bg-white borderLuxKnives p-4">
+
+                    <!-- NACHNAME -->
+                    <p class="m-0">Nachname</p>
+                    <div class="input-group mb-3">
+                        <input id="nachrichtNName" type="text" class="form-control rashinput" placeholder="" name="kontaktName"
+                               aria-label="Nachname" required>
+                    </div>
+
+                    <!-- VORNAME -->
+                    <p class="m-0">Vorname</p>
+                    <div class="input-group mb-3">
+                        <input id="nachrichtVName" type="text" class="form-control rashinput" placeholder="" name="kontaktVName"
+                               aria-label="Vorname" required>
+                    </div>
+
+                    <!-- E-MAIL -->
+                    <p class="m-0">E-Mail</p>
+                    <div class="input-group mb-3">
+                        <input id="nachrichtEmail" type="email" class="form-control rashinput" placeholder="" name="regE-mail"
                                aria-label="Email" required>
-
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Passwort</span>
-                        </div>
-                        <input type="password" class="form-control" placeholder="Passwort" name="regPasswort"
-                               aria-label="Passwort" required>
-                    </div>
-                    <div class="input-group mb-3">
-                        <button type="submit" class="btn btn-luxknives" name="regFormBtn">Einloggen</button>
-                    </div>
-                </form>
-
-                <form id="formRechnungsAdresse">
-                    <h5>Liefer-Rechnungsadresse</h5>
-                    <br>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Vorname</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Vorname" name="rechnungVorname"
-                               aria-label="Vorname" required>
-
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Nachname</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Nachname" name="rechnungNachname"
-                               aria-label="Vorname" required>
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Firma</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Firma" name="rechnungFirma"
-                               aria-label="Firma">
-
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Firmenzusatz</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Firmenzusatz" name="rechnungFirma"
-                               aria-label="Firma">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Straße</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Straße" name="rechnungStraße"
-                               aria-label="Straße">
-
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Hausnummer</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Hausnummer" name="rechnungHausnummer"
-                               aria-label="Hausnummer">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Plz</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Postleihzahl" name="rechnungPlz"
-                               aria-label="Postleihzahl">
-
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Ort</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Ort" name="rechnungOrt"
-                               aria-label="Ort">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Land</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Land" name="rechnungLand"
-                               aria-label="Land">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">E-Mail</span>
-                        </div>
-                        <input type="email" class="form-control" placeholder="E-Mail-Adresse" name="rechnungEmail"
-                               aria-label="Land">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Telefon</span>
-                        </div>
-                        <input type="tel" class="form-control" placeholder="Telefonnummer" name="rechnungTelefon"
-                               aria-label="Telefonnummer">
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Versandart</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Versandart" name="rechnungVersandart"
-                               aria-label="Versandart">
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Rechnungsadresse als Lieferadresse verwenden</span>
-                        </div>
-                        <input type="checkbox" id="checkAdresse" name="checkAdresse" value="checked">
-                        <label for="checkAdresse"></label><br>
-                    </div>
-                </form>
-
-                <form id="formZahlungsart">
-                    <h5>Zahlungsart</h5>
-                    <br>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Kartennummer</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Kartennummer" name="zahlungsartKartenNr"
-                               aria-label="Kartennummer" required>
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Name des Karteninhabers</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Name" name="zahlungsartKartenName"
-                               aria-label="Name des Karteninhabers" required>
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Gültig bis</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Gültig bis" name="zahlungsartGültigkeit"
-                               aria-label="Gültig bis">
-
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Sicherheitscode</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Sicherheitscode"
-                               name="zahlungsartSicherheitscode"
-                               aria-label="Sicherheitscode">
-                    </div>
-
-
-                    <!--
-                            <div id="smart-button-container">
-                                <div style="text-align: center;">
-                                    <div id="paypal-button-container"></div>
-                                </div>
-                            </div>
-
-                            <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
-                            <script>
-                                function initPayPalButton() {
-                                    paypal.Buttons({
-                                        style: {
-                                            shape: 'rect',
-                                            color: 'gold',
-                                            layout: 'vertical',
-                                            label: 'paypal',
-
-                                        },
-
-                                        createOrder: function(data, actions) {
-                                            return actions.order.create({
-                                                purchase_units: [{"amount":{"currency_code":"USD","value":1}}]
-                                            });
-                                        },
-
-                                        onApprove: function(data, actions) {
-                                            return actions.order.capture().then(function(orderData) {
-
-                                                // Full available details
-                                                console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-
-                                                // Show a success message within this page, e.g.
-                                                const element = document.getElementById('paypal-button-container');
-                                                element.innerHTML = '';
-                                                element.innerHTML = '<h3>Thank you for your payment!</h3>';
-
-                                                // Or go to another URL:  actions.redirect('thank_you.html');
-
-                                            });
-                                        },
-
-                                        onError: function(err) {
-                                            console.log(err);
-                                        }
-                                    }).render('#paypal-button-container');
-                                }
-                                initPayPalButton();
-                            </script>
-                    -->
-
-
-                    <btn class="btn btn-luxknives">Bestellen</btn>
-                </form>
-            </div>
-        </section>
-        <!-- Registrieren-->
-        <section id="sectReg" class="d-block">
-            <div id="registrieren">
-
-                <!--Feedback nach Reg-->
-                <div class="row ">
-                    <div class="col">
-                        <p id="feedbackRegistrieren"></p>
                     </div>
                 </div>
 
-                <form class="d-flex justify-content-center" id="formRegistrieren">
-                    <div class="card col-4 rashunique">
-                        <div class="card-body">
-                            <div class="col text-center">
-                                <h5>Registrieren</h5>
-                            </div>
-
-                            <div class="row d-flex justify-content-center">
-                                <div>
-                                    <p class="pmelden align-content-start">Vorname</p>
-                                    <input type="text" class="rashinput form-control" name="regVorname"
-                                           aria-label="Vorname" required>
-                                </div>
-                            </div>
-
-                            <div class="row d-flex justify-content-center">
-                                <div>
-                                    <p class="pmelden align-content-start">Nachname</p>
-                                    <input type="text" class="rashinput form-control" name="regNachname"
-                                           aria-label="Vorname" required>
-                                </div>
-                            </div>
-
-
-                            <div class="row d-flex justify-content-center">
-                                <div>
-                                    <p class="pmelden align-content-start">E-Mail</p>
-                                    <input type="email" class="rashinput form-control"
-                                           name="regE-mail"
-                                           aria-label="E-mail"
-                                           required="">
-                                </div>
-
-                                <div class="row d-flex align-content-start">
-                                    <p class="pmelden align-content-start">Passwort</p>
-                                    <input id="passwort" type="password" class="rashinput form-control"
-                                           name="regPasswort"
-                                           aria-label="Passwort" required>
-                                </div>
-                                <!--
-                                <div class="row d-flex align-content-start">
-                                    <p class="pmelden align-content-start">Passwort wiederholen</p>
-                                    <input type="password" class="rashinput form-control" name="regE-mail"
-                                           aria-label="Email" required>
-                                </div>
-
-
-                                <div class="row d-flex justify-content-center">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="agbcheck">
-                                        <label class="form-check-label" for="agbcheck">
-
-                                          <p>Ich stimme den AGB und Datenschutzrichtlinien zu.</p>
-                                        </label>
-                                    </div>
-                                </div>
-                                -->
-
-                            </div>
-                            <div class="row d-flex justify-content-center" id="regBtnstyle">
-                                <div class="d-flex justify-content-center input-group">
-                                    <button type="submit" id="regBtn" class="btn btn-luxknives" name="regFormBtn">
-                                        Registrieren
-                                    </button>
-                                </div>
-                                <div class="row d-flex justify-content-center">
-                                    <a id="zumLogIn" class="text-center " href="#">Anmelden</a>
-                                </div>
-                            </div>
-
-
-                        </div>
+                <div class="col-5 bg-white borderLuxKnives p-4">
+                    <div class="input-group mb-3">
+                        <input id="nachrichtBetreff" type="text" class="form-control rashinput" placeholder="Betreff" name="kontaktBetreff"
+                               aria-label="Betreff" required>
                     </div>
-
-
-                </form>
-            </div>
-        </section>
-        <!-- Login -->
-        <section id="sectLog" class="d-block">
-
-            <form class="d-flex justify-content-center" id="formLogin">
-                <div class="card col-4 rashunique">
-                    <div class="card-body">
-                        <div class="text-center">
-                            <h5>Anmelden</h5>
-                        </div>
-                        <div class="row d-flex justify-content-center">
-                            <div>
-                                <p class="pmelden align-content-start">E-Mail</p>
-                                <input id="loginName" type="email" class="rashinput form-control"
-                                       name="loginName"
-                                       aria-label="E-mail"
-                                       required="">
-                            </div>
-                        </div>
-
-                        <div class="row d-flex justify-content-center">
-                            <div>
-                                <p class="pmelden align-content-start">Passwort</p>
-
-                                <input id="loginPasswort" type="password" class="rashinput form-control"
-                                       name="loginPasswort"
-                                       aria-label="Passwort"
-                                       required="">
-                            </div>
-                        </div>
-                        <div class="row d-flex justify-content-center" id="anmeldenbuttonstyle">
-                            <div class=" d-flex justify-content-center input-group">
-
-                                <!--Feedback nach Login-->
-                                <div class="row ">
-                                    <div class="col">
-                                        <p id="feedbackLogin"></p>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-luxknives" id="loginBtn">Anmelden</button>
-                            </div>
-                        </div>
-                        <div class="row d-flex justify-content-center">
-                            <a id="zumRegistrieren" class="text-center " href="#">Registrieren</a>
-                        </div>
-
-
-                        <div class="col-4 pt-3 d-flex justify-content-center" id="login">
-                        </div>
+                    <div>
+                        <textarea id="nachrichtEin" class="form-control rashinput" rows="6" aria-label="With textarea" placeholder="Ihre Nachricht..."></textarea>
+                    </div>
+                    <!-- Absenden Btn -->
+                    <div class="input-group my-3 justify-content-center">
+                        <button id="nachrichtBtnA" type="submit" class="btn btn-luxknives" name="kontaktFormBtn">Absenden</button>
                     </div>
                 </div>
-            </form>
-
-        </section>
-        <!-- Kontakt -->
-        <section id="sectKont" class="d-block">
-            <div id="kontakt" class="mt-5">
-                <form id="formKontakt">
-                    <div class="row justify-content-evenly">
-
-                        <div class="row">
-                            <p id="feedbackNachricht"></p>
-                        </div>
-
-                        <div class="col-5 bg-white borderLuxKnives p-4">
-
-                            <!-- NACHNAME -->
-                            <p class="m-0">Nachname</p>
-                            <div class="input-group mb-3">
-                                <input id="nachrichtNName" type="text" class="form-control rashinput" placeholder=""
-                                       name="kontaktName"
-                                       aria-label="Nachname" required>
-                            </div>
-
-                            <!-- VORNAME -->
-                            <p class="m-0">Vorname</p>
-                            <div class="input-group mb-3">
-                                <input id="nachrichtVName" type="text" class="form-control rashinput" placeholder=""
-                                       name="kontaktVName"
-                                       aria-label="Vorname" required>
-                            </div>
-
-                            <!-- E-MAIL -->
-                            <p class="m-0">E-Mail</p>
-                            <div class="input-group mb-3">
-                                <input id="nachrichtEmail" type="email" class="form-control rashinput" placeholder=""
-                                       name="regE-mail"
-                                       aria-label="Email" required>
-                            </div>
-                        </div>
-
-                        <div class="col-5 bg-white borderLuxKnives p-4">
-                            <div class="input-group mb-3">
-                                <input id="nachrichtBetreff" type="text" class="form-control rashinput"
-                                       placeholder="Betreff" name="kontaktBetreff"
-                                       aria-label="Betreff" required>
-                            </div>
-                            <div>
-                                <textarea id="nachrichtEin" class="form-control rashinput" rows="6"
-                                          aria-label="With textarea" placeholder="Ihre Nachricht..."></textarea>
-                            </div>
-                            <!-- Absenden Btn -->
-                            <div class="input-group my-3 justify-content-center">
-                                <button id="nachrichtBtnA" type="submit" class="btn btn-luxknives"
-                                        name="kontaktFormBtn">Absenden
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
             </div>
-        </section>
+        </form>
+
         <!-- NAME -->
 
         <section id="sectAGB">
@@ -3130,105 +3210,95 @@
         </section>
 
 
-        <!-- Impressum -->
-        <section id="sectImpr">
-            <div class="container" id="impressum">
-                <h1>Impressum</h1>
+<!-- Impressum -->
+<section id="sectImpr">
+<div class="container" id="impressum">
+    <h1>Impressum</h1>
 
-                <h2>Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
-                <p>LuxKnives UG (haftungsbeschr&auml;nkt)<br/>
-                    Seltersweg 54<br/>
-                    35390 Gie&szlig;en</p>
+    <h2>Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
+    <p>LuxKnives UG (haftungsbeschr&auml;nkt)<br/>
+        Seltersweg 54<br/>
+        35390 Gie&szlig;en</p>
 
-                <p><strong>Vertreten durch:</strong><br/>
-                    Christian Valjack</p>
+    <p><strong>Vertreten durch:</strong><br/>
+        Christian Valjack</p>
 
-                <h2>Kontakt</h2>
-                <p>Telefon: +49 (0) 160 93163671<br/>
-                    E-Mail: ChristianValjak@luxknives.com</p>
+    <h2>Kontakt</h2>
+    <p>Telefon: +49 (0) 160 93163671<br/>
+        E-Mail: ChristianValjak@luxknives.com</p>
 
-                <h2>Umsatzsteuer-ID</h2>
-                <p>Umsatzsteuer-Identifikationsnummer gem&auml;&szlig; &sect; 27 a Umsatzsteuergesetz:<br/>
-                    DE999999999</p>
+    <h2>Umsatzsteuer-ID</h2>
+    <p>Umsatzsteuer-Identifikationsnummer gem&auml;&szlig; &sect; 27 a Umsatzsteuergesetz:<br/>
+        DE999999999</p>
 
-                <h2>EU-Streitschlichtung</h2>
-                <p>Die Europ&auml;ische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a
-                        href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr/</a>.<br/>
-                    Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
+    <h2>EU-Streitschlichtung</h2>
+    <p>Die Europ&auml;ische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a
+            href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr/</a>.<br/>
+        Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
 
-                <h2>Verbraucher&shy;streit&shy;beilegung/Universal&shy;schlichtungs&shy;stelle</h2>
-                <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
-                    Verbraucherschlichtungsstelle
-                    teilzunehmen.</p>
+    <h2>Verbraucher&shy;streit&shy;beilegung/Universal&shy;schlichtungs&shy;stelle</h2>
+    <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
+        teilzunehmen.</p>
 
-                <p>Quelle: <a href="https://www.e-recht24.de">eRecht24</a></p>
-            </div>
-            <div class="container">
-                <h1>
-                    Quellen der Verwendeten Bilder
-                </h1>
+    <p>Quelle: <a href="https://www.e-recht24.de">eRecht24</a></p>
+</div>
+<div class="container">
+    <h1>
+        Quellen der Verwendeten Bilder
+    </h1>
 
-                <h2>Startseite</h2>
+    <h2>Startseite</h2>
 
-                <h4>Abb. 1 Quality First</h4>
-                <p></p>
-                <a href="https://unsplash.com/photos/5jSiuqPSv_U">black handled silver kitchen knife (unsplash.com)
-                    (24.10.2020)</a>
+    <h4>Abb. 1 Quality First</h4>
+    <p></p>
+    <a href="https://unsplash.com/photos/5jSiuqPSv_U">black handled silver kitchen knife (unsplash.com) (24.10.2020)</a>
 
-                <h4>Abb. 2 Handgefertigte Messer</h4>
-                <a href="https://unsplash.com/photos/VLVffkaSrOo">Free Grey Image on Unsplash (27.09.2019)</a>
+    <h4>Abb. 2 Handgefertigte Messer</h4>
+    <a href="https://unsplash.com/photos/VLVffkaSrOo">Free Grey Image on Unsplash (27.09.2019)</a>
 
-                <h4>Abb. 3 Philosophie</h4>
-                <a href="https://unsplash.com/photos/uFuzc93FfN0">knife set box (unsplash.com) (01.02.2019)</a>
+    <h4>Abb. 3 Philosophie</h4>
+    <a href="https://unsplash.com/photos/uFuzc93FfN0">knife set box (unsplash.com) (01.02.2019)</a>
 
-                <h2>Über Uns</h2>
+    <h2>Über Uns</h2>
 
-                <h4>Abb. 4 Mann in Werkstatt</h4>
-                <a href="https://www.pexels.com/de-de/foto/mannlicher-meister-der-mit-metallwerkzeugen-in-der-garage-arbeitet-3822844/">Männlicher
-                    Meister, Der Mit Metallwerkzeugen In Der Garage Arbeitet · Kostenloses Stock-Foto (pexels.com)
-                    (27.02.2022)</a>
+    <h4>Abb. 4 Mann in Werkstatt</h4>
+    <a href="https://www.pexels.com/de-de/foto/mannlicher-meister-der-mit-metallwerkzeugen-in-der-garage-arbeitet-3822844/">Männlicher
+        Meister, Der Mit Metallwerkzeugen In Der Garage Arbeitet · Kostenloses Stock-Foto (pexels.com) (27.02.2022)</a>
 
-                <h2>Das Team</h2>
+    <h2>Das Team</h2>
 
-                <h4>Abb. 5 Geschäftsführer</h4>
-                <a href="https://unsplash.com/photos/KCLqSvoUdxw">man in purple crew neck t-shirt (unsplash.com)
-                    (27.07.2021)</a>
+    <h4>Abb. 5 Geschäftsführer</h4>
+    <a href="https://unsplash.com/photos/KCLqSvoUdxw">man in purple crew neck t-shirt (unsplash.com) (27.07.2021)</a>
 
-                <h4>Abb. 6 Administrator</h4>
-                <a href="https://unsplash.com/photos/W6Xfv9Rq1j0">HD photo by Adetola Afolabi (unsplash.com)
-                    (23.11.2021)</a>
+    <h4>Abb. 6 Administrator</h4>
+    <a href="https://unsplash.com/photos/W6Xfv9Rq1j0">HD photo by Adetola Afolabi (unsplash.com) (23.11.2021)</a>
 
-                <h4>Abb. 7 Service Schleifen Mitarbeiter</h4>
-                <a href="https://www.pexels.com/de-de/foto/grunes-und-weisses-poloshirt-der-manner-3084334/">Grünes Und
-                    Weißes
-                    Poloshirt Der Männer · Kostenloses Stock-Foto (pexels.com) (03.10.2019)</a>
+    <h4>Abb. 7 Service Schleifen Mitarbeiter</h4>
+    <a href="https://www.pexels.com/de-de/foto/grunes-und-weisses-poloshirt-der-manner-3084334/">Grünes Und Weißes
+        Poloshirt Der Männer · Kostenloses Stock-Foto (pexels.com) (03.10.2019)</a>
 
-                <h4>Abb. 8 Einkauf</h4>
-                <a href="https://www.pexels.com/de-de/foto/geschaftsmann-mann-buro-stehen-4872076/">Kostenloses Foto zum
-                    Thema:
-                    büro, büroangestellter, büroarbeiter, gefaltete hände, geschäftsmann, <br>
-                    mann, porträt, quadratischen format, stehen, white collar-arbeiter (pexels.com) (21.05.2021)</a>
+    <h4>Abb. 8 Einkauf</h4>
+    <a href="https://www.pexels.com/de-de/foto/geschaftsmann-mann-buro-stehen-4872076/">Kostenloses Foto zum Thema:
+        büro, büroangestellter, büroarbeiter, gefaltete hände, geschäftsmann, <br>
+        mann, porträt, quadratischen format, stehen, white collar-arbeiter (pexels.com) (21.05.2021)</a>
 
-                <h2>Profil</h2>
-                <h4>Abb. 9 Kunde</h4>
-                <a href="https://unsplash.com/photos/n4ymhyyFY7A">man and woman standing in front of table photo – Free
-                    Kitchen
-                    Image on Unsplash (03.05.2019)</a>
+    <h2>Profil</h2>
+    <h4>Abb. 9 Kunde</h4>
+    <a href="https://unsplash.com/photos/n4ymhyyFY7A">man and woman standing in front of table photo – Free Kitchen
+        Image on Unsplash (03.05.2019)</a>
 
 
-                <h2>Service</h2>
-                <h4>Abb. 10 Schleifen</h4>
-                <a href="https://www.pexels.com/de-de/foto/person-die-ein-werkzeug-schleift-1659746/">Person, Die Ein
-                    Werkzeug
-                    Schleift · Kostenloses Stock-Foto (pexels.com) (20.04.2018)</a>
+    <h2>Service</h2>
+    <h4>Abb. 10 Schleifen</h4>
+    <a href="https://www.pexels.com/de-de/foto/person-die-ein-werkzeug-schleift-1659746/">Person, Die Ein Werkzeug
+        Schleift · Kostenloses Stock-Foto (pexels.com) (20.04.2018)</a>
 
-                <h4>Abb. 11 Reparatur</h4>
-                <a href="https://www.pexels.com/de-de/foto/person-die-ein-werkzeug-schleift-1659746/">Selbständiger
-                    Männlicher
-                    Mechaniker, Der In Der Garage Arbeitet · Kostenloses Stock-Foto (pexels.com) (27.02.2020)</a>
+    <h4>Abb. 11 Reparatur</h4>
+    <a href="https://www.pexels.com/de-de/foto/person-die-ein-werkzeug-schleift-1659746/">Selbständiger Männlicher
+        Mechaniker, Der In Der Garage Arbeitet · Kostenloses Stock-Foto (pexels.com) (27.02.2020)</a>
 
-            </div>
-        </section>
+</div>
+</section>
     </div>
 </div>
 <footer>

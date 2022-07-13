@@ -102,10 +102,26 @@ color: #d9765f;
 .nakiri {
     position: absolute;
     left: 2rem;
-    font-size: 20rem;
-    color: red;
+    font-size: 15rem;
+    color: #D94B2B;
     mix-blend-mode: lighten;
     font-family: "Bebas Neue", serif;
+}
+.musashi {
+    position: absolute;
+    left: 2rem;
+    top: 15rem;
+    font-size: 15rem;
+    color: #D94B2B;
+    mix-blend-mode: lighten;
+    font-family: "Bebas Neue", serif;
+}
+
+.qualityFirstTitleStyle {
+    padding-bottom: 1.5rem;
+    font-family: "Engebrechtre", serif;
+    text-align: center;
+    font-size: 5rem;
 }
 
 h1 {
@@ -127,12 +143,49 @@ h5 {
 }
 
 .scharf {
+    text-align: center;
     justify-content: center;
     color: #0d0d0d;
+    font-family: "Montserrat", serif;
+    font-size: 2rem;
+    font-weight: 400;
+    padding-inline: 5rem;
+}
+
+.scharf2 {
+    color: #0d0d0d;
+    font-family: "Montserrat", serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+.unvergleichbar {
+    padding-top: 3rem;
+    padding-right: 5rem;
 }
 
 .kommentarBild > img {
     width: 5rem;
+}
+
+.detailTextB {
+    color: #0d0d0d;
+    font-family: "Montserrat", serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+.detailTextC {
+    color: #D94B2B;
+    font-family: "Montserrat", serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+.kommentarTextStyle {
+    margin-inline: 3rem;
+    padding-inline: 3rem;
+    padding-block: 2rem;
 }
 
 /* ÜBER UNS */
@@ -293,7 +346,7 @@ footer {
     top: 2rem;
     left: 4rem;
     font-size: 12rem;
-    color: red;
+    color: #D94B2B;
     mix-blend-mode: lighten;
     font-family: "Bebas Neue", serif;
 }
@@ -303,7 +356,7 @@ footer {
     top: 11rem;
     left: 4rem;
     font-size: 12rem;
-    color: red;
+    color: #D94B2B;
     mix-blend-mode: lighten;
     font-family: "Bebas Neue", serif;
 }
@@ -326,6 +379,19 @@ footer {
     width: 30%;
     top: 20rem;
     left: 55rem;
+    font-size: 2rem;
+    color: black;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background-color: #f0f0f2D8;
+    font-family: "Bebas Neue", serif;
+}
+
+.rightTransBoxService {
+    position: absolute;
+    width: 30%;
+    top: 5rem;
+    left: 60rem;
     font-size: 2rem;
     color: black;
     backdrop-filter: blur(20px);
