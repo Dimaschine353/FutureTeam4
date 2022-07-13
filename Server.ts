@@ -404,7 +404,30 @@ function getAlleNachrichten(req:express.Request, res:express.Response):void{
 
 
 
+app.put("/nachricht/:betreff", putNachrichten);
 
+function putNachrichten(req: express.Request, res: express.Response): void {
+    const betreff: string = req.params.betreff;
+    const nachricht: string = req.body.nachricht;
 
+    const param = [nachricht, betreff];
+    let sql = "UPDATE nachrichten SET nachricht = ? WHERE betreff = ?;";
 
+    if(nachricht === undefined){
+        res.status(400);
+        res.send("Der Inhalt Ihrer Nachricht ist leer");
+    }else if(nachricht){
+        connection.query(
+            sql,
+            param,
+            (err:MysqlError | null, result: any) => {
 
+            });
+        console.log(betreff);
+        res.status(200);
+        res.send("Nachricht aktualisiert");
+    }else{
+        res.status(400);
+        res.send("Es gibt keine Nachricht mit diesem Betreff: " + betreff);
+    }
+}

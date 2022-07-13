@@ -142,10 +142,6 @@ let nachrichtVName: HTMLInputElement;
 let nachrichtNName: HTMLInputElement;
 let nachrichtEmail: HTMLInputElement;
 let nachrichtBetreff: HTMLInputElement;
-let nachrichtEin: HTMLInputElement;
-let nachrichtBtnA: HTMLInputElement;
-let tabelleNachrichten: HTMLElement;
-//Listener
 document.addEventListener("DOMContentLoaded",()=>{
 
     //Funktionen die direkt ausgeführt werden sollen
@@ -231,6 +227,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     nachrichtBetreff = document.querySelector("#nachrichtBetreff");
     nachrichtEin = document.querySelector("#nachrichtEin");
     nachrichtBtnA = document.querySelector("#nachrichtBtnA");
+    nachrichtEdit = document.querySelector("#profilNachrichtBearbeiten");
     nachrichtBtnA.addEventListener("click",nachrichtHinzufuegen);
     nachrichtBtnA.addEventListener("click", nachrichtHinzufuegen);
     tabelleNachrichten.addEventListener("click",(event:Event)=>{
@@ -238,6 +235,11 @@ document.addEventListener("DOMContentLoaded",()=>{
         target = target.closest("button");
         if(target.matches(".delete")){
             nachrichtLoeschen(target);
+            nachrichtLoeschen(target);
+        }else if(target.matches(".edit")){
+            nachrichtBearbeitenStart(target);
+        }else if(target.matches(".absenden")){
+            nachrichtBearbeitenAbsenden(target);
         }
     });
     //Startseite/Landingpage
@@ -260,6 +262,12 @@ document.addEventListener("DOMContentLoaded",()=>{
        startIMGFlipper.src = "/cMe/images/MesserGruppenPhotoEditFinal.png"
     });
 });
+let nachrichtEin: HTMLInputElement;
+let nachrichtBtnA: HTMLInputElement;
+let tabelleNachrichten: HTMLElement;
+
+let nachrichtEdit: HTMLInputElement;
+//Listener
 //Funktionen Benutzer
 function benutzerHinzufuegen(event:Event){
     event.preventDefault();
@@ -374,6 +382,8 @@ function renderNachrichtenListe(){
                     <td>${n.nachricht}</td>
                 <td>
                 <button class="btn btn-primary delete" data-betreff="${n.betreff}">Löschen</button>
+                <button class="btn btn-primary edit" data-nachricht="${n.nachricht}">Bearbeiten</button>
+                <button class="btn btn-primary absenden" data-betreff="${n.betreff}" data-nachricht="${n.nachricht}">Absenden</button>
                 </td>
                 `;
                 tabelleNachrichten.append(tr);
@@ -617,14 +627,127 @@ function zumImpr(event:Event){
 
                     
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function nachrichtBearbeitenStart(target: HTMLElement){
+    const nachricht: string = target.dataset.nachricht;
+
+    nachrichtEdit.classList.remove("d-none");
+    nachrichtEdit.value = nachricht.toString();
+}
+
+function nachrichtBearbeitenAbsenden(target: HTMLElement){
+    nachrichtEdit.classList.add("d-none");
+    const betreff = target.dataset.betreff;
+    const nachricht = nachrichtEdit.value;
+
+    axios.put("/nachricht/" + betreff,
+        {
+            betreff: betreff,
+            nachricht: nachricht
+        })
+        .then((res: AxiosResponse)=>{
+            console.log("nachricht erfolgreich bearbeitet");
+            renderNachrichtenListe();
+        }).catch((err: AxiosResponse) =>{
+            console.log("error");
+    })
+
+
+}
+
+
                     
                     
                     
