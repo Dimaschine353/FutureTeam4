@@ -106,6 +106,9 @@ let navService: HTMLElement;
 let navKontakt: HTMLElement;
 //Deklaration Footer
 let impressum: HTMLElement;
+let footKont: HTMLElement;
+let footFAQ: HTMLElement;
+let footDatenschutz: HTMLElement;
 //Deklaration Startseite/Landingpage
 let startNakiri: HTMLElement;
 let startSantoku: HTMLElement;
@@ -198,6 +201,12 @@ document.addEventListener("DOMContentLoaded",()=>{
     //Initialisierung Footer
     impressum = document.querySelector("#zumImpressum");
     impressum.addEventListener("click",zumImpr);
+    footKont = document.querySelector("#footKont");
+    footKont.addEventListener("click",zumKontakt);
+    footFAQ = document.querySelector("#footFAQ");
+    footFAQ.addEventListener("click",zumService);
+    footDatenschutz = document.querySelector("#footDatenschutz");
+    footDatenschutz.addEventListener("click",zumDatenschutz);
     //Initialisierung Forms
     feedbackLogin = document.querySelector("#feedbackLogin");
     feedbackReg = document.querySelector("#feedbackRegistrieren");
@@ -207,7 +216,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     formLogin = document.querySelector("#formLogin");
     formProfilDatenBearbeiten = document.querySelector("#formProfildatenBearbeiten");
     formKontakt = document.querySelector("#formKontakt");
-
     //Initialisierung globaler Variablen
     eingeloggterBenutzer = "";
     //Registrierung
@@ -581,7 +589,7 @@ function zumReg(event:Event){
 }
 function zumImpr(event:Event){
     event.preventDefault();
-
+    navigieren();
     sectImpr.classList.remove("d-none");
 
 }
@@ -607,6 +615,12 @@ function zurDet(event:Event){
     window.scrollTo(0, 0);
 
 }
+function zumDatenschutz(event:Event){
+    event.preventDefault();
+    navigieren()
+    sectDS.classList.remove("d-none");
+}
+
 
 
 
