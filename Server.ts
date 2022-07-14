@@ -100,10 +100,10 @@ function login(req: express.Request, res: express.Response): void {
             //Wenn Eintrag vorhanden ist wird der Loginname zum Sessionnamen
             if (results.length===1) {
                 req.session.uid = results[0].uId;
-                console.log(req.session.uid+ " in der LoginFkt");
+                //console.log(req.session.uid+ " in der LoginFkt");
                 req.session.uname = req.body.loginName
                 res.sendStatus(200);
-                console.log("User wurde eingeloggt");
+                //console.log("User wurde eingeloggt");
             }else{
                 //Wenn keine Übereinstimmung erfolgt ist sende Fehlercode
                 res.sendStatus(404);
@@ -127,7 +127,7 @@ function logout(req: express.Request, res: express.Response): void {
 function checkLogin(req: express.Request, res:express.Response, next: express.NextFunction): void{
     if(req.session.uname !== undefined){
         next();
-        console.log("Der User ist eingeloggt und berechtigt");
+        //console.log("Der User ist eingeloggt und berechtigt");
     }else{
         console.log("User ist nicht eingelogt");
         res.status(401);
@@ -316,7 +316,6 @@ function getAlleNachrichten(req:express.Request, res:express.Response):void{
     console.log(uId+" in der getAll nachrichten")
     //console.log(email+" in der Server getAllNachrichten Fkt");
     const param = [uId];
-    console.log(uId);
     console.log(param+"(parameter) in der Server getAllNachrichten Fkt");
     const sql = "SELECT * FROM nachrichten WHERE uId=?;";
     if(uId!==undefined){
@@ -325,7 +324,7 @@ function getAlleNachrichten(req:express.Request, res:express.Response):void{
             param,
             (err:MysqlError | null, results: any) => {
                 res.send(results);
-                console.log(results);
+                console.log("das ergebnis der getAllNachrichten"+results);
             }
         )
     }
