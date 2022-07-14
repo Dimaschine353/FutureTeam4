@@ -396,7 +396,7 @@ function renderNachrichtenListe(){
                 <td>
                 <button class="btn btn-primary delete" data-betreff="${n.betreff}">Löschen</button>
                 <button class="btn btn-primary edit" data-nachricht="${n.nachricht}">Bearbeiten</button>
-                <button class="btn btn-primary absenden" data-nId="${n.nId}" data-nachricht="${n.nachricht}">Absenden</button>
+                <button class="btn btn-primary absenden d-none" data-nId="${n.nId}" data-nachricht="${n.nachricht}">Absenden</button>
                 </td>
                 `;
                 tabelleNachrichten.append(tr);
@@ -450,11 +450,14 @@ function nachrichtBearbeitenStart(target: HTMLElement){
 
     nachrichtEdit.classList.remove("d-none");
     nachrichtEdit.value = nachricht.toString();
+    target.nextElementSibling.classList.remove("d-none");
+
 }
 function nachrichtBearbeitenAbsenden(target: HTMLElement){
     nachrichtEdit.classList.add("d-none");
     const nId = target.dataset.nid;
     const nachricht = nachrichtEdit.value;
+
 
     //console.log(nId+" nId");
 
