@@ -3,86 +3,86 @@
 //import axios, {AxiosResponse, AxiosError} from 'axios';
 
 //JEDES MAL VOR DEM TEST AUSKOMMENTIEREN !!!!!!!!!!!!!!                 
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Deklaration Sections
 let sectStart: HTMLElement;
 let sectProf: HTMLElement;
@@ -119,7 +119,6 @@ let formRegistrieren: HTMLFormElement;
 let formLogin: HTMLFormElement;
 let formProfilDatenBearbeiten: HTMLFormElement;
 let formKontakt: HTMLFormElement;
-let formNachrichtenBearbeiten: HTMLFormElement;
 //Deklaration globale Variablen
 let eingeloggterBenutzer:String;
 //Registrieren
@@ -148,7 +147,6 @@ let nachrichtEin: HTMLInputElement;
 let nachrichtBtnA: HTMLInputElement;
 let tabelleNachrichten: HTMLElement;
 let nachrichtEdit: HTMLInputElement;
-let nachrichtBA: HTMLInputElement;
 //Listener
 document.addEventListener("DOMContentLoaded",()=>{
 
@@ -259,7 +257,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     nachrichtBtnA = document.querySelector("#nachrichtBtnA");
     nachrichtEdit = document.querySelector("#profilNachrichtBearbeiten");
     nachrichtBtnA.addEventListener("click",nachrichtHinzufuegen);
-
+    nachrichtBtnA.addEventListener("click", nachrichtHinzufuegen);
     tabelleNachrichten.addEventListener("click",(event:Event)=>{
         let target: HTMLElement = event.target as HTMLElement;
         target = target.closest("button");
@@ -271,8 +269,6 @@ document.addEventListener("DOMContentLoaded",()=>{
             nachrichtBearbeitenAbsenden(target);
         }
     });
-    nachrichtBA = document.querySelector("#nachrichtBA");
-    nachrichtBA.addEventListener("click",nachrichtBearbeitenAbsenden);
     //Startseite/Landingpage
     startNakiri = document.querySelector("#startNakiri");
     startSantoku = document.querySelector("#startSantoku");
@@ -296,7 +292,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         startIMGFlipper.src = "/cMe/images/SujihikiMasakoEdit.jpg"
     });
     startHandgefertigte.addEventListener('mouseover', () => {
-       startIMGFlipper.src = "/cMe/images/MesserGruppenPhotoEditFinal.png"
+        startIMGFlipper.src = "/cMe/images/MesserGruppenPhotoEditFinal.png"
     });
 });
 
@@ -310,25 +306,25 @@ function benutzerHinzufuegen(event:Event){
     const email: string = regEmail.value;
     const passwort: string = regPasswort.value;
     axios.post("/benutzer", {
-                  vName: vName,
-                  nName: nName,
-                  email: email,
-                  passwort: passwort
-              }).then((res: AxiosResponse)=>{
-                      formRegistrieren.reset();
-                      sectReg.classList.add("d-none");
-                      sectLog.classList.remove("d-none");
-                      feedbackLogin.innerText = "Benutzer erfolgreich registriert. Bitte loggen Sie sich ein.";
-                      setTimeout(feedbackLoginLoeschen,3000);
+        vName: vName,
+        nName: nName,
+        email: email,
+        passwort: passwort
+    }).then((res: AxiosResponse)=>{
+        formRegistrieren.reset();
+        sectReg.classList.add("d-none");
+        sectLog.classList.remove("d-none");
+        feedbackLogin.innerText = "Benutzer erfolgreich registriert. Bitte loggen Sie sich ein.";
+        setTimeout(feedbackLoginLoeschen,3000);
 
-              }).catch((err: AxiosError)=>{
-                  if(err!==null){
-                      feedbackReg.innerText = "Die e-mail ist bereits vergeben.";
-                      setTimeout(feedbackRegLoeschen,2000);
-                  }
+    }).catch((err: AxiosError)=>{
+        if(err!==null){
+            feedbackReg.innerText = "Die e-mail ist bereits vergeben.";
+            setTimeout(feedbackRegLoeschen,2000);
+        }
 
-              });
-          }
+    });
+}
 function benutzerLoeschen(event:Event){
     event.preventDefault();
     axios.delete("/benutzer/"+eingeloggterBenutzer)
@@ -350,17 +346,17 @@ function benutzerLoeschen(event:Event){
             sectImpr.classList.add("d-none");
             */
         }).catch((err: AxiosError)=>{
-            if(err!==null){
-                feedbackProfU.innerText="Löschen nicht möglich."
-                setTimeout(feedbackProfULoeschen,2000);
-            }
+        if(err!==null){
+            feedbackProfU.innerText="Löschen nicht möglich."
+            setTimeout(feedbackProfULoeschen,2000);
+        }
     });
 
 
 
 }
 function benutzerBearbeitenStart(event: Event){
-event.preventDefault();
+    event.preventDefault();
 
     //formProfilDatenBearbeiten.classList.remove("d-none");
     profilVorname.removeAttribute("readonly");
@@ -418,8 +414,8 @@ function renderNachrichtenListe(){
                     <td>${n.nachricht}</td>
                 <td>
                 <button class="btn btn-primary delete" data-betreff="${n.betreff}">Löschen</button>
-                <button class="btn btn-primary edit" data-nachricht="${n.nachricht}" data-nId="${n.nId}">Bearbeiten</button>
-                <!--<button class="btn btn-primary absenden" data-nId="${n.nId}" data-nachricht="${n.nachricht}">Absenden</button>-->
+                <button class="btn btn-primary edit" data-nachricht="${n.nachricht}">Bearbeiten</button>
+                <button class="btn btn-primary absenden" data-nId="${n.nId}" data-nachricht="${n.nachricht}">Absenden</button>
                 </td>
                 `;
                 tabelleNachrichten.append(tr);
@@ -442,8 +438,8 @@ function nachrichtHinzufuegen(event:Event){
     }).then((res:AxiosResponse)=>{
         //Forms einfügen um diese resetten zu können??
         formKontakt.reset();
-            feedbackNachricht.innerText="Ihre Nachricht wurde gesendet.";
-            setTimeout(feedbackNachrichtLoeschen,1000);
+        feedbackNachricht.innerText="Ihre Nachricht wurde gesendet.";
+        setTimeout(feedbackNachrichtLoeschen,1000);
 
     }).catch((err: AxiosError)=>{
         if(err!==null){
@@ -458,49 +454,49 @@ function nachrichtLoeschen(target:HTMLElement){
     const betreff: string = target.dataset.betreff;
     axios.delete("/nachricht/"+betreff+"/"+email)
         .then((res:AxiosResponse)=>{
-          renderNachrichtenListe();
+            renderNachrichtenListe();
         }).catch((err:AxiosError)=>{
 
-            if(err!==null){
-                feedbackProfU.innerText = "Löschen nicht möglich."
-                setTimeout(feedbackNachrichtLoeschen,2000);
-            }
+        if(err!==null){
+            feedbackProfU.innerText = "Löschen nicht möglich."
+            setTimeout(feedbackNachrichtLoeschen,2000);
+        }
 
     });
 }
 //Login 'n out Funktionen
 function login(event:Event){
-            event.preventDefault();
-            const data: FormData = new FormData(formLogin);
-                axios.post("/login", {
-                loginName: data.get("loginName"),
-                loginPasswort: data.get("loginPasswort")
-            })
-                .then((res: AxiosResponse) => {
+    event.preventDefault();
+    const data: FormData = new FormData(formLogin);
+    axios.post("/login", {
+        loginName: data.get("loginName"),
+        loginPasswort: data.get("loginPasswort")
+    })
+        .then((res: AxiosResponse) => {
 
-                        eingeloggterBenutzer = data.get("loginName").toString();
-                        formLogin.reset();
-                        sectLog.classList.add("d-none");
-                        sectProf.classList.remove("d-none");
-                        feedbackLogin.innerText = "Der Benutzer wurde erfolgreich eingeloggt."
-                        setTimeout(feedbackLoginLoeschen,2000);
-                        console.log("Anmeldung erfolgreich bruh");
-                        benutzerAuslesen(eingeloggterBenutzer);
-                        renderNachrichtenListe();
+            eingeloggterBenutzer = data.get("loginName").toString();
+            formLogin.reset();
+            sectLog.classList.add("d-none");
+            sectProf.classList.remove("d-none");
+            feedbackLogin.innerText = "Der Benutzer wurde erfolgreich eingeloggt."
+            setTimeout(feedbackLoginLoeschen,2000);
+            console.log("Anmeldung erfolgreich bruh");
+            benutzerAuslesen(eingeloggterBenutzer);
+            renderNachrichtenListe();
 
 
-                })
-                .catch((err: AxiosError)=>{
-                    if(err.response.status == 404){
-                        feedbackLogin.innerText = "E-Mail, oder Passwort falsch."
-                        setTimeout(feedbackLoginLoeschen,2000);
-                        console.log("Anmeldung nicht erfolgreich if vom .catch");
+        })
+        .catch((err: AxiosError)=>{
+            if(err.response.status == 404){
+                feedbackLogin.innerText = "E-Mail, oder Passwort falsch."
+                setTimeout(feedbackLoginLoeschen,2000);
+                console.log("Anmeldung nicht erfolgreich if vom .catch");
 
-                    }else{
-                        console.log("Anmeldung nicht erfolgreich else vom .catch");
-                    }
+            }else{
+                console.log("Anmeldung nicht erfolgreich else vom .catch");
+            }
 
-                })
+        })
 
 
 
@@ -604,24 +600,24 @@ function zumWarenkorb (event:Event){
     sectStart.classList.add("d-none");
     sectImpr.classList.add("d-none");
     */
-    }
+}
 function zumService (event:Event){
     event.preventDefault();
     navigieren();
     sectServ.classList.remove("d-none");
-        /*
-        sectProf.classList.add("d-none");
-        sectDet.classList.add("d-none");
-        sectUeber.classList.add("d-none");
-        sectWar.classList.add("d-none");
-        sectCheck.classList.add("d-none");
-        sectReg.classList.add("d-none");
-        sectLog.classList.add("d-none");
-        sectKont.classList.add("d-none");
-        sectStart.classList.add("d-none");
-        sectImpr.classList.add("d-none");
-        */
-    }
+    /*
+    sectProf.classList.add("d-none");
+    sectDet.classList.add("d-none");
+    sectUeber.classList.add("d-none");
+    sectWar.classList.add("d-none");
+    sectCheck.classList.add("d-none");
+    sectReg.classList.add("d-none");
+    sectLog.classList.add("d-none");
+    sectKont.classList.add("d-none");
+    sectStart.classList.add("d-none");
+    sectImpr.classList.add("d-none");
+    */
+}
 function zuUeber(event:Event){
     event.preventDefault();
     navigieren();
@@ -639,24 +635,24 @@ function zuUeber(event:Event){
         sectImpr.classList.add("d-none");
         */
 
-    }
+}
 function zumKontakt(event:Event){
     event.preventDefault();
     navigieren();
     sectKont.classList.remove("d-none");
-        /*
-        sectProf.classList.add("d-none");
-        sectDet.classList.add("d-none");
-        sectUeber.classList.add("d-none");
-        sectServ.classList.add("d-none");
-        sectWar.classList.add("d-none");
-        sectCheck.classList.add("d-none");
-        sectReg.classList.add("d-none");
-        sectLog.classList.add("d-none");
-        sectStart.classList.add("d-none");
-        sectImpr.classList.add("d-none");
-        */
-    }
+    /*
+    sectProf.classList.add("d-none");
+    sectDet.classList.add("d-none");
+    sectUeber.classList.add("d-none");
+    sectServ.classList.add("d-none");
+    sectWar.classList.add("d-none");
+    sectCheck.classList.add("d-none");
+    sectReg.classList.add("d-none");
+    sectLog.classList.add("d-none");
+    sectStart.classList.add("d-none");
+    sectImpr.classList.add("d-none");
+    */
+}
 function zumReg(event:Event){
     event.preventDefault();
     navigieren()
@@ -729,10 +725,10 @@ function zurDet(event:Event){
     sectStart.classList.add("d-none");
     */
 }
-                    
-                    
-                    
-                    
+
+
+
+
 
 
 
@@ -831,19 +827,17 @@ function zurDet(event:Event){
 
 function nachrichtBearbeitenStart(target: HTMLElement){
     const nachricht: string = target.dataset.nachricht;
-    console.log(target.dataset.nachricht+" nId im EditBtn")
-    nachrichtBA.dataset.nId = target.dataset.nId;
-    formNachrichtenBearbeiten.dataset.nId = target.dataset.nId;
+
     nachrichtEdit.classList.remove("d-none");
     nachrichtEdit.value = nachricht.toString();
 }
 
 function nachrichtBearbeitenAbsenden(target: HTMLElement){
     nachrichtEdit.classList.add("d-none");
-    const nId = formNachrichtenBearbeiten.dataset.nid;
+    const nId = target.dataset.nid;
     const nachricht = nachrichtEdit.value;
 
-    console.log(nId);
+    console.log(nId+" nId");
 
     axios.put("/nachricht/" + nId,
         {
@@ -853,7 +847,7 @@ function nachrichtBearbeitenAbsenden(target: HTMLElement){
             console.log("nachricht erfolgreich bearbeitet");
             renderNachrichtenListe();
         }).catch((err: AxiosResponse) =>{
-            console.log("error die nId stimmt nicht überein");
+        console.log("error die nId stimmt nicht überein");
     })
 
 
