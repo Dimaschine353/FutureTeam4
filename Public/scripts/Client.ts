@@ -94,6 +94,8 @@ let sectCheck: HTMLElement;
 let sectReg: HTMLElement;
 let sectLog: HTMLElement;
 let sectKont: HTMLElement;
+let sectAGB: HTMLElement;
+let sectDS: HTMLElement;
 let sectImpr: HTMLElement;
 //Deklaration Nav Leiste
 let navHome: HTMLElement;
@@ -163,7 +165,9 @@ document.addEventListener("DOMContentLoaded",()=>{
     sectReg = document.querySelector("#sectReg");
     sectLog = document.querySelector("#sectLog");
     sectKont = document.querySelector("#sectKont");
-    sectImpr = document.querySelector("#sectImpr")
+    sectAGB = document.querySelector("#sectAGB");
+    sectDS = document.querySelector("#sectDS");
+    sectImpr = document.querySelector("#sectImpr");
     //Startcontent Einstellung
     sectProf.classList.add("d-none");
     sectDet.classList.add("d-none");
@@ -696,6 +700,8 @@ function navigieren(){
     sectReg.classList.add("d-none");
     sectLog.classList.add("d-none");
     sectKont.classList.add("d-none");
+    sectAGB.classList.add("d-none");
+    sectDS.classList.add("d-none");
     sectImpr.classList.add("d-none");
 }
 
