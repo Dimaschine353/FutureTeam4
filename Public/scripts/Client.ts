@@ -783,7 +783,7 @@ function nachrichtBearbeitenStart(target: HTMLElement){
 
 function nachrichtBearbeitenAbsenden(target: HTMLElement){
     nachrichtEdit.classList.add("d-none");
-    const nId = target.dataset.nId;
+    const nId = target.dataset.nid;
     const nachricht = nachrichtEdit.value;
 
     console.log(nId);
