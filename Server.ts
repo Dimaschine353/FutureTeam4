@@ -437,14 +437,14 @@ function getAlleNachrichten(req:express.Request, res:express.Response):void{
 
 
 
-app.put("/nachricht/:betreff", putNachrichten);
+app.put("/nachricht/:nId", putNachrichten);
 
 function putNachrichten(req: express.Request, res: express.Response): void {
-    const betreff: string = req.params.betreff;
+    const nId: string = req.params.nId;
     const nachricht: string = req.body.nachricht;
 
-    const param = [nachricht, betreff];
-    let sql = "UPDATE nachrichten SET nachricht = ? WHERE betreff = ?;";
+    const param = [nachricht, nId];
+    let sql = "UPDATE nachrichten SET nachricht = ? WHERE nId = ?;";
 
     if(nachricht === undefined){
         res.status(400);
@@ -456,11 +456,11 @@ function putNachrichten(req: express.Request, res: express.Response): void {
             (err:MysqlError | null, result: any) => {
 
             });
-        console.log(betreff);
+        console.log(nId);
         res.status(200);
         res.send("Nachricht aktualisiert");
     }else{
         res.status(400);
-        res.send("Es gibt keine Nachricht mit diesem Betreff: " + betreff);
+        res.send("Es gibt keine Nachricht mit dieser Nachricht ID: " + nId);
     }
 }
