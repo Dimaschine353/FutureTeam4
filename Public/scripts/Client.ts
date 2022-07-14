@@ -146,6 +146,7 @@ let nachrichtBetreff: HTMLInputElement;
 let nachrichtEin: HTMLInputElement;
 let nachrichtBtnA: HTMLInputElement;
 let tabelleNachrichten: HTMLElement;
+let nachrichtEdit: HTMLInputElement;
 //Listener
 document.addEventListener("DOMContentLoaded",()=>{
 
@@ -295,8 +296,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 });
 
 
-let nachrichtEdit: HTMLInputElement;
-//Listener
+
 //Funktionen Benutzer
 function benutzerHinzufuegen(event:Event){
     event.preventDefault();
@@ -414,7 +414,7 @@ function renderNachrichtenListe(){
                 <td>
                 <button class="btn btn-primary delete" data-betreff="${n.betreff}">Löschen</button>
                 <button class="btn btn-primary edit" data-nachricht="${n.nachricht}">Bearbeiten</button>
-                <button class="btn btn-primary absenden" data-betreff="${n.betreff}" data-nachricht="${n.nachricht}">Absenden</button>
+                <button class="btn btn-primary absenden" data-nId="${n.nId}" data-nachricht="${n.nachricht}">Absenden</button>
                 </td>
                 `;
                 tabelleNachrichten.append(tr);
@@ -833,19 +833,20 @@ function nachrichtBearbeitenStart(target: HTMLElement){
 
 function nachrichtBearbeitenAbsenden(target: HTMLElement){
     nachrichtEdit.classList.add("d-none");
-    const betreff = target.dataset.betreff;
+    const nId = target.dataset.nid;
     const nachricht = nachrichtEdit.value;
 
-    axios.put("/nachricht/" + betreff,
+    console.log(nId);
+
+    axios.put("/nachricht/" + nId,
         {
-            betreff: betreff,
             nachricht: nachricht
         })
         .then((res: AxiosResponse)=>{
             console.log("nachricht erfolgreich bearbeitet");
             renderNachrichtenListe();
         }).catch((err: AxiosResponse) =>{
-            console.log("error");
+            console.log("error die nId stimmt nicht überein");
     })
 
 
