@@ -89,7 +89,7 @@ app.put("/benutzer/:email",checkLogin,putBenutzer);
 //Routen Nachricht
 app.get("/nachricht/:email",checkLogin,getAlleNachrichten);
 app.post("/nachricht",postNachricht);
-app.delete("/nachricht/:betreff/:email",checkLogin,deleteNachricht);
+app.delete("/nachricht/:nId",deleteNachricht);
 app.put("/nachricht/:nId", putNachrichten);
 //Funktion Login
 function login(req: express.Request, res: express.Response): void {
@@ -117,7 +117,7 @@ function login(req: express.Request, res: express.Response): void {
 }
 //Funktion Logout
 function logout(req: express.Request, res: express.Response): void {
-    console.log("bin in der Logout Fkt")
+    //console.log("bin in der Logout Fkt")
     req.session.destroy(()=>{
         res.clearCookie("connect.sid");
         res.sendStatus(200);
@@ -263,7 +263,7 @@ function postNachricht(req: express.Request, res:express.Response):void{
     const betreff: string = req.body.betreff;
     const nachricht: string = req.body.nachricht;
     const uId: number = req.session.uid;
-    console.log(uId+" in der PostNachricht");
+    //console.log(uId+" in der PostNachricht");
 
     const param = [vName,nName,email,betreff,nachricht,uId];
     const sql = "INSERT INTO nachrichten (vName, nName, email, betreff, nachricht,uId) VALUES(?,?,?,?,?,?)";
@@ -285,18 +285,21 @@ function postNachricht(req: express.Request, res:express.Response):void{
 }
 function deleteNachricht(req: express.Request, res:express.Response):void{
     //console.log("bin in der delete Nachricht im Server");
-    const betreff: string = req.params.betreff;
+    //const betreff: string = req.params.betreff;
     //const email: string = req.params.email;
-    const email: string = req.session.uname;
+    const nId: string = req.params.nId;
+    //const email: string = req.session.uname;
     //console.log(betreff+" in der delete Nachricht Server");
     //console.log(email + " inder delete Nachricht Server");
     //
-    const param = [betreff,email];
-    const sql = "DELETE FROM nachrichten WHERE betreff=? AND email=?;";
-    if(betreff === undefined||email === undefined){
+    const param = [nId];
+    console.log(nId+" in der delete Server");
+    console.log(param+" param in der Delete Server")
+    const sql = "DELETE FROM nachrichten WHERE nId=?;";
+    if(nId==undefined){
         res.status(400);
-        res.send("Email, oder Betreff fehlen");
-        console.log("Betreff, oder Email fehlen");
+        res.send("Falsche Nachrichten ID");
+        console.log("die nId fehlt");
     }else{
         connection.query(
             sql,
@@ -313,10 +316,10 @@ function deleteNachricht(req: express.Request, res:express.Response):void{
 function getAlleNachrichten(req:express.Request, res:express.Response):void{
     //const email = req.params.email;
     const uId: number = req.session.uid;
-    console.log(uId+" in der getAll nachrichten")
+    //console.log(uId+" in der getAll nachrichten")
     //console.log(email+" in der Server getAllNachrichten Fkt");
     const param = [uId];
-    console.log(param+"(parameter) in der Server getAllNachrichten Fkt");
+    //console.log(param+"(parameter) in der Server getAllNachrichten Fkt");
     const sql = "SELECT * FROM nachrichten WHERE uId=?;";
     if(uId!==undefined){
         connection.query(
@@ -324,7 +327,7 @@ function getAlleNachrichten(req:express.Request, res:express.Response):void{
             param,
             (err:MysqlError | null, results: any) => {
                 res.send(results);
-                console.log("das ergebnis der getAllNachrichten"+results);
+                //console.log("das ergebnis der getAllNachrichten"+results);
             }
         )
     }
@@ -332,7 +335,7 @@ function getAlleNachrichten(req:express.Request, res:express.Response):void{
 function putNachrichten(req: express.Request, res: express.Response): void {
     const nachricht: string = req.body.nachricht;
     const nId: string = req.params.nId;
-    console.log(nId);
+    //console.log(nId);
 
     const param = [nachricht, nId];
     let sql = "UPDATE nachrichten SET nachricht = ? WHERE nId = ?;";
@@ -347,7 +350,7 @@ function putNachrichten(req: express.Request, res: express.Response): void {
             (err:MysqlError | null, result: any) => {
 
             });
-        console.log(nId);
+        //console.log(nId);
         res.status(200);
         res.send("Nachricht aktualisiert");
     }else{

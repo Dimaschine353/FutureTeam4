@@ -394,9 +394,9 @@ function renderNachrichtenListe(){
                     <td>${n.betreff}</td>
                     <td>${n.nachricht}</td>
                 <td>
-                <button class="btn btn-primary delete" data-betreff="${n.betreff}">Löschen</button>
+                <button class="btn btn-primary delete" data-nId="${n.nId}">Löschen</button>
                 <button class="btn btn-primary edit" data-nachricht="${n.nachricht}">Bearbeiten</button>
-                <button class="btn btn-primary absenden" data-nId="${n.nId}" data-nachricht="${n.nachricht}">Absenden</button>
+                <button class="btn btn-primary absenden d-none" data-nId="${n.nId}" >Absenden</button>
                 </td>
                 `;
                 tabelleNachrichten.append(tr);
@@ -431,9 +431,10 @@ function nachrichtHinzufuegen(event:Event){
     });
 }
 function nachrichtLoeschen(target:HTMLElement){
-    const email: string = eingeloggterBenutzer.toString();
-    const betreff: string = target.dataset.betreff;
-    axios.delete("/nachricht/"+betreff+"/"+email)
+    //const email: string = eingeloggterBenutzer.toString();
+    //const betreff: string = target.dataset.betreff;
+    const nId = target.dataset.nid;
+    axios.delete("/nachricht/"+nId)
         .then((res:AxiosResponse)=>{
             renderNachrichtenListe();
         }).catch((err:AxiosError)=>{
@@ -447,6 +448,7 @@ function nachrichtLoeschen(target:HTMLElement){
 }
 function nachrichtBearbeitenStart(target: HTMLElement){
     const nachricht: string = target.dataset.nachricht;
+    //target.nextSiblingElement.classList.remove("d-none");
 
     nachrichtEdit.classList.remove("d-none");
     nachrichtEdit.value = nachricht.toString();
@@ -471,7 +473,6 @@ function nachrichtBearbeitenAbsenden(target: HTMLElement){
 
 
 }
-
 //Login 'n out Funktionen
 function login(event:Event){
     event.preventDefault();
