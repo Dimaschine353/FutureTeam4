@@ -440,8 +440,9 @@ function getAlleNachrichten(req:express.Request, res:express.Response):void{
 app.put("/nachricht/:nId", putNachrichten);
 
 function putNachrichten(req: express.Request, res: express.Response): void {
-    const nId: string = req.params.nId;
     const nachricht: string = req.body.nachricht;
+    const nId: string = req.params.nId;
+    console.log(nId);
 
     const param = [nachricht, nId];
     let sql = "UPDATE nachrichten SET nachricht = ? WHERE nId = ?;";

@@ -28,7 +28,7 @@ Content-Type: application/json
 ###PUT
 ###
 
-PUT /nachricht/xyz HTTP/2
+PUT /nachricht/19 HTTP/2
 Host: localhost:8080
 Content-Type: application/json
 

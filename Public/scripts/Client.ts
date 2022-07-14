@@ -786,6 +786,8 @@ function nachrichtBearbeitenAbsenden(target: HTMLElement){
     const nId = target.dataset.nId;
     const nachricht = nachrichtEdit.value;
 
+    console.log(nId);
+
     axios.put("/nachricht/" + nId,
         {
             nachricht: nachricht
