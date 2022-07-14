@@ -1,7 +1,9 @@
 /* Allgemeine CSS */
 .background {
     background: #f0f0f2;
+    /*
     background: linear-gradient(white, #f0f0f2);
+    */
 }
 
 
@@ -150,6 +152,7 @@ h5 {
     font-size: 2rem;
     font-weight: 400;
     padding-inline: 5rem;
+    padding-bottom: 4rem;
 }
 
 .scharf2 {
@@ -159,9 +162,20 @@ h5 {
     font-weight: 400;
 }
 
+.scharf3 {
+    text-align: center;
+    justify-content: center;
+    color: #0d0d0d;
+    font-family: "Montserrat", serif;
+    font-size: 2rem;
+    font-weight: 400;
+    padding-inline: 5rem;
+}
+
 .unvergleichbar {
     padding-top: 3rem;
     padding-right: 5rem;
+    padding-left: 6rem;
 }
 
 .kommentarBild > img {
