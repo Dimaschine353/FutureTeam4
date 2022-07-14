@@ -448,15 +448,17 @@ function nachrichtLoeschen(target:HTMLElement){
 }
 function nachrichtBearbeitenStart(target: HTMLElement){
     const nachricht: string = target.dataset.nachricht;
-    //target.nextSiblingElement.classList.remove("d-none");
 
     nachrichtEdit.classList.remove("d-none");
     nachrichtEdit.value = nachricht.toString();
+    target.nextElementSibling.classList.remove("d-none");
+
 }
 function nachrichtBearbeitenAbsenden(target: HTMLElement){
     nachrichtEdit.classList.add("d-none");
     const nId = target.dataset.nid;
     const nachricht = nachrichtEdit.value;
+
 
     //console.log(nId+" nId");
 
