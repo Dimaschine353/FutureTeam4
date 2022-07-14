@@ -169,16 +169,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     sectDS = document.querySelector("#sectDS");
     sectImpr = document.querySelector("#sectImpr");
     //Startcontent Einstellung
-    sectProf.classList.add("d-none");
-    sectDet.classList.add("d-none");
-    sectWar.classList.add("d-none");
-    sectCheck.classList.add("d-none");
-    sectReg.classList.add("d-none");
-    sectLog.classList.add("d-none");
-    sectUeber.classList.add("d-none");
-    sectKont.classList.add("d-none");
-    sectServ.classList.add("d-none");
-    sectImpr.classList.add("d-none");
+
     //Initialisierung Nav Leiste
     navHome = document.querySelector("#navHome");
     navHome.addEventListener("click",zurueckNachhause);
@@ -223,7 +214,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     formLogin = document.querySelector("#formLogin");
     formProfilDatenBearbeiten = document.querySelector("#formProfildatenBearbeiten");
     formKontakt = document.querySelector("#formKontakt");
-    formNachrichtenBearbeiten = document.querySelector("#formNachrichtBearbeiten");
+
     //Initialisierung globaler Variablen
     eingeloggterBenutzer = "";
     //Registrierung
@@ -299,9 +290,6 @@ document.addEventListener("DOMContentLoaded",()=>{
         startIMGFlipper.src = "/cMe/images/MesserGruppenPhotoEditFinal.png"
     });
 });
-
-
-
 //Funktionen Benutzer
 function benutzerHinzufuegen(event:Event){
     event.preventDefault();
@@ -337,18 +325,7 @@ function benutzerLoeschen(event:Event){
             eingeloggterBenutzer = "";
             navigieren();
             sectStart.classList.remove("d-none");
-            /*
-            sectDet.classList.add("d-none");
-            sectUeber.classList.add("d-none");
-            sectServ.classList.add("d-none");
-            sectWar.classList.add("d-none");
-            sectCheck.classList.add("d-none");
-            sectCheck.classList.add("d-none");
-            sectReg.classList.add("d-none");
-            sectLog.classList.add("d-none");
-            sectProf.classList.add("d-none");
-            sectImpr.classList.add("d-none");
-            */
+
         }).catch((err: AxiosError)=>{
         if(err!==null){
             feedbackProfU.innerText="Löschen nicht möglich."
@@ -404,14 +381,14 @@ function benutzerAuslesen(eingeloggterBenutzer:String){
 }
 //Funktionen Nachrichten
 function renderNachrichtenListe(){
-    console.log("bin in der renderNachrichten");
+    //console.log("bin in der renderNachrichten");
     const email: string = eingeloggterBenutzer.toString();
-    console.log(email+" in der renderNachrichten")
+    //console.log(email+" in der renderNachrichten")
     tabelleNachrichten.innerHTML = "";
     axios.get("/nachricht/"+email)
         .then((res: AxiosResponse)=>{
             for(const n of res.data){
-                console.log(res.data);
+                //console.log(res.data);
                 const tr: HTMLElement = document.createElement("tr");
                 tr.innerHTML =`
                     <td>${n.betreff}</td>
@@ -468,6 +445,33 @@ function nachrichtLoeschen(target:HTMLElement){
 
     });
 }
+function nachrichtBearbeitenStart(target: HTMLElement){
+    const nachricht: string = target.dataset.nachricht;
+
+    nachrichtEdit.classList.remove("d-none");
+    nachrichtEdit.value = nachricht.toString();
+}
+function nachrichtBearbeitenAbsenden(target: HTMLElement){
+    nachrichtEdit.classList.add("d-none");
+    const nId = target.dataset.nid;
+    const nachricht = nachrichtEdit.value;
+
+    //console.log(nId+" nId");
+
+    axios.put("/nachricht/" + nId,
+        {
+            nachricht: nachricht
+        })
+        .then((res: AxiosResponse)=>{
+            console.log("nachricht erfolgreich bearbeitet");
+            renderNachrichtenListe();
+        }).catch((err: AxiosResponse) =>{
+        console.log("error die nId stimmt nicht überein");
+    })
+
+
+}
+
 //Login 'n out Funktionen
 function login(event:Event){
     event.preventDefault();
@@ -484,7 +488,7 @@ function login(event:Event){
             sectProf.classList.remove("d-none");
             feedbackLogin.innerText = "Der Benutzer wurde erfolgreich eingeloggt."
             setTimeout(feedbackLoginLoeschen,2000);
-            console.log("Anmeldung erfolgreich bruh");
+            //console.log("Anmeldung erfolgreich bruh");
             benutzerAuslesen(eingeloggterBenutzer);
             renderNachrichtenListe();
 
@@ -510,22 +514,11 @@ function logout(event:Event){
     event.preventDefault();
     axios.post("/logout")
         .then(()=>{
-            console.log("habe eine response vom Server erhalten");
+            //le.log("habe eine response vom Server erhalten");
             eingeloggterBenutzer="";
             navigieren();
             sectStart.classList.remove("d-none");
-            /*
-            sectProf.classList.add("d-none");
-            sectDet.classList.add("d-none");
-            sectUeber.classList.add("d-none");
-            sectServ.classList.add("d-none");
-            sectWar.classList.add("d-none");
-            sectCheck.classList.add("d-none");
-            sectReg.classList.add("d-none");
-            sectLog.classList.add("d-none");
-            sectKont.classList.add("d-none");
-            sectImpr.classList.add("d-none");
-            */
+
             alert("Sie wurden ausgeloggt :o")
 
         });
@@ -540,18 +533,7 @@ function zurueckNachhause(event:Event){
     event.preventDefault();
     navigieren();
     sectStart.classList.remove("d-none");
-    /*
-    sectProf.classList.add("d-none");
-    sectDet.classList.add("d-none");
-    sectUeber.classList.add("d-none");
-    sectServ.classList.add("d-none");
-    sectWar.classList.add("d-none");
-    sectCheck.classList.add("d-none");
-    sectReg.classList.add("d-none");
-    sectLog.classList.add("d-none");
-    sectKont.classList.add("d-none");
-    sectImpr.classList.add("d-none");
-    */
+
 }
 function zumLogin (event:Event){
     event.preventDefault();
@@ -560,31 +542,11 @@ function zumLogin (event:Event){
         navigieren();
         renderNachrichtenListe();
         sectProf.classList.remove("d-none");
-        /*
-        sectStart.classList.add("d-none");
-        sectLog.classList.add("d-none");
-        sectDet.classList.add("d-none");
-        sectUeber.classList.add("d-none");
-        sectWar.classList.add("d-none");
-        sectCheck.classList.add("d-none");
-        sectReg.classList.add("d-none");
-        sectKont.classList.add("d-none");
-        sectImpr.classList.add("d-none");
-        */
+
     }else{
         navigieren();
         sectLog.classList.remove("d-none");
-        /*
-        sectStart.classList.add("d-none");
-        sectProf.classList.add("d-none");
-        sectDet.classList.add("d-none");
-        sectUeber.classList.add("d-none");
-        sectWar.classList.add("d-none");
-        sectCheck.classList.add("d-none");
-        sectReg.classList.add("d-none");
-        sectKont.classList.add("d-none");
-        sectImpr.classList.add("d-none");
-        */
+
     }
 
 
@@ -593,101 +555,39 @@ function zumWarenkorb (event:Event){
     event.preventDefault();
     navigieren();
     sectWar.classList.remove("d-none");
-    /*
-    sectProf.classList.add("d-none");
-    sectDet.classList.add("d-none");
-    sectUeber.classList.add("d-none");
-    sectCheck.classList.add("d-none");
-    sectReg.classList.add("d-none");
-    sectLog.classList.add("d-none");
-    sectKont.classList.add("d-none");
-    sectStart.classList.add("d-none");
-    sectImpr.classList.add("d-none");
-    */
+
 }
 function zumService (event:Event){
     event.preventDefault();
     navigieren();
     sectServ.classList.remove("d-none");
-    /*
-    sectProf.classList.add("d-none");
-    sectDet.classList.add("d-none");
-    sectUeber.classList.add("d-none");
-    sectWar.classList.add("d-none");
-    sectCheck.classList.add("d-none");
-    sectReg.classList.add("d-none");
-    sectLog.classList.add("d-none");
-    sectKont.classList.add("d-none");
-    sectStart.classList.add("d-none");
-    sectImpr.classList.add("d-none");
-    */
+
 }
 function zuUeber(event:Event){
     event.preventDefault();
     navigieren();
     sectUeber.classList.remove("d-none");
-    /*
-        sectProf.classList.add("d-none");
-        sectDet.classList.add("d-none");
-        sectServ.classList.add("d-none");
-        sectWar.classList.add("d-none");
-        sectCheck.classList.add("d-none");
-        sectReg.classList.add("d-none");
-        sectLog.classList.add("d-none");
-        sectKont.classList.add("d-none");
-        sectStart.classList.add("d-none");
-        sectImpr.classList.add("d-none");
-        */
+
 
 }
 function zumKontakt(event:Event){
     event.preventDefault();
     navigieren();
     sectKont.classList.remove("d-none");
-    /*
-    sectProf.classList.add("d-none");
-    sectDet.classList.add("d-none");
-    sectUeber.classList.add("d-none");
-    sectServ.classList.add("d-none");
-    sectWar.classList.add("d-none");
-    sectCheck.classList.add("d-none");
-    sectReg.classList.add("d-none");
-    sectLog.classList.add("d-none");
-    sectStart.classList.add("d-none");
-    sectImpr.classList.add("d-none");
-    */
+
 }
 function zumReg(event:Event){
     event.preventDefault();
     navigieren()
     sectReg.classList.remove("d-none");
-    /*
-    sectProf.classList.add("d-none");
-    sectDet.classList.add("d-none");
-    sectUeber.classList.add("d-none");
-    sectServ.classList.add("d-none");
-    sectWar.classList.add("d-none");
-    sectCheck.classList.add("d-none");
-    sectLog.classList.add("d-none");
-    sectStart.classList.add("d-none");
-    sectImpr.classList.add("d-none");
-    */
+
 
 }
 function zumImpr(event:Event){
     event.preventDefault();
 
     sectImpr.classList.remove("d-none");
-    /*
-    sectProf.classList.add("d-none");
-    sectDet.classList.add("d-none");
-    sectUeber.classList.add("d-none");
-    sectServ.classList.add("d-none");
-    sectWar.classList.add("d-none");
-    sectCheck.classList.add("d-none");
-    sectLog.classList.add("d-none");
-    sectStart.classList.add("d-none");
-    */
+
 }
 function navigieren(){
     sectStart.classList.add("d-none");
@@ -704,32 +604,12 @@ function navigieren(){
     sectDS.classList.add("d-none");
     sectImpr.classList.add("d-none");
 }
-
-
-
-
-
-
-
-
-
-
-
 function zurDet(event:Event){
     event.preventDefault();
     navigieren()
     sectDet.classList.remove("d-none");
     window.scrollTo(0, 0);
-    /*
-    sectProf.classList.add("d-none");
-    sectDet.classList.add("d-none");
-    sectUeber.classList.add("d-none");
-    sectServ.classList.add("d-none");
-    sectWar.classList.add("d-none");
-    sectCheck.classList.add("d-none");
-    sectLog.classList.add("d-none");
-    sectStart.classList.add("d-none");
-    */
+
 }
 
 
@@ -831,33 +711,17 @@ function zurDet(event:Event){
 
 
 
-function nachrichtBearbeitenStart(target: HTMLElement){
-    const nachricht: string = target.dataset.nachricht;
-
-    nachrichtEdit.classList.remove("d-none");
-    nachrichtEdit.value = nachricht.toString();
-}
-
-function nachrichtBearbeitenAbsenden(target: HTMLElement){
-    nachrichtEdit.classList.add("d-none");
-    const nId = target.dataset.nid;
-    const nachricht = nachrichtEdit.value;
-
-    console.log(nId+" nId");
-
-    axios.put("/nachricht/" + nId,
-        {
-            nachricht: nachricht
-        })
-        .then((res: AxiosResponse)=>{
-            console.log("nachricht erfolgreich bearbeitet");
-            renderNachrichtenListe();
-        }).catch((err: AxiosResponse) =>{
-        console.log("error die nId stimmt nicht überein");
-    })
 
 
-}
+
+
+
+
+
+
+
+
+
 
 
 
