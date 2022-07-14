@@ -119,6 +119,7 @@ let formRegistrieren: HTMLFormElement;
 let formLogin: HTMLFormElement;
 let formProfilDatenBearbeiten: HTMLFormElement;
 let formKontakt: HTMLFormElement;
+let formNachrichtenBearbeiten: HTMLFormElement;
 //Deklaration globale Variablen
 let eingeloggterBenutzer:String;
 //Registrieren
@@ -147,6 +148,7 @@ let nachrichtEin: HTMLInputElement;
 let nachrichtBtnA: HTMLInputElement;
 let tabelleNachrichten: HTMLElement;
 let nachrichtEdit: HTMLInputElement;
+let nachrichtBA: HTMLInputElement;
 //Listener
 document.addEventListener("DOMContentLoaded",()=>{
 
@@ -198,7 +200,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     //Initialisierung Zur Detailseite
     startNakiri = document.querySelector("#startNakiri");
-    startNakiri.addEventListener("click",zumDet);
+    startNakiri.addEventListener("click",zurDet);
 
 
 
@@ -219,6 +221,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     formLogin = document.querySelector("#formLogin");
     formProfilDatenBearbeiten = document.querySelector("#formProfildatenBearbeiten");
     formKontakt = document.querySelector("#formKontakt");
+    formNachrichtenBearbeiten = document.querySelector("#formNachrichtBearbeiten");
     //Initialisierung globaler Variablen
     eingeloggterBenutzer = "";
     //Registrierung
@@ -256,7 +259,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     nachrichtBtnA = document.querySelector("#nachrichtBtnA");
     nachrichtEdit = document.querySelector("#profilNachrichtBearbeiten");
     nachrichtBtnA.addEventListener("click",nachrichtHinzufuegen);
-    nachrichtBtnA.addEventListener("click", nachrichtHinzufuegen);
+
     tabelleNachrichten.addEventListener("click",(event:Event)=>{
         let target: HTMLElement = event.target as HTMLElement;
         target = target.closest("button");
@@ -268,6 +271,8 @@ document.addEventListener("DOMContentLoaded",()=>{
             nachrichtBearbeitenAbsenden(target);
         }
     });
+    nachrichtBA = document.querySelector("#nachrichtBA");
+    nachrichtBA.addEventListener("click",nachrichtBearbeitenAbsenden);
     //Startseite/Landingpage
     startNakiri = document.querySelector("#startNakiri");
     startSantoku = document.querySelector("#startSantoku");
@@ -413,8 +418,8 @@ function renderNachrichtenListe(){
                     <td>${n.nachricht}</td>
                 <td>
                 <button class="btn btn-primary delete" data-betreff="${n.betreff}">Löschen</button>
-                <button class="btn btn-primary edit" data-nachricht="${n.nachricht}">Bearbeiten</button>
-                <button class="btn btn-primary absenden" data-nId="${n.nId}" data-nachricht="${n.nachricht}">Absenden</button>
+                <button class="btn btn-primary edit" data-nachricht="${n.nachricht}" data-nId="${n.nId}">Bearbeiten</button>
+                <!--<button class="btn btn-primary absenden" data-nId="${n.nId}" data-nachricht="${n.nachricht}">Absenden</button>-->
                 </td>
                 `;
                 tabelleNachrichten.append(tr);
@@ -463,7 +468,7 @@ function nachrichtLoeschen(target:HTMLElement){
 
     });
 }
-//Login 'n out Funkntionen
+//Login 'n out Funktionen
 function login(event:Event){
             event.preventDefault();
             const data: FormData = new FormData(formLogin);
@@ -708,7 +713,7 @@ function navigieren(){
 
 
 
-function zumDet(event:Event){
+function zurDet(event:Event){
     event.preventDefault();
     navigieren()
     sectDet.classList.remove("d-none");
@@ -826,14 +831,16 @@ function zumDet(event:Event){
 
 function nachrichtBearbeitenStart(target: HTMLElement){
     const nachricht: string = target.dataset.nachricht;
-
+    console.log(target.dataset.nachricht+" nId im EditBtn")
+    nachrichtBA.dataset.nId = target.dataset.nId;
+    formNachrichtenBearbeiten.dataset.nId = target.dataset.nId;
     nachrichtEdit.classList.remove("d-none");
     nachrichtEdit.value = nachricht.toString();
 }
 
 function nachrichtBearbeitenAbsenden(target: HTMLElement){
     nachrichtEdit.classList.add("d-none");
-    const nId = target.dataset.nid;
+    const nId = formNachrichtenBearbeiten.dataset.nid;
     const nachricht = nachrichtEdit.value;
 
     console.log(nId);

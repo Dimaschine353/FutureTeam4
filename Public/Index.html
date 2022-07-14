@@ -266,10 +266,14 @@
                             </div>
                         </div>
                         <div id="nachrichtBearbeitenDiv">
-                            <form id="formNachrichtBearbeiten">
+                            <form id="formNachrichtBearbeiten" data-nId="">
                                 <div class="input-group mb-3">
                                     <input id="profilNachrichtBearbeiten" type="text" class="form-control d-none" placeholder="Nachrichtentext" name="profilNachrichtBearbeiten"
                                            aria-label="profilNachrichtBearbeiten"  required>
+
+                                    <button type="button" class="btn btn-luxknives rounded-1" id="nachrichtBA" >
+                                        Abschicken
+                                    </button>
                                 </div>
                             </form>
                         </div>
@@ -286,74 +290,9 @@
                     </div>
                 </div>
             </div>
-                            </form>
-                            <!--Nchrichtenliste-->
-                            <div class="row" id="Nachrichtenliste">
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col text-center">
-                                            <h5>Nachrichtenliste</h5>
-                                        </div>
-                                    </div>
-                                    <table class="table table-striped">
-                                        <thead class="thead-light">
-                                        <tr>
-                                            <th scope="col">Betreff</th>
-                                            <th scope="col">Inhalt</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody id="tabelleNachrichten">
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--
-                            <div class="input-group mb-3 d-flex justify-content-center">
-
-                                <button type="button" class="btn btn-luxknives rounded-1" data-bs-toggle="modal" data-bs-target="#profb" id="">
-                                    Profildaten Bearbeiten
-                                </button>
-                                <button type="button" class="btn btn-luxknives rounded-1 d-none" data-bs-toggle="modal"  id="">
-                                    Profildaten Abschicken
-                                </button>
 
 
-                                <div class="modal fade" id="profildatenBearbeitenModal" tabindex="-1" aria-labelledby="profildatenBearbeitenModal" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Ihre Profildaten</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="input-group mb-3">
-                                                    <input id="profilVornameUpdate" type="text" class="form-control" placeholder="Vorname" name="profilVorname"
-                                                           aria-label="Vorname">
-                                                    <input id="profilNachnameUpdate" type="text" class="form-control" placeholder="Nachname" name="profilNachname"
-                                                           aria-label="Nachname">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <input id="profilE-mailUpdate" type="email" class="form-control" placeholder="Email" name="profilE-mail" aria-label="Email">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="profilbildUpdate" class="form-label">Profilbild Hochladen</label>
-                                                    <input class="form-control" type="file" id="profilbildUpdate">
-                                                </div>
-                                                <div class="input-group mb-3">
-                                                    <textarea id="profilBioUpdate" class="form-control" aria-label="profilBioUpdate" placeholder="Bio Schreiben"></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        -->
+
 
                     </div>
                     <!-- Bestellungen und Fragen Sektion -->
