@@ -195,13 +195,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     startNakiri = document.querySelector("#startNakiri");
     startNakiri.addEventListener("click",zurDet);
 
-
-
-
-
-
-
-
     //Initialisierung Footer
     impressum = document.querySelector("#zumImpressum");
     impressum.addEventListener("click",zumImpr);
