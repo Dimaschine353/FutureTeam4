@@ -146,6 +146,7 @@ let nachrichtBetreff: HTMLInputElement;
 let nachrichtEin: HTMLInputElement;
 let nachrichtBtnA: HTMLInputElement;
 let tabelleNachrichten: HTMLElement;
+let nachrichtEdit: HTMLInputElement;
 //Listener
 document.addEventListener("DOMContentLoaded",()=>{
 
@@ -165,7 +166,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     sectImpr = document.querySelector("#sectImpr")
     //Startcontent Einstellung
     sectProf.classList.add("d-none");
-    //sectDet.classList.add("d-none");
+    sectDet.classList.add("d-none");
     sectWar.classList.add("d-none");
     sectCheck.classList.add("d-none");
     sectReg.classList.add("d-none");
@@ -187,6 +188,25 @@ document.addEventListener("DOMContentLoaded",()=>{
     navUeber.addEventListener("click",zuUeber);
     navKontakt = document.querySelector("#navKontakt");
     navKontakt.addEventListener("click",zumKontakt);
+
+
+
+
+
+
+
+
+    //Initialisierung Zur Detailseite
+    startNakiri = document.querySelector("#startNakiri");
+    startNakiri.addEventListener("click",zumDet);
+
+
+
+
+
+
+
+
     //Initialisierung Footer
     impressum = document.querySelector("#zumImpressum");
     impressum.addEventListener("click",zumImpr);
@@ -234,6 +254,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     nachrichtBetreff = document.querySelector("#nachrichtBetreff");
     nachrichtEin = document.querySelector("#nachrichtEin");
     nachrichtBtnA = document.querySelector("#nachrichtBtnA");
+    nachrichtEdit = document.querySelector("#profilNachrichtBearbeiten");
     nachrichtBtnA.addEventListener("click",nachrichtHinzufuegen);
     nachrichtBtnA.addEventListener("click", nachrichtHinzufuegen);
     tabelleNachrichten.addEventListener("click",(event:Event)=>{
@@ -241,6 +262,10 @@ document.addEventListener("DOMContentLoaded",()=>{
         target = target.closest("button");
         if(target.matches(".delete")){
             nachrichtLoeschen(target);
+        }else if(target.matches(".edit")){
+            nachrichtBearbeitenStart(target);
+        }else if(target.matches(".absenden")){
+            nachrichtBearbeitenAbsenden(target);
         }
     });
     //Startseite/Landingpage
@@ -269,6 +294,9 @@ document.addEventListener("DOMContentLoaded",()=>{
        startIMGFlipper.src = "/cMe/images/MesserGruppenPhotoEditFinal.png"
     });
 });
+
+
+
 //Funktionen Benutzer
 function benutzerHinzufuegen(event:Event){
     event.preventDefault();
@@ -385,6 +413,8 @@ function renderNachrichtenListe(){
                     <td>${n.nachricht}</td>
                 <td>
                 <button class="btn btn-primary delete" data-betreff="${n.betreff}">Löschen</button>
+                <button class="btn btn-primary edit" data-nachricht="${n.nachricht}">Bearbeiten</button>
+                <button class="btn btn-primary absenden" data-nId="${n.nId}" data-nachricht="${n.nachricht}">Absenden</button>
                 </td>
                 `;
                 tabelleNachrichten.append(tr);
@@ -667,14 +697,162 @@ function navigieren(){
     sectKont.classList.add("d-none");
     sectImpr.classList.add("d-none");
 }
+
+
+
+
+
+
+
+
+
+
+
+function zumDet(event:Event){
+    event.preventDefault();
+    navigieren()
+    sectDet.classList.remove("d-none");
+    window.scrollTo(0, 0);
+    /*
+    sectProf.classList.add("d-none");
+    sectDet.classList.add("d-none");
+    sectUeber.classList.add("d-none");
+    sectServ.classList.add("d-none");
+    sectWar.classList.add("d-none");
+    sectCheck.classList.add("d-none");
+    sectLog.classList.add("d-none");
+    sectStart.classList.add("d-none");
+    */
+}
                     
                     
                     
                     
-                    
-                    
-                    
-                    
-                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function nachrichtBearbeitenStart(target: HTMLElement){
+    const nachricht: string = target.dataset.nachricht;
+
+    nachrichtEdit.classList.remove("d-none");
+    nachrichtEdit.value = nachricht.toString();
+}
+
+function nachrichtBearbeitenAbsenden(target: HTMLElement){
+    nachrichtEdit.classList.add("d-none");
+    const nId = target.dataset.nid;
+    const nachricht = nachrichtEdit.value;
+
+    console.log(nId);
+
+    axios.put("/nachricht/" + nId,
+        {
+            nachricht: nachricht
+        })
+        .then((res: AxiosResponse)=>{
+            console.log("nachricht erfolgreich bearbeitet");
+            renderNachrichtenListe();
+        }).catch((err: AxiosResponse) =>{
+            console.log("error die nId stimmt nicht überein");
+    })
+
+
+}
+
+
+
                     
                     

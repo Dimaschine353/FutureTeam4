@@ -121,7 +121,7 @@
 
     <div id="philo">
         <div class="container-fluid p-0 position-relative">
-            <img src="/cMe/images/PhiloLuxKnivesEDIT2.png" width="100%" alt="Nakiri Musashi Messer">
+            <img src="/cMe/images/PhiloMesserGRP.png" width="100%" alt="Nakiri Musashi Messer">
             <div class="top-leftPhilo">PHILOSOPHIE</div>
             <div class="container-fluid p-0">
                 <div class="row justify-content-evenly">
@@ -256,6 +256,36 @@
                                     </div>
                                 </div>
 
+                    </form>
+                <!--Nachrichtenliste-->
+                <div class="row" id="Nachrichtenliste">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col text-center">
+                                <h5>Nachrichtenliste</h5>
+                            </div>
+                        </div>
+                        <div id="nachrichtBearbeitenDiv">
+                            <form id="formNachrichtBearbeiten">
+                                <div class="input-group mb-3">
+                                    <input id="profilNachrichtBearbeiten" type="text" class="form-control d-none" placeholder="Nachrichtentext" name="profilNachrichtBearbeiten"
+                                           aria-label="profilNachrichtBearbeiten"  required>
+                                </div>
+                            </form>
+                        </div>
+                        <table class="table table-striped">
+                            <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Betreff</th>
+                                <th scope="col">Inhalt</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tabelleNachrichten">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
                             </form>
                             <!--Nchrichtenliste-->
                             <div class="row" id="Nachrichtenliste">
@@ -459,10 +489,10 @@
                 <div id="produktbild1">
                     <div class="nakiri">Nakiri</div>
                     <div class="musashi">MUSASHI</div>
-                    <img src="/cMe/images/Nakiricut.jpg" width="100%" alt="Nakiri Messer">
+                    <img src="/cMe/images/NakiriMusashiBigTitle.png" width="100%" alt="Nakiri Messer">
                 </div>
                 <div>
-                    <h1 id="qf" class="qualityFirstTitleStyle">
+                    <h1 id="qf" class="qualityFirstTitleStyle pt-0">
                         Quality First
                     </h1>
                     <p class="scharf">
@@ -475,7 +505,7 @@
             <div id="verfuegbar">
                 <div class="row">
                     <div class="position-relative">
-                        <img id="muster" src="/cMe/images/damask.png" width="100%">
+                        <img id="muster" src="/cMe/images/DetailseiteMesserCUT.png" width="100%">
                     </div>
                     <div class="position-absolute">
                         <div class="row">
@@ -550,7 +580,7 @@
             <!-- Service vor Ort -->
             <div>
                 <div class="container-fluid p-0 position-relative">
-                    <img src="/cMe/images/NCUT.jpg" width="100%" alt="Nakiri Musashi Messer">
+                    <img src="/cMe/images/NakiriService.png" width="100%" alt="Nakiri Musashi Messer">
                     <div class="container-fluid p-0">
                         <div class="row justify-content-evenly">
                             <div class="rightTransBoxService">
@@ -586,7 +616,7 @@
             <!-- Kommentare -->
             <div id="kommentare">
                 <div class="pb-5">
-                    <p class="scharf"> Kundenrezension </p>
+                    <p class="scharf3"> Kundenrezension </p>
                 </div>
 
                 <!-- Kommentar 1 -->
@@ -3646,6 +3676,7 @@
             </nav>
 
     </footer>
+
 
 
 </div>
