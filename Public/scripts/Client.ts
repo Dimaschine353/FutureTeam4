@@ -694,12 +694,12 @@ function zumLogin (event:Event){
 
     }else if(eingeloggterBenutzer=="anbieter@boss.com"){
         navigieren();
-        //benutzerAuslesen(eingeloggterBenutzer);
+        benutzerAuslesen(eingeloggterBenutzer);
         renderAlleleleleNachrichtern();
         sectProfA.classList.remove("d-none");
     }else{
         navigieren();
-        //benutzerAuslesen(eingeloggterBenutzer);
+        benutzerAuslesen(eingeloggterBenutzer);
         renderNachrichtenListe();
         sectProf.classList.remove("d-none");
 
