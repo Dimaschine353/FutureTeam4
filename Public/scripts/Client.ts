@@ -503,25 +503,31 @@ function nachrichtHinzufuegen(event:Event){
     const betreff: string = nachrichtBetreff.value;
     const nachricht: string = nachrichtEin.value.toString();
 
-    axios.post("/nachricht",{
-        vName: vName,
-        nName: nName,
-        email: email,
-        betreff: betreff,
-        nachricht: nachricht
-    }).then((res:AxiosResponse)=>{
-        //Forms einfügen um diese resetten zu können??
-        formKontakt.reset();
-        feedbackNachricht.innerText="Ihre Nachricht wurde gesendet.";
-        setTimeout(feedbackNachrichtLoeschen,2000);
-
-    }).catch((err: AxiosError)=>{
-        if(err!==null){
-            feedbackNachricht.innerText="Nachricht kann nicht gesendet werden.";
+    if (vName == null || vName.trim() == "" || nName == null || nName.trim() == "" || email == null || email.trim() == "" || betreff == null || betreff.trim() == "" || nachricht == null || nachricht.trim() == ""){
+        alert("Die Felder dürfen nicht leer sein oder nur Leertasten enthalten!");
+    }else{
+        axios.post("/nachricht",{
+            vName: vName,
+            nName: nName,
+            email: email,
+            betreff: betreff,
+            nachricht: nachricht
+        }).then((res:AxiosResponse)=>{
+            //Forms einfügen um diese resetten zu können??
+            formKontakt.reset();
+            feedbackNachricht.innerText="Ihre Nachricht wurde gesendet.";
             setTimeout(feedbackNachrichtLoeschen,2000);
 
-        }
-    });
+        }).catch((err: AxiosError)=>{
+            if(err!==null){
+                feedbackNachricht.innerText="Nachricht kann nicht gesendet werden.";
+                setTimeout(feedbackNachrichtLoeschen,2000);
+
+            }
+        });
+    }
+
+
 }
 function nachrichtLoeschen(target:HTMLElement){
     //const email: string = eingeloggterBenutzer.toString();
@@ -670,7 +676,12 @@ function logout(event:Event){
             eingeloggterBenutzer="";
             navigieren();
             sectStart.classList.remove("d-none");
-            alert("Sie wurden ausgeloggt :o")
+            alert("Sie wurden ausgeloggt :o");
+            formKontakt.reset();
+            nachrichtNName.removeAttribute("readonly");
+            nachrichtVName.removeAttribute("readonly");
+            nachrichtEmail.removeAttribute("readonly");
+
 
         });
 }
@@ -797,7 +808,6 @@ function binIchNochDrin(){
             //console.log("eingeloggter Benutzer: "+eingeloggterBenutzer+" im Reload der binIchDrin")
         });
 }
-
 
 
 
