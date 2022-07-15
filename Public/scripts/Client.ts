@@ -86,6 +86,10 @@
 //Deklaration Sections
 
 
+
+
+
+
 let sectStart: HTMLElement;
 let sectProf: HTMLElement;
 let sectProfA: HTMLHtmlElement
@@ -172,7 +176,7 @@ let nachrichtEdit: HTMLInputElement;
 document.addEventListener("DOMContentLoaded",()=>{
 
     //Funktionen die direkt ausgeführt werden sollen
-
+    binIchNochDrin();
     //Initialisierung Sect
     sectStart = document.querySelector("#sectStart");
     sectProf = document.querySelector("#sectProf");
@@ -615,7 +619,7 @@ function login(event:Event){
                 sectProfA.classList.remove("d-none");
                 feedbackLogin.innerText = "Der Benutzer wurde erfolgreich eingeloggt."
                 setTimeout(feedbackLoginLoeschen,2000);
-                benutzerAuslesen(eingeloggterBenutzer);
+                //benutzerAuslesen(eingeloggterBenutzer);
                 renderAlleleleleNachrichtern();
             }else{
                 sectLog.classList.add("d-none");
@@ -624,7 +628,7 @@ function login(event:Event){
                 setTimeout(feedbackLoginLoeschen,2000);
                 //console.log("Anmeldung erfolgreich bruh");
 
-                benutzerAuslesen(eingeloggterBenutzer);
+                //benutzerAuslesen(eingeloggterBenutzer);
                 renderNachrichtenListe();
             }
 
@@ -691,10 +695,12 @@ function zumLogin (event:Event){
 
     }else if(eingeloggterBenutzer=="anbieter@boss.com"){
         navigieren();
+        benutzerAuslesen(eingeloggterBenutzer);
         renderAlleleleleNachrichtern();
         sectProfA.classList.remove("d-none");
     }else{
         navigieren();
+        benutzerAuslesen(eingeloggterBenutzer);
         renderNachrichtenListe();
         sectProf.classList.remove("d-none");
 
@@ -782,7 +788,15 @@ function zumDatenschutz(event:Event){
     navigieren()
     sectDS.classList.remove("d-none");
 }
-
+function binIchNochDrin(){
+    axios.get("/binIchNochDrin?")
+        .then((res:AxiosResponse)=>{
+            //const benutzer = res.data;
+            eingeloggterBenutzer = res.data.email;
+            //console.log(res.data);
+            //console.log("eingeloggter Benutzer: "+eingeloggterBenutzer+" im Reload der binIchDrin")
+        });
+}
 
 
 

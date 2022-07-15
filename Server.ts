@@ -81,6 +81,7 @@ app.get("/",(req: express.Request, res: express.Response)=>{
 //Routen Login
 app.post("/login",login);
 app.post("/logout",logout);
+app.get("/binIchNochDrin?",binIchNochDrin);
 //Routen Benutzer
 app.post("/benutzer",postBenutzer);
 app.get("/benutzer/:email",checkLogin,getBenutzer);
@@ -92,7 +93,7 @@ app.get("/nachrichten/:email",checkLogin,getAlleleleleNachrichten);
 app.post("/nachricht",postNachricht);
 app.delete("/nachricht/:nId",deleteNachricht);
 app.put("/nachricht/:nId", putNachrichten);
-//Funktion Login
+//Login 'n out Funktionen
 function login(req: express.Request, res: express.Response): void {
     //Selektiert "nichts", aber unter der Bedingung, dass Name und Passwort stimmen
     query("SELECT uId FROM benutzer WHERE email = ? AND passwort = ?",
@@ -116,7 +117,6 @@ function login(req: express.Request, res: express.Response): void {
            console.log(err);
         });
 }
-//Funktion Logout
 function logout(req: express.Request, res: express.Response): void {
     //console.log("bin in der Logout Fkt")
     req.session.destroy(()=>{
@@ -124,7 +124,6 @@ function logout(req: express.Request, res: express.Response): void {
         res.sendStatus(200);
     });
 }
-//Funktion checkLogin prüft über den Sessionnamen ob und welcher Benutzer eingeloggt ist und gewährt dementsprechend Zugriff auf Routen
 function checkLogin(req: express.Request, res:express.Response, next: express.NextFunction): void{
     if(req.session.uname !== undefined){
         next();
@@ -132,6 +131,27 @@ function checkLogin(req: express.Request, res:express.Response, next: express.Ne
     }else{
         console.log("User ist nicht eingelogt");
         res.status(401);
+    }
+}
+function binIchNochDrin(req:express.Request, res: express.Response){
+    const email: string = req.session.uname;
+    //console.log(email+" im Anfang der binIchDrin")
+    //const userID: string = req.session.uid;
+    const sql = "SELECT * FROM benutzer WHERE email=?;";
+    const param = [email];
+    if(email){
+        connection.query(
+            sql,
+            param,
+            (err:MysqlError | null, results:any)=>{
+                res.status(200);
+                res.json(results[0]);
+                //console.log(results[0]);
+                //console.log(results);
+            }
+        );
+
+
     }
 }
 //Funktionen Benutzer
@@ -372,6 +392,13 @@ function putNachrichten(req: express.Request, res: express.Response): void {
         res.send("Es gibt keine Nachricht mit dieser Nachricht ID: " + nId);
     }
 }
+
+
+
+
+
+
+
 
 
 
