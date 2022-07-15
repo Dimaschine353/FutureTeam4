@@ -459,6 +459,8 @@ function benutzerAuslesen(eingeloggterBenutzer:String){
                 profilNachnameA.value = benutzer.nName;
                 profilVorname.value = benutzer.vName;
                 profilNachname.value = benutzer.nName;
+                nachrichtVName.value = benutzer.vName;
+                nachrichtNName.value = benutzer.nName;
 //
 
         });
@@ -494,6 +496,7 @@ function nachrichtHinzufuegen(event:Event){
     const email: string = nachrichtEmail.value;
     const betreff: string = nachrichtBetreff.value;
     const nachricht: string = nachrichtEin.value.toString();
+
     axios.post("/nachricht",{
         vName: vName,
         nName: nName,
@@ -577,6 +580,8 @@ function login(event:Event){
     event.preventDefault();
     const data: FormData = new FormData(formLogin);
     eingeloggterBenutzer = data.get("loginName").toString();
+
+
     axios.post("/login", {
         loginName: data.get("loginName"),
         loginPasswort: data.get("loginPasswort")
@@ -617,6 +622,17 @@ function login(event:Event){
 
         })
 
+    //readonlyNachricht
+    if (eingeloggterBenutzer !== ""){
+        nachrichtEmail.value = eingeloggterBenutzer.valueOf();
+
+        nachrichtNName.setAttribute("readonly","true");
+        nachrichtVName.setAttribute("readonly", "true");
+        nachrichtEmail.setAttribute("readonly", "true");
+
+    }else{
+        console.log("fehler oder so diggi");
+    }
 
 
 
