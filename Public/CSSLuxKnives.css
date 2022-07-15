@@ -531,6 +531,21 @@ footer {
     margin-top: 1rem;
 }
 
+
+
+.rashinput3 {
+    border-color: #595859;
+    border-radius: 1px;
+    margin-left: 1rem;
+}
+
+.rashinput4 {
+    border:solid;
+    border-color: #595859;
+    margin-left: 1rem;
+    padding:0;
+}
+
 .rashinput {
     border-color: #595859;
     border-radius: 1px;
@@ -837,5 +852,10 @@ html, body {
 #penis {
     font-weight: 400;
     font-size: 24px;
+}
+
+.pcheck {
+    margin-top: 1rem;
+    margin-bottom: 0;
 }
 
