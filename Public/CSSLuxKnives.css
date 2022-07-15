@@ -546,6 +546,27 @@ footer {
     box-shadow: 5px 10px 18px #888888;
 }
 
+.formSpace {
+    padding-top: 1rem;
+}
+
+.formTitle {
+    font-family: "Montserrat", serif;
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+.btn-Anmelden {
+    background-color: #D94B2B;
+    color: white;
+    padding-inline: 20px;
+    border-radius: 0.3rem !important;
+}
+
+.btn-Anmelden:hover {
+    background-color: #d9765f;
+    color: black;
+}
 
 
 #anmeldenbuttonstyle {
