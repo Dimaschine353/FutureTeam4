@@ -1,6 +1,9 @@
 /* Allgemeine CSS */
 
-
+body {
+    height: 100%;
+    margin: 0;
+}
 
 
 
@@ -324,6 +327,8 @@ footer {
     width: 100%;
     text-align: center;
     color: #0d0d0d;
+    height: 50px;
+    margin-top: -50px;
 }
 
 .nav-link {
@@ -787,6 +792,7 @@ html, body {
 }
 
 .content-inside {
+
     padding-bottom: 50px;
 }
 

@@ -84,7 +84,8 @@
             </div>
             <div id="handgefertigte">
                 <div class="container-fluid p-0 position-relative">
-                    <img id="produktBildFlipper" src="/cMe/images/MesserGruppenPhotoEditFinal.png" width="100%" alt="Nakiri Musashi Messer">
+                    <img id="produktBildFlipper" src="/cMe/images/MesserGruppenPhotoEditFinal.png" width="100%"
+                         alt="Nakiri Musashi Messer">
                     <div class="container-fluid p-0">
                         <div class="row p-0 justify-content-end">
                             <div class="col-4 leftTransBox">
@@ -119,32 +120,32 @@
                 </div>
             </div>
 
-    <div id="philo">
-        <div class="container-fluid p-0 position-relative">
-            <img src="/cMe/images/PhiloMesserGRP.png" width="100%" alt="Nakiri Musashi Messer">
-            <div class="top-leftPhilo">PHILOSOPHIE</div>
-            <div class="container-fluid p-0">
-                <div class="row justify-content-evenly">
-                    <div class="rightTransBox">
-                        <div class="card cardLandingpageStyle">
-                            <div class="card-body">
-                                <p class="card-text card-Philo p-3">
-                                    LuxKnives ist ein traditionsbewusstes Unternehmen.
-                                    Wir haben es uns zur Aufabe gemacht die hochwertigste
-                                    Schmiedekunst breitflächig, dennoch limitiert zu vertreiben.
-                                    <br>
-                                    <br>
-                                    Mit einem lebenslangen Schleifservice für unsere Kunden
-                                    bringen wir Ihnen einen Messer, welches Ihr Leben begleitet.
-                                </p>
-                                <a href="#" class="card-text card-Philo p-3">Mehr Erfahren</a>
+            <div id="philo">
+                <div class="container-fluid p-0 position-relative">
+                    <img src="/cMe/images/PhiloMesserGRP.png" width="100%" alt="Nakiri Musashi Messer">
+                    <div class="top-leftPhilo">PHILOSOPHIE</div>
+                    <div class="container-fluid p-0">
+                        <div class="row justify-content-evenly">
+                            <div class="rightTransBox">
+                                <div class="card cardLandingpageStyle">
+                                    <div class="card-body">
+                                        <p class="card-text card-Philo p-3">
+                                            LuxKnives ist ein traditionsbewusstes Unternehmen.
+                                            Wir haben es uns zur Aufabe gemacht die hochwertigste
+                                            Schmiedekunst breitflächig, dennoch limitiert zu vertreiben.
+                                            <br>
+                                            <br>
+                                            Mit einem lebenslangen Schleifservice für unsere Kunden
+                                            bringen wir Ihnen einen Messer, welches Ihr Leben begleitet.
+                                        </p>
+                                        <a href="#" class="card-text card-Philo p-3">Mehr Erfahren</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
             <div id="content">
                 <div class="container-fluid p-0 pt-3 d-flex justify-content-center position-relative">
@@ -188,10 +189,10 @@
                             <div class="card mb-3 cardBioStyle">
                                 <div class="row g-0">
                                     <div class="col-md-4 fillProfilPic">
-                            <!--
-                                        <img src="/cMe/images/placeholder-person.png"
-                                             class="img-fluid profilBildStyle" alt="...">
-                            -->
+                                        <!--
+                                                    <img src="/cMe/images/placeholder-person.png"
+                                                         class="img-fluid profilBildStyle" alt="...">
+                                        -->
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
@@ -256,40 +257,43 @@
                                     </div>
                                 </div>
 
-                    </form>
-                <!--Nachrichtenliste-->
-                <div class="row" id="Nachrichtenliste">
-                    <div class="col">
-                        <div class="row">
-                            <div class="col text-center">
-                                <h5>Nachrichtenliste</h5>
+                            </form>
+                            <!--Nachrichtenliste-->
+                            <div class="row" id="Nachrichtenliste">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col text-center">
+                                            <h5>Nachrichtenliste</h5>
+                                        </div>
+                                    </div>
+                                    <div id="nachrichtBearbeitenDiv">
+                                        <form id="formNachrichtBearbeiten" data-nId="">
+                                            <div class="input-group mb-3">
+                                                <input id="profilNachrichtBearbeiten" type="text"
+                                                       class="form-control d-none" placeholder="Nachrichtentext"
+                                                       name="profilNachrichtBearbeiten"
+                                                       aria-label="profilNachrichtBearbeiten" required>
+
+                                                <button type="button" class="btn btn-luxknives rounded-1 d-none "
+                                                        id="nachrichtBA">
+                                                    Abschicken
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <table class="table table-striped">
+                                        <thead class="thead-light">
+                                        <tr>
+                                            <th scope="col">Betreff</th>
+                                            <th scope="col">Inhalt</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="tabelleNachrichten">
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                        <div id="nachrichtBearbeitenDiv">
-                            <form id="formNachrichtBearbeiten" data-nId="">
-                                <div class="input-group mb-3">
-                                    <input id="profilNachrichtBearbeiten" type="text" class="form-control d-none" placeholder="Nachrichtentext" name="profilNachrichtBearbeiten"
-                                           aria-label="profilNachrichtBearbeiten"  required>
-
-                                    <button type="button" class="btn btn-luxknives rounded-1 d-none "  id="nachrichtBA" >
-                                        Abschicken
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                        <table class="table table-striped">
-                            <thead class="thead-light">
-                            <tr>
-                                <th scope="col">Betreff</th>
-                                <th scope="col">Inhalt</th>
-                            </tr>
-                            </thead>
-                            <tbody id="tabelleNachrichten">
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
 
 
                     </div>
@@ -459,7 +463,8 @@
                             <div class="row">
                                 <form id="formProfildatenBearbeitenA">
                                     <div class="input-group mb-3">
-                                        <input id="profilVornameA" type="text" class="form-control" placeholder="Vorname"
+                                        <input id="profilVornameA" type="text" class="form-control"
+                                               placeholder="Vorname"
                                                name="profilVorname"
                                                aria-label="Vorname" required readonly>
                                         <input id="profilNachnameA" type="text" class="form-control"
@@ -473,7 +478,8 @@
                             <form id="profildatenBearbeitenBtnA">
                                 <div class="row">
                                     <div class="input-group mb-3">
-                                        <button type="button" class="btn btn-luxknives rounded-1" id="profilUBtnBAnbieter">
+                                        <button type="button" class="btn btn-luxknives rounded-1"
+                                                id="profilUBtnBAnbieter">
                                             Profildaten Bearbeiten
                                         </button>
                                         &nbsp;
@@ -490,7 +496,8 @@
                                             Abmelden
                                         </button>
                                         &nbsp;
-                                        <button type="button" class="btn btn-luxknives rounded-1 " id="profilUBtnLAnbieter">
+                                        <button type="button" class="btn btn-luxknives rounded-1 "
+                                                id="profilUBtnLAnbieter">
                                             Profil Löschen
                                         </button>
                                     </div>
@@ -508,10 +515,13 @@
                                     <div id="nachrichtBearbeitenDivAnbieter">
                                         <form id="formNachrichtBearbeitenAnbieter" data-nId="">
                                             <div class="input-group mb-3">
-                                                <input id="profilNachrichtBearbeitenAnbieter" type="text" class="form-control d-none" placeholder="Nachrichtentext" name="profilNachrichtBearbeiten"
-                                                       aria-label="profilNachrichtBearbeiten"  required>
+                                                <input id="profilNachrichtBearbeitenAnbieter" type="text"
+                                                       class="form-control d-none" placeholder="Nachrichtentext"
+                                                       name="profilNachrichtBearbeiten"
+                                                       aria-label="profilNachrichtBearbeiten" required>
 
-                                                <button type="button" class="btn btn-luxknives rounded-1 d-none "  id="nachrichtBAAnbieter" >
+                                                <button type="button" class="btn btn-luxknives rounded-1 d-none "
+                                                        id="nachrichtBAAnbieter">
                                                     Abschicken
                                                 </button>
                                             </div>
@@ -639,7 +649,8 @@
                                                       aria-label="With textarea"></textarea>
                                         </div>
                                         <button id="antwortenBtnAnbieter" class="btn btn-luxknives">Antworten</button>
-                                        <button id="loeschenBtnAnbieter" class="btn btn-luxknives">Frage Löschen</button>
+                                        <button id="loeschenBtnAnbieter" class="btn btn-luxknives">Frage Löschen
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -1637,13 +1648,7 @@
                 </div>
 
 
-
             </div>
-
-
-
-
-
 
 
         </section>
@@ -3828,7 +3833,11 @@
 
             </div>
         </section>
+
+
     </div>
+</div>
+
         <footer>
             <nav class="navbar-expand-lg luxKnivesFooterStyle">
                 <div class="">
@@ -3836,40 +3845,39 @@
                         <div class="col-4 d-flex justify-content-center">
                             <a id="footKont" class="nav-link active" aria-current="page" href="#">Kontakt</a>
 
-                        <a class="nav-link" id="zumImpressum" href="#">Impressum</a>
+                            <a class="nav-link" id="zumImpressum" href="#">Impressum</a>
 
                             <a id="footFAQ" class="nav-link" href="#">FAQ</a>
                         </div>
 
-                    <div class="col-4 d-flex justify-content-center">
-                        <button class="btn"><i class="fa-2xl fa-brands fa-youtube" id="youtube"></i>
-                        </button>
+                        <div class="col-4 d-flex justify-content-center">
+                            <a href="https://www.youtube.com/watch?v=i5T6Fnbq34c" class="btn"><i class="fa-2xl fa-brands fa-youtube" id="youtube"></i>
+                            </a>
 
-                        <button class="btn"><i class="fa-2xl fa-brands fa-facebook" id="facebook"></i>
-                        </button>
+                            <button class="btn"><i class="fa-2xl fa-brands fa-facebook" id="facebook"></i>
+                            </button>
 
-                        <button class="btn"><i class="fa-2xl fa-brands fa-instagram" id="instagram"></i>
-                        </button>
+                            <button class="btn"><i class="fa-2xl fa-brands fa-instagram" id="instagram"></i>
+                            </button>
 
-                        <button class="btn"><i class="fa-2xl fa-brands fa-twitter-square" id="twitter"></i>
-                        </button>
-                    </div>
+                            <button class="btn"><i class="fa-2xl fa-brands fa-twitter-square" id="twitter"></i>
+                            </button>
+                        </div>
 
-                    <div class="col-4 d-flex justify-content-center">
-                        <a class="nav-link" href="#">Cookie Einstellungen</a>
+                        <div class="col-4 d-flex justify-content-center">
+                            <a class="nav-link" href="#">Cookie Einstellungen</a>
 
                             <a id="footDatenschutz" class="nav-link" href="#">Datenschutz</a>
 
-                        <a class="nav-link" href="#">AGB</a>
+                            <a class="nav-link" href="#">AGB</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </nav>
-    </footer>
+            </nav>
+        </footer>
 
 
 
-</div>
 </body>
 
 </html>
