@@ -1,8 +1,15 @@
 /* Allgemeine CSS */
+html {
+    height: 100%;
+    margin: 0;
+}
+
 
 body {
     height: 100%;
     margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 
@@ -10,9 +17,9 @@ body {
 
 .background {
     background: #f0f0f2;
-    /*
-    background: linear-gradient(white, #f0f0f2);
-    */
+
+    background: linear-gradient(white, #f0f0f2) no-repeat;
+
 }
 
 
@@ -559,6 +566,36 @@ footer {
     padding-inline: 20px;
 }
 
+
+/* Anmelden & Registrieren CSS */
+
+.anmeldenEdges {
+    box-shadow: 5px 10px 18px #888888;
+}
+
+.formSpace {
+    padding-top: 1rem;
+}
+
+.formTitle {
+    font-family: "Montserrat", serif;
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+.btn-Anmelden {
+    background-color: #D94B2B;
+    color: white;
+    padding-inline: 20px;
+    border-radius: 0.3rem !important;
+}
+
+.btn-Anmelden:hover {
+    background-color: #d9765f;
+    color: black;
+}
+
+
 #anmeldenbuttonstyle {
     padding-top: 3rem;
 }
@@ -782,10 +819,6 @@ background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/s
     border-color: white;
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-}
 
 .content {
     min-height: 100%;
@@ -864,4 +897,7 @@ html, body {
     margin-top: 1rem;
     margin-bottom: 0;
 }
+
+
+/* Kontaktformular */
 
