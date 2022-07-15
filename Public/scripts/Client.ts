@@ -674,6 +674,10 @@ function logout(event:Event){
             sectStart.classList.remove("d-none");
             alert("Sie wurden ausgeloggt :o");
             formKontakt.reset();
+            nachrichtNName.removeAttribute("readonly");
+            nachrichtVName.removeAttribute("readonly");
+            nachrichtEmail.removeAttribute("readonly");
+
 
         });
 }
