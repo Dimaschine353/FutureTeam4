@@ -443,9 +443,16 @@ function benutzerAuslesen(eingeloggterBenutzer:String){
     //const email = eingeloggterBenutzer;
     axios.get("/benutzer/"+eingeloggterBenutzer)
         .then((res:AxiosResponse)=>{
-            const benutzer = res.data.benutzer;
-            profilVorname.value = benutzer.vName;
-            profilNachname.value = benutzer.nName;
+            if(eingeloggterBenutzer=="anbieter@boss.com"){
+                const benutzer = res.data.benutzer;
+                profilVornameA.value = benutzer.vName;
+                profilNachnameA.value = benutzer.nName;
+            }else{
+                const benutzer = res.data.benutzer;
+                profilVorname.value = benutzer.vName;
+                profilNachname.value = benutzer.nName;
+            }
+
         });
 }
 //Funktionen Nachrichten
@@ -566,7 +573,6 @@ function login(event:Event){
         loginPasswort: data.get("loginPasswort")
     })
         .then((res: AxiosResponse) => {
-
             eingeloggterBenutzer = data.get("loginName").toString();
             formLogin.reset();
             if(eingeloggterBenutzer=="anbieter@boss.com"){
