@@ -499,7 +499,7 @@ function nachrichtHinzufuegen(event:Event){
     const betreff: string = nachrichtBetreff.value;
     const nachricht: string = nachrichtEin.value.toString();
 
-    if (true){
+    if (vName == null || vName.trim() == "" || nName == null || nName.trim() == "" || email == null || email.trim() == "" || betreff == null || betreff.trim() == "" || nachricht == null || nachricht.trim() == ""){
         alert("Es darf kein Feld leer sein");
     }else{
         axios.post("/nachricht",{
