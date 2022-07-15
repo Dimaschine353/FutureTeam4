@@ -605,8 +605,6 @@ function login(event:Event){
     event.preventDefault();
     const data: FormData = new FormData(formLogin);
     eingeloggterBenutzer = data.get("loginName").toString();
-
-
     axios.post("/login", {
         loginName: data.get("loginName"),
         loginPasswort: data.get("loginPasswort")
@@ -619,7 +617,7 @@ function login(event:Event){
                 sectProfA.classList.remove("d-none");
                 feedbackLogin.innerText = "Der Benutzer wurde erfolgreich eingeloggt."
                 setTimeout(feedbackLoginLoeschen,2000);
-                //benutzerAuslesen(eingeloggterBenutzer);
+                benutzerAuslesen(eingeloggterBenutzer);
                 renderAlleleleleNachrichtern();
             }else{
                 sectLog.classList.add("d-none");
@@ -627,20 +625,15 @@ function login(event:Event){
                 feedbackLogin.innerText = "Der Benutzer wurde erfolgreich eingeloggt."
                 setTimeout(feedbackLoginLoeschen,2000);
                 //console.log("Anmeldung erfolgreich bruh");
-
-                //benutzerAuslesen(eingeloggterBenutzer);
+                benutzerAuslesen(eingeloggterBenutzer);
                 renderNachrichtenListe();
             }
-
-
-
         })
         .catch((err: AxiosError)=>{
             if(err.response.status == 404){
                 feedbackLogin.innerText = "E-Mail, oder Passwort falsch."
                 setTimeout(feedbackLoginLoeschen,2000);
                 console.log("Anmeldung nicht erfolgreich if vom .catch");
-
             }else{
                 console.log("Anmeldung nicht erfolgreich else vom .catch");
             }
@@ -650,11 +643,9 @@ function login(event:Event){
     //readonlyNachricht
     if (eingeloggterBenutzer !== ""){
         nachrichtEmail.value = eingeloggterBenutzer.valueOf();
-
         nachrichtNName.setAttribute("readonly","true");
         nachrichtVName.setAttribute("readonly", "true");
         nachrichtEmail.setAttribute("readonly", "true");
-
     }else{
         console.log("fehler oder so diggi");
     }
@@ -695,12 +686,12 @@ function zumLogin (event:Event){
 
     }else if(eingeloggterBenutzer=="anbieter@boss.com"){
         navigieren();
-        benutzerAuslesen(eingeloggterBenutzer);
+        //benutzerAuslesen(eingeloggterBenutzer);
         renderAlleleleleNachrichtern();
         sectProfA.classList.remove("d-none");
     }else{
         navigieren();
-        benutzerAuslesen(eingeloggterBenutzer);
+        //benutzerAuslesen(eingeloggterBenutzer);
         renderNachrichtenListe();
         sectProf.classList.remove("d-none");
 
