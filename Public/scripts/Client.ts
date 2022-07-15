@@ -579,6 +579,7 @@ function login(event:Event){
                 feedbackLogin.innerText = "Der Benutzer wurde erfolgreich eingeloggt."
                 setTimeout(feedbackLoginLoeschen,2000);
                 //console.log("Anmeldung erfolgreich bruh");
+
                 benutzerAuslesen(eingeloggterBenutzer);
                 renderNachrichtenListe();
             }
