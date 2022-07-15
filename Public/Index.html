@@ -420,6 +420,246 @@
                 </div>
             </div>
         </section>
+        <!-- Profil Anbieter -->
+        <section id="sectProfA" class="d-none">
+            <div id="profilA">
+                <div class="container-fluid p-0 pt-4">
+                    <div class="row justify-content-evenly">
+                        <div class="col-5">
+                            <div class="card mb-3 cardBioStyle">
+                                <div class="row g-0">
+                                    <div class="col-md-4 fillProfilPic">
+                                        <!--
+                                                    <img src="/cMe/images/placeholder-person.png"
+                                                         class="img-fluid profilBildStyle" alt="...">
+                                        -->
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Bio</h5>
+                                            <p class="card-text" id="profilBioReadA">
+                                                Ich bin der Baus, das hier ist mein Laden!
+                                                Ich bin der Baus, das hier ist mein Laden!
+                                                Ich bin der Baus, das hier ist mein Laden!
+                                                Ich bin der Baus, das hier ist mein Laden!
+                                                Ich bin der Baus, das hier ist mein Laden!
+                                                Ich bin der Baus, das hier ist mein Laden!
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Form für Bearbeiten -->
+                        <div class="col-5">
+                            <div class="row">
+                                <p id="feedbackProfildatenBearbeitenA"></p>
+                            </div>
+                            <div class="row">
+                                <form id="formProfildatenBearbeitenA">
+                                    <div class="input-group mb-3">
+                                        <input id="profilVornameA" type="text" class="form-control" placeholder="Vorname"
+                                               name="profilVorname"
+                                               aria-label="Vorname" required readonly>
+                                        <input id="profilNachnameA" type="text" class="form-control"
+                                               placeholder="Nachname" name="profilNachname"
+                                               aria-label="Nachname" required readonly>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- Form für Btns -->
+
+                            <form id="profildatenBearbeitenBtnA">
+                                <div class="row">
+                                    <div class="input-group mb-3">
+                                        <button type="button" class="btn btn-luxknives rounded-1" id="profilUBtnBAnbieter">
+                                            Profildaten Bearbeiten
+                                        </button>
+                                        &nbsp;
+                                        <button type="button" class="btn btn-luxknives rounded-1 d-none"
+                                                id="profilUBtnAAnbieter">
+                                            Änderungen Speichern
+                                        </button>
+                                        &nbsp;
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-group mb-3">
+                                        <button type="button" class="btn btn-luxknives rounded-1" id="profilUBtnLogoutAnbieter">
+                                            Abmelden
+                                        </button>
+                                        &nbsp;
+                                        <button type="button" class="btn btn-luxknives rounded-1 " id="profilUBtnLAnbieter">
+                                            Profil Löschen
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </form>
+                            <!--Nachrichtenliste-->
+                            <div class="row" id="NachrichtenlisteAnbieter">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col text-center">
+                                            <h5>Nachrichtenliste</h5>
+                                        </div>
+                                    </div>
+                                    <div id="nachrichtBearbeitenDivAnbieter">
+                                        <form id="formNachrichtBearbeitenAnbieter" data-nId="">
+                                            <div class="input-group mb-3">
+                                                <input id="profilNachrichtBearbeitenAnbieter" type="text" class="form-control d-none" placeholder="Nachrichtentext" name="profilNachrichtBearbeiten"
+                                                       aria-label="profilNachrichtBearbeiten"  required>
+
+                                                <button type="button" class="btn btn-luxknives rounded-1 d-none "  id="nachrichtBAAnbieter" >
+                                                    Abschicken
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <table class="table table-striped">
+                                        <thead class="thead-light">
+                                        <tr>
+                                            <th scope="col">Betreff</th>
+                                            <th scope="col">Inhalt</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="tabelleNachrichtenAnbieter">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <!-- Bestellungen und Fragen Sektion -->
+                    <div class="row justify-content-evenly">
+                        <!-- Bestellungen -->
+                        <div class="col-5 bg-luxKnives borderLuxKnives">
+                            <div class="row d-flex justify-content-center py-2">
+                                <h2 class="text-center">Meine Bestellungen und Fragen</h2>
+                            </div>
+                            <div class="row d-flex justify-content-center">
+                                <div class="card mb-3 cardBestellungenStyle">
+                                    <div class="row g-0">
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Bestellung: Nakiri Musashi</h5>
+                                                <p class="card-textBestellungen">Ihre Bestellung (Nr.32476) vom
+                                                    12.4.2022 ist in der
+                                                    Zustellung.</p>
+                                                <a class="card-text" href="#">Mehr Details</a>
+                                                <p></p>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <a class="btn btn-luxknives" href="#">Lieferung Verfolgen</a>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <a class="btn btn-luxknives" href="#">Lieferung Stonieren</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 p-4">
+                                            <img src="/cMe/images/NakiriMusashi1.jpg" class="img-fluid"
+                                                 alt="Produktfoto">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row d-flex justify-content-center">
+                                <div class="card mb-3 cardBestellungenStyle">
+                                    <div class="row g-0">
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Bestellung: Sujihiki Masako</h5>
+                                                <p class="card-textBestellungen">Ihre Bestellung (Nr.32477) vom 4.6.2022
+                                                    ist in der
+                                                    Zustellung.</p>
+                                                <a class="card-text" href="#">Mehr Details</a>
+                                                <p></p>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <a class="btn btn-luxknives" href="#">Lieferung Verfolgen</a>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <a class="btn btn-luxknives" href="#">Lieferung Stonieren</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 p-4">
+                                            <img src="/cMe/images/SujihikiMasakoEdit.jpg" class="img-fluid"
+                                                 alt="Produktfoto">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row d-flex justify-content-center">
+                                <div class="card mb-3 cardBestellungenStyle">
+                                    <div class="row g-0">
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Termin: Schleifen am 14.6.2022</h5>
+                                                <p class="card-textBestellungen">Sie haben sich fur einen Termin am
+                                                    14.6.2022 um 15 Uhr
+                                                    angemeldet.</p>
+                                                <p></p>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <a class="btn btn-luxknives" href="#">Termin Bearbeiten</a>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <a class="btn btn-luxknives" href="#">Termin Stonieren</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 d-flex justify-content-center align-items-center p-4">
+                                            <i class="fa-solid fa-house-user fa-7x"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Fragen -->
+                        <div class="col-5 bg-luxKnives borderLuxKnives">
+                            <div class="row d-flex justify-content-start py-2 padding-fragen">
+                                <h2>Neue Infos:</h2>
+                            </div>
+                            <div class="row d-flex justify-content-center">
+                                <div class="card mb-3 cardBestellungenStyle">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Ihre Frage</h5>
+                                        <p class="card-textBestellungen"> Gibt es eine Moglichkeit die Messer vor Ort
+                                            auszutesten?</p>
+                                        <div class="input-group mb-3">
+                                            <textarea id="antwortSchreibenAnbieter" class="form-control"
+                                                      aria-label="With textarea"></textarea>
+                                        </div>
+                                        <button id="antwortenBtnAnbieter" class="btn btn-luxknives">Antworten</button>
+                                        <button id="loeschenBtnAnbieter" class="btn btn-luxknives">Frage Löschen</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--
+                            <div class="row d-flex justify-content-center">
+                                <div class="card mb-3 cardBestellungenStyle">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Ihre Frage</h5>
+                                        <p class="card-textBestellungen">Haben sie Produkte in anderen Farben?</p>
+                                        <a href="#" class="btn btn-luxknives">Antworten</a>
+                                        <a href="#" class="btn btn-luxknives">Frage Loschen</a>
+                                    </div>
+                                </div>
+                            </div>
+                            -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- Detailseite -->
         <section id="sectDet" class="d-none">
             <div class="container-fluid p-0 position-relative">

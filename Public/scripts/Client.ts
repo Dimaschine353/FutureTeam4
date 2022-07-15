@@ -86,6 +86,7 @@
 //Deklaration Sections
 let sectStart: HTMLElement;
 let sectProf: HTMLElement;
+let sectProfA: HTMLHtmlElement
 let sectDet: HTMLElement;
 let sectUeber: HTMLElement;
 let sectServ: HTMLElement;
@@ -118,11 +119,13 @@ let startHandgefertigte: HTMLElement;
 //Deklaration Forms
 let feedbackReg: HTMLElement;
 let feedbackProfU: HTMLElement;
+let feedbackProfA: HTMLElement;
 let feedbackLogin: HTMLElement;
 let feedbackNachricht: HTMLElement;
 let formRegistrieren: HTMLFormElement;
 let formLogin: HTMLFormElement;
 let formProfilDatenBearbeiten: HTMLFormElement;
+let formProfilDatenBearbeitenAnbieter: HTMLElement;
 let formKontakt: HTMLFormElement;
 //Deklaration globale Variablen
 let eingeloggterBenutzer:String;
@@ -138,10 +141,19 @@ let profilNachname: HTMLInputElement;
 let profilUBtnB: HTMLInputElement;
 let profilUBtnA: HTMLInputElement;
 let profilUBtnL: HTMLInputElement;
+let tabelleNachrichten: HTMLElement;
+//Profil Anbieter
+let profilVornameA: HTMLInputElement;
+let profilNachnameA: HTMLInputElement;
+let profilUBtnBAnbieter: HTMLInputElement;
+let profilUBtnAAnbieter: HTMLInputElement;
+let profilUBtnLAnbieter: HTMLInputElement;
+let tabelleNachrichtenAnbieter: HTMLElement;
 //Login
 let loginName: HTMLInputElement;
 let loginPasswort: HTMLInputElement;
 let logoutBtn: HTMLInputElement;
+let logoutBtnA: HTMLHtmlElement;
 let zumRegistrieren: HTMLElement;
 //Nachricht
 let nachrichtVName: HTMLInputElement;
@@ -150,7 +162,6 @@ let nachrichtEmail: HTMLInputElement;
 let nachrichtBetreff: HTMLInputElement;
 let nachrichtEin: HTMLInputElement;
 let nachrichtBtnA: HTMLInputElement;
-let tabelleNachrichten: HTMLElement;
 let nachrichtEdit: HTMLInputElement;
 //Listener
 document.addEventListener("DOMContentLoaded",()=>{
@@ -160,6 +171,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     //Initialisierung Sect
     sectStart = document.querySelector("#sectStart");
     sectProf = document.querySelector("#sectProf");
+    sectProfA = document.querySelector("#sectProfA");
     sectDet = document.querySelector("#sectDet");
     sectUeber = document.querySelector("#sectUeber");
     sectServ = document.querySelector("#sectServ");
@@ -211,10 +223,12 @@ document.addEventListener("DOMContentLoaded",()=>{
     feedbackLogin = document.querySelector("#feedbackLogin");
     feedbackReg = document.querySelector("#feedbackRegistrieren");
     feedbackProfU = document.querySelector("#feedbackProfildatenBearbeiten");
+    feedbackProfA = document.querySelector("#feedbackProfildatenBearbeitenA");
     feedbackNachricht = document.querySelector("#feedbackNachricht");
     formRegistrieren = document.querySelector("#formRegistrieren");
     formLogin = document.querySelector("#formLogin");
     formProfilDatenBearbeiten = document.querySelector("#formProfildatenBearbeiten");
+    formProfilDatenBearbeitenAnbieter = document.querySelector("#feedbackProfildatenBearbeitenA");
     formKontakt = document.querySelector("#formKontakt");
     //Initialisierung globaler Variablen
     eingeloggterBenutzer = "";
@@ -243,6 +257,17 @@ document.addEventListener("DOMContentLoaded",()=>{
     logoutBtn.addEventListener("click", logout);
     profilUBtnL = document.querySelector("#profilUBtnL");
     profilUBtnL.addEventListener("click",benutzerLoeschen);
+    //Profil Anbieter
+    profilNachnameA = document.querySelector("#profilNachname");
+    profilVornameA = document.querySelector("#profilVorname");
+    profilUBtnBAnbieter = document.querySelector("#profilUBtnB");
+    profilUBtnBAnbieter.addEventListener("click",benutzerBearbeitenStart);
+    profilUBtnAAnbieter = document.querySelector("#profilUBtnA");
+    profilUBtnAAnbieter.addEventListener("click",benutzerAendern);
+    logoutBtnA = document.querySelector("#profilUBtnLogout");
+    logoutBtnA.addEventListener("click", logout);
+    profilUBtnLAnbieter = document.querySelector("#profilUBtnL");
+    profilUBtnLAnbieter.addEventListener("click",benutzerLoeschen);
     //Nachricht
     tabelleNachrichten = document.querySelector("#tabelleNachrichten");
     nachrichtVName = document.querySelector("#nachrichtVName");
@@ -251,9 +276,10 @@ document.addEventListener("DOMContentLoaded",()=>{
     nachrichtBetreff = document.querySelector("#nachrichtBetreff");
     nachrichtEin = document.querySelector("#nachrichtEin");
     nachrichtBtnA = document.querySelector("#nachrichtBtnA");
-    nachrichtEdit = document.querySelector("#profilNachrichtBearbeiten");
     nachrichtBtnA.addEventListener("click",nachrichtHinzufuegen);
-    nachrichtBtnA.addEventListener("click", nachrichtHinzufuegen);
+    nachrichtEdit = document.querySelector("#profilNachrichtBearbeiten");
+
+
     tabelleNachrichten.addEventListener("click",(event:Event)=>{
         let target: HTMLElement = event.target as HTMLElement;
         target = target.closest("button");
@@ -263,6 +289,17 @@ document.addEventListener("DOMContentLoaded",()=>{
             nachrichtBearbeitenStart(target);
         }else if(target.matches(".absenden")){
             nachrichtBearbeitenAbsenden(target);
+        }
+    });
+    tabelleNachrichtenAnbieter.addEventListener("click",(event:Event)=>{
+        let target: HTMLElement = event.target as HTMLElement;
+        target = target.closest("button");
+        if(target.matches(".delete")){
+            antwortLoeschen(target);
+        }else if(target.matches(".edit")){
+            nachrichtBeantwortenStart(target);
+        }else if(target.matches(".absenden")){
+            nachrichtBeantwortenAbsenden(target);
         }
     });
     //Startseite/Landingpage
@@ -340,34 +377,62 @@ function benutzerLoeschen(event:Event){
 function benutzerBearbeitenStart(event: Event){
     event.preventDefault();
 
-    //formProfilDatenBearbeiten.classList.remove("d-none");
-    profilVorname.removeAttribute("readonly");
-    profilNachname.removeAttribute("readonly");
-    profilUBtnA.classList.remove("d-none");
-    profilUBtnB.classList.add("d-none");
+    if(eingeloggterBenutzer=="anbieter@boss.com"){
+        profilVornameA.removeAttribute("readonly");
+        profilNachnameA.removeAttribute("readonly");
+        profilUBtnAAnbieter.classList.remove("d-none");
+        profilUBtnBAnbieter.classList.add("d-none");
+    }else{
+        profilVorname.removeAttribute("readonly");
+        profilNachname.removeAttribute("readonly");
+        profilUBtnA.classList.remove("d-none");
+        profilUBtnB.classList.add("d-none");
+    }
+
 
 }
 function benutzerAendern(event:Event){
     event.preventDefault();
+    if(eingeloggterBenutzer=="anbieter@boss.com"){
+        const vName = profilVornameA.value
+        const nName = profilNachnameA.value;
+        const email = eingeloggterBenutzer;
+        axios.put("/benutzer/"+email,{
+            vName: vName,
+            nName: nName,
+            email: email
+        }).then((res:AxiosResponse)=>{
+            profilNachnameA.setAttribute("readonly","true");
+            profilVornameA.setAttribute("readonly","true");
+            feedbackProfA.innerText = "Nutzerdaten erfolgreich geupdated.";
+            profilUBtnBAnbieter.classList.remove("d-none");
+            profilUBtnAAnbieter.classList.add("d-none");
+            setTimeout(feedbackProfALoeschen,1000);
 
-    const vName = profilVorname.value;
-    const nName = profilNachname.value;
-    const email = eingeloggterBenutzer;
 
-    axios.put("/benutzer/"+email,{
-        vName: vName,
-        nName: nName,
-        email: email
-    }).then((res:AxiosResponse)=>{
-        profilNachname.setAttribute("readonly","true");
-        profilVorname.setAttribute("readonly","true");
-        feedbackProfU.innerText = "Nutzerdaten erfolgreich geupdated.";
-        profilUBtnB.classList.remove("d-none");
-        profilUBtnA.classList.add("d-none");
-        setTimeout(feedbackProfULoeschen,1000);
+        });
+
+    }else{
+        const vName = profilVorname.value;
+        const nName = profilNachname.value;
+        const email = eingeloggterBenutzer;
+
+        axios.put("/benutzer/"+email,{
+            vName: vName,
+            nName: nName,
+            email: email
+        }).then((res:AxiosResponse)=>{
+            profilNachname.setAttribute("readonly","true");
+            profilVorname.setAttribute("readonly","true");
+            feedbackProfU.innerText = "Nutzerdaten erfolgreich geupdated.";
+            profilUBtnB.classList.remove("d-none");
+            profilUBtnA.classList.add("d-none");
+            setTimeout(feedbackProfULoeschen,1000);
 
 
-    })
+        });
+    }
+
 
 }
 function benutzerAuslesen(eingeloggterBenutzer:String){
@@ -476,6 +541,19 @@ function nachrichtBearbeitenAbsenden(target: HTMLElement){
 
 
 }
+//Funktionen Anbieter
+function renderAlleNachrichtern(){
+
+}
+function antwortLoeschen(target:HTMLElement){
+
+}
+function nachrichtBeantwortenStart(target:HTMLElement){
+
+}
+function nachrichtBeantwortenAbsenden(target:HTMLElement){
+
+}
 //Login 'n out Funktionen
 function login(event:Event){
     event.preventDefault();
@@ -488,13 +566,21 @@ function login(event:Event){
 
             eingeloggterBenutzer = data.get("loginName").toString();
             formLogin.reset();
-            sectLog.classList.add("d-none");
-            sectProf.classList.remove("d-none");
-            feedbackLogin.innerText = "Der Benutzer wurde erfolgreich eingeloggt."
-            setTimeout(feedbackLoginLoeschen,2000);
-            //console.log("Anmeldung erfolgreich bruh");
-            benutzerAuslesen(eingeloggterBenutzer);
-            renderNachrichtenListe();
+            if(eingeloggterBenutzer=="anbieter@boss.com"){
+                sectLog.classList.add("d-none");
+                feedbackLogin.innerText = "Der Benutzer wurde erfolgreich eingeloggt."
+                setTimeout(feedbackLoginLoeschen,2000);
+                benutzerAuslesen(eingeloggterBenutzer);
+                renderAlleNachrichtern();
+            }else{
+                sectProf.classList.remove("d-none");
+                feedbackLogin.innerText = "Der Benutzer wurde erfolgreich eingeloggt."
+                setTimeout(feedbackLoginLoeschen,2000);
+                //console.log("Anmeldung erfolgreich bruh");
+                benutzerAuslesen(eingeloggterBenutzer);
+                renderNachrichtenListe();
+            }
+
 
 
         })
@@ -529,6 +615,7 @@ function logout(event:Event){
 }
 //Timeout funktionen
 function feedbackProfULoeschen(){feedbackProfU.innerText="";}
+function feedbackProfALoeschen(){feedbackProfA.innerText="";}
 function feedbackRegLoeschen(){feedbackReg.innerText="";}
 function feedbackLoginLoeschen(){feedbackLogin.innerText="";}
 function feedbackNachrichtLoeschen(){feedbackNachricht.innerText="";}
@@ -596,6 +683,7 @@ function zumImpr(event:Event){
 function navigieren(){
     sectStart.classList.add("d-none");
     sectProf.classList.add("d-none");
+    sectProfA.classList.add("d-none");
     sectDet.classList.add("d-none");
     sectUeber.classList.add("d-none");
     sectServ.classList.add("d-none");
