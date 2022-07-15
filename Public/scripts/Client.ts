@@ -494,6 +494,7 @@ function nachrichtHinzufuegen(event:Event){
     const email: string = nachrichtEmail.value;
     const betreff: string = nachrichtBetreff.value;
     const nachricht: string = nachrichtEin.value.toString();
+
     axios.post("/nachricht",{
         vName: vName,
         nName: nName,
@@ -577,6 +578,21 @@ function login(event:Event){
     event.preventDefault();
     const data: FormData = new FormData(formLogin);
     eingeloggterBenutzer = data.get("loginName").toString();
+
+    //readonlyNachricht
+    if (eingeloggterBenutzer !== ""){
+
+        nachrichtNName.value = "Nachname: ";
+        nachrichtVName.value = "Vorname: ";
+        nachrichtEmail.value = eingeloggterBenutzer.valueOf();
+
+        nachrichtNName.setAttribute("readonly","true");
+        nachrichtVName.setAttribute("readonly", "true");
+        nachrichtEmail.setAttribute("readonly", "true");
+
+    }else{
+        console.log("fehler oder so diggi");
+    }
     axios.post("/login", {
         loginName: data.get("loginName"),
         loginPasswort: data.get("loginPasswort")
