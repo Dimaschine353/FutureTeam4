@@ -89,6 +89,7 @@ let sectProf: HTMLElement;
 let sectProfA: HTMLHtmlElement
 let sectDet: HTMLElement;
 let sectDetSantoku: HTMLElement;
+let sectDetSujihiki: HTMLElement;
 let sectUeber: HTMLElement;
 let sectServ: HTMLElement;
 let sectWar: HTMLElement;
@@ -175,6 +176,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     sectProfA = document.querySelector("#sectProfA");
     sectDet = document.querySelector("#sectDet");
     sectDetSantoku = document.querySelector("#sectDetSantoku");
+    sectDetSujihiki = document.querySelector("#sectDetSujihiki");
     sectUeber = document.querySelector("#sectUeber");
     sectServ = document.querySelector("#sectServ");
     sectWar = document.querySelector("#sectWar");
@@ -214,6 +216,9 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     startSantoku = document.querySelector("#startSantoku");
     startSantoku.addEventListener("click", zurDetSantoku);
+
+    startSujihinki = document.querySelector("#startSujihinki");
+    startSujihinki.addEventListener("click", zurDetSujihiki);
 
 
 
@@ -698,6 +703,7 @@ function navigieren(){
     sectProfA.classList.add("d-none");
     sectDet.classList.add("d-none");
     sectDetSantoku.classList.add("d-none");
+    sectDetSujihiki.classList.add("d-none");
     sectUeber.classList.add("d-none");
     sectServ.classList.add("d-none");
     sectWar.classList.add("d-none");
@@ -720,6 +726,12 @@ function zurDetSantoku(event: Event){
     event.preventDefault();
     navigieren();
     sectDetSantoku.classList.remove("d-none");
+    window.scrollTo(0, 0);
+}
+function zurDetSujihiki(event: Event){
+    event.preventDefault();
+    navigieren();
+    sectDetSujihiki.classList.remove("d-none");
     window.scrollTo(0, 0);
 }
 function zumDatenschutz(event:Event){
