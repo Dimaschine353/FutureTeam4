@@ -86,6 +86,10 @@
 //Deklaration Sections
 
 
+
+
+
+
 let sectStart: HTMLElement;
 let sectProf: HTMLElement;
 let sectProfA: HTMLHtmlElement
@@ -172,7 +176,7 @@ let nachrichtEdit: HTMLInputElement;
 document.addEventListener("DOMContentLoaded",()=>{
 
     //Funktionen die direkt ausgeführt werden sollen
-
+    binIchNochDrin();
     //Initialisierung Sect
     sectStart = document.querySelector("#sectStart");
     sectProf = document.querySelector("#sectProf");
@@ -329,21 +333,18 @@ document.addEventListener("DOMContentLoaded",()=>{
     //Startseite/Landingpage FotoFlipper
     startNakiri.addEventListener('mouseover', (event) => {
         event.preventDefault();
-        startIMGFlipper.src = "/cMe/images/Messer1.png"
-        startIMGFlipper.src = "/cMe/images/NakiriMusashi5Edit.jpg"
+        startIMGFlipper.src = "/cMe/images/komp/NakiriMusashi5Edit.jpg"
     });
     startSantoku.addEventListener('mouseover', (event) => {
         event.preventDefault();
-        startIMGFlipper.src = "/cMe/images/Messer2.png"
-        startIMGFlipper.src = "/cMe/images/SantokuKenshinEdit.jpg"
+        startIMGFlipper.src = "/cMe/images/komp/SantokuKenshinEdit.jpg"
     });
     startSujihinki.addEventListener('mouseover', (event) => {
         event.preventDefault();
-        startIMGFlipper.src = "/cMe/images/Messer1.png"
-        startIMGFlipper.src = "/cMe/images/SujihikiMasakoEdit.jpg"
+        startIMGFlipper.src = "/cMe/images/komp/SujihikiMasakoEdit.jpg"
     });
     startHandgefertigte.addEventListener('mouseover', () => {
-        startIMGFlipper.src = "/cMe/images/MesserGruppenPhotoEditFinal.png"
+        startIMGFlipper.src = "/cMe/images/komp/MesserGruppenPhotoEditFinal.png"
     });
 });
 //Funktionen Benutzer
@@ -499,25 +500,31 @@ function nachrichtHinzufuegen(event:Event){
     const betreff: string = nachrichtBetreff.value;
     const nachricht: string = nachrichtEin.value.toString();
 
-    axios.post("/nachricht",{
-        vName: vName,
-        nName: nName,
-        email: email,
-        betreff: betreff,
-        nachricht: nachricht
-    }).then((res:AxiosResponse)=>{
-        //Forms einfügen um diese resetten zu können??
-        formKontakt.reset();
-        feedbackNachricht.innerText="Ihre Nachricht wurde gesendet.";
-        setTimeout(feedbackNachrichtLoeschen,2000);
-
-    }).catch((err: AxiosError)=>{
-        if(err!==null){
-            feedbackNachricht.innerText="Nachricht kann nicht gesendet werden.";
+    if (vName == null || vName.trim() == "" || nName == null || nName.trim() == "" || email == null || email.trim() == "" || betreff == null || betreff.trim() == "" || nachricht == null || nachricht.trim() == ""){
+        alert("Die Felder dürfen nicht leer sein oder nur Leertasten enthalten!");
+    }else{
+        axios.post("/nachricht",{
+            vName: vName,
+            nName: nName,
+            email: email,
+            betreff: betreff,
+            nachricht: nachricht
+        }).then((res:AxiosResponse)=>{
+            //Forms einfügen um diese resetten zu können??
+            formKontakt.reset();
+            feedbackNachricht.innerText="Ihre Nachricht wurde gesendet.";
             setTimeout(feedbackNachrichtLoeschen,2000);
 
-        }
-    });
+        }).catch((err: AxiosError)=>{
+            if(err!==null){
+                feedbackNachricht.innerText="Nachricht kann nicht gesendet werden.";
+                setTimeout(feedbackNachrichtLoeschen,2000);
+
+            }
+        });
+    }
+
+
 }
 function nachrichtLoeschen(target:HTMLElement){
     //const email: string = eingeloggterBenutzer.toString();
@@ -601,8 +608,6 @@ function login(event:Event){
     event.preventDefault();
     const data: FormData = new FormData(formLogin);
     eingeloggterBenutzer = data.get("loginName").toString();
-
-
     axios.post("/login", {
         loginName: data.get("loginName"),
         loginPasswort: data.get("loginPasswort")
@@ -623,20 +628,15 @@ function login(event:Event){
                 feedbackLogin.innerText = "Der Benutzer wurde erfolgreich eingeloggt."
                 setTimeout(feedbackLoginLoeschen,2000);
                 //console.log("Anmeldung erfolgreich bruh");
-
                 benutzerAuslesen(eingeloggterBenutzer);
                 renderNachrichtenListe();
             }
-
-
-
         })
         .catch((err: AxiosError)=>{
             if(err.response.status == 404){
                 feedbackLogin.innerText = "E-Mail, oder Passwort falsch."
                 setTimeout(feedbackLoginLoeschen,2000);
                 console.log("Anmeldung nicht erfolgreich if vom .catch");
-
             }else{
                 console.log("Anmeldung nicht erfolgreich else vom .catch");
             }
@@ -646,11 +646,9 @@ function login(event:Event){
     //readonlyNachricht
     if (eingeloggterBenutzer !== ""){
         nachrichtEmail.value = eingeloggterBenutzer.valueOf();
-
         nachrichtNName.setAttribute("readonly","true");
         nachrichtVName.setAttribute("readonly", "true");
         nachrichtEmail.setAttribute("readonly", "true");
-
     }else{
         console.log("fehler oder so diggi");
     }
@@ -666,7 +664,12 @@ function logout(event:Event){
             eingeloggterBenutzer="";
             navigieren();
             sectStart.classList.remove("d-none");
-            alert("Sie wurden ausgeloggt :o")
+            alert("Sie wurden ausgeloggt :o");
+            formKontakt.reset();
+            nachrichtNName.removeAttribute("readonly");
+            nachrichtVName.removeAttribute("readonly");
+            nachrichtEmail.removeAttribute("readonly");
+
 
         });
 }
@@ -691,10 +694,12 @@ function zumLogin (event:Event){
 
     }else if(eingeloggterBenutzer=="anbieter@boss.com"){
         navigieren();
+        benutzerAuslesen(eingeloggterBenutzer);
         renderAlleleleleNachrichtern();
         sectProfA.classList.remove("d-none");
     }else{
         navigieren();
+        benutzerAuslesen(eingeloggterBenutzer);
         renderNachrichtenListe();
         sectProf.classList.remove("d-none");
 
@@ -782,8 +787,15 @@ function zumDatenschutz(event:Event){
     navigieren()
     sectDS.classList.remove("d-none");
 }
-
-
+function binIchNochDrin(){
+    axios.get("/binIchNochDrin?")
+        .then((res:AxiosResponse)=>{
+            //const benutzer = res.data;
+            eingeloggterBenutzer = res.data.email;
+            //console.log(res.data);
+            //console.log("eingeloggter Benutzer: "+eingeloggterBenutzer+" im Reload der binIchDrin")
+        });
+}
 
 
 

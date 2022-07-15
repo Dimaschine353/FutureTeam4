@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Lux Knives</title>
-    <link rel="icon" type="image/x-icon" href="/cMe/images/LogoLuxKnivesTransparent.png">
+    <link rel="icon" type="image/x-icon" href="/cMe/images/original/LogoLuxKnivesTransparent.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"
           crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
@@ -38,7 +38,7 @@
                     </div>
                     <div class="col-1">
                         <a href="#">
-                            <img id="navHome" src="/cMe/images/LuxKnivesLogoNew.PNG" alt="LuxKnives Logo" width="100%">
+                            <img id="navHome" src="/cMe/images/original/LuxKnivesLogoNew.PNG" alt="LuxKnives Logo" width="100%">
                         </a>
                     </div>
                     <div class="col">
@@ -77,15 +77,14 @@
         <section id="sectStart" class="d-block">
             <div id="qualityfirst">
                 <div class="container-fluid p-0 position-relative">
-                    <img src="/cMe/images/landingpageMesser.png" width="100%" alt="Messer Bild Landingpage">
+                    <img src="/cMe/images/komp/landingpageMesser.png" width="100%" alt="Messer Bild Landingpage">
                     <div class="top-left">QUALITY</div>
                     <div class="top-left2">FIRST</div>
                 </div>
             </div>
             <div id="handgefertigte">
                 <div class="container-fluid p-0 position-relative">
-                    <img id="produktBildFlipper" src="/cMe/images/MesserGruppenPhotoEditFinal.png" width="100%"
-                         alt="Nakiri Musashi Messer">
+                    <img id="produktBildFlipper" src="/cMe/images/komp/MesserGruppenPhotoEditFinal.png" width="100%" alt="Nakiri Musashi Messer">
                     <div class="container-fluid p-0">
                         <div class="row p-0 justify-content-end">
                             <div class="col-4 leftTransBox">
@@ -122,7 +121,7 @@
 
             <div id="philo">
                 <div class="container-fluid p-0 position-relative">
-                    <img src="/cMe/images/PhiloMesserGRP.png" width="100%" alt="Nakiri Musashi Messer">
+                    <img src="/cMe/images/komp/PhiloMesserGRP.png" width="100%" alt="Nakiri Musashi Messer">
                     <div class="top-leftPhilo">PHILOSOPHIE</div>
                     <div class="container-fluid p-0">
                         <div class="row justify-content-evenly">
@@ -196,10 +195,10 @@
                             <div class="card mb-3 cardBioStyle">
                                 <div class="row g-0">
                                     <div class="col-md-4 fillProfilPic">
-                                        <!--
-                                                    <img src="/cMe/images/placeholder-person.png"
-                                                         class="img-fluid profilBildStyle" alt="...">
-                                        -->
+                            <!--
+                                        <img src="/cMe/images/placeholder-person.png"
+                                             class="img-fluid profilBildStyle" alt="...">
+                            -->
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
@@ -264,43 +263,40 @@
                                     </div>
                                 </div>
 
-                            </form>
-                            <!--Nachrichtenliste-->
-                            <div class="row" id="Nachrichtenliste">
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col text-center">
-                                            <h5>Nachrichtenliste</h5>
-                                        </div>
-                                    </div>
-                                    <div id="nachrichtBearbeitenDiv">
-                                        <form id="formNachrichtBearbeiten" data-nId="">
-                                            <div class="input-group mb-3">
-                                                <input id="profilNachrichtBearbeiten" type="text"
-                                                       class="form-control d-none" placeholder="Nachrichtentext"
-                                                       name="profilNachrichtBearbeiten"
-                                                       aria-label="profilNachrichtBearbeiten" required>
-
-                                                <button type="button" class="btn btn-luxknives rounded-1 d-none "
-                                                        id="nachrichtBA">
-                                                    Abschicken
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <table class="table table-striped">
-                                        <thead class="thead-light">
-                                        <tr>
-                                            <th scope="col">Betreff</th>
-                                            <th scope="col">Inhalt</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody id="tabelleNachrichten">
-                                        </tbody>
-                                    </table>
-                                </div>
+                    </form>
+                <!--Nachrichtenliste-->
+                <div class="row" id="Nachrichtenliste">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col text-center">
+                                <h5>Nachrichtenliste</h5>
                             </div>
                         </div>
+                        <div id="nachrichtBearbeitenDiv">
+                            <form id="formNachrichtBearbeiten" data-nId="">
+                                <div class="input-group mb-3">
+                                    <input id="profilNachrichtBearbeiten" type="text" class="form-control d-none" placeholder="Nachrichtentext" name="profilNachrichtBearbeiten"
+                                           aria-label="profilNachrichtBearbeiten"  required>
+
+                                    <button type="button" class="btn btn-luxknives rounded-1 d-none "  id="nachrichtBA" >
+                                        Abschicken
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <table class="table table-striped">
+                            <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Betreff</th>
+                                <th scope="col">Inhalt</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tabelleNachrichten">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
 
                     </div>
@@ -333,7 +329,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4 p-4">
-                                            <img src="/cMe/images/NakiriMusashi1.jpg" class="img-fluid"
+                                            <img src="/cMe/images/komp/NakiriMusashi1.jpg" class="img-fluid"
                                                  alt="Produktfoto">
                                         </div>
                                     </div>
@@ -361,7 +357,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4 p-4">
-                                            <img src="/cMe/images/SujihikiMasakoEdit.jpg" class="img-fluid"
+                                            <img src="/cMe/images/komp/SujihikiMasakoEdit.jpg" class="img-fluid"
                                                  alt="Produktfoto">
                                         </div>
                                     </div>
@@ -470,8 +466,7 @@
                             <div class="row">
                                 <form id="formProfildatenBearbeitenA">
                                     <div class="input-group mb-3">
-                                        <input id="profilVornameA" type="text" class="form-control"
-                                               placeholder="Vorname"
+                                        <input id="profilVornameA" type="text" class="form-control" placeholder="Vorname"
                                                name="profilVorname"
                                                aria-label="Vorname" required readonly>
                                         <input id="profilNachnameA" type="text" class="form-control"
@@ -520,13 +515,10 @@
                                     <div id="nachrichtBearbeitenDivAnbieter">
                                         <form id="formNachrichtBearbeitenAnbieter" data-nId="">
                                             <div class="input-group mb-3">
-                                                <input id="profilNachrichtBearbeitenAnbieter" type="text"
-                                                       class="form-control d-none" placeholder="Nachrichtentext"
-                                                       name="profilNachrichtBearbeiten"
-                                                       aria-label="profilNachrichtBearbeiten" required>
+                                                <input id="profilNachrichtBearbeitenAnbieter" type="text" class="form-control d-none" placeholder="Nachrichtentext" name="profilNachrichtBearbeiten"
+                                                       aria-label="profilNachrichtBearbeiten"  required>
 
-                                                <button type="button" class="btn btn-luxknives rounded-1 d-none "
-                                                        id="nachrichtBAAnbieter">
+                                                <button type="button" class="btn btn-luxknives rounded-1 d-none "  id="nachrichtBAAnbieter" >
                                                     Abschicken
                                                 </button>
                                             </div>
@@ -577,7 +569,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4 p-4">
-                                            <img src="/cMe/images/NakiriMusashi1.jpg" class="img-fluid"
+                                            <img src="/cMe/images/komp/NakiriMusashi1.jpg" class="img-fluid"
                                                  alt="Produktfoto">
                                         </div>
                                     </div>
@@ -605,7 +597,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4 p-4">
-                                            <img src="/cMe/images/SujihikiMasakoEdit.jpg" class="img-fluid"
+                                            <img src="/cMe/images/komp/SujihikiMasakoEdit.jpg" class="img-fluid"
                                                  alt="Produktfoto">
                                         </div>
                                     </div>
@@ -654,8 +646,7 @@
                                                       aria-label="With textarea"></textarea>
                                         </div>
                                         <button id="antwortenBtnAnbieter" class="btn btn-luxknives">Antworten</button>
-                                        <button id="loeschenBtnAnbieter" class="btn btn-luxknives">Frage Löschen
-                                        </button>
+                                        <button id="loeschenBtnAnbieter" class="btn btn-luxknives">Frage Löschen</button>
                                     </div>
                                 </div>
                             </div>
@@ -682,7 +673,7 @@
                 <div id="produktbild1">
                     <div class="nakiri">Nakiri</div>
                     <div class="musashi">MUSASHI</div>
-                    <img src="/cMe/images/NakiriMusashiBigTitle.png" width="100%" alt="Nakiri Messer">
+                    <img src="/cMe/images/komp/NakiriMusashiBigTitle.png" width="100%" alt="Nakiri Messer">
                 </div>
                 <div>
                     <h1 id="qf" class="qualityFirstTitleStyle pt-0">
@@ -698,7 +689,7 @@
             <div id="verfuegbar">
                 <div class="row">
                     <div class="position-relative">
-                        <img id="muster" src="/cMe/images/DetailseiteMesserCUT.png" width="100%">
+                        <img id="muster" src="/cMe/images/komp/DetailseiteMesserCUT.png" width="100%">
                     </div>
                     <div class="position-absolute">
                         <div class="row">
@@ -773,7 +764,7 @@
             <!-- Service vor Ort -->
             <div>
                 <div class="container-fluid p-0 position-relative">
-                    <img src="/cMe/images/NakiriService.png" width="100%" alt="Nakiri Musashi Messer">
+                    <img src="/cMe/images/komp/NakiriService.png" width="100%" alt="Nakiri Musashi Messer">
                     <div class="container-fluid p-0">
                         <div class="row justify-content-evenly">
                             <div class="rightTransBoxService">
@@ -816,7 +807,7 @@
                 <div class="row kommentarTextStyle">
                     <div class="col-1">
                         <div class="kommentarBild">
-                            <img src="/cMe/images/placeholder-person.png" alt="snoop">
+                            <img src="/cMe/images/komp/placeholder-person.png" alt="snoop">
                         </div>
                     </div>
 
@@ -840,7 +831,7 @@
                 <div class="row kommentarTextStyle">
                     <div class="col-1">
                         <div class="kommentarBild">
-                            <img src="/cMe/images/placeholder-person.png" alt="snoop">
+                            <img src="/cMe/images/komp/placeholder-person.png" alt="snoop">
                         </div>
                     </div>
 
@@ -864,7 +855,7 @@
                 <div class="row kommentarTextStyle">
                     <div class="col-1">
                         <div class="kommentarBild">
-                            <img src="/cMe/images/placeholder-person.png" alt="snoop">
+                            <img src="/cMe/images/komp/placeholder-person.png" alt="snoop">
                         </div>
                     </div>
 
@@ -906,7 +897,7 @@
                 <div id="produktbildSantoku1">
                     <div class="nakiri">Santoku</div>
                     <div class="musashi">Kenshin</div>
-                    <img src="/cMe/images/NakiriMusashiBigTitle.png" width="100%" alt="Nakiri Messer">
+                    <img src="/cMe/images/komp/NakiriMusashiBigTitle.png" width="100%" alt="Nakiri Messer">
                 </div>
                 <div>
                     <h1 id="qfSantoku" class="qualityFirstTitleStyle pt-0">
@@ -997,7 +988,7 @@
             <!-- Service vor Ort -->
             <div>
                 <div class="container-fluid p-0 position-relative">
-                    <img src="/cMe/images/NakiriService.png" width="100%" alt="Nakiri Musashi Messer">
+                    <img src="/cMe/images/komp/NakiriService.png" width="100%" alt="Nakiri Musashi Messer">
                     <div class="container-fluid p-0">
                         <div class="row justify-content-evenly">
                             <div class="rightTransBoxService">
@@ -1040,7 +1031,7 @@
                 <div class="row kommentarTextStyle">
                     <div class="col-1">
                         <div class="kommentarBild">
-                            <img src="/cMe/images/placeholder-person.png" alt="snoop">
+                            <img src="/cMe/images/komp/placeholder-person.png" alt="snoop">
                         </div>
                     </div>
 
@@ -1055,9 +1046,8 @@
 
                     <div class="col-3">
                         <button class="btn btn-luxknives">Antworten</button>
-                        <a id="bearbeitenBtnKommentareSantoku1" class="btn btn-luxknives"><img
-                                src="/cMe/SVGIcons/trash.svg"
-                                class="icon-centered icon-style"></a>
+                        <a id="bearbeitenBtnKommentareSantoku1" class="btn btn-luxknives"><img src="/cMe/SVGIcons/trash.svg"
+                                                                                               class="icon-centered icon-style"></a>
                     </div>
                 </div>
 
@@ -1065,7 +1055,7 @@
                 <div class="row kommentarTextStyle">
                     <div class="col-1">
                         <div class="kommentarBild">
-                            <img src="/cMe/images/placeholder-person.png" alt="snoop">
+                            <img src="/cMe/images/komp/placeholder-person.png" alt="snoop">
                         </div>
                     </div>
 
@@ -1080,9 +1070,8 @@
 
                     <div class="col-3">
                         <button class="btn btn-luxknives">Antworten</button>
-                        <a id="bearbeitenBtnKommentareSantoku2" class="btn btn-luxknives"><img
-                                src="/cMe/SVGIcons/trash.svg"
-                                class="icon-centered icon-style"></a>
+                        <a id="bearbeitenBtnKommentareSantoku2" class="btn btn-luxknives"><img src="/cMe/SVGIcons/trash.svg"
+                                                                                               class="icon-centered icon-style"></a>
                     </div>
                 </div>
 
@@ -1090,7 +1079,7 @@
                 <div class="row kommentarTextStyle">
                     <div class="col-1">
                         <div class="kommentarBild">
-                            <img src="/cMe/images/placeholder-person.png" alt="snoop">
+                            <img src="/cMe/images/komp/placeholder-person.png" alt="snoop">
                         </div>
                     </div>
 
@@ -1104,9 +1093,8 @@
 
                     <div class="col-3">
                         <button class="btn btn-luxknives">Antworten</button>
-                        <a id="bearbeitenBtnKommentareSantoku3" class="btn btn-luxknives"><img
-                                src="/cMe/SVGIcons/trash.svg"
-                                class="icon-centered icon-style"></a>
+                        <a id="bearbeitenBtnKommentareSantoku3" class="btn btn-luxknives"><img src="/cMe/SVGIcons/trash.svg"
+                                                                                               class="icon-centered icon-style"></a>
                     </div>
                 </div>
 
@@ -1133,7 +1121,7 @@
                 <div id="produktbildSujihiki1">
                     <div class="nakiri">Sujihiki</div>
                     <div class="musashi">Masako</div>
-                    <img src="/cMe/images/NakiriMusashiBigTitle.png" width="100%" alt="Nakiri Messer">
+                    <img src="/cMe/images/komp/NakiriMusashiBigTitle.png" width="100%" alt="Nakiri Messer">
                 </div>
                 <div>
                     <h1 id="qfSujihiki" class="qualityFirstTitleStyle pt-0">
@@ -1149,7 +1137,7 @@
             <div id="verfuegbarSujihiki">
                 <div class="row">
                     <div class="position-relative">
-                        <img id="musterSujihiki" src="/cMe/images/DetailseiteMesserCUT.png" width="100%">
+                        <img id="musterSujihiki" src="/cMe/images/komp/DetailseiteMesserCUT.png" width="100%">
                     </div>
                     <div class="position-absolute">
                         <div class="row">
@@ -1224,7 +1212,7 @@
             <!-- Service vor Ort -->
             <div>
                 <div class="container-fluid p-0 position-relative">
-                    <img src="/cMe/images/NakiriService.png" width="100%" alt="Nakiri Musashi Messer">
+                    <img src="/cMe/images/komp/NakiriService.png" width="100%" alt="Nakiri Musashi Messer">
                     <div class="container-fluid p-0">
                         <div class="row justify-content-evenly">
                             <div class="rightTransBoxService">
@@ -1267,7 +1255,7 @@
                 <div class="row kommentarTextStyle">
                     <div class="col-1">
                         <div class="kommentarBild">
-                            <img src="/cMe/images/placeholder-person.png" alt="snoop">
+                            <img src="/cMe/images/komp/placeholder-person.png" alt="snoop">
                         </div>
                     </div>
 
@@ -1291,7 +1279,7 @@
                 <div class="row kommentarTextStyle">
                     <div class="col-1">
                         <div class="kommentarBild">
-                            <img src="/cMe/images/placeholder-person.png" alt="snoop">
+                            <img src="/cMe/images/komp/placeholder-person.png" alt="snoop">
                         </div>
                     </div>
 
@@ -1315,7 +1303,7 @@
                 <div class="row kommentarTextStyle">
                     <div class="col-1">
                         <div class="kommentarBild">
-                            <img src="/cMe/images/placeholder-person.png" alt="snoop">
+                            <img src="/cMe/images/komp/placeholder-person.png" alt="snoop">
                         </div>
                     </div>
 
@@ -1894,7 +1882,7 @@
                 </div>
             </div>
         </section>
-
+        <!-- Checkout -->
         <section id="sectCheck">
             <div id="checkout"></div>
             <div class="row d-flex justify-content-around">
@@ -2180,7 +2168,7 @@
                 <div class="card col-4 anmeldenEdges">
                     <div class="card-body">
                         <div class="justify-content-center d-flex formSpace">
-                            <img src="/cMe/images/LogoLuxKnivesTransparent.png" alt="Logo" width="15%">
+                            <img src="/cMe/images/original/LogoLuxKnivesTransparent.png" alt="Logo" width="15%">
                         </div>
                         <div class="text-center formSpace">
                             <h5 class="formTitle">Anmelden</h5>
