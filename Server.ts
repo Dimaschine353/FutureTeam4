@@ -29,7 +29,7 @@ class Nachricht{
         this.nachricht = nachricht;
     }
 }*/
-//Verbindung zu DB
+//Verbindung zu DB//
 const connection: mysql.Connection = mysql.createConnection({
     database:"luxknives"  ,
     host: "localhost",
