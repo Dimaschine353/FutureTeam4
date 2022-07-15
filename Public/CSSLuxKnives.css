@@ -135,19 +135,19 @@ color: #d9765f;
     font-family: "Bebas Neue", serif;
 }
 
-.santoku {
+.kenshin {
     position: absolute;
-    right: 7rem;
-    bottom: 30rem;
+    right: 9rem;
+    bottom: 24rem;
     font-size: 12rem;
     color: #D94B2B;
     mix-blend-mode: lighten;
     font-family: "Bebas Neue", serif;
 }
 
-.kenshin {
+.santoku {
     position: absolute;
-    right: 10rem;
+    right: 2rem;
     top: 20rem;
     font-size: 12rem;
     color: #D94B2B;
@@ -483,9 +483,10 @@ footer {
 }
 
 .rightTransBoxService {
+
     position: absolute;
     width: 30%;
-    top: 5rem;
+    top: 20rem;
     left: 60rem;
     font-size: 2rem;
     color: black;
@@ -496,8 +497,10 @@ footer {
 }
 
 .cardLandingpageStyle {
-    background-color: transparent;
+    background-color: #f0f0f2;
     border: 0;
+    box-shadow: 5px 10px 10px #595859;
+    border: none;
 }
 
 .landingpageIMG1 {
@@ -971,6 +974,18 @@ background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/s
     margin-bottom: 4rem;
 }
 
+.card-santoku {
+    height: 250.35px;
+    width: 700px;
+    backdrop-filter: blur(8px);
+    background-color: #f0f0f280;
+
+}
+
+.card-santoku {
+    box-shadow: 5px 10px 10px #595859;
+    border: none;
+}
 
 
 
