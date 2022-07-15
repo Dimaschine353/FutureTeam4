@@ -255,6 +255,8 @@ document.addEventListener("DOMContentLoaded",()=>{
     profilUBtnA.addEventListener("click",benutzerAendern);
     logoutBtn = document.querySelector("#profilUBtnLogout");
     logoutBtn.addEventListener("click", logout);
+    logoutBtnA = document.querySelector("#profilABtnLogout");
+    logoutBtnA.addEventListener("click",logout);
     profilUBtnL = document.querySelector("#profilUBtnL");
     profilUBtnL.addEventListener("click",benutzerLoeschen);
     //Profil Anbieter
@@ -611,7 +613,6 @@ function logout(event:Event){
             eingeloggterBenutzer="";
             navigieren();
             sectStart.classList.remove("d-none");
-
             alert("Sie wurden ausgeloggt :o")
 
         });
