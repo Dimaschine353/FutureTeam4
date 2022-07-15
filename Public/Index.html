@@ -1638,18 +1638,11 @@
         <section id="sectReg" class="d-none">
             <div id="registrieren">
 
-                <!--Feedback nach Reg-->
-                <div class="row ">
-                    <div class="col">
-                        <p id="feedbackRegistrieren"></p>
-                    </div>
-                </div>
-
                 <form class="d-flex justify-content-center formSpace" id="formRegistrieren">
-                    <div class="card col-4">
+                    <div class="card col-4 anmeldenEdges">
                         <div class="card-body">
                             <div class="col text-center formSpace">
-                                <h5>Registrieren</h5>
+                                <h5 class="formTitle">Registrieren</h5>
                             </div>
 
                             <div class="row d-flex justify-content-center formSpace">
@@ -1677,6 +1670,12 @@
                                            aria-label="E-mail"
                                            required="">
                                 </div>
+                                <!--Feedback nach Reg-->
+                                <div class="row p-0 m-0">
+                                    <div class="col p-0 m-0">
+                                        <p id="feedbackRegistrieren" class="m-0 p-0"></p>
+                                    </div>
+                                </div>
 
                                 <div class="row d-flex align-content-start formSpace">
                                     <p class="pmelden align-content-start">Passwort</p>
@@ -1687,12 +1686,12 @@
                             </div>
                             <div class="row d-flex justify-content-center formSpace" id="regBtnstyle">
                                 <div class="d-flex justify-content-center input-group formSpace">
-                                    <button type="submit" id="regBtn" class="btn btn-luxknives" name="regFormBtn">
+                                    <button type="submit" id="regBtn" class="btn btn-Anmelden" name="regFormBtn">
                                         Registrieren
                                     </button>
                                 </div>
                                 <div class="row d-flex justify-content-center formSpace">
-                                    <a id="zumLogIn" class="text-center " href="#">Anmelden</a>
+                                    <a id="zumLogIn" class="text-center" href="#">Anmelden</a>
                                 </div>
                             </div>
                         </div>
