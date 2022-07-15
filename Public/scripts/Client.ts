@@ -84,6 +84,8 @@
 
 
 //Deklaration Sections
+
+
 let sectStart: HTMLElement;
 let sectProf: HTMLElement;
 let sectProfA: HTMLHtmlElement
@@ -420,7 +422,7 @@ function benutzerAendern(event:Event){
             feedbackProfA.innerText = "Nutzerdaten erfolgreich geupdated.";
             profilUBtnB.classList.remove("d-none");
             profilUBtnA.classList.add("d-none");
-            setTimeout(feedbackProfALoeschen,1000);
+            setTimeout(feedbackProfALoeschen,2000);
 
 
         });
@@ -440,7 +442,7 @@ function benutzerAendern(event:Event){
             feedbackProfU.innerText = "Nutzerdaten erfolgreich geupdated.";
             profilUBtnB.classList.remove("d-none");
             profilUBtnA.classList.add("d-none");
-            setTimeout(feedbackProfULoeschen,1000);
+            setTimeout(feedbackProfULoeschen,2000);
 
 
         });
@@ -504,12 +506,12 @@ function nachrichtHinzufuegen(event:Event){
         //Forms einfügen um diese resetten zu können??
         formKontakt.reset();
         feedbackNachricht.innerText="Ihre Nachricht wurde gesendet.";
-        setTimeout(feedbackNachrichtLoeschen,1000);
+        setTimeout(feedbackNachrichtLoeschen,2000);
 
     }).catch((err: AxiosError)=>{
         if(err!==null){
             feedbackNachricht.innerText="Nachricht kann nicht gesendet werden.";
-            setTimeout(feedbackNachrichtLoeschen,1000);
+            setTimeout(feedbackNachrichtLoeschen,2000);
 
         }
     });
@@ -560,7 +562,26 @@ function nachrichtBearbeitenAbsenden(target: HTMLElement){
 
 }
 //Funktionen Anbieter
-function renderAlleNachrichtern(){
+function renderAlleleleleNachrichtern(){
+    const email: string =eingeloggterBenutzer.toString();
+    tabelleNachrichtenAnbieter.innerHTML="";
+    axios.get("/nachrichten/"+email)
+        .then((res: AxiosResponse)=>{
+            for(const n of res.data){
+                const tr: HTMLElement = document.createElement("tr");
+                tr.innerHTML =`
+                    <td>${n.betreff}</td>
+                    <td>${n.nachricht}</td>
+                <td>
+                <button class="btn btn-primary delete" data-nId="${n.nId}">Löschen</button>
+                <button class="btn btn-primary edit" data-nachricht="${n.nachricht}">Bearbeiten</button>
+                <button class="btn btn-primary absenden d-none" data-nId="${n.nId}" >Absenden</button>
+                </td>
+                `;
+             tabelleNachrichtenAnbieter.append(tr);
+
+            }
+        });
 
 }
 function antwortLoeschen(target:HTMLElement){
@@ -590,7 +611,7 @@ function login(event:Event){
                 feedbackLogin.innerText = "Der Benutzer wurde erfolgreich eingeloggt."
                 setTimeout(feedbackLoginLoeschen,2000);
                 benutzerAuslesen(eingeloggterBenutzer);
-                renderAlleNachrichtern();
+                renderAlleleleleNachrichtern();
             }else{
                 sectLog.classList.add("d-none");
                 sectProf.classList.remove("d-none");
@@ -654,6 +675,7 @@ function zumLogin (event:Event){
 
     }else if(eingeloggterBenutzer=="anbieter@boss.com"){
         navigieren();
+        renderAlleleleleNachrichtern();
         sectProfA.classList.remove("d-none");
     }else{
         navigieren();
