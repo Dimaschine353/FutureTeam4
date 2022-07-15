@@ -568,11 +568,13 @@ function login(event:Event){
             formLogin.reset();
             if(eingeloggterBenutzer=="anbieter@boss.com"){
                 sectLog.classList.add("d-none");
+                sectProfA.classList.remove("d-none");
                 feedbackLogin.innerText = "Der Benutzer wurde erfolgreich eingeloggt."
                 setTimeout(feedbackLoginLoeschen,2000);
                 benutzerAuslesen(eingeloggterBenutzer);
                 renderAlleNachrichtern();
             }else{
+                sectLog.classList.add("d-none");
                 sectProf.classList.remove("d-none");
                 feedbackLogin.innerText = "Der Benutzer wurde erfolgreich eingeloggt."
                 setTimeout(feedbackLoginLoeschen,2000);
