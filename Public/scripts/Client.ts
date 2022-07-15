@@ -271,7 +271,8 @@ document.addEventListener("DOMContentLoaded",()=>{
     profilUBtnLAnbieter = document.querySelector("#profilUBtnL");
     profilUBtnLAnbieter.addEventListener("click",benutzerLoeschen);
     //Nachricht
-    tabelleNachrichten = document.querySelector("#tabelleNachrichten");
+    tabelleNachrichten = document.querySelector("#tabelleNachrichten")
+    tabelleNachrichtenAnbieter = document.querySelector("#tabelleNachrichtenAnbieter");
     nachrichtVName = document.querySelector("#nachrichtVName");
     nachrichtNName = document.querySelector("#nachrichtNName");
     nachrichtEmail = document.querySelector("#nachrichtEmail");
