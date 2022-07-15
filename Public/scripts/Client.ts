@@ -333,21 +333,18 @@ document.addEventListener("DOMContentLoaded",()=>{
     //Startseite/Landingpage FotoFlipper
     startNakiri.addEventListener('mouseover', (event) => {
         event.preventDefault();
-        startIMGFlipper.src = "/cMe/images/Messer1.png"
-        startIMGFlipper.src = "/cMe/images/NakiriMusashi5Edit.jpg"
+        startIMGFlipper.src = "/cMe/images/komp/NakiriMusashi5Edit.jpg"
     });
     startSantoku.addEventListener('mouseover', (event) => {
         event.preventDefault();
-        startIMGFlipper.src = "/cMe/images/Messer2.png"
-        startIMGFlipper.src = "/cMe/images/SantokuKenshinEdit.jpg"
+        startIMGFlipper.src = "/cMe/images/komp/SantokuKenshinEdit.jpg"
     });
     startSujihinki.addEventListener('mouseover', (event) => {
         event.preventDefault();
-        startIMGFlipper.src = "/cMe/images/Messer1.png"
-        startIMGFlipper.src = "/cMe/images/SujihikiMasakoEdit.jpg"
+        startIMGFlipper.src = "/cMe/images/komp/SujihikiMasakoEdit.jpg"
     });
     startHandgefertigte.addEventListener('mouseover', () => {
-        startIMGFlipper.src = "/cMe/images/MesserGruppenPhotoEditFinal.png"
+        startIMGFlipper.src = "/cMe/images/komp/MesserGruppenPhotoEditFinal.png"
     });
 });
 //Funktionen Benutzer
