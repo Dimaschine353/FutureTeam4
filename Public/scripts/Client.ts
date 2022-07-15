@@ -500,7 +500,7 @@ function nachrichtHinzufuegen(event:Event){
     const nachricht: string = nachrichtEin.value.toString();
 
     if (vName == null || vName.trim() == "" || nName == null || nName.trim() == "" || email == null || email.trim() == "" || betreff == null || betreff.trim() == "" || nachricht == null || nachricht.trim() == ""){
-        alert("Es darf kein Feld leer sein");
+        alert("Die Felder dürfen nicht leer sein oder nur Leertasten enthalten!");
     }else{
         axios.post("/nachricht",{
             vName: vName,
