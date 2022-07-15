@@ -141,19 +141,20 @@ let profilNachname: HTMLInputElement;
 let profilUBtnB: HTMLInputElement;
 let profilUBtnA: HTMLInputElement;
 let profilUBtnL: HTMLInputElement;
+let logoutBtn: HTMLInputElement;
 let tabelleNachrichten: HTMLElement;
 //Profil Anbieter
 let profilVornameA: HTMLInputElement;
 let profilNachnameA: HTMLInputElement;
-let profilUBtnBAnbieter: HTMLInputElement;
-let profilUBtnAAnbieter: HTMLInputElement;
-let profilUBtnLAnbieter: HTMLInputElement;
+let profilABtnB: HTMLInputElement;
+let profilABtnA: HTMLInputElement;
+let profilABtnL: HTMLInputElement;
+let logoutBtnA: HTMLHtmlElement;
 let tabelleNachrichtenAnbieter: HTMLElement;
 //Login
 let loginName: HTMLInputElement;
 let loginPasswort: HTMLInputElement;
-let logoutBtn: HTMLInputElement;
-let logoutBtnA: HTMLHtmlElement;
+
 let zumRegistrieren: HTMLElement;
 //Nachricht
 let nachrichtVName: HTMLInputElement;
@@ -246,7 +247,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     zumRegistrieren = document.querySelector("#zumRegistrieren");
     zumRegistrieren.addEventListener("click",zumReg);
     formLogin.addEventListener("submit", login);
-    //Profil
+    //Profil User
     profilNachname = document.querySelector("#profilNachname");
     profilVorname = document.querySelector("#profilVorname");
     profilUBtnB = document.querySelector("#profilUBtnB");
@@ -255,21 +256,21 @@ document.addEventListener("DOMContentLoaded",()=>{
     profilUBtnA.addEventListener("click",benutzerAendern);
     logoutBtn = document.querySelector("#profilUBtnLogout");
     logoutBtn.addEventListener("click", logout);
-    logoutBtnA = document.querySelector("#profilABtnLogout");
+    logoutBtnA = document.querySelector("#profilUBtnLogout");
     logoutBtnA.addEventListener("click",logout);
     profilUBtnL = document.querySelector("#profilUBtnL");
     profilUBtnL.addEventListener("click",benutzerLoeschen);
     //Profil Anbieter
-    profilNachnameA = document.querySelector("#profilNachname");
-    profilVornameA = document.querySelector("#profilVorname");
-    profilUBtnBAnbieter = document.querySelector("#profilUBtnB");
-    profilUBtnBAnbieter.addEventListener("click",benutzerBearbeitenStart);
-    profilUBtnAAnbieter = document.querySelector("#profilUBtnA");
-    profilUBtnAAnbieter.addEventListener("click",benutzerAendern);
-    logoutBtnA = document.querySelector("#profilUBtnLogout");
+    profilNachnameA = document.querySelector("#profilNachnameA");
+    profilVornameA = document.querySelector("#profilVornameA");
+    profilABtnB = document.querySelector("#profilABtnB");
+    profilABtnB.addEventListener("click",benutzerBearbeitenStart);
+    profilABtnA = document.querySelector("#profilABtnA");
+    profilABtnA.addEventListener("click",benutzerAendern);
+    logoutBtnA = document.querySelector("#profilABtnLogout");
     logoutBtnA.addEventListener("click", logout);
-    profilUBtnLAnbieter = document.querySelector("#profilUBtnL");
-    profilUBtnLAnbieter.addEventListener("click",benutzerLoeschen);
+    profilABtnL = document.querySelector("#profilABtnL");
+    profilABtnL.addEventListener("click",benutzerLoeschen);
     //Nachricht
     tabelleNachrichten = document.querySelector("#tabelleNachrichten")
     tabelleNachrichtenAnbieter = document.querySelector("#tabelleNachrichtenAnbieter");
@@ -379,18 +380,15 @@ function benutzerLoeschen(event:Event){
 }
 function benutzerBearbeitenStart(event: Event){
     event.preventDefault();
-
-    if(eingeloggterBenutzer=="anbieter@boss.com"){
-        profilVornameA.removeAttribute("readonly");
-        profilNachnameA.removeAttribute("readonly");
-        profilUBtnAAnbieter.classList.remove("d-none");
-        profilUBtnBAnbieter.classList.add("d-none");
-    }else{
         profilVorname.removeAttribute("readonly");
         profilNachname.removeAttribute("readonly");
+        profilVornameA.removeAttribute("readonly");
+        profilNachnameA.removeAttribute("readonly");
         profilUBtnA.classList.remove("d-none");
         profilUBtnB.classList.add("d-none");
-    }
+        profilABtnA.classList.remove("d-none");
+        profilABtnB.classList.add("d-none");
+
 
 
 }
@@ -408,8 +406,8 @@ function benutzerAendern(event:Event){
             profilNachnameA.setAttribute("readonly","true");
             profilVornameA.setAttribute("readonly","true");
             feedbackProfA.innerText = "Nutzerdaten erfolgreich geupdated.";
-            profilUBtnBAnbieter.classList.remove("d-none");
-            profilUBtnAAnbieter.classList.add("d-none");
+            profilUBtnB.classList.remove("d-none");
+            profilUBtnA.classList.add("d-none");
             setTimeout(feedbackProfALoeschen,1000);
 
 
@@ -443,15 +441,13 @@ function benutzerAuslesen(eingeloggterBenutzer:String){
     //const email = eingeloggterBenutzer;
     axios.get("/benutzer/"+eingeloggterBenutzer)
         .then((res:AxiosResponse)=>{
-            if(eingeloggterBenutzer=="anbieter@boss.com"){
+
                 const benutzer = res.data.benutzer;
                 profilVornameA.value = benutzer.vName;
                 profilNachnameA.value = benutzer.nName;
-            }else{
-                const benutzer = res.data.benutzer;
                 profilVorname.value = benutzer.vName;
                 profilNachname.value = benutzer.nName;
-            }
+
 
         });
 }
@@ -568,12 +564,13 @@ function nachrichtBeantwortenAbsenden(target:HTMLElement){
 function login(event:Event){
     event.preventDefault();
     const data: FormData = new FormData(formLogin);
+    eingeloggterBenutzer = data.get("loginName").toString();
     axios.post("/login", {
         loginName: data.get("loginName"),
         loginPasswort: data.get("loginPasswort")
+
     })
         .then((res: AxiosResponse) => {
-            eingeloggterBenutzer = data.get("loginName").toString();
             formLogin.reset();
             if(eingeloggterBenutzer=="anbieter@boss.com"){
                 sectLog.classList.add("d-none");
@@ -639,15 +636,17 @@ function zurueckNachhause(event:Event){
 }
 function zumLogin (event:Event){
     event.preventDefault();
-    if(eingeloggterBenutzer!==""){
-        //benutzerAuslesen(eingeloggterBenutzer);
+    if(eingeloggterBenutzer==""){
+        navigieren();
+        sectLog.classList.remove("d-none");
+
+    }else if(eingeloggterBenutzer=="anbieter@boss.com"){
+        navigieren();
+        sectProfA.classList.remove("d-none");
+    }else{
         navigieren();
         renderNachrichtenListe();
         sectProf.classList.remove("d-none");
-
-    }else{
-        navigieren();
-        sectLog.classList.remove("d-none");
 
     }
 
