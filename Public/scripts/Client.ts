@@ -88,6 +88,7 @@ let sectStart: HTMLElement;
 let sectProf: HTMLElement;
 let sectProfA: HTMLHtmlElement
 let sectDet: HTMLElement;
+let sectDetSantoku: HTMLElement;
 let sectUeber: HTMLElement;
 let sectServ: HTMLElement;
 let sectWar: HTMLElement;
@@ -141,19 +142,20 @@ let profilNachname: HTMLInputElement;
 let profilUBtnB: HTMLInputElement;
 let profilUBtnA: HTMLInputElement;
 let profilUBtnL: HTMLInputElement;
+let logoutBtn: HTMLInputElement;
 let tabelleNachrichten: HTMLElement;
 //Profil Anbieter
 let profilVornameA: HTMLInputElement;
 let profilNachnameA: HTMLInputElement;
-let profilUBtnBAnbieter: HTMLInputElement;
-let profilUBtnAAnbieter: HTMLInputElement;
-let profilUBtnLAnbieter: HTMLInputElement;
+let profilABtnB: HTMLInputElement;
+let profilABtnA: HTMLInputElement;
+let profilABtnL: HTMLInputElement;
+let logoutBtnA: HTMLHtmlElement;
 let tabelleNachrichtenAnbieter: HTMLElement;
 //Login
 let loginName: HTMLInputElement;
 let loginPasswort: HTMLInputElement;
-let logoutBtn: HTMLInputElement;
-let logoutBtnA: HTMLHtmlElement;
+
 let zumRegistrieren: HTMLElement;
 //Nachricht
 let nachrichtVName: HTMLInputElement;
@@ -173,6 +175,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     sectProf = document.querySelector("#sectProf");
     sectProfA = document.querySelector("#sectProfA");
     sectDet = document.querySelector("#sectDet");
+    sectDetSantoku = document.querySelector("#sectDetSantoku");
     sectUeber = document.querySelector("#sectUeber");
     sectServ = document.querySelector("#sectServ");
     sectWar = document.querySelector("#sectWar");
@@ -210,6 +213,11 @@ document.addEventListener("DOMContentLoaded",()=>{
     startNakiri = document.querySelector("#startNakiri");
     startNakiri.addEventListener("click",zurDet);
 
+    startSantoku = document.querySelector("#startSantoku");
+    startSantoku.addEventListener("click", zurDetSantoku);
+
+
+
     //Initialisierung Footer
     impressum = document.querySelector("#zumImpressum");
     impressum.addEventListener("click",zumImpr);
@@ -246,7 +254,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     zumRegistrieren = document.querySelector("#zumRegistrieren");
     zumRegistrieren.addEventListener("click",zumReg);
     formLogin.addEventListener("submit", login);
-    //Profil
+    //Profil User
     profilNachname = document.querySelector("#profilNachname");
     profilVorname = document.querySelector("#profilVorname");
     profilUBtnB = document.querySelector("#profilUBtnB");
@@ -255,21 +263,21 @@ document.addEventListener("DOMContentLoaded",()=>{
     profilUBtnA.addEventListener("click",benutzerAendern);
     logoutBtn = document.querySelector("#profilUBtnLogout");
     logoutBtn.addEventListener("click", logout);
-    logoutBtnA = document.querySelector("#profilABtnLogout");
+    logoutBtnA = document.querySelector("#profilUBtnLogout");
     logoutBtnA.addEventListener("click",logout);
     profilUBtnL = document.querySelector("#profilUBtnL");
     profilUBtnL.addEventListener("click",benutzerLoeschen);
     //Profil Anbieter
-    profilNachnameA = document.querySelector("#profilNachname");
-    profilVornameA = document.querySelector("#profilVorname");
-    profilUBtnBAnbieter = document.querySelector("#profilUBtnB");
-    profilUBtnBAnbieter.addEventListener("click",benutzerBearbeitenStart);
-    profilUBtnAAnbieter = document.querySelector("#profilUBtnA");
-    profilUBtnAAnbieter.addEventListener("click",benutzerAendern);
-    logoutBtnA = document.querySelector("#profilUBtnLogout");
+    profilNachnameA = document.querySelector("#profilNachnameA");
+    profilVornameA = document.querySelector("#profilVornameA");
+    profilABtnB = document.querySelector("#profilABtnB");
+    profilABtnB.addEventListener("click",benutzerBearbeitenStart);
+    profilABtnA = document.querySelector("#profilABtnA");
+    profilABtnA.addEventListener("click",benutzerAendern);
+    logoutBtnA = document.querySelector("#profilABtnLogout");
     logoutBtnA.addEventListener("click", logout);
-    profilUBtnLAnbieter = document.querySelector("#profilUBtnL");
-    profilUBtnLAnbieter.addEventListener("click",benutzerLoeschen);
+    profilABtnL = document.querySelector("#profilABtnL");
+    profilABtnL.addEventListener("click",benutzerLoeschen);
     //Nachricht
     tabelleNachrichten = document.querySelector("#tabelleNachrichten")
     tabelleNachrichtenAnbieter = document.querySelector("#tabelleNachrichtenAnbieter");
@@ -379,18 +387,15 @@ function benutzerLoeschen(event:Event){
 }
 function benutzerBearbeitenStart(event: Event){
     event.preventDefault();
-
-    if(eingeloggterBenutzer=="anbieter@boss.com"){
-        profilVornameA.removeAttribute("readonly");
-        profilNachnameA.removeAttribute("readonly");
-        profilUBtnAAnbieter.classList.remove("d-none");
-        profilUBtnBAnbieter.classList.add("d-none");
-    }else{
         profilVorname.removeAttribute("readonly");
         profilNachname.removeAttribute("readonly");
+        profilVornameA.removeAttribute("readonly");
+        profilNachnameA.removeAttribute("readonly");
         profilUBtnA.classList.remove("d-none");
         profilUBtnB.classList.add("d-none");
-    }
+        profilABtnA.classList.remove("d-none");
+        profilABtnB.classList.add("d-none");
+
 
 
 }
@@ -408,8 +413,8 @@ function benutzerAendern(event:Event){
             profilNachnameA.setAttribute("readonly","true");
             profilVornameA.setAttribute("readonly","true");
             feedbackProfA.innerText = "Nutzerdaten erfolgreich geupdated.";
-            profilUBtnBAnbieter.classList.remove("d-none");
-            profilUBtnAAnbieter.classList.add("d-none");
+            profilUBtnB.classList.remove("d-none");
+            profilUBtnA.classList.add("d-none");
             setTimeout(feedbackProfALoeschen,1000);
 
 
@@ -443,9 +448,14 @@ function benutzerAuslesen(eingeloggterBenutzer:String){
     //const email = eingeloggterBenutzer;
     axios.get("/benutzer/"+eingeloggterBenutzer)
         .then((res:AxiosResponse)=>{
-            const benutzer = res.data.benutzer;
-            profilVorname.value = benutzer.vName;
-            profilNachname.value = benutzer.nName;
+
+                const benutzer = res.data.benutzer;
+                profilVornameA.value = benutzer.vName;
+                profilNachnameA.value = benutzer.nName;
+                profilVorname.value = benutzer.vName;
+                profilNachname.value = benutzer.nName;
+
+
         });
 }
 //Funktionen Nachrichten
@@ -561,13 +571,13 @@ function nachrichtBeantwortenAbsenden(target:HTMLElement){
 function login(event:Event){
     event.preventDefault();
     const data: FormData = new FormData(formLogin);
+    eingeloggterBenutzer = data.get("loginName").toString();
     axios.post("/login", {
         loginName: data.get("loginName"),
         loginPasswort: data.get("loginPasswort")
+
     })
         .then((res: AxiosResponse) => {
-
-            eingeloggterBenutzer = data.get("loginName").toString();
             formLogin.reset();
             if(eingeloggterBenutzer=="anbieter@boss.com"){
                 sectLog.classList.add("d-none");
@@ -633,15 +643,17 @@ function zurueckNachhause(event:Event){
 }
 function zumLogin (event:Event){
     event.preventDefault();
-    if(eingeloggterBenutzer!==""){
-        //benutzerAuslesen(eingeloggterBenutzer);
+    if(eingeloggterBenutzer==""){
+        navigieren();
+        sectLog.classList.remove("d-none");
+
+    }else if(eingeloggterBenutzer=="anbieter@boss.com"){
+        navigieren();
+        sectProfA.classList.remove("d-none");
+    }else{
         navigieren();
         renderNachrichtenListe();
         sectProf.classList.remove("d-none");
-
-    }else{
-        navigieren();
-        sectLog.classList.remove("d-none");
 
     }
 
@@ -690,6 +702,7 @@ function navigieren(){
     sectProf.classList.add("d-none");
     sectProfA.classList.add("d-none");
     sectDet.classList.add("d-none");
+    sectDetSantoku.classList.add("d-none");
     sectUeber.classList.add("d-none");
     sectServ.classList.add("d-none");
     sectWar.classList.add("d-none");
@@ -703,10 +716,16 @@ function navigieren(){
 }
 function zurDet(event:Event){
     event.preventDefault();
-    navigieren()
+    navigieren();
     sectDet.classList.remove("d-none");
     window.scrollTo(0, 0);
 
+}
+function zurDetSantoku(event: Event){
+    event.preventDefault();
+    navigieren();
+    sectDetSantoku.classList.remove("d-none");
+    window.scrollTo(0, 0);
 }
 function zumDatenschutz(event:Event){
     event.preventDefault();
