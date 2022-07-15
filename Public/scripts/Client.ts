@@ -88,6 +88,7 @@ let sectStart: HTMLElement;
 let sectProf: HTMLElement;
 let sectProfA: HTMLHtmlElement
 let sectDet: HTMLElement;
+let sectDetSantoku: HTMLElement;
 let sectUeber: HTMLElement;
 let sectServ: HTMLElement;
 let sectWar: HTMLElement;
@@ -174,6 +175,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     sectProf = document.querySelector("#sectProf");
     sectProfA = document.querySelector("#sectProfA");
     sectDet = document.querySelector("#sectDet");
+    sectDetSantoku = document.querySelector("#sectDetSantoku");
     sectUeber = document.querySelector("#sectUeber");
     sectServ = document.querySelector("#sectServ");
     sectWar = document.querySelector("#sectWar");
@@ -210,6 +212,11 @@ document.addEventListener("DOMContentLoaded",()=>{
     //Initialisierung Zur Detailseite
     startNakiri = document.querySelector("#startNakiri");
     startNakiri.addEventListener("click",zurDet);
+
+    startSantoku = document.querySelector("#startSantoku");
+    startSantoku.addEventListener("click", zurDetSantoku);
+
+
 
     //Initialisierung Footer
     impressum = document.querySelector("#zumImpressum");
@@ -695,6 +702,7 @@ function navigieren(){
     sectProf.classList.add("d-none");
     sectProfA.classList.add("d-none");
     sectDet.classList.add("d-none");
+    sectDetSantoku.classList.add("d-none");
     sectUeber.classList.add("d-none");
     sectServ.classList.add("d-none");
     sectWar.classList.add("d-none");
@@ -708,10 +716,16 @@ function navigieren(){
 }
 function zurDet(event:Event){
     event.preventDefault();
-    navigieren()
+    navigieren();
     sectDet.classList.remove("d-none");
     window.scrollTo(0, 0);
 
+}
+function zurDetSantoku(event: Event){
+    event.preventDefault();
+    navigieren();
+    sectDetSantoku.classList.remove("d-none");
+    window.scrollTo(0, 0);
 }
 function zumDatenschutz(event:Event){
     event.preventDefault();
