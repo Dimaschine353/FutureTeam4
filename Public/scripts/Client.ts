@@ -511,8 +511,10 @@ function nachrichtHinzufuegen(event:Event){
             nachricht: nachricht
         }).then((res:AxiosResponse)=>{
             //Forms einfügen um diese resetten zu können??
-            formKontakt.reset();
+            //formKontakt.reset();
             feedbackNachricht.innerText="Ihre Nachricht wurde gesendet.";
+            nachrichtBetreff.value = "";
+            nachrichtEin.value = "";
             setTimeout(feedbackNachrichtLoeschen,2000);
 
         }).catch((err: AxiosError)=>{
