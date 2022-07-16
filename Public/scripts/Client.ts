@@ -118,6 +118,7 @@ let impressum: HTMLElement;
 let footKont: HTMLElement;
 let footFAQ: HTMLElement;
 let footDatenschutz: HTMLElement;
+let footAGB: HTMLElement;
 //Deklaration Startseite/Landingpage
 let startNakiri: HTMLElement;
 let startSantoku: HTMLElement;
@@ -240,6 +241,8 @@ document.addEventListener("DOMContentLoaded",()=>{
     footFAQ.addEventListener("click",zumService);
     footDatenschutz = document.querySelector("#footDatenschutz");
     footDatenschutz.addEventListener("click",zumDatenschutz);
+    footAGB = document.querySelector("#footAGB");
+    footAGB.addEventListener("click",zumAGB);
     //Initialisierung Forms
     feedbackLogin = document.querySelector("#feedbackLogin");
     feedbackReg = document.querySelector("#feedbackRegistrieren");
@@ -808,18 +811,20 @@ function zumLogin (event:Event){
     if(eingeloggterBenutzer==""){
         navigieren();
         sectLog.classList.remove("d-none");
+        window.scrollTo(0, 0);
 
     }else if(eingeloggterBenutzer=="anbieter@boss.com"){
         navigieren();
         benutzerAuslesen(eingeloggterBenutzer);
         renderAlleleleleNachrichtern();
         sectProfA.classList.remove("d-none");
+        window.scrollTo(0, 0);
     }else{
         navigieren();
         benutzerAuslesen(eingeloggterBenutzer);
         renderNachrichtenListe();
         sectProf.classList.remove("d-none");
-
+        window.scrollTo(0, 0);
     }
 
 
@@ -828,39 +833,39 @@ function zumWarenkorb (event:Event){
     event.preventDefault();
     navigieren();
     sectWar.classList.remove("d-none");
-
+    window.scrollTo(0, 0);
 }
 function zumService (event:Event){
     event.preventDefault();
     navigieren();
     sectServ.classList.remove("d-none");
-
+    window.scrollTo(0, 0);
 }
 function zuUeber(event:Event){
     event.preventDefault();
     navigieren();
     sectUeber.classList.remove("d-none");
-
+    window.scrollTo(0, 0);
 
 }
 function zumKontakt(event:Event){
     event.preventDefault();
     navigieren();
     sectKont.classList.remove("d-none");
-
+    window.scrollTo(0, 0);
 }
 function zumReg(event:Event){
     event.preventDefault();
     navigieren()
     sectReg.classList.remove("d-none");
-
+    window.scrollTo(0, 0);
 
 }
 function zumImpr(event:Event){
     event.preventDefault();
     navigieren();
     sectImpr.classList.remove("d-none");
-
+    window.scrollTo(0, 0);
 }
 function navigieren(){
     sectStart.classList.add("d-none");
@@ -903,6 +908,13 @@ function zumDatenschutz(event:Event){
     event.preventDefault();
     navigieren()
     sectDS.classList.remove("d-none");
+    window.scrollTo(0, 0);
+}
+function zumAGB(event:Event){
+    event.preventDefault();
+    navigieren()
+    sectAGB.classList.remove("d-none");
+    window.scrollTo(0, 0);
 }
 function binIchNochDrin(){
     axios.get("/binIchNochDrin?")

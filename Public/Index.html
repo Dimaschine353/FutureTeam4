@@ -290,9 +290,9 @@
                     <!-- Bestellungen und Fragen Sektion -->
                     <div class="row justify-content-evenly">
                         <!-- Bestellungen -->
-                        <div class="col-5 bg-luxKnives borderLuxKnives">
+                        <div class="col-5 bg-luxKnives borderLuxKnivesShadow">
                             <div class="row d-flex justify-content-center py-2">
-                                <h2 class="text-center">Meine Bestellungen und Fragen</h2>
+                                <h2 class="text-center">Meine Bestellungen und Termine</h2>
                             </div>
                             <div class="row d-flex justify-content-center">
                                 <div class="card mb-3 cardBestellungenStyle">
@@ -378,7 +378,7 @@
                             </div>
                         </div>
                         <!-- Fragen -->
-                        <div class="col-5 bg-luxKnives borderLuxKnives">
+                        <div class="col-5 bg-luxKnives borderLuxKnivesShadow">
                             <div class="row d-flex justify-content-start py-2 padding-fragen">
                                 <h2>Ihre Fragen:</h2>
                             </div>
@@ -466,6 +466,7 @@
 
                             </form>
                             <!--Nachrichtenliste-->
+                            <!--
                             <div class="row" id="NachrichtenlisteAnbieter">
                                 <div class="col">
                                     <div class="row">
@@ -486,7 +487,7 @@
                                         </form>
                                     </div>
 
-                                    <!--
+
                                     <table class="table table-striped">
                                         <thead class="thead-light">
                                         <tr>
@@ -498,19 +499,18 @@
                                         </tbody>
                                     </table>
 
-                                    -->
+
                                 </div>
                             </div>
+                            -->
                         </div>
-
-
                     </div>
                     <!-- Bestellungen und Fragen Sektion -->
                     <div class="row justify-content-evenly">
                         <!-- Bestellungen -->
-                        <div class="col-5 bg-luxKnives borderLuxKnives">
+                        <div class="col-5 bg-luxKnives borderLuxKnivesShadow">
                             <div class="row d-flex justify-content-center py-2">
-                                <h2 class="text-center">Meine Bestellungen und Fragen</h2>
+                                <h2 class="text-center">Bestellungen</h2>
                             </div>
                             <div class="row d-flex justify-content-center">
                                 <div class="card mb-3 cardBestellungenStyle">
@@ -596,7 +596,7 @@
                             </div>
                         </div>
                         <!-- Fragen -->
-                        <div class="col-5 bg-luxKnives borderLuxKnives">
+                        <div class="col-5 bg-luxKnives borderLuxKnivesShadow">
                             <div class="row d-flex justify-content-start py-2 padding-fragen">
                                 <h2>Neue Nutzerfragen:</h2>
                             </div>
@@ -746,7 +746,7 @@
                                             professionell schleifen
                                         </p>
                                         <div class="justify-content-center d-flex">
-                                            <a href="#" class="btn btn-luxknives2">
+                                            <a href="#" class="btn btn-luxknives">
                                                 Service
                                             </a>
                                         </div>
@@ -2056,8 +2056,11 @@
         <section id="sectReg" class="d-none">
             <div id="registrieren">
 
+                <div class="container-fluid p-0 position-relative">
+                    <img src="/cMe/images/komp/landingpageMesser.png" width="100%" alt="Messer Bild Landingpage">
+                </div>
                 <form class="d-flex justify-content-center formSpace py-5" id="formRegistrieren">
-                    <div class="card col-4 anmeldenEdges">
+                    <div class="card col-4 anmeldenEdges anmeldenAbsolute">
                         <div class="card-body">
                             <div class="col text-center formSpace">
                                 <h5 class="formTitle">Registrieren</h5>
@@ -4261,7 +4264,7 @@
 
                     <a id="footDatenschutz" class="nav-link" href="#">Datenschutz</a>
 
-                    <a class="nav-link" href="#">AGB</a>
+                    <a id="footAGB" class="nav-link" href="#">AGB</a>
                 </div>
             </div>
         </div>
