@@ -354,25 +354,31 @@ function benutzerHinzufuegen(event:Event){
     const nName: string = regNachname.value;
     const email: string = regEmail.value;
     const passwort: string = regPasswort.value;
-    axios.post("/benutzer", {
-        vName: vName,
-        nName: nName,
-        email: email,
-        passwort: passwort
-    }).then((res: AxiosResponse)=>{
-        formRegistrieren.reset();
-        sectReg.classList.add("d-none");
-        sectLog.classList.remove("d-none");
-        feedbackLogin.innerText = "Benutzer erfolgreich registriert. Bitte loggen Sie sich ein.";
-        setTimeout(feedbackLoginLoeschen,3000);
 
-    }).catch((err: AxiosError)=>{
-        if(err!==null){
-            feedbackReg.innerText = "Die e-mail ist bereits vergeben.";
-            setTimeout(feedbackRegLoeschen,2000);
-        }
+    if (vName == null || vName.trim() == "" || nName == null || nName.trim() == "" || email == null || email.trim() == "" || passwort == null || passwort.trim() == ""){
+        alert("Die Felder dürfen nicht leer sein oder nur Leertasten enthalten!");
+    }else{
+        axios.post("/benutzer", {
+            vName: vName,
+            nName: nName,
+            email: email,
+            passwort: passwort
+        }).then((res: AxiosResponse)=>{
+            formRegistrieren.reset();
+            sectReg.classList.add("d-none");
+            sectLog.classList.remove("d-none");
+            feedbackLogin.innerText = "Benutzer erfolgreich registriert. Bitte loggen Sie sich ein.";
+            setTimeout(feedbackLoginLoeschen,3000);
 
-    });
+        }).catch((err: AxiosError)=>{
+            if(err!==null){
+                feedbackReg.innerText = "Die e-mail ist bereits vergeben.";
+                setTimeout(feedbackRegLoeschen,2000);
+            }
+
+        });
+    }
+
 }
 function benutzerLoeschen(event:Event){
     event.preventDefault();
