@@ -310,6 +310,8 @@ document.addEventListener("DOMContentLoaded",()=>{
     nachrichtEdit = document.querySelector("#profilNachrichtBearbeiten");
 
 
+
+    /*
     tabelleNachrichten.addEventListener("click",(event:Event)=>{
         let target: HTMLElement = event.target as HTMLElement;
         target = target.closest("button");
@@ -333,6 +335,8 @@ document.addEventListener("DOMContentLoaded",()=>{
         }
     });
 
+
+     */
 
 
 
