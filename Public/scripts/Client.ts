@@ -151,6 +151,7 @@ let profilUBtnA: HTMLInputElement;
 let profilUBtnL: HTMLInputElement;
 let logoutBtn: HTMLInputElement;
 let tabelleNachrichten: HTMLElement;
+let divNachrichten: HTMLElement;
 //Profil Anbieter
 let profilVornameA: HTMLInputElement;
 let profilNachnameA: HTMLInputElement;
@@ -295,6 +296,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     tabelleNachrichtenAnbieter = document.querySelector("#tabelleNachrichtenAnbieter");
 
 
+    divNachrichten = document.querySelector('#divNachrichten')
     divNachrichtenAnbieter = document.querySelector('#divNachrichtenAnbieter');
 
 
@@ -332,7 +334,23 @@ document.addEventListener("DOMContentLoaded",()=>{
     });
 
 
-    //Neue Tabelle
+
+
+    //Neue Tabelle Nachfrager
+    divNachrichten.addEventListener("click",(event:Event)=>{
+        let target: HTMLElement = event.target as HTMLElement;
+        target = target.closest("button");
+        if(target.matches(".delete")){
+            nachrichtLoeschen(target);
+        }else if(target.matches(".edit")){
+            nachrichtBearbeitenStart(target);
+        }else if(target.matches(".absenden")){
+            nachrichtBearbeitenAbsenden(target);
+        }
+    });
+
+
+    //Neue Tabelle Anbieter
     divNachrichtenAnbieter.addEventListener("click",(event:Event)=>{
         let target: HTMLElement = event.target as HTMLElement;
         target = target.closest("button");
@@ -503,6 +521,37 @@ function renderNachrichtenListe(){
     //console.log("bin in der renderNachrichten");
     const email: string = eingeloggterBenutzer.toString();
     //console.log(email+" in der renderNachrichten")
+
+    divNachrichten.innerHTML = "";
+    axios.get("/nachricht/"+email)
+        .then((res: AxiosResponse)=>{
+            for(const n of res.data){
+                //console.log(res.data);
+                const div: HTMLElement = document.createElement("div");
+                div.innerHTML =`
+
+                    <div class="card mb-3 mx-5 cardBestellungenStyle">
+                        <div class="card-body">
+                            <h5 class="card-title">${n.betreff}</h5>
+                            <p class="card-textBestellungen">${n.nachricht}</p>
+                            <div class="input-group mb-3">
+                                <p class="pe-2">Anwort:</p>
+                                <p id="antwortVomAnbieter">Super toll, super nice frage</p>
+                            </div>
+                            <button class="btn btn-luxknives delete" data-nId="${n.nId}">Löschen</button>
+                            <button class="btn btn-luxknives edit" data-nachricht="${n.nachricht}">Bearbeiten</button>
+                            <button class="btn btn-luxknives absenden d-none" data-nId="${n.nId}" >Absenden</button>
+                        </div>
+                    </div>
+
+                `;
+
+                divNachrichten.append(div);
+            }
+        });
+
+
+    /* alte nachricht funktion
     tabelleNachrichten.innerHTML = "";
     axios.get("/nachricht/"+email)
         .then((res: AxiosResponse)=>{
@@ -519,16 +568,11 @@ function renderNachrichtenListe(){
                 </td>
                 `;
 
-
-
-
-
-
-
-
                 tabelleNachrichten.append(tr);
             }
         });
+
+     */
 }
 function nachrichtHinzufuegen(event:Event){
     event.preventDefault();
@@ -642,7 +686,7 @@ function renderAlleleleleNachrichtern(){
             for(const n of res.data){
                 const div: HTMLElement = document.createElement("div");
                 div.innerHTML = `
-                <div class="card mb-3 cardBestellungenStyle">
+                <div class="card mb-3 mx-5 cardBestellungenStyle">
                     <div class="card-body">
                         <h5 class="card-title">${n.betreff}</h5>
                         <p class="card-textBestellungen">${n.nachricht}</p>

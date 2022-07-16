@@ -189,7 +189,7 @@
         <!-- Profil -->
         <section id="sectProf" class="d-none">
             <div id="profil">
-                <div class="container-fluid p-0 pt-4">
+                <div class="container-fluid p-0 pt-4 pb-5">
                     <div class="row justify-content-evenly">
                         <div class="col-5">
                             <div class="card mb-3 cardBioStyle">
@@ -251,43 +251,41 @@
                                         </button>
                                     </div>
                                 </div>
-
-                    </form>
-                <!--Nachrichtenliste-->
-                <div class="row" id="Nachrichtenliste">
-                    <div class="col">
-                        <div class="row">
-                            <div class="col text-center">
-                                <h5>Nachrichtenliste</h5>
-                            </div>
-                        </div>
-                        <div id="nachrichtBearbeitenDiv">
-                            <form id="formNachrichtBearbeiten" data-nId="">
-                                <div class="input-group mb-3">
-                                    <input id="profilNachrichtBearbeiten" type="text" class="form-control d-none" placeholder="Nachrichtentext" name="profilNachrichtBearbeiten"
-                                           aria-label="profilNachrichtBearbeiten"  required>
-
-                                    <button type="button" class="btn btn-luxknives rounded-1 d-none "  id="nachrichtBA" >
-                                        Abschicken
-                                    </button>
-                                </div>
                             </form>
+                            <!--Nachrichtenliste
+                            <div class="row" id="Nachrichtenliste">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col text-center">
+                                            <h5>Nachrichtenliste</h5>
+                                        </div>
+                                    </div>
+                                    <div id="nachrichtBearbeitenDiv">
+                                        <form id="formNachrichtBearbeiten" data-nId="">
+                                            <div class="input-group mb-3">
+                                                <input id="profilNachrichtBearbeiten" type="text" class="form-control d-none" placeholder="Nachrichtentext" name="profilNachrichtBearbeiten"
+                                                       aria-label="profilNachrichtBearbeiten"  required>
+
+                                                <button type="button" class="btn btn-luxknives rounded-1 d-none "  id="nachrichtBA" >
+                                                    Abschicken
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <table class="table table-striped">
+                                        <thead class="thead-light">
+                                        <tr>
+                                            <th scope="col">Betreff</th>
+                                            <th scope="col">Inhalt</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="tabelleNachrichten">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                             -->
                         </div>
-                        <table class="table table-striped">
-                            <thead class="thead-light">
-                            <tr>
-                                <th scope="col">Betreff</th>
-                                <th scope="col">Inhalt</th>
-                            </tr>
-                            </thead>
-                            <tbody id="tabelleNachrichten">
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-
                     </div>
                     <!-- Bestellungen und Fragen Sektion -->
                     <div class="row justify-content-evenly">
@@ -382,35 +380,11 @@
                         <!-- Fragen -->
                         <div class="col-5 bg-luxKnives borderLuxKnives">
                             <div class="row d-flex justify-content-start py-2 padding-fragen">
-                                <h2>Neue Infos:</h2>
+                                <h2>Ihre Fragen:</h2>
                             </div>
-                            <div class="row d-flex justify-content-center">
-                                <div class="card mb-3 cardBestellungenStyle">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ihre Frage</h5>
-                                        <p class="card-textBestellungen"> Gibt es eine Moglichkeit die Messer vor Ort
-                                            auszutesten?</p>
-                                        <div class="input-group mb-3">
-                                            <textarea id="antwortSchreiben" class="form-control"
-                                                      aria-label="With textarea"></textarea>
-                                        </div>
-                                        <button id="antwortenBtn" class="btn btn-luxknives">Antworten</button>
-                                        <button id="loeschenBtn" class="btn btn-luxknives">Frage Löschen</button>
-                                    </div>
-                                </div>
+                            <div class="row d-flex justify-content-center" id="divNachrichten">
+
                             </div>
-                            <!--
-                            <div class="row d-flex justify-content-center">
-                                <div class="card mb-3 cardBestellungenStyle">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ihre Frage</h5>
-                                        <p class="card-textBestellungen">Haben sie Produkte in anderen Farben?</p>
-                                        <a href="#" class="btn btn-luxknives">Antworten</a>
-                                        <a href="#" class="btn btn-luxknives">Frage Loschen</a>
-                                    </div>
-                                </div>
-                            </div>
-                            -->
                         </div>
                     </div>
                 </div>
@@ -419,7 +393,7 @@
         <!-- Profil Anbieter -->
         <section id="sectProfA" class="d-none">
             <div id="profilA">
-                <div class="container-fluid p-0 pt-4">
+                <div class="container-fluid p-0 pt-4 pb-5">
                     <div class="row justify-content-evenly">
                         <div class="col-5">
                             <div class="card mb-3 cardBioStyle">
