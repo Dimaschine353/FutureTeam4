@@ -606,6 +606,11 @@ footer {
     box-shadow: 5px 10px 18px #888888;
 }
 
+.anmeldenAbsolute {
+    position: absolute;
+    top: 10rem;
+}
+
 .formSpace {
     padding-top: 1rem;
 }
