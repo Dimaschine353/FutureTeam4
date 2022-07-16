@@ -328,6 +328,13 @@ h5 {
     background-image: url('/cMe/images/komp/placeholder-person.png');
 }
 
+.fillProfilPicAnbieter {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/cMe/images/komp/christian-buehner-KCLqSvoUdxw-unsplash.jpg');
+}
+
 .fillWarenkorbProduktbild {
     overflow: hidden;
     background-size: cover;

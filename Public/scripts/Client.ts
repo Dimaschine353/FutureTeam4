@@ -159,6 +159,7 @@ let profilABtnA: HTMLInputElement;
 let profilABtnL: HTMLInputElement;
 let logoutBtnA: HTMLHtmlElement;
 let tabelleNachrichtenAnbieter: HTMLElement;
+let divNachrichtenAnbieter: HTMLElement;
 //Login
 let loginName: HTMLInputElement;
 let loginPasswort: HTMLInputElement;
@@ -292,6 +293,11 @@ document.addEventListener("DOMContentLoaded",()=>{
     //Nachricht
     tabelleNachrichten = document.querySelector("#tabelleNachrichten")
     tabelleNachrichtenAnbieter = document.querySelector("#tabelleNachrichtenAnbieter");
+
+
+    divNachrichtenAnbieter = document.querySelector('#divNachrichtenAnbieter');
+
+
     nachrichtVName = document.querySelector("#nachrichtVName");
     nachrichtNName = document.querySelector("#nachrichtNName");
     nachrichtEmail = document.querySelector("#nachrichtEmail");
@@ -324,6 +330,24 @@ document.addEventListener("DOMContentLoaded",()=>{
             nachrichtBeantwortenAbsenden(target);
         }
     });
+
+
+    //Neue Tabelle
+    divNachrichtenAnbieter.addEventListener("click",(event:Event)=>{
+        let target: HTMLElement = event.target as HTMLElement;
+        target = target.closest("button");
+        if(target.matches(".delete")){
+            antwortLoeschen(target);
+        }else if(target.matches(".edit")){
+            nachrichtBeantwortenStart(target);
+        }else if(target.matches(".absenden")){
+            nachrichtBeantwortenAbsenden(target);
+        }
+    });
+
+
+
+
     //Startseite/Landingpage
     startNakiri = document.querySelector("#startNakiri");
     startSantoku = document.querySelector("#startSantoku");
@@ -494,6 +518,14 @@ function renderNachrichtenListe(){
                 <button class="btn btn-primary absenden d-none" data-nId="${n.nId}" >Absenden</button>
                 </td>
                 `;
+
+
+
+
+
+
+
+
                 tabelleNachrichten.append(tr);
             }
         });
@@ -581,6 +613,7 @@ function nachrichtBearbeitenAbsenden(target: HTMLElement){
 }
 //Funktionen Anbieter
 function renderAlleleleleNachrichtern(){
+    /*
     const email: string =eingeloggterBenutzer.toString();
     tabelleNachrichtenAnbieter.innerHTML="";
     axios.get("/nachrichten/"+email)
@@ -596,11 +629,39 @@ function renderAlleleleleNachrichtern(){
                 <button class="btn btn-primary absenden d-none" data-nId="${n.nId}" >Absenden</button>
                 </td>
                 `;
+
              tabelleNachrichtenAnbieter.append(tr);
 
             }
-        });
+            */
 
+    const email: string =eingeloggterBenutzer.toString();
+    divNachrichtenAnbieter.innerHTML="";
+    axios.get("/nachrichten/"+email)
+        .then((res: AxiosResponse)=>{
+            for(const n of res.data){
+                const div: HTMLElement = document.createElement("div");
+                div.innerHTML = `
+                <div class="card mb-3 cardBestellungenStyle">
+                    <div class="card-body">
+                        <h5 class="card-title">${n.betreff}</h5>
+                        <p class="card-textBestellungen">${n.nachricht}</p>
+                        <div class="input-group mb-3">
+                            <textarea id="antwortSchreibenAnbieter" class="form-control"
+                                      aria-label="With textarea"></textarea>
+                        </div>
+                        <button class="btn btn-luxknives delete" data-nId="${n.nId}">Löschen</button>
+                        <button class="btn btn-luxknives edit" data-nachricht="${n.nachricht}">Bearbeiten</button>
+                        <button class="btn btn-luxknives absenden d-none" data-nId="${n.nId}" >Absenden</button>
+                    </div>
+                </div>
+                `;
+
+
+                divNachrichtenAnbieter.append(div);
+
+            }
+        });
 }
 function antwortLoeschen(target:HTMLElement){
 
