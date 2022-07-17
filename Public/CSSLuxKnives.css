@@ -326,7 +326,9 @@ h5 {
     overflow: hidden;
     background-size: cover;
     background-position: center;
+    /* Auskommentiert -> weil Fehler in der Konsole
     background-image: url('/cMe/images/NakiriMusashi1.jpg');
+     */
     cursor: pointer;
 }
 
