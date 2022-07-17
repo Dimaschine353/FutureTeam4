@@ -151,7 +151,7 @@
 
                     <div class="card col-3 card-gallery">
                         <div class="card-body instagallery d-flex justify-content-center align-items-center fill7">
-                            <a href="https://www.instagram.com/sokoriegel/" class="overlay">
+                            <a href="https://www.instagram.com/sokoriegel/" target="_blank" class="overlay">
                                 <button  class="btn"><i
                                         class="fa-4x fa-brands fa-instagram"></i>
                                 </button>
@@ -161,7 +161,7 @@
 
                     <div class="card col-3 card-gallery">
                         <div class="card-body instagallery d-flex justify-content-center align-items-center fill7">
-                            <a href="https://www.instagram.com/sokoriegel/" class="overlay">
+                            <a href="https://www.instagram.com/sokoriegel/" target="_blank" class="overlay">
                                 <button  class="btn"><i
                                         class="fa-4x fa-brands fa-instagram"></i>
                                 </button>
@@ -171,7 +171,7 @@
 
                     <div class="card col-3 card-gallery">
                         <div class="card-body instagallery d-flex justify-content-center align-items-center fill7">
-                            <a href="https://www.instagram.com/sokoriegel/" class="overlay">
+                            <a href="https://www.instagram.com/sokoriegel/" target="_blank" class="overlay">
                                 <button  class="btn"><i
                                         class="fa-4x fa-brands fa-instagram"></i>
                                 </button>
@@ -189,28 +189,17 @@
         <!-- Profil -->
         <section id="sectProf" class="d-none">
             <div id="profil">
-                <div class="container-fluid p-0 pt-4">
+                <div class="container-fluid p-0 pt-4 pb-5">
                     <div class="row justify-content-evenly">
                         <div class="col-5">
                             <div class="card mb-3 cardBioStyle">
                                 <div class="row g-0">
-                                    <div class="col-md-4 fillProfilPic">
-                            <!--
-                                        <img src="/cMe/images/placeholder-person.png"
-                                             class="img-fluid profilBildStyle" alt="...">
-                            -->
-                                    </div>
+                                    <div class="col-md-4 fillProfilPic"></div>
                                     <div class="col-md-8">
                                         <div class="card-body">
                                             <h5 class="card-title">Bio</h5>
                                             <p class="card-text" id="profilBioRead">
-                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
-                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
-                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
-                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
-                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
-                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
-                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Essen bin ich Kochen.
                                             </p>
                                         </div>
                                     </div>
@@ -257,55 +246,53 @@
                                             Abmelden
                                         </button>
                                         &nbsp;
-                                        <button type="button" class="btn btn-luxknives rounded-1 " id="profilUBtnL">
+                                        <button type="button" class="btn btn-ProfilLoeschen rounded-1 " id="profilUBtnL">
                                             Profil Löschen
                                         </button>
                                     </div>
                                 </div>
-
-                    </form>
-                <!--Nachrichtenliste-->
-                <div class="row" id="Nachrichtenliste">
-                    <div class="col">
-                        <div class="row">
-                            <div class="col text-center">
-                                <h5>Nachrichtenliste</h5>
-                            </div>
-                        </div>
-                        <div id="nachrichtBearbeitenDiv">
-                            <form id="formNachrichtBearbeiten" data-nId="">
-                                <div class="input-group mb-3">
-                                    <input id="profilNachrichtBearbeiten" type="text" class="form-control d-none" placeholder="Nachrichtentext" name="profilNachrichtBearbeiten"
-                                           aria-label="profilNachrichtBearbeiten"  required>
-
-                                    <button type="button" class="btn btn-luxknives rounded-1 d-none "  id="nachrichtBA" >
-                                        Abschicken
-                                    </button>
-                                </div>
                             </form>
+                            <!--Nachrichtenliste
+                            <div class="row" id="Nachrichtenliste">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col text-center">
+                                            <h5>Nachrichtenliste</h5>
+                                        </div>
+                                    </div>
+                                    <div id="nachrichtBearbeitenDiv">
+                                        <form id="formNachrichtBearbeiten" data-nId="">
+                                            <div class="input-group mb-3">
+                                                <input id="profilNachrichtBearbeiten" type="text" class="form-control d-none" placeholder="Nachrichtentext" name="profilNachrichtBearbeiten"
+                                                       aria-label="profilNachrichtBearbeiten"  required>
+
+                                                <button type="button" class="btn btn-luxknives rounded-1 d-none "  id="nachrichtBA" >
+                                                    Abschicken
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <table class="table table-striped">
+                                        <thead class="thead-light">
+                                        <tr>
+                                            <th scope="col">Betreff</th>
+                                            <th scope="col">Inhalt</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="tabelleNachrichten">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                             -->
                         </div>
-                        <table class="table table-striped">
-                            <thead class="thead-light">
-                            <tr>
-                                <th scope="col">Betreff</th>
-                                <th scope="col">Inhalt</th>
-                            </tr>
-                            </thead>
-                            <tbody id="tabelleNachrichten">
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-
                     </div>
                     <!-- Bestellungen und Fragen Sektion -->
                     <div class="row justify-content-evenly">
                         <!-- Bestellungen -->
-                        <div class="col-5 bg-luxKnives borderLuxKnives">
+                        <div class="col-5 bg-luxKnives borderLuxKnivesShadow">
                             <div class="row d-flex justify-content-center py-2">
-                                <h2 class="text-center">Meine Bestellungen und Fragen</h2>
+                                <h2 class="text-center">Meine Bestellungen und Termine</h2>
                             </div>
                             <div class="row d-flex justify-content-center">
                                 <div class="card mb-3 cardBestellungenStyle">
@@ -391,37 +378,13 @@
                             </div>
                         </div>
                         <!-- Fragen -->
-                        <div class="col-5 bg-luxKnives borderLuxKnives">
+                        <div class="col-5 bg-luxKnives borderLuxKnivesShadow">
                             <div class="row d-flex justify-content-start py-2 padding-fragen">
-                                <h2>Neue Infos:</h2>
+                                <h2>Ihre Fragen:</h2>
                             </div>
-                            <div class="row d-flex justify-content-center">
-                                <div class="card mb-3 cardBestellungenStyle">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ihre Frage</h5>
-                                        <p class="card-textBestellungen"> Gibt es eine Moglichkeit die Messer vor Ort
-                                            auszutesten?</p>
-                                        <div class="input-group mb-3">
-                                            <textarea id="antwortSchreiben" class="form-control"
-                                                      aria-label="With textarea"></textarea>
-                                        </div>
-                                        <button id="antwortenBtn" class="btn btn-luxknives">Antworten</button>
-                                        <button id="loeschenBtn" class="btn btn-luxknives">Frage Löschen</button>
-                                    </div>
-                                </div>
+                            <div class="row d-flex justify-content-center" id="divNachrichten">
+
                             </div>
-                            <!--
-                            <div class="row d-flex justify-content-center">
-                                <div class="card mb-3 cardBestellungenStyle">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ihre Frage</h5>
-                                        <p class="card-textBestellungen">Haben sie Produkte in anderen Farben?</p>
-                                        <a href="#" class="btn btn-luxknives">Antworten</a>
-                                        <a href="#" class="btn btn-luxknives">Frage Loschen</a>
-                                    </div>
-                                </div>
-                            </div>
-                            -->
                         </div>
                     </div>
                 </div>
@@ -430,16 +393,13 @@
         <!-- Profil Anbieter -->
         <section id="sectProfA" class="d-none">
             <div id="profilA">
-                <div class="container-fluid p-0 pt-4">
+                <div class="container-fluid p-0 pt-4 pb-5">
                     <div class="row justify-content-evenly">
                         <div class="col-5">
                             <div class="card mb-3 cardBioStyle">
                                 <div class="row g-0">
-                                    <div class="col-md-4 fillProfilPic">
-                                        <!--
-                                                    <img src="/cMe/images/placeholder-person.png"
-                                                         class="img-fluid profilBildStyle" alt="...">
-                                        -->
+                                    <div class="col-md-4 fillProfilPicAnbieter">
+
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
@@ -497,7 +457,8 @@
                                             Abmelden
                                         </button>
                                         &nbsp;
-                                        <button type="button" class="btn btn-luxknives rounded-1 " id="profilABtnL">
+                                        <!-- Ich glaube nicht dass der Boss sich Löschen können sollte -->
+                                        <button type="button" class="btn btn-ProfilLoeschen rounded-1 " id="profilABtnL">
                                             Profil Löschen
                                         </button>
                                     </div>
@@ -505,6 +466,7 @@
 
                             </form>
                             <!--Nachrichtenliste-->
+                            <!--
                             <div class="row" id="NachrichtenlisteAnbieter">
                                 <div class="col">
                                     <div class="row">
@@ -524,6 +486,8 @@
                                             </div>
                                         </form>
                                     </div>
+
+
                                     <table class="table table-striped">
                                         <thead class="thead-light">
                                         <tr>
@@ -534,18 +498,19 @@
                                         <tbody id="tabelleNachrichtenAnbieter">
                                         </tbody>
                                     </table>
+
+
                                 </div>
                             </div>
+                            -->
                         </div>
-
-
                     </div>
                     <!-- Bestellungen und Fragen Sektion -->
                     <div class="row justify-content-evenly">
                         <!-- Bestellungen -->
-                        <div class="col-5 bg-luxKnives borderLuxKnives">
+                        <div class="col-5 bg-luxKnives borderLuxKnivesShadow">
                             <div class="row d-flex justify-content-center py-2">
-                                <h2 class="text-center">Meine Bestellungen und Fragen</h2>
+                                <h2 class="text-center">Bestellungen</h2>
                             </div>
                             <div class="row d-flex justify-content-center">
                                 <div class="card mb-3 cardBestellungenStyle">
@@ -631,11 +596,12 @@
                             </div>
                         </div>
                         <!-- Fragen -->
-                        <div class="col-5 bg-luxKnives borderLuxKnives">
+                        <div class="col-5 bg-luxKnives borderLuxKnivesShadow">
                             <div class="row d-flex justify-content-start py-2 padding-fragen">
-                                <h2>Neue Infos:</h2>
+                                <h2>Neue Nutzerfragen:</h2>
                             </div>
-                            <div class="row d-flex justify-content-center">
+                            <div class="row d-flex justify-content-center" id="divNachrichtenAnbieter">
+                                <!-- Beispiel Div:
                                 <div class="card mb-3 cardBestellungenStyle">
                                     <div class="card-body">
                                         <h5 class="card-title">Ihre Frage</h5>
@@ -649,6 +615,7 @@
                                         <button id="loeschenBtnAnbieter" class="btn btn-luxknives">Frage Löschen</button>
                                     </div>
                                 </div>
+                                -->
                             </div>
                             <!--
                             <div class="row d-flex justify-content-center">
@@ -779,7 +746,7 @@
                                             professionell schleifen
                                         </p>
                                         <div class="justify-content-center d-flex">
-                                            <a href="#" class="btn btn-luxknives2">
+                                            <a href="#" class="btn btn-luxknives">
                                                 Service
                                             </a>
                                         </div>
@@ -897,7 +864,7 @@
                 <div id="produktbildSantoku1">
                     <div class="santoku">Santoku</div>
                     <div class="kenshin">Kenshin</div>
-                    <img src="/cMe/images/KenshinSantokuEdit1.png" width="100%" alt="Nakiri Messer">
+                    <img src="/cMe/images/komp/KenshinSantokuEdit1.png" width="100%" alt="Nakiri Messer">
                 </div>
                 <div>
                     <h1 id="qfSantoku" class="qualityFirstTitleStyle pt-0">
@@ -913,7 +880,7 @@
 
             <div id="verfuegbarSantoku">
                 <div class="row d-flex align-items-center">
-                        <img id="musterSantoku" src="/cMe/images/SantokuMuster.png" width="100%">
+                        <img id="musterSantoku" src="/cMe/images/komp/SantokuMuster.png" width="100%">
 
                     <div class="position-absolute">
                             <div class="col-7 d-flex justify-content-center">
@@ -984,7 +951,7 @@
             <!-- Service vor Ort -->
 
                 <div class="container-fluid p-0 position-relative">
-                    <img src="/cMe/images/SantukoWarenkorb.png" width="100%" alt="Nakiri Musashi Messer">
+                    <img src="/cMe/images/komp/SantukoWarenkorb.png" width="100%" alt="Nakiri Musashi Messer">
                     <div class="container-fluid p-0">
                         <div class="row justify-content-evenly">
                             <div class="rightTransBoxService">
@@ -2089,8 +2056,11 @@
         <section id="sectReg" class="d-none">
             <div id="registrieren">
 
+                <div class="container-fluid p-0 position-relative">
+                    <img src="/cMe/images/komp/landingpageMesser.png" width="100%" alt="Messer Bild Landingpage">
+                </div>
                 <form class="d-flex justify-content-center formSpace py-5" id="formRegistrieren">
-                    <div class="card col-4 anmeldenEdges">
+                    <div class="card col-4 anmeldenEdges anmeldenAbsolute">
                         <div class="card-body">
                             <div class="col text-center formSpace">
                                 <h5 class="formTitle">Registrieren</h5>
@@ -2153,8 +2123,11 @@
         <!-- Login -->
         <section id="sectLog" class="d-none">
 
+            <div class="container-fluid p-0 position-relative">
+                <img src="/cMe/images/komp/landingpageMesser.png" width="100%" alt="Messer Bild Landingpage">
+            </div>
             <form class="d-flex justify-content-center py-5" id="formLogin">
-                <div class="card col-4 anmeldenEdges">
+                <div class="card col-4 anmeldenEdges anmeldenAbsolute">
                     <div class="card-body">
                         <div class="justify-content-center d-flex formSpace">
                             <img src="/cMe/images/original/LogoLuxKnivesTransparent.png" alt="Logo" width="15%">
@@ -4291,7 +4264,7 @@
 
                     <a id="footDatenschutz" class="nav-link" href="#">Datenschutz</a>
 
-                    <a class="nav-link" href="#">AGB</a>
+                    <a id="footAGB" class="nav-link" href="#">AGB</a>
                 </div>
             </div>
         </div>

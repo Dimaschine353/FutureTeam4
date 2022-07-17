@@ -118,6 +118,7 @@ let impressum: HTMLElement;
 let footKont: HTMLElement;
 let footFAQ: HTMLElement;
 let footDatenschutz: HTMLElement;
+let footAGB: HTMLElement;
 //Deklaration Startseite/Landingpage
 let startNakiri: HTMLElement;
 let startSantoku: HTMLElement;
@@ -151,6 +152,7 @@ let profilUBtnA: HTMLInputElement;
 let profilUBtnL: HTMLInputElement;
 let logoutBtn: HTMLInputElement;
 let tabelleNachrichten: HTMLElement;
+let divNachrichten: HTMLElement;
 //Profil Anbieter
 let profilVornameA: HTMLInputElement;
 let profilNachnameA: HTMLInputElement;
@@ -159,6 +161,7 @@ let profilABtnA: HTMLInputElement;
 let profilABtnL: HTMLInputElement;
 let logoutBtnA: HTMLHtmlElement;
 let tabelleNachrichtenAnbieter: HTMLElement;
+let divNachrichtenAnbieter: HTMLElement;
 //Login
 let loginName: HTMLInputElement;
 let loginPasswort: HTMLInputElement;
@@ -238,6 +241,8 @@ document.addEventListener("DOMContentLoaded",()=>{
     footFAQ.addEventListener("click",zumService);
     footDatenschutz = document.querySelector("#footDatenschutz");
     footDatenschutz.addEventListener("click",zumDatenschutz);
+    footAGB = document.querySelector("#footAGB");
+    footAGB.addEventListener("click",zumAGB);
     //Initialisierung Forms
     feedbackLogin = document.querySelector("#feedbackLogin");
     feedbackReg = document.querySelector("#feedbackRegistrieren");
@@ -292,6 +297,12 @@ document.addEventListener("DOMContentLoaded",()=>{
     //Nachricht
     tabelleNachrichten = document.querySelector("#tabelleNachrichten")
     tabelleNachrichtenAnbieter = document.querySelector("#tabelleNachrichtenAnbieter");
+
+
+    divNachrichten = document.querySelector('#divNachrichten')
+    divNachrichtenAnbieter = document.querySelector('#divNachrichtenAnbieter');
+
+
     nachrichtVName = document.querySelector("#nachrichtVName");
     nachrichtNName = document.querySelector("#nachrichtNName");
     nachrichtEmail = document.querySelector("#nachrichtEmail");
@@ -302,6 +313,8 @@ document.addEventListener("DOMContentLoaded",()=>{
     nachrichtEdit = document.querySelector("#profilNachrichtBearbeiten");
 
 
+
+    /*
     tabelleNachrichten.addEventListener("click",(event:Event)=>{
         let target: HTMLElement = event.target as HTMLElement;
         target = target.closest("button");
@@ -324,6 +337,42 @@ document.addEventListener("DOMContentLoaded",()=>{
             nachrichtBeantwortenAbsenden(target);
         }
     });
+
+
+     */
+
+
+
+    //Neue Tabelle Nachfrager
+    divNachrichten.addEventListener("click",(event:Event)=>{
+        let target: HTMLElement = event.target as HTMLElement;
+        target = target.closest("button");
+        if(target.matches(".delete")){
+            nachrichtLoeschen(target);
+        }else if(target.matches(".edit")){
+            nachrichtBearbeitenStart(target);
+        }else if(target.matches(".absenden")){
+            nachrichtBearbeitenAbsenden(target);
+        }
+    });
+
+
+    //Neue Tabelle Anbieter
+    divNachrichtenAnbieter.addEventListener("click",(event:Event)=>{
+        let target: HTMLElement = event.target as HTMLElement;
+        target = target.closest("button");
+        if(target.matches(".delete")){
+            antwortLoeschen(target);
+        }else if(target.matches(".edit")){
+            nachrichtBeantwortenStart(target);
+        }else if(target.matches(".absenden")){
+            nachrichtBeantwortenAbsenden(target);
+        }
+    });
+
+
+
+
     //Startseite/Landingpage
     startNakiri = document.querySelector("#startNakiri");
     startSantoku = document.querySelector("#startSantoku");
@@ -354,25 +403,31 @@ function benutzerHinzufuegen(event:Event){
     const nName: string = regNachname.value;
     const email: string = regEmail.value;
     const passwort: string = regPasswort.value;
-    axios.post("/benutzer", {
-        vName: vName,
-        nName: nName,
-        email: email,
-        passwort: passwort
-    }).then((res: AxiosResponse)=>{
-        formRegistrieren.reset();
-        sectReg.classList.add("d-none");
-        sectLog.classList.remove("d-none");
-        feedbackLogin.innerText = "Benutzer erfolgreich registriert. Bitte loggen Sie sich ein.";
-        setTimeout(feedbackLoginLoeschen,3000);
 
-    }).catch((err: AxiosError)=>{
-        if(err!==null){
-            feedbackReg.innerText = "Die e-mail ist bereits vergeben.";
-            setTimeout(feedbackRegLoeschen,2000);
-        }
+    if (vName == null || vName.trim() == "" || nName == null || nName.trim() == "" || email == null || email.trim() == "" || passwort == null || passwort.trim() == ""){
+        alert("Die Felder dürfen nicht leer sein oder nur Leertasten enthalten!");
+    }else{
+        axios.post("/benutzer", {
+            vName: vName,
+            nName: nName,
+            email: email,
+            passwort: passwort
+        }).then((res: AxiosResponse)=>{
+            formRegistrieren.reset();
+            sectReg.classList.add("d-none");
+            sectLog.classList.remove("d-none");
+            feedbackLogin.innerText = "Benutzer erfolgreich registriert. Bitte loggen Sie sich ein.";
+            setTimeout(feedbackLoginLoeschen,3000);
 
-    });
+        }).catch((err: AxiosError)=>{
+            if(err!==null){
+                feedbackReg.innerText = "Die e-mail ist bereits vergeben.";
+                setTimeout(feedbackRegLoeschen,2000);
+            }
+
+        });
+    }
+
 }
 function benutzerLoeschen(event:Event){
     event.preventDefault();
@@ -473,6 +528,37 @@ function renderNachrichtenListe(){
     //console.log("bin in der renderNachrichten");
     const email: string = eingeloggterBenutzer.toString();
     //console.log(email+" in der renderNachrichten")
+
+    divNachrichten.innerHTML = "";
+    axios.get("/nachricht/"+email)
+        .then((res: AxiosResponse)=>{
+            for(const n of res.data){
+                //console.log(res.data);
+                const div: HTMLElement = document.createElement("div");
+                div.innerHTML =`
+
+                    <div class="card mb-3 mx-5 cardBestellungenStyle">
+                        <div class="card-body">
+                            <h5 class="card-title">${n.betreff}</h5>
+                            <p class="card-textBestellungen">${n.nachricht}</p>
+                            <div class="input-group mb-3">
+                                <p class="pe-2">Anwort:</p>
+                                <p id="antwortVomAnbieter">Super toll, super nice frage</p>
+                            </div>
+                            <button class="btn btn-luxknives delete" data-nId="${n.nId}">Löschen</button>
+                            <button class="btn btn-luxknives edit" data-nachricht="${n.nachricht}">Bearbeiten</button>
+                            <button class="btn btn-luxknives absenden d-none" data-nId="${n.nId}" >Absenden</button>
+                        </div>
+                    </div>
+
+                `;
+
+                divNachrichten.append(div);
+            }
+        });
+
+
+    /* alte nachricht funktion
     tabelleNachrichten.innerHTML = "";
     axios.get("/nachricht/"+email)
         .then((res: AxiosResponse)=>{
@@ -488,9 +574,12 @@ function renderNachrichtenListe(){
                 <button class="btn btn-primary absenden d-none" data-nId="${n.nId}" >Absenden</button>
                 </td>
                 `;
+
                 tabelleNachrichten.append(tr);
             }
         });
+
+     */
 }
 function nachrichtHinzufuegen(event:Event){
     event.preventDefault();
@@ -575,6 +664,7 @@ function nachrichtBearbeitenAbsenden(target: HTMLElement){
 }
 //Funktionen Anbieter
 function renderAlleleleleNachrichtern(){
+    /*
     const email: string =eingeloggterBenutzer.toString();
     tabelleNachrichtenAnbieter.innerHTML="";
     axios.get("/nachrichten/"+email)
@@ -590,11 +680,39 @@ function renderAlleleleleNachrichtern(){
                 <button class="btn btn-primary absenden d-none" data-nId="${n.nId}" >Absenden</button>
                 </td>
                 `;
+
              tabelleNachrichtenAnbieter.append(tr);
 
             }
-        });
+            */
 
+    const email: string =eingeloggterBenutzer.toString();
+    divNachrichtenAnbieter.innerHTML="";
+    axios.get("/nachrichten/"+email)
+        .then((res: AxiosResponse)=>{
+            for(const n of res.data){
+                const div: HTMLElement = document.createElement("div");
+                div.innerHTML = `
+                <div class="card mb-3 mx-5 cardBestellungenStyle">
+                    <div class="card-body">
+                        <h5 class="card-title">${n.betreff}</h5>
+                        <p class="card-textBestellungen">${n.nachricht}</p>
+                        <div class="input-group mb-3">
+                            <textarea id="antwortSchreibenAnbieter" class="form-control"
+                                      aria-label="With textarea"></textarea>
+                        </div>
+                        <button class="btn btn-luxknives delete" data-nId="${n.nId}">Löschen</button>
+                        <button class="btn btn-luxknives edit" data-nachricht="${n.nachricht}">Bearbeiten</button>
+                        <button class="btn btn-luxknives absenden d-none" data-nId="${n.nId}" >Absenden</button>
+                    </div>
+                </div>
+                `;
+
+
+                divNachrichtenAnbieter.append(div);
+
+            }
+        });
 }
 function antwortLoeschen(target:HTMLElement){
 
@@ -693,18 +811,20 @@ function zumLogin (event:Event){
     if(eingeloggterBenutzer==""){
         navigieren();
         sectLog.classList.remove("d-none");
+        window.scrollTo(0, 0);
 
     }else if(eingeloggterBenutzer=="anbieter@boss.com"){
         navigieren();
         benutzerAuslesen(eingeloggterBenutzer);
         renderAlleleleleNachrichtern();
         sectProfA.classList.remove("d-none");
+        window.scrollTo(0, 0);
     }else{
         navigieren();
         benutzerAuslesen(eingeloggterBenutzer);
         renderNachrichtenListe();
         sectProf.classList.remove("d-none");
-
+        window.scrollTo(0, 0);
     }
 
 
@@ -713,39 +833,39 @@ function zumWarenkorb (event:Event){
     event.preventDefault();
     navigieren();
     sectWar.classList.remove("d-none");
-
+    window.scrollTo(0, 0);
 }
 function zumService (event:Event){
     event.preventDefault();
     navigieren();
     sectServ.classList.remove("d-none");
-
+    window.scrollTo(0, 0);
 }
 function zuUeber(event:Event){
     event.preventDefault();
     navigieren();
     sectUeber.classList.remove("d-none");
-
+    window.scrollTo(0, 0);
 
 }
 function zumKontakt(event:Event){
     event.preventDefault();
     navigieren();
     sectKont.classList.remove("d-none");
-
+    window.scrollTo(0, 0);
 }
 function zumReg(event:Event){
     event.preventDefault();
     navigieren()
     sectReg.classList.remove("d-none");
-
+    window.scrollTo(0, 0);
 
 }
 function zumImpr(event:Event){
     event.preventDefault();
     navigieren();
     sectImpr.classList.remove("d-none");
-
+    window.scrollTo(0, 0);
 }
 function navigieren(){
     sectStart.classList.add("d-none");
@@ -788,6 +908,13 @@ function zumDatenschutz(event:Event){
     event.preventDefault();
     navigieren()
     sectDS.classList.remove("d-none");
+    window.scrollTo(0, 0);
+}
+function zumAGB(event:Event){
+    event.preventDefault();
+    navigieren()
+    sectAGB.classList.remove("d-none");
+    window.scrollTo(0, 0);
 }
 function binIchNochDrin(){
     axios.get("/binIchNochDrin?")
