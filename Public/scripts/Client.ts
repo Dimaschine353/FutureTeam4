@@ -314,7 +314,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 
 
-    /*
+
     tabelleNachrichten.addEventListener("click",(event:Event)=>{
         let target: HTMLElement = event.target as HTMLElement;
         target = target.closest("button");
@@ -339,10 +339,10 @@ document.addEventListener("DOMContentLoaded",()=>{
     });
 
 
-     */
 
 
 
+    /*
     //Neue Tabelle Nachfrager
     divNachrichten.addEventListener("click",(event:Event)=>{
         let target: HTMLElement = event.target as HTMLElement;
@@ -370,7 +370,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         }
     });
 
-
+     */
 
 
     //Startseite/Landingpage
@@ -529,6 +529,8 @@ function renderNachrichtenListe(){
     const email: string = eingeloggterBenutzer.toString();
     //console.log(email+" in der renderNachrichten")
 
+
+    /* Neue render nachrichten
     divNachrichten.innerHTML = "";
     axios.get("/nachricht/"+email)
         .then((res: AxiosResponse)=>{
@@ -556,9 +558,9 @@ function renderNachrichtenListe(){
                 divNachrichten.append(div);
             }
         });
+    */
 
 
-    /* alte nachricht funktion
     tabelleNachrichten.innerHTML = "";
     axios.get("/nachricht/"+email)
         .then((res: AxiosResponse)=>{
@@ -578,8 +580,6 @@ function renderNachrichtenListe(){
                 tabelleNachrichten.append(tr);
             }
         });
-
-     */
 }
 function nachrichtHinzufuegen(event:Event){
     event.preventDefault();
@@ -664,7 +664,7 @@ function nachrichtBearbeitenAbsenden(target: HTMLElement){
 }
 //Funktionen Anbieter
 function renderAlleleleleNachrichtern(){
-    /*
+
     const email: string =eingeloggterBenutzer.toString();
     tabelleNachrichtenAnbieter.innerHTML="";
     axios.get("/nachrichten/"+email)
@@ -684,8 +684,9 @@ function renderAlleleleleNachrichtern(){
              tabelleNachrichtenAnbieter.append(tr);
 
             }
-            */
 
+
+    /*   Neue render ansicht
     const email: string =eingeloggterBenutzer.toString();
     divNachrichtenAnbieter.innerHTML="";
     axios.get("/nachrichten/"+email)
@@ -712,7 +713,9 @@ function renderAlleleleleNachrichtern(){
                 divNachrichtenAnbieter.append(div);
 
             }
-        });
+
+            */
+    });
 }
 function antwortLoeschen(target:HTMLElement){
 
