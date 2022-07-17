@@ -351,7 +351,6 @@ function benutzerAuslesen(eingeloggterBenutzer:String){
         });
 }
 //Funktionen Nachrichten
-
 //muss so angepasst werden das die Antwort angezeigt wird
 //außerdem muss dder bearbeiten Btn ausgeblendet werden, wenn die Nachricht beantwortet wurde
 function renderNachrichtenListe(){

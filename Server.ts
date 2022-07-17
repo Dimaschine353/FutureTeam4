@@ -395,31 +395,10 @@ function postAntwort(req:express.Request, res:express.Response){
     console.log(nId+" in der postAntwort");
     const antwort = req.body.antwort;
     console.log(antwort+" in der postAntwort");
-    /*
-    const param = [vName,nName,email,betreff,nachricht,uId];
-    const sql = "INSERT INTO nachrichten (vName, nName, email, betreff, nachricht,uId) VALUES(?,?,?,?,?,?)";
-    */
     let sql = "INSERT INTO antworten (nId, antwort) VALUES(?,?)";
     console.log(sql +" :SQL Abfrage in der postAntwort");
-    const param = [antwort,nId];
+    const param = [nId,antwort];
     console.log(param+" Parameter in der postAntwort");
-    /*
-        if(vName===undefined || nName===undefined || email===undefined || betreff===undefined || nachricht===undefined){
-          res.status(400).send("Einer der Parameter fehlt");
-    }else{
-        connection.query(
-            sql,
-            param,
-            (err:MysqlError | null, result:any) => {
-                if(err!==null){
-                    res.status(500).send("SQL Fehler")
-                }else{
-                    res.status(201).send({result});
-                }
-            }
-        );
-    }
-    */
     if(antwort===undefined || nId===undefined){
         //||ist es zu viel diese Info an den Client zu schicken?
         res.status(400).send("einer der Werte fehlt");
@@ -431,7 +410,8 @@ function postAntwort(req:express.Request, res:express.Response){
                 if(err!==null){
                     res.status(500).send("Fehler in der Datenbank");
                 }else{
-                    res.status(201).send("nachricht mit der ID: "+nId+" wurde beantwortet");
+                    res.status(201).send("nachricht mit der ID: "+ nId + " wurde beantwortet");
+                    console.log("nachricht mit der ID: "+nId+" wurde beantwortet");
                 }
 
         });
