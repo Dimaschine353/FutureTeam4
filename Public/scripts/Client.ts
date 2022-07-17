@@ -845,7 +845,7 @@ function zumService (event:Event){
     event.preventDefault();
     navigieren();
     sectServ.classList.remove("d-none");
-    window.scrollTo(0, 0);
+    window.scrollTo(0, 10000);
 }
 function zuUeber(event:Event){
     event.preventDefault();
