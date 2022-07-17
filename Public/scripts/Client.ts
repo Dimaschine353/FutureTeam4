@@ -783,7 +783,7 @@ function zuHandgefertigteMesser(event: Event){
     event.preventDefault();
     navigieren();
     sectStart.classList.remove("d-none");
-    scrollTo(0, );
+    scrollTo(0, 1300);
 }
 function zurDet(event:Event){
     event.preventDefault();
