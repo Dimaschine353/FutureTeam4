@@ -316,7 +316,7 @@ h5 {
     overflow: hidden;
     background-size: cover;
     background-position: center;
-    background-image: url('/cMe/images/NakiriMusashi1.jpg');
+   <!-- background-image: url('/cMe/images/NakiriMusashi1.jpg');-->
     cursor: pointer;
 }
 

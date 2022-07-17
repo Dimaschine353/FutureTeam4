@@ -93,6 +93,8 @@ app.get("/nachrichten/:email",checkLogin,getAlleleleleNachrichten);
 app.post("/nachricht",postNachricht);
 app.delete("/nachricht/:nId",deleteNachricht);
 app.put("/nachricht/:nId", putNachrichten);
+//Routen Antwort
+
 //Login 'n out Funktionen
 function login(req: express.Request, res: express.Response): void {
     //Selektiert "nichts", aber unter der Bedingung, dass Name und Passwort stimmen
@@ -284,8 +286,6 @@ function postNachricht(req: express.Request, res:express.Response):void{
     const betreff: string = req.body.betreff;
     const nachricht: string = req.body.nachricht;
     const uId: number = req.session.uid;
-    //console.log(uId+" in der PostNachricht");
-
     const param = [vName,nName,email,betreff,nachricht,uId];
     const sql = "INSERT INTO nachrichten (vName, nName, email, betreff, nachricht,uId) VALUES(?,?,?,?,?,?)";
     if(vName===undefined || nName===undefined || email===undefined || betreff===undefined || nachricht===undefined){
@@ -357,7 +357,6 @@ function getAlleleleleNachrichten(req:express.Request, res:express.Response):voi
     //console.log("Bin in der getAllelelele Nachrichten")
     const param =[];
     const sql = "SELECT * FROM nachrichten;";
-
     connection.query(
         sql,
         param,
@@ -369,11 +368,8 @@ function getAlleleleleNachrichten(req:express.Request, res:express.Response):voi
 function putNachrichten(req: express.Request, res: express.Response): void {
     const nachricht: string = req.body.nachricht;
     const nId: string = req.params.nId;
-    //console.log(nId);
-
     const param = [nachricht, nId];
     let sql = "UPDATE nachrichten SET nachricht = ? WHERE nId = ?;";
-
     if(nachricht === undefined){
         res.status(400);
         res.send("Der Inhalt Ihrer Nachricht ist leer");
@@ -381,7 +377,7 @@ function putNachrichten(req: express.Request, res: express.Response): void {
         connection.query(
             sql,
             param,
-            (err:MysqlError | null, result: any) => {
+            (err:MysqlError | null, results: any) => {
 
             });
         //console.log(nId);
@@ -392,7 +388,55 @@ function putNachrichten(req: express.Request, res: express.Response): void {
         res.send("Es gibt keine Nachricht mit dieser Nachricht ID: " + nId);
     }
 }
+//Funktionen Antworten
+app.post("/antwort",postAntwort);
+function postAntwort(req:express.Request, res:express.Response){
+    const nId = req.body.nId;
+    console.log(nId+" in der postAntwort");
+    const antwort = req.body.antwort;
+    console.log(antwort+" in der postAntwort");
+    /*
+    const param = [vName,nName,email,betreff,nachricht,uId];
+    const sql = "INSERT INTO nachrichten (vName, nName, email, betreff, nachricht,uId) VALUES(?,?,?,?,?,?)";
+    */
+    let sql = "INSERT INTO antworten (nId, antwort) VALUES(?,?)";
+    console.log(sql +" :SQL Abfrage in der postAntwort");
+    const param = [antwort,nId];
+    console.log(param+" Parameter in der postAntwort");
+    /*
+        if(vName===undefined || nName===undefined || email===undefined || betreff===undefined || nachricht===undefined){
+          res.status(400).send("Einer der Parameter fehlt");
+    }else{
+        connection.query(
+            sql,
+            param,
+            (err:MysqlError | null, result:any) => {
+                if(err!==null){
+                    res.status(500).send("SQL Fehler")
+                }else{
+                    res.status(201).send({result});
+                }
+            }
+        );
+    }
+    */
+    if(antwort===undefined || nId===undefined){
+        //||ist es zu viel diese Info an den Client zu schicken?
+        res.status(400).send("einer der Werte fehlt");
+    }else{
+        connection.query(
+           sql,
+            param,
+            (err:MysqlError | null, result:any) => {
+                if(err!==null){
+                    res.status(500).send("Fehler in der Datenbank");
+                }else{
+                    res.status(201).send("nachricht mit der ID: "+nId+" wurde beantwortet");
+                }
 
+        });
+    }
+}
 
 
 

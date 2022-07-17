@@ -1,95 +1,8 @@
 //JEDES MAL VOR DEM TEST AUSKOMMENTIEREN !!!!!!!!!!!!!!
-
 //import axios, {AxiosResponse, AxiosError} from 'axios';
-
-//JEDES MAL VOR DEM TEST AUSKOMMENTIEREN !!!!!!!!!!!!!!                 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//JEDES MAL VOR DEM TEST AUSKOMMENTIEREN !!!!!!!!!!!!!!
 
 //Deklaration Sections
-
-
-
-
-
-
 let sectStart: HTMLElement;
 let sectProf: HTMLElement;
 let sectProfA: HTMLHtmlElement
@@ -159,6 +72,7 @@ let profilABtnA: HTMLInputElement;
 let profilABtnL: HTMLInputElement;
 let logoutBtnA: HTMLHtmlElement;
 let tabelleNachrichtenAnbieter: HTMLElement;
+let antwortInput: HTMLInputElement;
 //Login
 let loginName: HTMLInputElement;
 let loginPasswort: HTMLInputElement;
@@ -174,7 +88,6 @@ let nachrichtBtnA: HTMLInputElement;
 let nachrichtEdit: HTMLInputElement;
 //Listener
 document.addEventListener("DOMContentLoaded",()=>{
-
     //Funktionen die direkt ausgeführt werden sollen
     binIchNochDrin();
     //Initialisierung Sect
@@ -194,8 +107,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     sectAGB = document.querySelector("#sectAGB");
     sectDS = document.querySelector("#sectDS");
     sectImpr = document.querySelector("#sectImpr");
-    //Startcontent Einstellung
-
     //Initialisierung Nav Leiste
     navHome = document.querySelector("#navHome");
     navHome.addEventListener("click",zurueckNachhause);
@@ -209,26 +120,13 @@ document.addEventListener("DOMContentLoaded",()=>{
     navUeber.addEventListener("click",zuUeber);
     navKontakt = document.querySelector("#navKontakt");
     navKontakt.addEventListener("click",zumKontakt);
-
-
-
-
-
-
-
-
-    //Initialisierung Zur Detailseite
+    //Initialisierung "zur Detailseite"
     startNakiri = document.querySelector("#startNakiri");
     startNakiri.addEventListener("click",zurDet);
-
     startSantoku = document.querySelector("#startSantoku");
     startSantoku.addEventListener("click", zurDetSantoku);
-
     startSujihinki = document.querySelector("#startSujihinki");
     startSujihinki.addEventListener("click", zurDetSujihiki);
-
-
-
     //Initialisierung Footer
     impressum = document.querySelector("#zumImpressum");
     impressum.addEventListener("click",zumImpr);
@@ -278,30 +176,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     logoutBtnA.addEventListener("click",logout);
     profilUBtnL = document.querySelector("#profilUBtnL");
     profilUBtnL.addEventListener("click",benutzerLoeschen);
-    //Profil Anbieter
-    profilNachnameA = document.querySelector("#profilNachnameA");
-    profilVornameA = document.querySelector("#profilVornameA");
-    profilABtnB = document.querySelector("#profilABtnB");
-    profilABtnB.addEventListener("click",benutzerBearbeitenStart);
-    profilABtnA = document.querySelector("#profilABtnA");
-    profilABtnA.addEventListener("click",benutzerAendern);
-    logoutBtnA = document.querySelector("#profilABtnLogout");
-    logoutBtnA.addEventListener("click", logout);
-    profilABtnL = document.querySelector("#profilABtnL");
-    profilABtnL.addEventListener("click",benutzerLoeschen);
-    //Nachricht
-    tabelleNachrichten = document.querySelector("#tabelleNachrichten")
-    tabelleNachrichtenAnbieter = document.querySelector("#tabelleNachrichtenAnbieter");
-    nachrichtVName = document.querySelector("#nachrichtVName");
-    nachrichtNName = document.querySelector("#nachrichtNName");
-    nachrichtEmail = document.querySelector("#nachrichtEmail");
-    nachrichtBetreff = document.querySelector("#nachrichtBetreff");
-    nachrichtEin = document.querySelector("#nachrichtEin");
-    nachrichtBtnA = document.querySelector("#nachrichtBtnA");
-    nachrichtBtnA.addEventListener("click",nachrichtHinzufuegen);
-    nachrichtEdit = document.querySelector("#profilNachrichtBearbeiten");
-
-
+    tabelleNachrichten = document.querySelector("#tabelleNachrichten");
     tabelleNachrichten.addEventListener("click",(event:Event)=>{
         let target: HTMLElement = event.target as HTMLElement;
         target = target.closest("button");
@@ -313,6 +188,18 @@ document.addEventListener("DOMContentLoaded",()=>{
             nachrichtBearbeitenAbsenden(target);
         }
     });
+    //Profil Anbieter
+    profilNachnameA = document.querySelector("#profilNachnameA");
+    profilVornameA = document.querySelector("#profilVornameA");
+    profilABtnB = document.querySelector("#profilABtnB");
+    profilABtnB.addEventListener("click",benutzerBearbeitenStart);
+    profilABtnA = document.querySelector("#profilABtnA");
+    profilABtnA.addEventListener("click",benutzerAendern);
+    logoutBtnA = document.querySelector("#profilABtnLogout");
+    logoutBtnA.addEventListener("click", logout);
+    profilABtnL = document.querySelector("#profilABtnL");
+    profilABtnL.addEventListener("click",benutzerLoeschen);
+    tabelleNachrichtenAnbieter = document.querySelector("#tabelleNachrichtenAnbieter");
     tabelleNachrichtenAnbieter.addEventListener("click",(event:Event)=>{
         let target: HTMLElement = event.target as HTMLElement;
         target = target.closest("button");
@@ -324,6 +211,16 @@ document.addEventListener("DOMContentLoaded",()=>{
             nachrichtBeantwortenAbsenden(target);
         }
     });
+    antwortInput = document.querySelector("#antwortInput");
+    //Nachricht
+    nachrichtVName = document.querySelector("#nachrichtVName");
+    nachrichtNName = document.querySelector("#nachrichtNName");
+    nachrichtEmail = document.querySelector("#nachrichtEmail");
+    nachrichtBetreff = document.querySelector("#nachrichtBetreff");
+    nachrichtEin = document.querySelector("#nachrichtEin");
+    nachrichtBtnA = document.querySelector("#nachrichtBtnA");
+    nachrichtBtnA.addEventListener("click",nachrichtHinzufuegen);
+    nachrichtEdit = document.querySelector("#profilNachrichtBearbeiten");
     //Startseite/Landingpage
     startNakiri = document.querySelector("#startNakiri");
     startSantoku = document.querySelector("#startSantoku");
@@ -403,9 +300,6 @@ function benutzerBearbeitenStart(event: Event){
         profilUBtnB.classList.add("d-none");
         profilABtnA.classList.remove("d-none");
         profilABtnB.classList.add("d-none");
-
-
-
 }
 function benutzerAendern(event:Event){
     event.preventDefault();
@@ -424,15 +318,11 @@ function benutzerAendern(event:Event){
             profilUBtnB.classList.remove("d-none");
             profilUBtnA.classList.add("d-none");
             setTimeout(feedbackProfALoeschen,2000);
-
-
         });
-
     }else{
         const vName = profilVorname.value;
         const nName = profilNachname.value;
         const email = eingeloggterBenutzer;
-
         axios.put("/benutzer/"+email,{
             vName: vName,
             nName: nName,
@@ -444,19 +334,13 @@ function benutzerAendern(event:Event){
             profilUBtnB.classList.remove("d-none");
             profilUBtnA.classList.add("d-none");
             setTimeout(feedbackProfULoeschen,2000);
-
-
         });
     }
-
-
 }
 function benutzerAuslesen(eingeloggterBenutzer:String){
-
     //const email = eingeloggterBenutzer;
     axios.get("/benutzer/"+eingeloggterBenutzer)
         .then((res:AxiosResponse)=>{
-
                 const benutzer = res.data.benutzer;
                 profilVornameA.value = benutzer.vName;
                 profilNachnameA.value = benutzer.nName;
@@ -464,11 +348,12 @@ function benutzerAuslesen(eingeloggterBenutzer:String){
                 profilNachname.value = benutzer.nName;
                 nachrichtVName.value = benutzer.vName;
                 nachrichtNName.value = benutzer.nName;
-//
-
         });
 }
 //Funktionen Nachrichten
+
+//muss so angepasst werden das die Antwort angezeigt wird
+//außerdem muss dder bearbeiten Btn ausgeblendet werden, wenn die Nachricht beantwortet wurde
 function renderNachrichtenListe(){
     //console.log("bin in der renderNachrichten");
     const email: string = eingeloggterBenutzer.toString();
@@ -556,26 +441,22 @@ function nachrichtBearbeitenAbsenden(target: HTMLElement){
     nachrichtEdit.classList.add("d-none");
     const nId = target.dataset.nid;
     const nachricht = nachrichtEdit.value;
-
-
-    //console.log(nId+" nId");
-
     axios.put("/nachricht/" + nId,
         {
             nachricht: nachricht
-        })
-        .then((res: AxiosResponse)=>{
+        }).then((res:AxiosResponse)=>{
             console.log("nachricht erfolgreich bearbeitet");
             renderNachrichtenListe();
-        }).catch((err: AxiosResponse) =>{
-        console.log("error die nId stimmt nicht überein");
-    })
-
-
+        }).catch((err:AxiosResponse) =>{
+            if(err!==null){
+                console.log("Fehler beim Bearbeiten der Nachricht");
+            }
+        });
 }
 //Funktionen Anbieter
-function renderAlleleleleNachrichtern(){
-    const email: string =eingeloggterBenutzer.toString();
+// muss so angepasst werden das nur die unbeantworteten Nachrichten angezeigt werden
+function renderAlleleleleNachrichten(){
+    const email: string = eingeloggterBenutzer.toString();
     tabelleNachrichtenAnbieter.innerHTML="";
     axios.get("/nachrichten/"+email)
         .then((res: AxiosResponse)=>{
@@ -585,8 +466,7 @@ function renderAlleleleleNachrichtern(){
                     <td>${n.betreff}</td>
                     <td>${n.nachricht}</td>
                 <td>
-                <button class="btn btn-primary delete" data-nId="${n.nId}">Löschen</button>
-                <button class="btn btn-primary edit" data-nachricht="${n.nachricht}">Bearbeiten</button>
+                <button class="btn btn-primary edit" data-nachricht="${n.nachricht}">Beantworten</button>
                 <button class="btn btn-primary absenden d-none" data-nId="${n.nId}" >Absenden</button>
                 </td>
                 `;
@@ -596,14 +476,33 @@ function renderAlleleleleNachrichtern(){
         });
 
 }
+//||Muss die Antwort gelöscht wund bearbeitet werden können?
 function antwortLoeschen(target:HTMLElement){
 
 }
 function nachrichtBeantwortenStart(target:HTMLElement){
-
+    antwortInput.classList.remove("d-none");
+    antwortInput.value = "";
+    target.nextElementSibling.classList.remove("d-none");
 }
 function nachrichtBeantwortenAbsenden(target:HTMLElement){
+console.log("bin in der nachrichtBeantwortenAbsenden");
+const nId = target.dataset.nid;
+console.log(nId+" in der nachrichtBeantwortenAbsenden");
+const antwort = antwortInput.value;
+console.log(antwort+" in der nachrichtBeantwortenAbsenden");
+axios.post("/antwort",
+    {
+        nId: nId,
+        antwort: antwort
 
+    }).then((res:AxiosResponse)=>{
+        renderAlleleleleNachrichten();
+    }).catch((err:AxiosResponse)=>{
+        if(err!==null){
+            console.log("Fehler beim beantworten der Nachricht");
+        }
+});
 }
 //Login 'n out Funktionen
 function login(event:Event){
@@ -623,7 +522,7 @@ function login(event:Event){
                 feedbackLogin.innerText = "Der Benutzer wurde erfolgreich eingeloggt."
                 setTimeout(feedbackLoginLoeschen,2000);
                 benutzerAuslesen(eingeloggterBenutzer);
-                renderAlleleleleNachrichtern();
+                renderAlleleleleNachrichten();
             }else{
                 sectLog.classList.add("d-none");
                 sectProf.classList.remove("d-none");
@@ -675,6 +574,15 @@ function logout(event:Event){
 
         });
 }
+function binIchNochDrin(){
+    axios.get("/binIchNochDrin?")
+        .then((res:AxiosResponse)=>{
+            //const benutzer = res.data;
+            eingeloggterBenutzer = res.data.email;
+            //console.log(res.data);
+            //console.log("eingeloggter Benutzer: "+eingeloggterBenutzer+" im Reload der binIchDrin")
+        });
+}
 //Timeout funktionen
 function feedbackProfULoeschen(){feedbackProfU.innerText="";}
 function feedbackProfALoeschen(){feedbackProfA.innerText="";}
@@ -697,7 +605,7 @@ function zumLogin (event:Event){
     }else if(eingeloggterBenutzer=="anbieter@boss.com"){
         navigieren();
         benutzerAuslesen(eingeloggterBenutzer);
-        renderAlleleleleNachrichtern();
+        renderAlleleleleNachrichten();
         sectProfA.classList.remove("d-none");
     }else{
         navigieren();
@@ -789,127 +697,4 @@ function zumDatenschutz(event:Event){
     navigieren()
     sectDS.classList.remove("d-none");
 }
-function binIchNochDrin(){
-    axios.get("/binIchNochDrin?")
-        .then((res:AxiosResponse)=>{
-            //const benutzer = res.data;
-            eingeloggterBenutzer = res.data.email;
-            //console.log(res.data);
-            //console.log("eingeloggter Benutzer: "+eingeloggterBenutzer+" im Reload der binIchDrin")
-        });
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    
                     

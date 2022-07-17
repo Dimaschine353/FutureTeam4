@@ -1,0 +1,10 @@
+POST /antwort HTTP/2
+Host: localhost:8080
+Content-Type: application/json
+
+{
+  "antwort": "Das ist nicht möglich.",
+  "nId": "15"
+}
+
+###
