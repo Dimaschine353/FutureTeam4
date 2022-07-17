@@ -856,9 +856,23 @@ function zuUeber(event:Event){
 }
 function zumKontakt(event:Event){
     event.preventDefault();
-    navigieren();
-    sectKont.classList.remove("d-none");
-    window.scrollTo(0, 0);
+    if (eingeloggterBenutzer){
+        benutzerAuslesen(eingeloggterBenutzer);
+        nachrichtEmail.value = eingeloggterBenutzer.valueOf();
+        nachrichtNName.setAttribute("readonly","true");
+        nachrichtVName.setAttribute("readonly", "true");
+        nachrichtEmail.setAttribute("readonly", "true");
+
+        navigieren();
+        sectKont.classList.remove("d-none");
+        window.scrollTo(0, 0);
+    }else {
+        navigieren();
+        sectKont.classList.remove("d-none");
+        window.scrollTo(0, 0);
+    }
+
+
 }
 function zumReg(event:Event){
     event.preventDefault();
