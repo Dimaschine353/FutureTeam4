@@ -354,7 +354,7 @@ function benutzerAuslesen(eingeloggterBenutzer:String){
 //muss so angepasst werden das die Antwort angezeigt wird
 //außerdem muss dder bearbeiten Btn ausgeblendet werden, wenn die Nachricht beantwortet wurde
 function renderNachrichtenListe(){
-    //console.log("bin in der renderNachrichten");
+    console.log("bin in der renderNachrichten");
     const email: string = eingeloggterBenutzer.toString();
     //console.log(email+" in der renderNachrichten")
     tabelleNachrichten.innerHTML = "";
@@ -364,8 +364,8 @@ function renderNachrichtenListe(){
                 //console.log(res.data);
                 const tr: HTMLElement = document.createElement("tr");
                 tr.innerHTML =`
-                    <td>${n.betreff}</td>
                     <td>${n.nachricht}</td>
+                    <td>${n.antwort}</td>
                 <td>
                 <button class="btn btn-primary delete" data-nId="${n.nId}">Löschen</button>
                 <button class="btn btn-primary edit" data-nachricht="${n.nachricht}">Bearbeiten</button>
@@ -453,7 +453,7 @@ function nachrichtBearbeitenAbsenden(target: HTMLElement){
         });
 }
 //Funktionen Anbieter
-// muss so angepasst werden das nur die unbeantworteten Nachrichten angezeigt werden
+
 function renderAlleleleleNachrichten(){
     const email: string = eingeloggterBenutzer.toString();
     tabelleNachrichtenAnbieter.innerHTML="";
@@ -479,6 +479,7 @@ function renderAlleleleleNachrichten(){
 function antwortLoeschen(target:HTMLElement){
 
 }
+//
 function nachrichtBeantwortenStart(target:HTMLElement){
     antwortInput.classList.remove("d-none");
     antwortInput.value = "";
@@ -496,6 +497,7 @@ axios.post("/antwort",
         antwort: antwort
 
     }).then((res:AxiosResponse)=>{
+        antwortInput.value = "";
         renderAlleleleleNachrichten();
     }).catch((err:AxiosResponse)=>{
         if(err!==null){
@@ -564,7 +566,7 @@ function logout(event:Event){
             eingeloggterBenutzer="";
             navigieren();
             sectStart.classList.remove("d-none");
-            alert("Sie wurden ausgeloggt :o");
+            alert("Sie wurden ausgeloggt.");
             formKontakt.reset();
             nachrichtNName.removeAttribute("readonly");
             nachrichtVName.removeAttribute("readonly");

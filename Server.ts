@@ -2,8 +2,6 @@ import * as express from 'express';
 import * as session from "express-session";
 import * as mysql from "mysql";
 import {MysqlError} from "mysql";
-//Klassen und Konstruktoren
-//wird für Ben"R" gebraucht
 class Benutzer{
     vName: string;
     nName: string;
@@ -14,21 +12,6 @@ class Benutzer{
         this.email = email;
     }
 }
-/*
-class Nachricht{
-    vName: string;
-    nName: string;
-    email: string;
-    betreff: string;
-    nachricht: string;
-    constructor(vName:string, nName:string, email:string,betreff:string, nachricht:string) {
-        this.vName = vName;
-        this.nName = nName;
-        this.email = email;
-        this.betreff = betreff;
-        this.nachricht = nachricht;
-    }
-}*/
 //Verbindung zu DB//
 const connection: mysql.Connection = mysql.createConnection({
     database:"luxknives"  ,
@@ -73,7 +56,6 @@ app.use(session({
 }));
 // __dirname+"/Name des Ordners der umgeleitet wird"
 app.use("/cMe",express.static(__dirname+"/Public" ));
-//Sendet .html
 app.get("/",(req: express.Request, res: express.Response)=>{
     res.status(200);
     res.sendFile( __dirname + "/Public/index.html");
@@ -94,7 +76,7 @@ app.post("/nachricht",postNachricht);
 app.delete("/nachricht/:nId",deleteNachricht);
 app.put("/nachricht/:nId", putNachrichten);
 //Routen Antwort
-
+app.post("/antwort",postAntwort);
 //Login 'n out Funktionen
 function login(req: express.Request, res: express.Response): void {
     //Selektiert "nichts", aber unter der Bedingung, dass Name und Passwort stimmen
@@ -335,20 +317,20 @@ function deleteNachricht(req: express.Request, res:express.Response):void{
 
 }
 function getAlleNachrichten(req:express.Request, res:express.Response):void{
-    //const email = req.params.email;
     const uId: number = req.session.uid;
     //console.log(uId+" in der getAll nachrichten")
     //console.log(email+" in der Server getAllNachrichten Fkt");
     const param = [uId];
     //console.log(param+"(parameter) in der Server getAllNachrichten Fkt");
-    const sql = "SELECT * FROM nachrichten WHERE uId=?;";
-    if(uId!==undefined){
+    //const sql = "SELECT * FROM nachrichten WHERE uId=?;";
+    const sql = "SELECT nachrichten.nachricht ,antworten.antwort ,nachrichten.nId  FROM antworten INNER JOIN nachrichten ON nachrichten.nId = antworten.nId WHERE uId=?;";
+        if(uId!==undefined){
         connection.query(
             sql,
             param,
             (err:MysqlError | null, results: any) => {
                 res.send(results);
-                //console.log("das ergebnis der getAllNachrichten"+results);
+                console.log("Das ergebnis der getAllNachrichten"+JSON.stringify(results));
             }
         )
     }
@@ -362,6 +344,7 @@ function getAlleleleleNachrichten(req:express.Request, res:express.Response):voi
         param,
         (err:MysqlError | null, results:any)=>{
             res.send(results);
+            console.log("das Ergebnis der getAlleleleleNAchrichten"+JSON.stringify(results));
         }
     )
 }
@@ -389,7 +372,6 @@ function putNachrichten(req: express.Request, res: express.Response): void {
     }
 }
 //Funktionen Antworten
-app.post("/antwort",postAntwort);
 function postAntwort(req:express.Request, res:express.Response){
     const nId = req.body.nId;
     console.log(nId+" in der postAntwort");
