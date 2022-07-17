@@ -113,6 +113,8 @@ let navWarenkorb: HTMLElement;
 let navUeber: HTMLElement;
 let navService: HTMLElement;
 let navKontakt: HTMLElement;
+let navGallerie: HTMLElement;
+let navHandgefertigteMesser: HTMLElement;
 //Deklaration Footer
 let impressum: HTMLElement;
 let footKont: HTMLElement;
@@ -124,6 +126,7 @@ let startSantoku: HTMLElement;
 let startSujihinki: HTMLElement;
 let startIMGFlipper: HTMLImageElement;
 let startHandgefertigte: HTMLElement;
+let startGallerie: HTMLElement;
 //Deklaration Forms
 let feedbackReg: HTMLElement;
 let feedbackProfU: HTMLElement;
@@ -209,6 +212,10 @@ document.addEventListener("DOMContentLoaded",()=>{
     navUeber.addEventListener("click",zuUeber);
     navKontakt = document.querySelector("#navKontakt");
     navKontakt.addEventListener("click",zumKontakt);
+    navGallerie = document.querySelector("#startGallerie");
+    navGallerie.addEventListener("click", zurGallerie);
+    navHandgefertigteMesser = document.querySelector("#navHandgefertigte");
+    navHandgefertigteMesser.addEventListener("click", zuHandgefertigteMesser);
 
 
 
@@ -330,6 +337,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     startSujihinki = document.querySelector("#startSujihinki");
     startIMGFlipper = document.querySelector("#produktBildFlipper");
     startHandgefertigte = document.querySelector("#startHandgefertigte");
+    startGallerie = document.querySelector("#startGallerie");
     //Startseite/Landingpage FotoFlipper
     startNakiri.addEventListener('mouseover', (event) => {
         event.preventDefault();
@@ -688,6 +696,24 @@ function feedbackRegLoeschen(){feedbackReg.innerText="";}
 function feedbackLoginLoeschen(){feedbackLogin.innerText="";}
 function feedbackNachrichtLoeschen(){feedbackNachricht.innerText="";}
 //Navleisten Funktionen
+function navigieren(){
+    sectStart.classList.add("d-none");
+    sectProf.classList.add("d-none");
+    sectProfA.classList.add("d-none");
+    sectDet.classList.add("d-none");
+    sectDetSantoku.classList.add("d-none");
+    sectDetSujihiki.classList.add("d-none");
+    sectUeber.classList.add("d-none");
+    sectServ.classList.add("d-none");
+    sectWar.classList.add("d-none");
+    sectCheck.classList.add("d-none");
+    sectReg.classList.add("d-none");
+    sectLog.classList.add("d-none");
+    sectKont.classList.add("d-none");
+    sectAGB.classList.add("d-none");
+    sectDS.classList.add("d-none");
+    sectImpr.classList.add("d-none");
+}
 function zurueckNachhause(event:Event){
     event.preventDefault();
     navigieren();
@@ -747,29 +773,17 @@ function zumReg(event:Event){
 
 
 }
-function zumImpr(event:Event){
+function zurGallerie(event:Event){
     event.preventDefault();
     navigieren();
-    sectImpr.classList.remove("d-none");
-
+    sectStart.classList.remove("d-none");
+    scrollTo(0, 10000);
 }
-function navigieren(){
-    sectStart.classList.add("d-none");
-    sectProf.classList.add("d-none");
-    sectProfA.classList.add("d-none");
-    sectDet.classList.add("d-none");
-    sectDetSantoku.classList.add("d-none");
-    sectDetSujihiki.classList.add("d-none");
-    sectUeber.classList.add("d-none");
-    sectServ.classList.add("d-none");
-    sectWar.classList.add("d-none");
-    sectCheck.classList.add("d-none");
-    sectReg.classList.add("d-none");
-    sectLog.classList.add("d-none");
-    sectKont.classList.add("d-none");
-    sectAGB.classList.add("d-none");
-    sectDS.classList.add("d-none");
-    sectImpr.classList.add("d-none");
+function zuHandgefertigteMesser(event: Event){
+    event.preventDefault();
+    navigieren();
+    sectStart.classList.remove("d-none");
+    scrollTo(0, );
 }
 function zurDet(event:Event){
     event.preventDefault();
@@ -805,8 +819,13 @@ function binIchNochDrin(){
         });
 }
 
+//Footer Funktionen
+function zumImpr(event:Event){
+    event.preventDefault();
+    navigieren();
+    sectImpr.classList.remove("d-none");
 
-
+}
 
 
 
