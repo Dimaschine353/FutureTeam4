@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     navKontakt = document.querySelector("#navKontakt");
     navKontakt.addEventListener("click",zumKontakt);
     navGallerie = document.querySelector("#startGallerie");
-    navGallerie.addEventListener("click", zurGallerie);
+    navGallerie.addEventListener("click", zurGalerie);
     navHandgefertigteMesser = document.querySelector("#navHandgefertigte");
     navHandgefertigteMesser.addEventListener("click", zuHandgefertigteMesser);
 
@@ -380,9 +380,8 @@ function benutzerAuslesen(eingeloggterBenutzer:String){
 //außerdem muss dder bearbeiten Btn ausgeblendet werden, wenn die Nachricht beantwortet wurde
 function renderNachrichtenListe(){
     console.log("bin in der renderNachrichten");
-    const email: string = eingeloggterBenutzer.toString();
+    //const email: string = eingeloggterBenutzer.toString();
     //console.log(email+" in der renderNachrichten")
-
 
     /* Neue render nachrichten
     divNachrichten.innerHTML = "";
@@ -414,14 +413,27 @@ function renderNachrichtenListe(){
         });
     */
 
-
     tabelleNachrichten.innerHTML = "";
-    axios.get("/nachricht/"+email)
+    axios.get("/nachricht")
         .then((res: AxiosResponse)=>{
             for(const n of res.data){
                 //console.log(res.data);
                 const tr: HTMLElement = document.createElement("tr");
-                tr.innerHTML =`
+                if(n.antwort==null){
+                    console.log("bin im if-fall [antwort = null]");
+                    tr.innerHTML = `
+                    <td>${n.nachricht}</td>
+                    <td>Noch keine Antwort vorhanden</td>
+                <td>
+                <button class="btn btn-primary delete" data-nId="${n.nId}">Löschen</button>
+                <button class="btn btn-primary edit" data-nachricht="${n.nachricht}">Bearbeiten</button>
+                <button class="btn btn-primary absenden d-none" data-nId="${n.nId}" >Absenden</button>
+                </td>
+                    `;
+                    tabelleNachrichten.append(tr);
+                }else{
+                    console.log("bin in der else der render Nachrichten");
+                    tr.innerHTML =`
                     <td>${n.nachricht}</td>
                     <td>${n.antwort}</td>
                 <td>
@@ -430,7 +442,9 @@ function renderNachrichtenListe(){
                 <button class="btn btn-primary absenden d-none" data-nId="${n.nId}" >Absenden</button>
                 </td>
                 `;
-                tabelleNachrichten.append(tr);
+                    tabelleNachrichten.append(tr);
+                }
+
             }
         });
 }
@@ -511,7 +525,6 @@ function nachrichtBearbeitenAbsenden(target: HTMLElement){
         });
 }
 //Funktionen Anbieter
-
 function renderAlleleleleNachrichten(){
     const email: string = eingeloggterBenutzer.toString();
     tabelleNachrichtenAnbieter.innerHTML="";
@@ -761,7 +774,7 @@ function zumImpr(event:Event){
     window.scrollTo(0, 0);
 }
 
-function zurGallerie(event:Event){
+function zurGalerie(event:Event){
     event.preventDefault();
     navigieren();
     sectStart.classList.remove("d-none");
@@ -792,7 +805,8 @@ function navigieren(){
     sectDS.classList.add("d-none");
     sectImpr.classList.add("d-none");
 }
-function zurDet(event:Event){
+function zurDet(
+    event:Event){
     event.preventDefault();
     navigieren();
     sectDet.classList.remove("d-none");

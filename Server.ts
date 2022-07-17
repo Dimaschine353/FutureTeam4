@@ -70,7 +70,7 @@ app.get("/benutzer/:email",checkLogin,getBenutzer);
 app.delete("/benutzer/:email",checkLogin,deleteBenutzer);
 app.put("/benutzer/:email",checkLogin,putBenutzer);
 //Routen Nachricht
-app.get("/nachricht/:email",checkLogin,getAlleNachrichten);
+app.get("/nachricht",checkLogin,getAlleNachrichten);
 app.get("/nachrichten/:email",checkLogin,getAlleleleleNachrichten);
 app.post("/nachricht",postNachricht);
 app.delete("/nachricht/:nId",deleteNachricht);
@@ -323,7 +323,7 @@ function getAlleNachrichten(req:express.Request, res:express.Response):void{
     const param = [uId];
     //console.log(param+"(parameter) in der Server getAllNachrichten Fkt");
     //const sql = "SELECT * FROM nachrichten WHERE uId=?;";
-    const sql = "SELECT nachrichten.nachricht ,antworten.antwort ,nachrichten.nId  FROM antworten INNER JOIN nachrichten ON nachrichten.nId = antworten.nId WHERE uId=?;";
+    const sql = "SELECT nachrichten.nachricht ,antworten.antwort ,nachrichten.nId  FROM nachrichten LEFT JOIN antworten ON nachrichten.nId = antworten.nId WHERE uId=?;";
         if(uId!==undefined){
         connection.query(
             sql,
