@@ -113,6 +113,8 @@ let navWarenkorb: HTMLElement;
 let navUeber: HTMLElement;
 let navService: HTMLElement;
 let navKontakt: HTMLElement;
+let navGallerie: HTMLElement;
+let navHandgefertigteMesser: HTMLElement;
 //Deklaration Footer
 let impressum: HTMLElement;
 let footKont: HTMLElement;
@@ -125,6 +127,7 @@ let startSantoku: HTMLElement;
 let startSujihinki: HTMLElement;
 let startIMGFlipper: HTMLImageElement;
 let startHandgefertigte: HTMLElement;
+let startGallerie: HTMLElement;
 //Deklaration Forms
 let feedbackReg: HTMLElement;
 let feedbackProfU: HTMLElement;
@@ -212,6 +215,10 @@ document.addEventListener("DOMContentLoaded",()=>{
     navUeber.addEventListener("click",zuUeber);
     navKontakt = document.querySelector("#navKontakt");
     navKontakt.addEventListener("click",zumKontakt);
+    navGallerie = document.querySelector("#startGallerie");
+    navGallerie.addEventListener("click", zurGallerie);
+    navHandgefertigteMesser = document.querySelector("#navHandgefertigte");
+    navHandgefertigteMesser.addEventListener("click", zuHandgefertigteMesser);
 
 
 
@@ -313,8 +320,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     nachrichtEdit = document.querySelector("#profilNachrichtBearbeiten");
 
 
-
-
     tabelleNachrichten.addEventListener("click",(event:Event)=>{
         let target: HTMLElement = event.target as HTMLElement;
         target = target.closest("button");
@@ -379,6 +384,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     startSujihinki = document.querySelector("#startSujihinki");
     startIMGFlipper = document.querySelector("#produktBildFlipper");
     startHandgefertigte = document.querySelector("#startHandgefertigte");
+    startGallerie = document.querySelector("#startGallerie");
     //Startseite/Landingpage FotoFlipper
     startNakiri.addEventListener('mouseover', (event) => {
         event.preventDefault();
@@ -576,7 +582,6 @@ function renderNachrichtenListe(){
                 <button class="btn btn-primary absenden d-none" data-nId="${n.nId}" >Absenden</button>
                 </td>
                 `;
-
                 tabelleNachrichten.append(tr);
             }
         });
@@ -664,7 +669,6 @@ function nachrichtBearbeitenAbsenden(target: HTMLElement){
 }
 //Funktionen Anbieter
 function renderAlleleleleNachrichtern(){
-
     const email: string =eingeloggterBenutzer.toString();
     tabelleNachrichtenAnbieter.innerHTML="";
     axios.get("/nachrichten/"+email)
@@ -680,7 +684,6 @@ function renderAlleleleleNachrichtern(){
                 <button class="btn btn-primary absenden d-none" data-nId="${n.nId}" >Absenden</button>
                 </td>
                 `;
-
              tabelleNachrichtenAnbieter.append(tr);
 
             }
@@ -870,6 +873,20 @@ function zumImpr(event:Event){
     sectImpr.classList.remove("d-none");
     window.scrollTo(0, 0);
 }
+
+function zurGallerie(event:Event){
+    event.preventDefault();
+    navigieren();
+    sectStart.classList.remove("d-none");
+    scrollTo(0, 10000);
+}
+
+function zuHandgefertigteMesser(event: Event){
+    event.preventDefault();
+    navigieren();
+    sectStart.classList.remove("d-none");
+    scrollTo(0, 1300);
+}
 function navigieren(){
     sectStart.classList.add("d-none");
     sectProf.classList.add("d-none");
@@ -928,9 +945,6 @@ function binIchNochDrin(){
             //console.log("eingeloggter Benutzer: "+eingeloggterBenutzer+" im Reload der binIchDrin")
         });
 }
-
-
-
 
 
 
