@@ -251,41 +251,43 @@
                                         </button>
                                     </div>
                                 </div>
-                            </form>
 
-                            <div class="row" id="Nachrichtenliste">
-                                <div class="col">
-                                    <div class="row">
-                                        <div class="col text-center">
-                                            <h5>Nachrichtenliste</h5>
-                                        </div>
-                                    </div>
-                                    <div id="nachrichtBearbeitenDiv">
-                                        <form id="formNachrichtBearbeiten" data-nId="">
-                                            <div class="input-group mb-3">
-                                                <input id="profilNachrichtBearbeiten" type="text" class="form-control d-none" placeholder="Nachrichtentext" name="profilNachrichtBearbeiten"
-                                                       aria-label="profilNachrichtBearbeiten"  required>
-
-                                                <button type="button" class="btn btn-luxknives rounded-1 d-none "  id="nachrichtBA" >
-                                                    Abschicken
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <table class="table table-striped">
-                                        <thead class="thead-light">
-                                        <tr>
-                                            <th scope="col">Betreff</th>
-                                            <th scope="col">Inhalt</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody id="tabelleNachrichten">
-                                        </tbody>
-                                    </table>
-                                </div>
+                    </form>
+                <!--Nachrichtenliste Nachfrager-->
+                <div class="row" id="Nachrichtenliste">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col text-center">
+                                <h5>Ihre Fragen und Antworten</h5>
                             </div>
-
                         </div>
+                        <div id="nachrichtBearbeitenDiv">
+                            <form id="formNachrichtBearbeiten">
+                                <div class="input-group mb-3">
+                                    <input id="profilNachrichtBearbeiten" type="text" class="form-control d-none" placeholder="Nachrichtentext" name="profilNachrichtBearbeiten"
+                                           aria-label="profilNachrichtBearbeiten"  required>
+
+                                    <button type="button" class="btn btn-luxknives rounded-1 d-none "  id="nachrichtBA" >
+                                        Abschicken
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <table class="table table-striped">
+                            <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Nachricht</th>
+                                <th scope="col">Antwort</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tabelleNachrichten">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
                     </div>
                     <!-- Bestellungen und Fragen Sektion -->
                     <div class="row justify-content-evenly">
@@ -468,24 +470,22 @@
                                 </div>
 
                             </form>
-                            <!--Nachrichtenliste-->
-
+                            <!--Nachrichtenliste Anbieter-->
                             <div class="row" id="NachrichtenlisteAnbieter">
                                 <div class="col">
                                     <div class="row">
                                         <div class="col text-center">
-                                            <h5>Nachrichtenliste</h5>
+                                            <h5>Ihre unbeantworteten Nachrichten</h5>
                                         </div>
                                     </div>
                                     <div id="nachrichtBearbeitenDivAnbieter">
                                         <form id="formNachrichtBearbeitenAnbieter" data-nId="">
                                             <div class="input-group mb-3">
-                                                <input id="profilNachrichtBearbeitenAnbieter" type="text" class="form-control d-none" placeholder="Nachrichtentext" name="profilNachrichtBearbeiten"
+                                                <input id="antwortInput" type="text" class="form-control d-none" placeholder="Antwort" name="antwortAufNachricht"
                                                        aria-label="profilNachrichtBearbeiten"  required>
-
-                                                <button type="button" class="btn btn-luxknives rounded-1 d-none "  id="nachrichtBAAnbieter" >
+                                                <!--<button type="button" class="btn btn-luxknives rounded-1 d-none "  id="nachrichtBAAnbieter" >
                                                     Abschicken
-                                                </button>
+                                                </button>-->
                                             </div>
                                         </form>
                                     </div>
@@ -495,7 +495,7 @@
                                         <thead class="thead-light">
                                         <tr>
                                             <th scope="col">Betreff</th>
-                                            <th scope="col">Inhalt</th>
+                                            <th scope="col">Nachricht</th>
                                         </tr>
                                         </thead>
                                         <tbody id="tabelleNachrichtenAnbieter">
