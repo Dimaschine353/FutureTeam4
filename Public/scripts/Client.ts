@@ -727,7 +727,8 @@ function login(event:Event){
         })
         .catch((err: AxiosError)=>{
             if(err.response.status == 404){
-                feedbackLogin.innerText = "E-Mail, oder Passwort falsch."
+                feedbackLogin.innerText = "E-Mail, oder Passwort falsch.";
+                eingeloggterBenutzer = "";
                 setTimeout(feedbackLoginLoeschen,2000);
                 console.log("Anmeldung nicht erfolgreich if vom .catch");
             }else{
