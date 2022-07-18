@@ -584,6 +584,7 @@ function nachrichtBearbeitenAbsenden(target: HTMLElement){
             nachricht: nachricht
         }).then((res:AxiosResponse)=>{
             console.log("nachricht erfolgreich bearbeitet");
+            nachrichtEdit.value = "";
             renderNachrichtenListe();
             renderNachrichtenListe2();
         }).catch((err:AxiosResponse) =>{
