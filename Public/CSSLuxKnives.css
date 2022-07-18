@@ -676,6 +676,18 @@ footer {
     margin-bottom: 0rem;
 }
 
+
+
+/* Kontakt */
+.kontaktPosition {
+    top: 6.5rem;
+    width: 100%;
+}
+
+.kontaktText {
+    color: #f0f0f2;
+}
+
 /* CHECKOUT */
 
 #checkout {
