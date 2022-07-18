@@ -66,6 +66,7 @@ let profilNachname: HTMLInputElement;
 let profilUBtnB: HTMLInputElement;
 let profilUBtnA: HTMLInputElement;
 let profilUBtnL: HTMLInputElement;
+let profilUBtnLStart: HTMLInputElement;
 let logoutBtn: HTMLInputElement;
 let tabelleNachrichten: HTMLElement;
 //Profil Anbieter
@@ -184,6 +185,11 @@ document.addEventListener("DOMContentLoaded",()=>{
     logoutBtn.addEventListener("click", logout);
     logoutBtnA = document.querySelector("#profilUBtnLogout");
     logoutBtnA.addEventListener("click",logout);
+    profilUBtnLStart = document.querySelector("#profilUBtnLStart");
+    profilUBtnLStart.addEventListener("click",()=>{
+        profilUBtnL.classList.remove("d-none");
+        profilUBtnLStart.classList.add("d-none");
+    })
     profilUBtnL = document.querySelector("#profilUBtnL");
     profilUBtnL.addEventListener("click",benutzerLoeschen);
     tabelleNachrichten = document.querySelector("#tabelleNachrichten");
@@ -294,6 +300,9 @@ function benutzerLoeschen(event:Event){
             eingeloggterBenutzer = "";
             navigieren();
             sectStart.classList.remove("d-none");
+            logout();
+            profilUBtnLStart.classList.remove("d-none");
+            profilUBtnL.classList.add("d-none");
 
         }).catch((err: AxiosError)=>{
         if(err!==null){
@@ -622,7 +631,7 @@ function login(event:Event){
         console.log("fehler oder so diggi");
     }
 }
-function logout(event:Event){
+function logout(){
     event.preventDefault();
     axios.post("/logout")
         .then(()=>{
