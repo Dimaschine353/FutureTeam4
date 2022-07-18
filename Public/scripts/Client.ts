@@ -607,7 +607,7 @@ axios.get("/nachrichten")
                         <div class="card-body">
                             <h5 class="card-title">${n.betreff}</h5>
                             <h5 class="card-title">${n.nachricht}</h5>                       
-                            <button class="btn btn-luxknives edit" data-nachricht="${n.nachricht}">Bearbeiten</button>
+                            <button class="btn btn-luxknives edit" data-nachricht="${n.nachricht}">Antworten</button>
                             <button class="btn btn-luxknives absenden d-none" data-nId="${n.nId}" >Absenden</button>
                         </div>
                     </div>

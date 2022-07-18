@@ -389,7 +389,7 @@
                         </div>
                         <!-- Fragen -->
                         <div class="col-5 bg-luxKnives borderLuxKnivesShadow">
-                            <div class="row d-flex justify-content-start py-2 padding-fragen">
+                            <div class="row d-flex justify-content-start py-2 padding-fragen d-none">
                                 <h2>Ihre Fragen:</h2>
                             </div>
                             <div class="row d-flex justify-content-center" id="divNachrichten">
@@ -475,15 +475,15 @@
 
                             </form>
                             <!--Nachrichtenliste Anbieter-->
-                            <div class="row" id="NachrichtenlisteAnbieter">
+                            <div class="row " id="NachrichtenlisteAnbieter">
                                 <div class="col">
                                     <div class="row">
-                                        <div class="col text-center">
+                                        <div class="col text-center d-none">
                                             <h5>Ihre unbeantworteten Nachrichten</h5>
                                         </div>
                                     </div>
                                     <div id="nachrichtBearbeitenDivAnbieter">
-                                        <form id="formNachrichtBearbeitenAnbieter" data-nId="">
+                                        <form id="formNachrichtBearbeitenAnbieter">
                                             <div class="input-group mb-3">
                                                 <input id="antwortInput" type="text" class="form-control d-none" placeholder="Antwort" name="antwortAufNachricht"
                                                        aria-label="profilNachrichtBearbeiten"  required>
