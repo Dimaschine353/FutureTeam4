@@ -29,7 +29,7 @@
                     <div class="col">
                         <div class="row">
                             <div class="col-6 d-flex justify-content-center">
-                                <a class="nav-link" href="#handgefertigte">Handgefertigte Messer</a>
+                                <a class="nav-link"  id="navHandgefertigte" href="#handgefertigte">Handgefertigte Messer</a>
                             </div>
                             <div class="col-6">
                                 <a id="navUeber" class="nav-link me-5" href="#">Über Uns</a>
@@ -44,7 +44,7 @@
                     <div class="col">
                         <div class="row gx-0">
                             <div class="col justify-content-end d-flex">
-                                <a class="nav-link" href="#content" id="startGallerie">Galerie</a>
+                                <a class="nav-link" href="#content" id="startGalerie">Galerie</a>
                             </div>
                             <div class="col justify-content-center d-flex">
                                 <a id="navService" class="nav-link" href="#">Service</a>
@@ -145,13 +145,13 @@
                     </div>
                 </div>
             </div>
-            <div>
+            <div id="gallerie">
                 <h1 class="text-center">Gallerie</h1>
                 <div class="row d-flex justify-content-evenly rowgallery">
 
                     <div class="card col-3 card-gallery">
                         <div class="card-body instagallery d-flex justify-content-center align-items-center fill7">
-                            <a href="" class="overlay">
+                            <a href="https://www.instagram.com/sokoriegel/" target="_blank" class="overlay">
                                 <button  class="btn"><i
                                         class="fa-4x fa-brands fa-instagram"></i>
                                 </button>
@@ -161,7 +161,7 @@
 
                     <div class="card col-3 card-gallery">
                         <div class="card-body instagallery d-flex justify-content-center align-items-center fill7">
-                            <a href="" class="overlay">
+                            <a href="https://www.instagram.com/sokoriegel/" target="_blank" class="overlay">
                                 <button  class="btn"><i
                                         class="fa-4x fa-brands fa-instagram"></i>
                                 </button>
@@ -171,43 +171,33 @@
 
                     <div class="card col-3 card-gallery">
                         <div class="card-body instagallery d-flex justify-content-center align-items-center fill7">
-                            <a href="" class="overlay">
+                            <a href="https://www.instagram.com/sokoriegel/" target="_blank" class="overlay">
                                 <button  class="btn"><i
                                         class="fa-4x fa-brands fa-instagram"></i>
                                 </button>
                             </a>
                         </div>
                     </div>
+
+
+
                 </div>
             </div>
         </section>
-
-
         <!-- Profil -->
         <section id="sectProf" class="d-none">
             <div id="profil">
-                <div class="container-fluid p-0 pt-4">
+                <div class="container-fluid p-0 pt-4 pb-5">
                     <div class="row justify-content-evenly">
                         <div class="col-5">
                             <div class="card mb-3 cardBioStyle">
                                 <div class="row g-0">
-                                    <div class="col-md-4 fillProfilPic">
-                            <!--
-                                        <img src="/cMe/images/placeholder-person.png"
-                                             class="img-fluid profilBildStyle" alt="...">
-                            -->
-                                    </div>
+                                    <div class="col-md-4 fillProfilPic"></div>
                                     <div class="col-md-8">
                                         <div class="card-body">
                                             <h5 class="card-title">Bio</h5>
                                             <p class="card-text" id="profilBioRead">
-                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
-                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
-                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
-                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
-                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
-                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
-                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Kochen.
+                                                Ich bin Koch aus Liebe zum Essen und aus Liebe zum Essen bin ich Kochen.
                                             </p>
                                         </div>
                                     </div>
@@ -254,23 +244,29 @@
                                             Abmelden
                                         </button>
                                         &nbsp;
-                                        <button type="button" class="btn btn-luxknives rounded-1 " id="profilUBtnL">
+                                        <button type="button" class="btn btn-ProfilLoeschen rounded-1 " id="profilUBtnLStart">
                                             Profil Löschen
+                                        </button>
+                                        <button type="button" class="btn btn-ProfilLoeschen rounded-1 d-none " id="profilUBtnL">
+                                            Ja, Profil Löschen
+                                        </button>
+                                        <button type="button" class="btn btn-ProfilLoeschen rounded-1 d-none " id="profilUBtnN">
+                                           Nein
                                         </button>
                                     </div>
                                 </div>
 
                     </form>
-                <!--Nachrichtenliste-->
+                <!--Nachrichtenliste Nachfrager-->
                 <div class="row" id="Nachrichtenliste">
                     <div class="col">
                         <div class="row">
                             <div class="col text-center">
-                                <h5>Nachrichtenliste</h5>
+                                <h5>Ihre Fragen und Antworten</h5>
                             </div>
                         </div>
                         <div id="nachrichtBearbeitenDiv">
-                            <form id="formNachrichtBearbeiten" data-nId="">
+                            <form id="formNachrichtBearbeiten">
                                 <div class="input-group mb-3">
                                     <input id="profilNachrichtBearbeiten" type="text" class="form-control d-none" placeholder="Nachrichtentext" name="profilNachrichtBearbeiten"
                                            aria-label="profilNachrichtBearbeiten"  required>
@@ -281,11 +277,12 @@
                                 </div>
                             </form>
                         </div>
-                        <table class="table table-striped">
+                        <!-- Tabelle Nutzer -->
+                        <table class="table table-striped d-none">
                             <thead class="thead-light">
                             <tr>
-                                <th scope="col">Betreff</th>
-                                <th scope="col">Inhalt</th>
+                                <th scope="col">Nachricht</th>
+                                <th scope="col">Antwort</th>
                             </tr>
                             </thead>
                             <tbody id="tabelleNachrichten">
@@ -300,9 +297,9 @@
                     <!-- Bestellungen und Fragen Sektion -->
                     <div class="row justify-content-evenly">
                         <!-- Bestellungen -->
-                        <div class="col-5 bg-luxKnives borderLuxKnives">
+                        <div class="col-5 bg-luxKnives borderLuxKnivesShadow">
                             <div class="row d-flex justify-content-center py-2">
-                                <h2 class="text-center">Meine Bestellungen und Fragen</h2>
+                                <h2 class="text-center">Meine Bestellungen und Termine</h2>
                             </div>
                             <div class="row d-flex justify-content-center">
                                 <div class="card mb-3 cardBestellungenStyle">
@@ -326,8 +323,11 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4 p-4">
+                                            <!-- Auskommentiert wegen Fehlermeldung - bitte erst einkommentieren wenn das Bild existiert     Author: Artir Guri
                                             <img src="/cMe/images/komp/NakiriMusashi1.jpg" class="img-fluid"
                                                  alt="Produktfoto">
+                                            -->
+
                                         </div>
                                     </div>
                                 </div>
@@ -388,37 +388,13 @@
                             </div>
                         </div>
                         <!-- Fragen -->
-                        <div class="col-5 bg-luxKnives borderLuxKnives">
-                            <div class="row d-flex justify-content-start py-2 padding-fragen">
-                                <h2>Neue Infos:</h2>
+                        <div class="col-5 bg-luxKnives borderLuxKnivesShadow">
+                            <div class="row d-flex justify-content-start py-2 padding-fragen d-none">
+                                <h2>Ihre Fragen:</h2>
                             </div>
-                            <div class="row d-flex justify-content-center">
-                                <div class="card mb-3 cardBestellungenStyle">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ihre Frage</h5>
-                                        <p class="card-textBestellungen"> Gibt es eine Moglichkeit die Messer vor Ort
-                                            auszutesten?</p>
-                                        <div class="input-group mb-3">
-                                            <textarea id="antwortSchreiben" class="form-control"
-                                                      aria-label="With textarea"></textarea>
-                                        </div>
-                                        <button id="antwortenBtn" class="btn btn-luxknives">Antworten</button>
-                                        <button id="loeschenBtn" class="btn btn-luxknives">Frage Löschen</button>
-                                    </div>
-                                </div>
+                            <div class="row d-flex justify-content-center" id="divNachrichten">
+
                             </div>
-                            <!--
-                            <div class="row d-flex justify-content-center">
-                                <div class="card mb-3 cardBestellungenStyle">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ihre Frage</h5>
-                                        <p class="card-textBestellungen">Haben sie Produkte in anderen Farben?</p>
-                                        <a href="#" class="btn btn-luxknives">Antworten</a>
-                                        <a href="#" class="btn btn-luxknives">Frage Loschen</a>
-                                    </div>
-                                </div>
-                            </div>
-                            -->
                         </div>
                     </div>
                 </div>
@@ -427,16 +403,13 @@
         <!-- Profil Anbieter -->
         <section id="sectProfA" class="d-none">
             <div id="profilA">
-                <div class="container-fluid p-0 pt-4">
+                <div class="container-fluid p-0 pt-4 pb-5">
                     <div class="row justify-content-evenly">
                         <div class="col-5">
                             <div class="card mb-3 cardBioStyle">
                                 <div class="row g-0">
-                                    <div class="col-md-4 fillProfilPic">
-                                        <!--
-                                                    <img src="/cMe/images/placeholder-person.png"
-                                                         class="img-fluid profilBildStyle" alt="...">
-                                        -->
+                                    <div class="col-md-4 fillProfilPicAnbieter">
+
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body">
@@ -473,7 +446,6 @@
                                 </form>
                             </div>
                             <!--- Form für Btns -->
-
                             <form id="profildatenBearbeitenBtnA">
                                 <div class="row">
                                     <div class="input-group mb-3">
@@ -494,38 +466,37 @@
                                             Abmelden
                                         </button>
                                         &nbsp;
-                                        <button type="button" class="btn btn-luxknives rounded-1 " id="profilABtnL">
+                                        <!-- Ich glaube nicht das der Boss sich Löschen können sollte || Btn vorerst unsichtbar gemacht -->
+                                        <button type="button" class="btn btn-ProfilLoeschen rounded-1 d-none" id="profilABtnL">
                                             Profil Löschen
                                         </button>
                                     </div>
                                 </div>
 
                             </form>
-                            <!--Nachrichtenliste-->
-                            <div class="row" id="NachrichtenlisteAnbieter">
+                            <!--Nachrichtenliste Anbieter-->
+                            <div class="row " id="NachrichtenlisteAnbieter">
                                 <div class="col">
                                     <div class="row">
-                                        <div class="col text-center">
-                                            <h5>Nachrichtenliste</h5>
+                                        <div class="col text-center d-none">
+                                            <h5>Ihre unbeantworteten Nachrichten</h5>
                                         </div>
                                     </div>
                                     <div id="nachrichtBearbeitenDivAnbieter">
-                                        <form id="formNachrichtBearbeitenAnbieter" data-nId="">
+                                        <form id="formAntworten">
                                             <div class="input-group mb-3">
-                                                <input id="profilNachrichtBearbeitenAnbieter" type="text" class="form-control d-none" placeholder="Nachrichtentext" name="profilNachrichtBearbeiten"
+                                                <input id="antwortInput" type="text" class="form-control d-none" placeholder="Antwort" name="antwortAufNachricht"
                                                        aria-label="profilNachrichtBearbeiten"  required>
-
-                                                <button type="button" class="btn btn-luxknives rounded-1 d-none "  id="nachrichtBAAnbieter" >
-                                                    Abschicken
-                                                </button>
                                             </div>
                                         </form>
                                     </div>
-                                    <table class="table table-striped">
+
+
+                                    <table class="table table-striped d-none">
                                         <thead class="thead-light">
                                         <tr>
                                             <th scope="col">Betreff</th>
-                                            <th scope="col">Inhalt</th>
+                                            <th scope="col">Nachricht</th>
                                         </tr>
                                         </thead>
                                         <tbody id="tabelleNachrichtenAnbieter">
@@ -533,16 +504,15 @@
                                     </table>
                                 </div>
                             </div>
+
                         </div>
-
-
                     </div>
                     <!-- Bestellungen und Fragen Sektion -->
                     <div class="row justify-content-evenly">
                         <!-- Bestellungen -->
-                        <div class="col-5 bg-luxKnives borderLuxKnives">
+                        <div class="col-5 bg-luxKnives borderLuxKnivesShadow">
                             <div class="row d-flex justify-content-center py-2">
-                                <h2 class="text-center">Meine Bestellungen und Fragen</h2>
+                                <h2 class="text-center">Bestellungen</h2>
                             </div>
                             <div class="row d-flex justify-content-center">
                                 <div class="card mb-3 cardBestellungenStyle">
@@ -566,8 +536,10 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4 p-4">
+                                            <!-- Auskommentiert wegen Fehlermeldung - bitte erst einkommentieren wenn das Bild existiert     Author: Artir Guri
                                             <img src="/cMe/images/komp/NakiriMusashi1.jpg" class="img-fluid"
                                                  alt="Produktfoto">
+                                             -->
                                         </div>
                                     </div>
                                 </div>
@@ -628,37 +600,14 @@
                             </div>
                         </div>
                         <!-- Fragen -->
-                        <div class="col-5 bg-luxKnives borderLuxKnives">
+                        <div class="col-5 bg-luxKnives borderLuxKnivesShadow">
                             <div class="row d-flex justify-content-start py-2 padding-fragen">
-                                <h2>Neue Infos:</h2>
+                                <h2>Neue Nutzerfragen:</h2>
                             </div>
-                            <div class="row d-flex justify-content-center">
-                                <div class="card mb-3 cardBestellungenStyle">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ihre Frage</h5>
-                                        <p class="card-textBestellungen"> Gibt es eine Moglichkeit die Messer vor Ort
-                                            auszutesten?</p>
-                                        <div class="input-group mb-3">
-                                            <textarea id="antwortSchreibenAnbieter" class="form-control"
-                                                      aria-label="With textarea"></textarea>
-                                        </div>
-                                        <button id="antwortenBtnAnbieter" class="btn btn-luxknives">Antworten</button>
-                                        <button id="loeschenBtnAnbieter" class="btn btn-luxknives">Frage Löschen</button>
-                                    </div>
-                                </div>
+                            <div class="row d-flex justify-content-center" id="divNachrichtenAnbieter">
+
                             </div>
-                            <!--
-                            <div class="row d-flex justify-content-center">
-                                <div class="card mb-3 cardBestellungenStyle">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ihre Frage</h5>
-                                        <p class="card-textBestellungen">Haben sie Produkte in anderen Farben?</p>
-                                        <a href="#" class="btn btn-luxknives">Antworten</a>
-                                        <a href="#" class="btn btn-luxknives">Frage Loschen</a>
-                                    </div>
-                                </div>
-                            </div>
-                            -->
+
                         </div>
                     </div>
                 </div>
@@ -776,7 +725,7 @@
                                             professionell schleifen
                                         </p>
                                         <div class="justify-content-center d-flex">
-                                            <a href="#" class="btn btn-luxknives2">
+                                            <a href="#" class="btn btn-luxknives">
                                                 Service
                                             </a>
                                         </div>
@@ -1851,7 +1800,7 @@
             </div>
         </section>
         <!-- Checkout -->
-        <section id="sectCheck">
+        <section id="sectCheck" class="d-none">
             <div id="checkout"></div>
             <div class="row d-flex justify-content-around">
                 <div class="col-6">
@@ -2068,8 +2017,11 @@
         <section id="sectReg" class="d-none">
             <div id="registrieren">
 
+                <div class="container-fluid p-0 position-relative">
+                    <img src="/cMe/images/komp/landingpageMesser.png" width="100%" alt="Messer Bild Landingpage">
+                </div>
                 <form class="d-flex justify-content-center formSpace py-5" id="formRegistrieren">
-                    <div class="card col-4 anmeldenEdges">
+                    <div class="card col-4 anmeldenEdges anmeldenAbsolute">
                         <div class="card-body">
                             <div class="col text-center formSpace">
                                 <h5 class="formTitle">Registrieren</h5>
@@ -2132,8 +2084,11 @@
         <!-- Login -->
         <section id="sectLog" class="d-none">
 
+            <div class="container-fluid p-0 position-relative">
+                <img src="/cMe/images/komp/landingpageMesser.png" width="100%" alt="Messer Bild Landingpage">
+            </div>
             <form class="d-flex justify-content-center py-5" id="formLogin">
-                <div class="card col-4 anmeldenEdges">
+                <div class="card col-4 anmeldenEdges anmeldenAbsolute">
                     <div class="card-body">
                         <div class="justify-content-center d-flex formSpace">
                             <img src="/cMe/images/original/LogoLuxKnivesTransparent.png" alt="Logo" width="15%">
@@ -2642,7 +2597,6 @@
                         </li>
                     </ol>
 
-                    </p>
                 </div>
                 <div class="col-2"></div>
             </div>
@@ -2712,7 +2666,7 @@
                         (Verbraucherstreitbeilegungsgesetz):
                         Die europäische Kommission stellt eine Plattform zur Online-Streitbelegung (OS) zur
                         Verfügung,
-                        die Sie unter dieser Adresse finden: http://ec.europa.eu/consumers/odr/ .
+                        die Sie unter dieser Adresse finden: https://ec.europa.eu/consumers/odr/ .
                         Zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
                         sind
                         wir nicht
@@ -4267,7 +4221,7 @@
 
                     <a id="footDatenschutz" class="nav-link" href="#">Datenschutz</a>
 
-                    <a class="nav-link" href="#">AGB</a>
+                    <a id="footAGB" class="nav-link" href="#">AGB</a>
                 </div>
             </div>
         </div>
