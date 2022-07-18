@@ -4,7 +4,10 @@
 
 //Deklaration Sections
 
+
+
 let divNachrichten: HTMLElement;
+let divNachrichtenA: HTMLElement;
 
 let sectStart: HTMLElement;
 let sectProf: HTMLElement;
@@ -69,6 +72,7 @@ let profilNachname: HTMLInputElement;
 let profilUBtnB: HTMLInputElement;
 let profilUBtnA: HTMLInputElement;
 let profilUBtnL: HTMLInputElement;
+let profilUBtnN: HTMLElement;
 let profilUBtnLStart: HTMLInputElement;
 let logoutBtn: HTMLInputElement;
 let tabelleNachrichten: HTMLElement;
@@ -196,6 +200,12 @@ document.addEventListener("DOMContentLoaded",()=>{
     })
     profilUBtnL = document.querySelector("#profilUBtnL");
     profilUBtnL.addEventListener("click",benutzerLoeschen);
+    profilUBtnN = document.querySelector("#profilUBtnN");
+    profilUBtnN.addEventListener("click",(event:Event)=>{
+        event.preventDefault();
+        profilUBtnL.classList.add("d-none");
+        profilUBtnLStart.classList.remove("d-none");
+    })
     tabelleNachrichten = document.querySelector("#tabelleNachrichten");
     tabelleNachrichten.addEventListener("click",(event:Event)=>{
         event.preventDefault();
@@ -209,7 +219,17 @@ document.addEventListener("DOMContentLoaded",()=>{
             nachrichtBearbeitenAbsenden(target);
         }
     });
-
+    divNachrichtenA = document.querySelector("#divNachrichtenAnbieter");
+    divNachrichtenA.addEventListener("click",(event:Event)=>{
+        event.preventDefault();
+        let target: HTMLElement = event.target as HTMLElement;
+        target = target.closest("button");
+        if(target.matches(".edit")){
+            nachrichtBeantwortenStart(target);
+        }else if(target.matches(".absenden")){
+            nachrichtBeantwortenAbsenden(target);
+        }
+    })
     divNachrichten = document.querySelector("#divNachrichten");
     divNachrichten.addEventListener("click",(event:Event)=>{
         event.preventDefault();
@@ -464,9 +484,6 @@ function renderNachrichtenListe2(){
             }
         });
 }
-
-
-
 function renderNachrichtenListe(){
     tabelleNachrichten.innerHTML = "";
     axios.get("/nachricht")
@@ -573,6 +590,29 @@ function nachrichtBearbeitenAbsenden(target: HTMLElement){
         });
 }
 //Funktionen Anbieter
+function renderAlleleleleNAchrichten2(){
+    divNachrichtenA.innerHTML ="";
+axios.get("/nachricht")
+    .then((res:AxiosResponse)=>{
+        for(const n of res.data){
+            const div : HTMLElement = document.createElement("div");
+            if(n.antwort==null){
+                div.innerHTML = `
+                
+                <div class="card mb-3 mx-5 cardBestellungenStyle">
+                        <div class="card-body">
+                            <h5 class="card-title">${n.betreff}</h5>
+                            <h5 class="card-title">${n.nachricht}</h5>                       
+                            <button class="btn btn-luxknives edit" data-nachricht="${n.nachricht}">Bearbeiten</button>
+                            <button class="btn btn-luxknives absenden d-none" data-nId="${n.nId}" >Absenden</button>
+                        </div>
+                    </div>
+                `;
+                divNachrichtenA.append(div);
+            }
+        }
+    })
+}
 function renderAlleleleleNachrichten(){
     console.log("bin in der Clinent Allelellelele Nachrichten");
     tabelleNachrichtenAnbieter.innerHTML="";
@@ -644,6 +684,7 @@ axios.post("/antwort",
     }).then((res:AxiosResponse)=>{
         antwortInput.value = "";
         renderAlleleleleNachrichten();
+        renderAlleleleleNAchrichten2()
     }).catch((err:AxiosResponse)=>{
         if(err!==null){
             console.log("Fehler beim beantworten der Nachricht");
@@ -669,6 +710,7 @@ function login(event:Event){
                 setTimeout(feedbackLoginLoeschen,2000);
                 benutzerAuslesen(eingeloggterBenutzer);
                 renderAlleleleleNachrichten();
+                renderAlleleleleNAchrichten2()
             }else{
                 sectLog.classList.add("d-none");
                 sectProf.classList.remove("d-none");
@@ -741,6 +783,7 @@ function zumLogin (event:Event){
         navigieren();
         benutzerAuslesen(eingeloggterBenutzer);
         renderAlleleleleNachrichten();
+        renderAlleleleleNAchrichten2()
         sectProfA.classList.remove("d-none");
         window.scrollTo(0, 0);
     }else{
