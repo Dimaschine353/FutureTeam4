@@ -679,7 +679,8 @@ function login(event:Event){
         .then((res: AxiosResponse) => {
             formLogin.reset();
             if(eingeloggterBenutzer=="anbieter@boss.com"){
-
+                navKontakt.classList.add("d-none");
+                footKont.classList.add("d-none");
                 sectLog.classList.add("d-none");
                 sectProfA.classList.remove("d-none");
                 feedbackLogin.innerText = "Der Benutzer wurde erfolgreich eingeloggt."
