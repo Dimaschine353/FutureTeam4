@@ -376,8 +376,6 @@ function benutzerAuslesen(eingeloggterBenutzer:String){
         });
 }
 //Funktionen Nachrichten
-//muss so angepasst werden das die Antwort angezeigt wird
-//außerdem muss dder bearbeiten Btn ausgeblendet werden, wenn die Nachricht beantwortet wurde
 function renderNachrichtenListe(){
     console.log("bin in der renderNachrichten");
     //const email: string = eingeloggterBenutzer.toString();
@@ -437,8 +435,6 @@ function renderNachrichtenListe(){
                     <td>${n.antwort}</td>
                 <td>
                 <button class="btn btn-primary delete" data-nId="${n.nId}">Löschen</button>
-                <button class="btn btn-primary edit" data-nachricht="${n.nachricht}">Bearbeiten</button>
-                <button class="btn btn-primary absenden d-none" data-nId="${n.nId}" >Absenden</button>
                 </td>
                 `;
                     tabelleNachrichten.append(tr);
@@ -577,11 +573,6 @@ function renderAlleleleleNachrichten(){
             */
     });
 }
-//||Muss die Antwort gelöscht wund bearbeitet werden können?
-function antwortLoeschen(target:HTMLElement){
-
-}
-//
 function nachrichtBeantwortenStart(target:HTMLElement){
     antwortInput.classList.remove("d-none");
     antwortInput.value = "";
