@@ -873,13 +873,15 @@ function zurGalerie(event:Event){
     event.preventDefault();
     navigieren();
     sectStart.classList.remove("d-none");
-    scrollTo(0, 10000);
+    window.location.href = "#gallerie";
+    //scrollTo(0, 10000);
 }
 function zuHandgefertigteMesser(event: Event){
     event.preventDefault();
     navigieren();
     sectStart.classList.remove("d-none");
-    scrollTo(0, 1300);
+    window.location.href = "#handgefertigte";
+    //scrollTo(0, 1300);
 }
 function navigieren(){
     sectStart.classList.add("d-none");
