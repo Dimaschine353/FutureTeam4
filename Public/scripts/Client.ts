@@ -849,7 +849,7 @@ function zurGalerie(event:Event){
     event.preventDefault();
     navigieren();
     sectStart.classList.remove("d-none");
-    window.location.href = "#gallerie";
+    window.location.href = "#galerie";
     //scrollTo(0, 10000);
 }
 function zuHandgefertigteMesser(event: Event){

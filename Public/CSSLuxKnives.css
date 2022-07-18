@@ -2,15 +2,17 @@
 html {
     height: 100%;
     margin: 0;
+
 }
 
 
 body {
     height: 100%;
     margin: 0;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
 }
+
+
+
 
 
 
@@ -177,7 +179,19 @@ h1 {
     padding: 3rem;
     font-family: "Engebrechtre", serif;
     text-align: center;
+    position: relative;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 h2 {
     font-family: "Montserrat", serif;
@@ -322,13 +336,27 @@ h5 {
     background-image: url('/cMe/images/komp/pexels-andrea-piacquadio-3822900.jpg');
 }
 
-.fill7 {
+.fillinsta1 {
     overflow: hidden;
     background-size: cover;
     background-position: center;
-    /* Auskommentiert -> weil Fehler in der Konsole
-    background-image: url('/cMe/images/NakiriMusashi1.jpg');
-     */
+    background-image: url('/cMe/images/komp/NakiriMusashi1.jpg');
+    cursor: pointer;
+}
+
+.fillinsta2 {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/cMe/images/komp/NakiriMusashi5Edit.jpg');
+    cursor: pointer;
+}
+
+.fillinsta3 {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/cMe/images/komp/christian-buehner-KCLqSvoUdxw-unsplash.jpg');
     cursor: pointer;
 }
 
@@ -348,12 +376,26 @@ h5 {
 }
 
 .fillWarenkorbProduktbild {
+    width: 600px;
+    height: 400px;
     overflow: hidden;
     background-size: cover;
     background-position: center;
-    background-image: url('/cMe/images/komp/NakiriMusashi6.jpg');
+    background-image: url('/cMe/images/komp/NakiriMusashi1.jpg');
 }
 
+.fillWarenkorbProduktbild:hover {
+    content: url('/cMe/images/komp/NakiriMusashi6.jpg');
+    transition-delay: 5s;
+}
+
+.warencard {
+    box-shadow: 5px 10px 18px #888888;
+}
+
+.warenrow {
+    margin-top: 1rem;
+}
 
 .fillImage {
     overflow: hidden;
@@ -660,6 +702,18 @@ footer {
 .pmelden {
     margin-top: 1rem;
     margin-bottom: 0rem;
+}
+
+
+
+/* Kontakt */
+.kontaktPosition {
+    top: 6.5rem;
+    width: 100%;
+}
+
+.kontaktText {
+    color: #f0f0f2;
 }
 
 /* CHECKOUT */
@@ -1011,7 +1065,9 @@ background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/s
     border: none;
 }
 
-
+.cardservice {
+    box-shadow: 5px 10px 10px #888888;
+}
 
 
 
