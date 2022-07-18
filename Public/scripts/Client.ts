@@ -658,6 +658,7 @@ axios.post("/antwort",
 
     }).then((res:AxiosResponse)=>{
         antwortInput.value = "";
+        antwortInput.classList.add("d-none");
         renderAlleleleleNachrichten();
         renderAlleleleleNachrichten2();
     }).catch((err:AxiosResponse)=>{
@@ -722,6 +723,8 @@ function logout(){
     axios.post("/logout")
         .then(()=>{
             eingeloggterBenutzer="";
+            navKontakt.classList.remove("d-none");
+            footKont.classList.remove("d-none");
             navigieren();
             sectStart.classList.remove("d-none");
             alert("Sie wurden ausgeloggt.");
