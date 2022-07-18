@@ -322,13 +322,27 @@ h5 {
     background-image: url('/cMe/images/komp/pexels-andrea-piacquadio-3822900.jpg');
 }
 
-.fill7 {
+.fillinsta1 {
     overflow: hidden;
     background-size: cover;
     background-position: center;
-    /* Auskommentiert -> weil Fehler in der Konsole
-    background-image: url('/cMe/images/NakiriMusashi1.jpg');
-     */
+    background-image: url('/cMe/images/komp/NakiriMusashi1.jpg');
+    cursor: pointer;
+}
+
+.fillinsta2 {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/cMe/images/komp/NakiriMusashi5Edit.jpg');
+    cursor: pointer;
+}
+
+.fillinsta3 {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/cMe/images/komp/christian-buehner-KCLqSvoUdxw-unsplash.jpg');
     cursor: pointer;
 }
 
@@ -660,6 +674,18 @@ footer {
 .pmelden {
     margin-top: 1rem;
     margin-bottom: 0rem;
+}
+
+
+
+/* Kontakt */
+.kontaktPosition {
+    top: 6.5rem;
+    width: 100%;
+}
+
+.kontaktText {
+    color: #f0f0f2;
 }
 
 /* CHECKOUT */
