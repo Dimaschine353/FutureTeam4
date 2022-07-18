@@ -322,7 +322,7 @@ function getAlleleleleNachrichten(req:express.Request, res:express.Response):voi
         param,
         (err:MysqlError | null, results:any)=>{
             res.send(results);
-            console.log("das Ergebnis der getAlleleleleNAchrichten"+JSON.stringify(results));
+            console.log("das Ergebnis der getAlleleleleNachrichten"+JSON.stringify(results));
         }
     )
 }

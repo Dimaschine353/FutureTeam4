@@ -590,9 +590,9 @@ function nachrichtBearbeitenAbsenden(target: HTMLElement){
         });
 }
 //Funktionen Anbieter
-function renderAlleleleleNAchrichten2(){
+function renderAlleleleleNachrichten2(){
     divNachrichtenA.innerHTML ="";
-axios.get("/nachricht")
+axios.get("/nachrichten")
     .then((res:AxiosResponse)=>{
         for(const n of res.data){
             const div : HTMLElement = document.createElement("div");
@@ -684,7 +684,7 @@ axios.post("/antwort",
     }).then((res:AxiosResponse)=>{
         antwortInput.value = "";
         renderAlleleleleNachrichten();
-        renderAlleleleleNAchrichten2()
+        renderAlleleleleNachrichten2();
     }).catch((err:AxiosResponse)=>{
         if(err!==null){
             console.log("Fehler beim beantworten der Nachricht");
@@ -704,13 +704,14 @@ function login(event:Event){
         .then((res: AxiosResponse) => {
             formLogin.reset();
             if(eingeloggterBenutzer=="anbieter@boss.com"){
+
                 sectLog.classList.add("d-none");
                 sectProfA.classList.remove("d-none");
                 feedbackLogin.innerText = "Der Benutzer wurde erfolgreich eingeloggt."
                 setTimeout(feedbackLoginLoeschen,2000);
                 benutzerAuslesen(eingeloggterBenutzer);
                 renderAlleleleleNachrichten();
-                renderAlleleleleNAchrichten2()
+                renderAlleleleleNachrichten2();
             }else{
                 sectLog.classList.add("d-none");
                 sectProf.classList.remove("d-none");
@@ -783,7 +784,7 @@ function zumLogin (event:Event){
         navigieren();
         benutzerAuslesen(eingeloggterBenutzer);
         renderAlleleleleNachrichten();
-        renderAlleleleleNAchrichten2()
+        renderAlleleleleNachrichten2();
         sectProfA.classList.remove("d-none");
         window.scrollTo(0, 0);
     }else{
