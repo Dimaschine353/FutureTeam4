@@ -658,6 +658,7 @@ axios.post("/antwort",
 
     }).then((res:AxiosResponse)=>{
         antwortInput.value = "";
+        antwortInput.classlist.add("d-none");
         renderAlleleleleNachrichten();
         renderAlleleleleNachrichten2();
     }).catch((err:AxiosResponse)=>{
