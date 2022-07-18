@@ -450,9 +450,13 @@ function renderNachrichtenListe2(){
                  divNachrichten.append(div);
                }else{
                    div.innerHTML = ` 
+                    <div class="card mb-3 mx-5 cardBestellungenStyle">
+                        <div class="card-body">
                               <h5 class="card-title">${n.nachricht}</h5>
                               <h5 <p class="card-textBestellungen">${n.antwort}</p> </h5>  
                               <button class="btn btn-primary delete" data-nId="${n.nId}">Löschen</button>
+                        </div>
+                    </div>
                    `;
                    divNachrichten.append(div);
                }
