@@ -417,10 +417,9 @@ function renderNachrichtenListe(){
     axios.get("/nachricht")
         .then((res: AxiosResponse)=>{
             for(const n of res.data){
-                //console.log(res.data);
                 const tr: HTMLElement = document.createElement("tr");
                 if(n.antwort==null){
-                    console.log("bin im if-fall [antwort = null]");
+                    //console.log("bin im if-fall [antwort = null]");
                     tr.innerHTML = `
                     <td>${n.nachricht}</td>
                     <td>Noch keine Antwort vorhanden</td>
@@ -526,13 +525,15 @@ function nachrichtBearbeitenAbsenden(target: HTMLElement){
 }
 //Funktionen Anbieter
 function renderAlleleleleNachrichten(){
-    const email: string = eingeloggterBenutzer.toString();
+    //const email: string = eingeloggterBenutzer.toString();
+    console.log("bin in der Clinent Allelellelele Nachrichten");
     tabelleNachrichtenAnbieter.innerHTML="";
-    axios.get("/nachrichten/"+email)
+    axios.get("/nachrichten")
         .then((res: AxiosResponse)=>{
             for(const n of res.data){
                 const tr: HTMLElement = document.createElement("tr");
-                tr.innerHTML =`
+                if(n.antwort==null){
+                    tr.innerHTML =`
                     <td>${n.betreff}</td>
                     <td>${n.nachricht}</td>
                 <td>
@@ -540,8 +541,8 @@ function renderAlleleleleNachrichten(){
                 <button class="btn btn-primary absenden d-none" data-nId="${n.nId}" >Absenden</button>
                 </td>
                 `;
-             tabelleNachrichtenAnbieter.append(tr);
-
+                    tabelleNachrichtenAnbieter.append(tr);
+                }
             }
 
 

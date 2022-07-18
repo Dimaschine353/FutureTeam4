@@ -71,7 +71,7 @@ app.delete("/benutzer/:email",checkLogin,deleteBenutzer);
 app.put("/benutzer/:email",checkLogin,putBenutzer);
 //Routen Nachricht
 app.get("/nachricht",checkLogin,getAlleNachrichten);
-app.get("/nachrichten/:email",checkLogin,getAlleleleleNachrichten);
+app.get("/nachrichten",checkLogin,getAlleleleleNachrichten);
 app.post("/nachricht",postNachricht);
 app.delete("/nachricht/:nId",deleteNachricht);
 app.put("/nachricht/:nId", putNachrichten);
@@ -336,9 +336,10 @@ function getAlleNachrichten(req:express.Request, res:express.Response):void{
     }
 }
 function getAlleleleleNachrichten(req:express.Request, res:express.Response):void{
-    //console.log("Bin in der getAllelelele Nachrichten")
+    console.log("Bin in der getAllelelele Nachrichten")
     const param =[];
-    const sql = "SELECT * FROM nachrichten;";
+    //const sql = "SELECT * FROM nachrichten;";
+    const sql = "SELECT nachrichten.nachricht ,nachrichten.betreff ,antworten.antwort ,nachrichten.nId  FROM nachrichten LEFT JOIN antworten ON nachrichten.nId = antworten.nId";
     connection.query(
         sql,
         param,
