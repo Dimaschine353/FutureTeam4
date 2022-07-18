@@ -193,19 +193,22 @@ document.addEventListener("DOMContentLoaded",()=>{
     logoutBtn.addEventListener("click", logout);
     logoutBtnA = document.querySelector("#profilUBtnLogout");
     logoutBtnA.addEventListener("click",logout);
-    profilUBtnLStart = document.querySelector("#profilUBtnLStart");
-    profilUBtnLStart.addEventListener("click",()=>{
-        profilUBtnL.classList.remove("d-none");
-        profilUBtnLStart.classList.add("d-none");
-    })
-    profilUBtnL = document.querySelector("#profilUBtnL");
-    profilUBtnL.addEventListener("click",benutzerLoeschen);
     profilUBtnN = document.querySelector("#profilUBtnN");
     profilUBtnN.addEventListener("click",(event:Event)=>{
         event.preventDefault();
         profilUBtnL.classList.add("d-none");
+        profilUBtnN.classList.add("d-none");
         profilUBtnLStart.classList.remove("d-none");
     })
+    profilUBtnLStart = document.querySelector("#profilUBtnLStart");
+    profilUBtnLStart.addEventListener("click",()=>{
+        profilUBtnL.classList.remove("d-none");
+        profilUBtnN.classList.remove("d-none");
+        profilUBtnLStart.classList.add("d-none");
+    })
+    profilUBtnL = document.querySelector("#profilUBtnL");
+    profilUBtnL.addEventListener("click",benutzerLoeschen);
+
     tabelleNachrichten = document.querySelector("#tabelleNachrichten");
     tabelleNachrichten.addEventListener("click",(event:Event)=>{
         event.preventDefault();
