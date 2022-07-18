@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     footKont = document.querySelector("#footKont");
     footKont.addEventListener("click",zumKontakt);
     footFAQ = document.querySelector("#footFAQ");
-    footFAQ.addEventListener("click",zumService);
+    footFAQ.addEventListener("click",zumFAQ);
     footDatenschutz = document.querySelector("#footDatenschutz");
     footDatenschutz.addEventListener("click",zumDatenschutz);
     footAGB = document.querySelector("#footAGB");
@@ -330,8 +330,8 @@ function benutzerAendern(event:Event){
             profilNachnameA.setAttribute("readonly","true");
             profilVornameA.setAttribute("readonly","true");
             feedbackProfA.innerText = "Nutzerdaten erfolgreich geupdated.";
-            profilUBtnB.classList.remove("d-none");
-            profilUBtnA.classList.add("d-none");
+            profilABtnB.classList.remove("d-none");
+            profilABtnA.classList.add("d-none");
             setTimeout(feedbackProfALoeschen,2000);
         });
     }else{
@@ -621,9 +621,6 @@ function login(event:Event){
     }else{
         console.log("fehler oder so diggi");
     }
-
-
-
 }
 function logout(event:Event){
     event.preventDefault();
@@ -687,11 +684,16 @@ function zumWarenkorb (event:Event){
     sectWar.classList.remove("d-none");
     window.scrollTo(0, 0);
 }
-function zumService (event:Event){
+function zumFAQ (event:Event){
     event.preventDefault();
     navigieren();
     sectServ.classList.remove("d-none");
     window.scrollTo(0, 10000);
+}
+function zumService (event:Event){
+    event.preventDefault();
+    navigieren();
+    sectServ.classList.remove("d-none");
 }
 function zuUeber(event:Event){
     event.preventDefault();
@@ -733,14 +735,12 @@ function zumImpr(event:Event){
     sectImpr.classList.remove("d-none");
     window.scrollTo(0, 0);
 }
-
 function zurGalerie(event:Event){
     event.preventDefault();
     navigieren();
     sectStart.classList.remove("d-none");
     scrollTo(0, 10000);
 }
-
 function zuHandgefertigteMesser(event: Event){
     event.preventDefault();
     navigieren();

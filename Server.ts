@@ -92,8 +92,11 @@ function login(req: express.Request, res: express.Response): void {
             }
             })
         .catch((err: mysql.MysqlError) => {
-           res.sendStatus(500);
-           console.log("Fehler in der Datenbank");
+            if(err!==null){
+                res.sendStatus(500);
+                console.log("Fehler in der Datenbank");
+            }
+
         });
 }
 function logout(req: express.Request, res: express.Response): void {
@@ -208,23 +211,24 @@ function deleteBenutzer(req: express.Request, res:express.Response):void{
             sql,
             param,
             (err: mysql.MysqlError | null, result: any) => {
+                if(err!==null){
+                    res.status(500);
+                }else{
+                    res.status(200);
+                    res.send("Ihr Account wurde erfolgreich gelöscht");
+                }
 
-                res.status(200);
-                res.send("Ihr Account wurde erfolgreich gelöscht");
             }
         );
         console.log("Sie haben Ihren Account erfolgreich gelöscht");
     }
 }
 function putBenutzer(req: express.Request, res:express.Response):void{
-
     const email: string = req.session.uname;
     const vName: string = req.body.vName;
     const nName: string = req.body.nName;
-
     const param = [vName,nName,email];
     let sql = "UPDATE benutzer SET vName=?,nName=? WHERE email=?;";
-
     if(email===undefined || vName===undefined || nName===undefined){
         res.status(400);
         res.send("undefinierte werte");
@@ -234,11 +238,16 @@ function putBenutzer(req: express.Request, res:express.Response):void{
             sql,
             param,
             (err: MysqlError | null, result: any)=>{
+                if(err!==null){
+                    res.status(400);
+                }else{
+                    res.status(200);
+                    res.send("benutzer geupdated");
+                }
 
             }
         );
-        res.status(200);
-        res.send("benutzer geupdated");
+
     }else{
         res.status(400);
         res.send("benutzer nicht gefunden");
