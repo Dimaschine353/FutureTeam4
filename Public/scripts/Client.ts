@@ -3,12 +3,6 @@
 //JEDES MAL VOR DEM TEST AUSKOMMENTIEREN !!!!!!!!!!!!!!
 
 //Deklaration Sections
-
-
-
-let divNachrichten: HTMLElement;
-let divNachrichtenA: HTMLElement;
-
 let sectStart: HTMLElement;
 let sectProf: HTMLElement;
 let sectProfA: HTMLHtmlElement
@@ -53,6 +47,8 @@ let feedbackProfU: HTMLElement;
 let feedbackProfA: HTMLElement;
 let feedbackLogin: HTMLElement;
 let feedbackNachricht: HTMLElement;
+let formAntworten: HTMLFormElement;
+let formNachrichtenBearbeiten: HTMLFormElement;
 let formRegistrieren: HTMLFormElement;
 let formLogin: HTMLFormElement;
 let formProfilDatenBearbeiten: HTMLFormElement;
@@ -84,6 +80,8 @@ let profilABtnA: HTMLInputElement;
 let profilABtnL: HTMLInputElement;
 let profilABtnLStart: HTMLInputElement;
 let logoutBtnA: HTMLHtmlElement;
+let divNachrichten: HTMLElement;
+let divNachrichtenA: HTMLElement;
 let tabelleNachrichtenAnbieter: HTMLElement;
 let antwortInput: HTMLInputElement;
 //Login
@@ -161,6 +159,10 @@ document.addEventListener("DOMContentLoaded",()=>{
     feedbackProfU = document.querySelector("#feedbackProfildatenBearbeiten");
     feedbackProfA = document.querySelector("#feedbackProfildatenBearbeitenA");
     feedbackNachricht = document.querySelector("#feedbackNachricht");
+    formAntworten = document.querySelector("#formAntworten");
+    //formAntworten.addEventListener("submit",nachrichtBeantwortenAbsenden);
+    formNachrichtenBearbeiten = document.querySelector("#formNachrichtBearbeiten")
+    //formNachrichtenBearbeiten.addEventListener("submit",nachrichtBearbeitenAbsenden);
     formRegistrieren = document.querySelector("#formRegistrieren");
     formLogin = document.querySelector("#formLogin");
     formProfilDatenBearbeiten = document.querySelector("#formProfildatenBearbeiten");
@@ -636,38 +638,7 @@ function renderAlleleleleNachrichten(){
                     tabelleNachrichtenAnbieter.append(tr);
                 }
             }
-
-
-    /*   Neue render ansicht
-    const email: string =eingeloggterBenutzer.toString();
-    divNachrichtenAnbieter.innerHTML="";
-    axios.get("/nachrichten/"+email)
-        .then((res: AxiosResponse)=>{
-            for(const n of res.data){
-                const div: HTMLElement = document.createElement("div");
-                div.innerHTML = `
-                <div class="card mb-3 mx-5 cardBestellungenStyle">
-                    <div class="card-body">
-                        <h5 class="card-title">${n.betreff}</h5>
-                        <p class="card-textBestellungen">${n.nachricht}</p>
-                        <div class="input-group mb-3">
-                            <textarea id="antwortSchreibenAnbieter" class="form-control"
-                                      aria-label="With textarea"></textarea>
-                        </div>
-                        <button class="btn btn-luxknives delete" data-nId="${n.nId}">Löschen</button>
-                        <button class="btn btn-luxknives edit" data-nachricht="${n.nachricht}">Bearbeiten</button>
-                        <button class="btn btn-luxknives absenden d-none" data-nId="${n.nId}" >Absenden</button>
-                    </div>
-                </div>
-                `;
-
-
-                divNachrichtenAnbieter.append(div);
-
-            }
-
-            */
-    });
+        });
 }
 function nachrichtBeantwortenStart(target:HTMLElement){
     antwortInput.classList.remove("d-none");
