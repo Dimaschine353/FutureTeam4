@@ -838,10 +838,20 @@ function zumKontakt(event:Event){
         navigieren();
         sectKont.classList.remove("d-none");
         window.scrollTo(0, 0);
+        console.log("if von zum Kontakt");
     }else {
         navigieren();
         sectKont.classList.remove("d-none");
         window.scrollTo(0, 0);
+
+        nachrichtEmail.value = "";
+        nachrichtNName.value = "";
+        nachrichtVName.value = "";
+        nachrichtNName.removeAttribute("readonly");
+        nachrichtVName.removeAttribute("readonly");
+        nachrichtEmail.removeAttribute("readonly");
+
+        console.log("else von zum Kontakt");
     }
 
 
