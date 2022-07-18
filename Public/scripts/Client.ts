@@ -128,14 +128,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     navGallerie.addEventListener("click", zurGalerie);
     navHandgefertigteMesser = document.querySelector("#navHandgefertigte");
     navHandgefertigteMesser.addEventListener("click", zuHandgefertigteMesser);
-
-
-
-
-
-
-
-
     //Initialisierung Zur Detailseite
     startNakiri = document.querySelector("#startNakiri");
     startNakiri.addEventListener("click",zurDet);
@@ -363,7 +355,6 @@ function benutzerAendern(event:Event){
     }
 }
 function benutzerAuslesen(eingeloggterBenutzer:String){
-    //const email = eingeloggterBenutzer;
     axios.get("/benutzer/"+eingeloggterBenutzer)
         .then((res:AxiosResponse)=>{
                 const benutzer = res.data.benutzer;
@@ -377,11 +368,7 @@ function benutzerAuslesen(eingeloggterBenutzer:String){
 }
 //Funktionen Nachrichten
 function renderNachrichtenListe(){
-    console.log("bin in der renderNachrichten");
-    //const email: string = eingeloggterBenutzer.toString();
-    //console.log(email+" in der renderNachrichten")
-
-    /* Neue render nachrichten
+     /* Neue render nachrichten
     divNachrichten.innerHTML = "";
     axios.get("/nachricht/"+email)
         .then((res: AxiosResponse)=>{
@@ -410,14 +397,12 @@ function renderNachrichtenListe(){
             }
         });
     */
-
     tabelleNachrichten.innerHTML = "";
     axios.get("/nachricht")
         .then((res: AxiosResponse)=>{
             for(const n of res.data){
                 const tr: HTMLElement = document.createElement("tr");
                 if(n.antwort==null){
-                    //console.log("bin im if-fall [antwort = null]");
                     tr.innerHTML = `
                     <td>${n.nachricht}</td>
                     <td>Noch keine Antwort vorhanden</td>
@@ -461,8 +446,6 @@ function nachrichtHinzufuegen(event:Event){
             betreff: betreff,
             nachricht: nachricht
         }).then((res:AxiosResponse)=>{
-            //Forms einfügen um diese resetten zu können??
-            //formKontakt.reset();
             feedbackNachricht.innerText="Ihre Nachricht wurde gesendet.";
             nachrichtBetreff.value = "";
             nachrichtEin.value = "";
@@ -480,8 +463,6 @@ function nachrichtHinzufuegen(event:Event){
 
 }
 function nachrichtLoeschen(target:HTMLElement){
-    //const email: string = eingeloggterBenutzer.toString();
-    //const betreff: string = target.dataset.betreff;
     const nId = target.dataset.nid;
     axios.delete("/nachricht/"+nId)
         .then((res:AxiosResponse)=>{
@@ -521,7 +502,6 @@ function nachrichtBearbeitenAbsenden(target: HTMLElement){
 }
 //Funktionen Anbieter
 function renderAlleleleleNachrichten(){
-    //const email: string = eingeloggterBenutzer.toString();
     console.log("bin in der Clinent Allelellelele Nachrichten");
     tabelleNachrichtenAnbieter.innerHTML="";
     axios.get("/nachrichten")
@@ -622,7 +602,6 @@ function login(event:Event){
                 sectProf.classList.remove("d-none");
                 feedbackLogin.innerText = "Der Benutzer wurde erfolgreich eingeloggt."
                 setTimeout(feedbackLoginLoeschen,2000);
-                //console.log("Anmeldung erfolgreich bruh");
                 benutzerAuslesen(eingeloggterBenutzer);
                 renderNachrichtenListe();
             }
@@ -637,8 +616,6 @@ function login(event:Event){
             }
 
         })
-
-    //readonlyNachricht
     if (eingeloggterBenutzer !== ""){
         nachrichtEmail.value = eingeloggterBenutzer.valueOf();
         nachrichtNName.setAttribute("readonly","true");
@@ -655,7 +632,6 @@ function logout(event:Event){
     event.preventDefault();
     axios.post("/logout")
         .then(()=>{
-            //le.log("habe eine response vom Server erhalten");
             eingeloggterBenutzer="";
             navigieren();
             sectStart.classList.remove("d-none");
@@ -664,17 +640,12 @@ function logout(event:Event){
             nachrichtNName.removeAttribute("readonly");
             nachrichtVName.removeAttribute("readonly");
             nachrichtEmail.removeAttribute("readonly");
-
-
         });
 }
 function binIchNochDrin(){
     axios.get("/binIchNochDrin?")
         .then((res:AxiosResponse)=>{
-            //const benutzer = res.data;
             eingeloggterBenutzer = res.data.email;
-            //console.log(res.data);
-            //console.log("eingeloggter Benutzer: "+eingeloggterBenutzer+" im Reload der binIchDrin")
         });
 }
 //Timeout funktionen
