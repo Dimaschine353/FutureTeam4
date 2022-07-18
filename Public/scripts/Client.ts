@@ -213,9 +213,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     tabelleNachrichtenAnbieter.addEventListener("click",(event:Event)=>{
         let target: HTMLElement = event.target as HTMLElement;
         target = target.closest("button");
-        if(target.matches(".delete")){
-            antwortLoeschen(target);
-        }else if(target.matches(".edit")){
+        if(target.matches(".edit")){
             nachrichtBeantwortenStart(target);
         }else if(target.matches(".absenden")){
             nachrichtBeantwortenAbsenden(target);
@@ -414,7 +412,6 @@ function renderNachrichtenListe(){
                     `;
                     tabelleNachrichten.append(tr);
                 }else{
-                    console.log("bin in der else der render Nachrichten");
                     tr.innerHTML =`
                     <td>${n.nachricht}</td>
                     <td>${n.antwort}</td>
