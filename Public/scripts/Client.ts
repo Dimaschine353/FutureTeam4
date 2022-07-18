@@ -810,10 +810,20 @@ function zumKontakt(event:Event){
         navigieren();
         sectKont.classList.remove("d-none");
         window.scrollTo(0, 0);
+        console.log("if von zum Kontakt");
     }else {
         navigieren();
         sectKont.classList.remove("d-none");
         window.scrollTo(0, 0);
+
+        nachrichtEmail.value = "";
+        nachrichtNName.value = "";
+        nachrichtVName.value = "";
+        nachrichtNName.removeAttribute("readonly");
+        nachrichtVName.removeAttribute("readonly");
+        nachrichtEmail.removeAttribute("readonly");
+
+        console.log("else von zum Kontakt");
     }
 
 
@@ -835,13 +845,15 @@ function zurGalerie(event:Event){
     event.preventDefault();
     navigieren();
     sectStart.classList.remove("d-none");
-    scrollTo(0, 10000);
+    window.location.href = "#gallerie";
+    //scrollTo(0, 10000);
 }
 function zuHandgefertigteMesser(event: Event){
     event.preventDefault();
     navigieren();
     sectStart.classList.remove("d-none");
-    scrollTo(0, 1300);
+    window.location.href = "#handgefertigte";
+    //scrollTo(0, 1300);
 }
 function navigieren(){
     sectStart.classList.add("d-none");
