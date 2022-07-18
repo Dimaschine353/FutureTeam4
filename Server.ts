@@ -92,10 +92,7 @@ function login(req: express.Request, res: express.Response): void {
             }
             })
         .catch((err: mysql.MysqlError) => {
-            if(err!==null){
-                res.sendStatus(500);
-                console.log("Fehler in der Datenbank");
-            }
+
 
         });
 }

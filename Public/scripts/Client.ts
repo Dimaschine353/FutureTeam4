@@ -3,6 +3,9 @@
 //JEDES MAL VOR DEM TEST AUSKOMMENTIEREN !!!!!!!!!!!!!!
 
 //Deklaration Sections
+
+let divNachrichten: HTMLElement;
+
 let sectStart: HTMLElement;
 let sectProf: HTMLElement;
 let sectProfA: HTMLHtmlElement
@@ -26,7 +29,7 @@ let navWarenkorb: HTMLElement;
 let navUeber: HTMLElement;
 let navService: HTMLElement;
 let navKontakt: HTMLElement;
-let navGallerie: HTMLElement;
+let navGalerie: HTMLElement;
 let navHandgefertigteMesser: HTMLElement;
 //Deklaration Footer
 let impressum: HTMLElement;
@@ -40,7 +43,7 @@ let startSantoku: HTMLElement;
 let startSujihinki: HTMLElement;
 let startIMGFlipper: HTMLImageElement;
 let startHandgefertigte: HTMLElement;
-let startGallerie: HTMLElement;
+let startGalerie: HTMLElement;
 //Deklaration Forms
 let feedbackReg: HTMLElement;
 let feedbackProfU: HTMLElement;
@@ -75,6 +78,7 @@ let profilNachnameA: HTMLInputElement;
 let profilABtnB: HTMLInputElement;
 let profilABtnA: HTMLInputElement;
 let profilABtnL: HTMLInputElement;
+let profilABtnLStart: HTMLInputElement;
 let logoutBtnA: HTMLHtmlElement;
 let tabelleNachrichtenAnbieter: HTMLElement;
 let antwortInput: HTMLInputElement;
@@ -125,8 +129,8 @@ document.addEventListener("DOMContentLoaded",()=>{
     navUeber.addEventListener("click",zuUeber);
     navKontakt = document.querySelector("#navKontakt");
     navKontakt.addEventListener("click",zumKontakt);
-    navGallerie = document.querySelector("#startGallerie");
-    navGallerie.addEventListener("click", zurGalerie);
+    navGalerie = document.querySelector("#startGalerie");
+    navGalerie.addEventListener("click", zurGalerie);
     navHandgefertigteMesser = document.querySelector("#navHandgefertigte");
     navHandgefertigteMesser.addEventListener("click", zuHandgefertigteMesser);
     //Initialisierung Zur Detailseite
@@ -194,6 +198,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     profilUBtnL.addEventListener("click",benutzerLoeschen);
     tabelleNachrichten = document.querySelector("#tabelleNachrichten");
     tabelleNachrichten.addEventListener("click",(event:Event)=>{
+        event.preventDefault();
         let target: HTMLElement = event.target as HTMLElement;
         target = target.closest("button");
         if(target.matches(".delete")){
@@ -204,6 +209,21 @@ document.addEventListener("DOMContentLoaded",()=>{
             nachrichtBearbeitenAbsenden(target);
         }
     });
+
+    divNachrichten = document.querySelector("#divNachrichten");
+    divNachrichten.addEventListener("click",(event:Event)=>{
+        event.preventDefault();
+        let target: HTMLElement = event.target as HTMLElement;
+        target = target.closest("button");
+        if(target.matches(".delete")){
+            nachrichtLoeschen(target);
+        }else if(target.matches(".edit")){
+            nachrichtBearbeitenStart(target);
+        }else if(target.matches(".absenden")){
+            nachrichtBearbeitenAbsenden(target);
+        }
+    })
+
     //Profil Anbieter
     profilNachnameA = document.querySelector("#profilNachnameA");
     profilVornameA = document.querySelector("#profilVornameA");
@@ -241,7 +261,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     startSujihinki = document.querySelector("#startSujihinki");
     startIMGFlipper = document.querySelector("#produktBildFlipper");
     startHandgefertigte = document.querySelector("#startHandgefertigte");
-    startGallerie = document.querySelector("#startGallerie");
+    startGalerie = document.querySelector("#startGalerie");
     //Startseite/Landingpage FotoFlipper
     startNakiri.addEventListener('mouseover', (event) => {
         event.preventDefault();
@@ -303,6 +323,8 @@ function benutzerLoeschen(event:Event){
             logout();
             profilUBtnLStart.classList.remove("d-none");
             profilUBtnL.classList.add("d-none");
+            profilABtnLStart.classList.remove("d-none");
+            profilABtnL.classList.add("d-none");
 
         }).catch((err: AxiosError)=>{
         if(err!==null){
@@ -374,36 +396,74 @@ function benutzerAuslesen(eingeloggterBenutzer:String){
         });
 }
 //Funktionen Nachrichten
-function renderNachrichtenListe(){
-     /* Neue render nachrichten
-    divNachrichten.innerHTML = "";
-    axios.get("/nachricht/"+email)
-        .then((res: AxiosResponse)=>{
-            for(const n of res.data){
-                //console.log(res.data);
-                const div: HTMLElement = document.createElement("div");
-                div.innerHTML =`
+function renderNachrichtenListe2(){
+  /*
 
-                    <div class="card mb-3 mx-5 cardBestellungenStyle">
-                        <div class="card-body">
-                            <h5 class="card-title">${n.betreff}</h5>
-                            <p class="card-textBestellungen">${n.nachricht}</p>
-                            <div class="input-group mb-3">
+                    tr.innerHTML = `
+                    <td>${n.nachricht}</td>
+                    <td>Noch keine Antwort vorhanden</td>
+                <td>
+                <button class="btn btn-primary delete" data-nId="${n.nId}">Löschen</button>
+                <button class="btn btn-primary edit" data-nachricht="${n.nachricht}">Bearbeiten</button>
+                <button class="btn btn-primary absenden d-none" data-nId="${n.nId}" >Absenden</button>
+                </td>
+                    `;
+                    tabelleNachrichten.append(tr);
+                }else{
+                    tr.innerHTML =`
+                    <td>${n.nachricht}</td>
+                    <td>${n.antwort}</td>
+                <td>
+                <button class="btn btn-primary delete" data-nId="${n.nId}">Löschen</button>
+                </td>
+                `;
+                    tabelleNachrichten.append(tr);
+                }
+
+            }
+        });
+   */
+
+    /*
+                                <div class="input-group mb-3">
                                 <p class="pe-2">Anwort:</p>
                                 <p id="antwortVomAnbieter">Super toll, super nice frage</p>
                             </div>
+    */
+    divNachrichten.innerHTML = "";
+    axios.get("/nachricht")
+        .then((res: AxiosResponse)=>{
+            for(const n of res.data){
+               const div: HTMLElement = document.createElement("div");
+               if(n.antwort==null){
+                 div.innerHTML =   `
+                 <div class="card mb-3 mx-5 cardBestellungenStyle">
+                        <div class="card-body">
+                            <h5 class="card-title">${n.nachricht}</h5>
+                            <h5 <p class="card-textBestellungen">Noch keine Antwort vorhanden</p> </h5>                           
                             <button class="btn btn-luxknives delete" data-nId="${n.nId}">Löschen</button>
                             <button class="btn btn-luxknives edit" data-nachricht="${n.nachricht}">Bearbeiten</button>
                             <button class="btn btn-luxknives absenden d-none" data-nId="${n.nId}" >Absenden</button>
                         </div>
                     </div>
+                 `;
+                 divNachrichten.append(div);
+               }else{
+                   div.innerHTML = ` 
+                              <h5 class="card-title">${n.nachricht}</h5>
+                              <h5 <p class="card-textBestellungen">${n.antwort}</p> </h5>  
+                              <button class="btn btn-primary delete" data-nId="${n.nId}">Löschen</button>
+                   `;
+                   divNachrichten.append(div);
+               }
 
-                `;
-
-                divNachrichten.append(div);
             }
         });
-    */
+}
+
+
+
+function renderNachrichtenListe(){
     tabelleNachrichten.innerHTML = "";
     axios.get("/nachricht")
         .then((res: AxiosResponse)=>{
@@ -473,6 +533,7 @@ function nachrichtLoeschen(target:HTMLElement){
     axios.delete("/nachricht/"+nId)
         .then((res:AxiosResponse)=>{
             renderNachrichtenListe();
+            renderNachrichtenListe2();
         }).catch((err:AxiosError)=>{
 
         if(err!==null){
@@ -500,6 +561,7 @@ function nachrichtBearbeitenAbsenden(target: HTMLElement){
         }).then((res:AxiosResponse)=>{
             console.log("nachricht erfolgreich bearbeitet");
             renderNachrichtenListe();
+            renderNachrichtenListe2();
         }).catch((err:AxiosResponse) =>{
             if(err!==null){
                 console.log("Fehler beim Bearbeiten der Nachricht");
@@ -610,6 +672,7 @@ function login(event:Event){
                 setTimeout(feedbackLoginLoeschen,2000);
                 benutzerAuslesen(eingeloggterBenutzer);
                 renderNachrichtenListe();
+                renderNachrichtenListe2();
             }
         })
         .catch((err: AxiosError)=>{
@@ -632,7 +695,6 @@ function login(event:Event){
     }
 }
 function logout(){
-    event.preventDefault();
     axios.post("/logout")
         .then(()=>{
             eingeloggterBenutzer="";
@@ -681,6 +743,7 @@ function zumLogin (event:Event){
         navigieren();
         benutzerAuslesen(eingeloggterBenutzer);
         renderNachrichtenListe();
+        renderNachrichtenListe2();
         sectProf.classList.remove("d-none");
         window.scrollTo(0, 0);
     }
