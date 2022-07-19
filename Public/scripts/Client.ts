@@ -741,6 +741,7 @@ function logout(){
     axios.post("/logout")
         .then(()=>{
             eingeloggterBenutzer="";
+            navLogout.classList.add("d-none");
             navKontakt.classList.remove("d-none");
             footKont.classList.remove("d-none");
             navigieren();
