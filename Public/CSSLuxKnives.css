@@ -472,6 +472,10 @@ footer {
     padding: 2px
 }
 
+.btn:focus {
+    box-shadow: none;
+}
+
 .nav-link:focus, .nav-link:hover {
     color: #D94B2B;
 }
