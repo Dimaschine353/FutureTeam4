@@ -359,14 +359,14 @@ h5 {
     overflow: hidden;
     background-size: cover;
     background-position: center;
-    background-image: url('/cMe/images/GalerieKomp/NakiriMusashi4.jpg');
+    background-image: url('/cMe/images/GalerieKomp/NakiriMusashi1 (1).jpg');
 }
 
 .fillinsta6 {
     overflow: hidden;
     background-size: cover;
     background-position: center;
-    background-image: url('/cMe/images/GalerieKomp/NakiriMusashi6 (2).jpg');
+    background-image: url('/cMe/images/GalerieKomp/NakiriMusashi3.jpg');
 }
 
 .fillProfilPic {
@@ -1056,9 +1056,8 @@ background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/s
     height: auto;
 }
 
-.rowgallery {
-    margin-bottom: 4rem;
-}
+
+
 
 .card-santoku {
     height: 250.35px;
