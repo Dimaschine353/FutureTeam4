@@ -168,9 +168,13 @@ document.addEventListener("DOMContentLoaded",()=>{
     feedbackProfA = document.querySelector("#feedbackProfildatenBearbeitenA");
     feedbackNachricht = document.querySelector("#feedbackNachricht");
     formAntworten = document.querySelector("#formAntworten");
-    //formAntworten.addEventListener("submit",nachrichtBeantwortenAbsenden);
+    formAntworten.addEventListener("submit",(event:Event)=>{
+        event.preventDefault();
+        });
     formNachrichtenBearbeiten = document.querySelector("#formNachrichtBearbeiten")
-    //formNachrichtenBearbeiten.addEventListener("submit",nachrichtBearbeitenAbsenden);
+    formNachrichtenBearbeiten.addEventListener("submit",(event:Event)=>{
+        event.preventDefault();
+    });
     formRegistrieren = document.querySelector("#formRegistrieren");
     formLogin = document.querySelector("#formLogin");
     formProfilDatenBearbeiten = document.querySelector("#formProfildatenBearbeiten");
@@ -331,6 +335,8 @@ function benutzerHinzufuegen(event:Event){
 
     if (vName == null || vName.trim() == "" || nName == null || nName.trim() == "" || email == null || email.trim() == "" || passwort == null || passwort.trim() == ""){
         alert("Die Felder dürfen nicht leer sein oder nur Leertasten enthalten!");
+
+
     }else{
         axios.post("/benutzer", {
             vName: vName,
@@ -546,7 +552,8 @@ function nachrichtHinzufuegen(event:Event){
     const nachricht: string = nachrichtEin.value.toString();
 
     if (vName == null || vName.trim() == "" || nName == null || nName.trim() == "" || email == null || email.trim() == "" || betreff == null || betreff.trim() == "" || nachricht == null || nachricht.trim() == ""){
-        alert("Die Felder dürfen nicht leer sein oder nur Leertasten enthalten!");
+        alert("Bitte Füllen Sie alle Felder in beiden Formularen aus");
+
     }else{
         axios.post("/nachricht",{
             vName: vName,
