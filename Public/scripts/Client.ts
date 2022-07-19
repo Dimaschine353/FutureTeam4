@@ -485,7 +485,7 @@ function renderNachrichtenListe(){
                 if(n.antwort==null){
                     tr.innerHTML = `
                     <td>${n.nachricht}</td>
-                    <td>Noch keine Antwort vorhanden</td>
+                    <td>Unsere Antwort: \nNoch keine Antwort vorhanden</td>
                 <td>
                 <button class="btn btn-primary delete" data-nId="${n.nId}">Löschen</button>
                 <button class="btn btn-primary edit" data-nachricht="${n.nachricht}">Bearbeiten</button>
@@ -659,7 +659,7 @@ axios.post("/antwort",
 }
 //Login 'n out Funktionen
 function felderUndBtnsEinstellungen(){
-    if(eingeloggterBenutzer!==""){navLogout.classList.remove("d-none");}
+    if(eingeloggterBenutzer==""){navLogout.classList.add("d-none");}
     else{navLogout.classList.remove("d-none");}
     profilVorname.setAttribute("readonly","true");
     profilVornameA.setAttribute("readonly","true");
@@ -728,10 +728,11 @@ function login(event:Event){
     }
 }
 function logout(){
-    felderUndBtnsEinstellungen();
+
     axios.post("/logout")
         .then(()=>{
             eingeloggterBenutzer="";
+            felderUndBtnsEinstellungen();
             navLogout.classList.add("d-none");
             navKontakt.classList.remove("d-none");
             footKont.classList.remove("d-none");
