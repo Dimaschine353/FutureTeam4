@@ -659,10 +659,14 @@ axios.post("/antwort",
 }
 //Login 'n out Funktionen
 function felderUndBtnsEinstellungen(){
+    if(eingeloggterBenutzer!==""){navLogout.classList.remove("d-none");}
+    else{navLogout.classList.remove("d-none");}
     profilVorname.setAttribute("readonly","true");
     profilVornameA.setAttribute("readonly","true");
     profilNachname.setAttribute("readonly","true");
     profilNachnameA.setAttribute("readonly","true");
+    profilUBtnL.classList.add("d-none");
+    profilUBtnLStart.classList.remove("d-none");
     profilUBtnA.classList.add("d-none");
     profilABtnA.classList.add("d-none");
     profilABtnB.classList.remove("d-none");
