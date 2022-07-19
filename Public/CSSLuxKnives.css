@@ -322,33 +322,52 @@ h5 {
     background-position: center;
     width: 700px;
     height: 280px;
-    background-image: url('/cMe/images/komp/pexels-andrea-piacquadio-3822900.jpg');
+    background-image: url('');
 }
 
 .fillinsta1 {
     overflow: hidden;
     background-size: cover;
     background-position: center;
-    background-image: url('/cMe/images/komp/NakiriMusashi1.jpg');
-    cursor: pointer;
+    background-image: url('/cMe/images/GalerieKomp/SantokuKenshin (1).jpg');
+
 }
 
 .fillinsta2 {
     overflow: hidden;
     background-size: cover;
     background-position: center;
-    background-image: url('/cMe/images/komp/NakiriMusashi5Edit.jpg');
-    cursor: pointer;
+    background-image: url('/cMe/images/GalerieKomp/SujihikiMasakoEdit.jpg');
+
 }
 
 .fillinsta3 {
     overflow: hidden;
     background-size: cover;
     background-position: center;
-    background-image: url('/cMe/images/komp/christian-buehner-KCLqSvoUdxw-unsplash.jpg');
-    cursor: pointer;
+    background-image: url('/cMe/images/GalerieKomp/MesserGruppenfoto.jpg');
 }
 
+.fillinsta4 {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/cMe/images/GalerieKomp/MesserGruppenfoto2.jpg');
+}
+
+.fillinsta5 {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/cMe/images/GalerieKomp/NakiriMusashi4.jpg');
+}
+
+.fillinsta6 {
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-image: url('/cMe/images/GalerieKomp/NakiriMusashi6 (2).jpg');
+}
 
 .fillProfilPic {
     overflow: hidden;
@@ -999,8 +1018,8 @@ background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/s
 }
 
 .card-gallery {
-    height: 350px;
-    width: 350px;
+    height: 400px;
+    width: 400px;
 
     box-shadow: 5px 10px 18px #888888;
     border: none;
