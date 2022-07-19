@@ -98,6 +98,11 @@ let nachrichtBetreff: HTMLInputElement;
 let nachrichtEin: HTMLInputElement;
 let nachrichtBtnA: HTMLInputElement;
 let nachrichtEdit: HTMLInputElement;
+//Einzelne Btns
+
+let w2: HTMLInputElement;
+let w3: HTMLInputElement;
+let w4: HTMLInputElement;
 //Listener
 document.addEventListener("DOMContentLoaded",()=>{
     //Funktionen die direkt ausgeführt werden sollen
@@ -306,6 +311,15 @@ document.addEventListener("DOMContentLoaded",()=>{
     startHandgefertigte.addEventListener('mouseover', () => {
         startIMGFlipper.src = "/cMe/images/komp/MesserGruppenPhotoEditFinal.png"
     });
+    //Einzelne Btns
+
+    w2 = document.querySelector("#w2");
+    w3 = document.querySelector("#w3");
+    w4 = document.querySelector("#w4");
+
+    w2.addEventListener("click",zumWarenkorb);
+    w3.addEventListener("click",zumWarenkorb);
+    w4.addEventListener("click",zumWarenkorb);
 });
 //Funktionen Benutzer
 function benutzerHinzufuegen(event:Event){
