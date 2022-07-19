@@ -22,6 +22,7 @@ let sectImpr: HTMLElement;
 //Deklaration Nav Leiste
 let navHome: HTMLElement;
 let navLogin: HTMLElement;
+let navLogout: HTMLElement;
 let navWarenkorb: HTMLElement;
 let navUeber: HTMLElement;
 let navService: HTMLElement;
@@ -123,6 +124,8 @@ document.addEventListener("DOMContentLoaded",()=>{
     navHome.addEventListener("click",zurueckNachhause);
     navLogin = document.querySelector("#navLogin");
     navLogin.addEventListener("click",zumLogin);
+    navLogout = document.querySelector("#navLogout");
+    navLogout.addEventListener("click",logout);
     navWarenkorb = document.querySelector("#navWarenkorb");
     navWarenkorb.addEventListener("click",zumWarenkorb);
     navService = document.querySelector("#navService");
@@ -679,6 +682,7 @@ function login(event:Event){
     })
         .then((res: AxiosResponse) => {
             formLogin.reset();
+            navLogout.classList.remove("d-none");
             if(eingeloggterBenutzer=="anbieter@boss.com"){
                 navKontakt.classList.add("d-none");
                 footKont.classList.add("d-none");
