@@ -88,7 +88,6 @@ let antwortInput: HTMLInputElement;
 //Login
 let loginName: HTMLInputElement;
 let loginPasswort: HTMLInputElement;
-
 let zumRegistrieren: HTMLElement;
 //Nachricht
 let nachrichtVName: HTMLInputElement;
@@ -99,7 +98,6 @@ let nachrichtEin: HTMLInputElement;
 let nachrichtBtnA: HTMLInputElement;
 let nachrichtEdit: HTMLInputElement;
 //Einzelne Btns
-
 let w2: HTMLInputElement;
 let w3: HTMLInputElement;
 let w4: HTMLInputElement;
@@ -107,7 +105,7 @@ let w4: HTMLInputElement;
 document.addEventListener("DOMContentLoaded",()=>{
     //Funktionen die direkt ausgeführt werden sollen
     binIchNochDrin();
-    //Initialisierung Sect
+        //Initialisierung Sect
     sectStart = document.querySelector("#sectStart");
     sectProf = document.querySelector("#sectProf");
     sectProfA = document.querySelector("#sectProfA");
@@ -316,14 +314,13 @@ document.addEventListener("DOMContentLoaded",()=>{
         startIMGFlipper.src = "/cMe/images/komp/MesserGruppenPhotoEditFinal.png"
     });
     //Einzelne Btns
-
     w2 = document.querySelector("#w2");
     w3 = document.querySelector("#w3");
     w4 = document.querySelector("#w4");
-
     w2.addEventListener("click",zumWarenkorb);
     w3.addEventListener("click",zumWarenkorb);
     w4.addEventListener("click",zumWarenkorb);
+    felderUndBtnsEinstellungen();
 });
 //Funktionen Benutzer
 function benutzerHinzufuegen(event:Event){
@@ -445,39 +442,6 @@ function benutzerAuslesen(eingeloggterBenutzer:String){
 }
 //Funktionen Nachrichten
 function renderNachrichtenListe2(){
-  /*
-
-                    tr.innerHTML = `
-                    <td>${n.nachricht}</td>
-                    <td>Noch keine Antwort vorhanden</td>
-                <td>
-                <button class="btn btn-primary delete" data-nId="${n.nId}">Löschen</button>
-                <button class="btn btn-primary edit" data-nachricht="${n.nachricht}">Bearbeiten</button>
-                <button class="btn btn-primary absenden d-none" data-nId="${n.nId}" >Absenden</button>
-                </td>
-                    `;
-                    tabelleNachrichten.append(tr);
-                }else{
-                    tr.innerHTML =`
-                    <td>${n.nachricht}</td>
-                    <td>${n.antwort}</td>
-                <td>
-                <button class="btn btn-primary delete" data-nId="${n.nId}">Löschen</button>
-                </td>
-                `;
-                    tabelleNachrichten.append(tr);
-                }
-
-            }
-        });
-   */
-
-    /*
-                                <div class="input-group mb-3">
-                                <p class="pe-2">Anwort:</p>
-                                <p id="antwortVomAnbieter">Super toll, super nice frage</p>
-                            </div>
-    */
     divNachrichten.innerHTML = "";
     axios.get("/nachricht")
         .then((res: AxiosResponse)=>{
@@ -599,6 +563,7 @@ function nachrichtBearbeitenStart(target: HTMLElement){
     nachrichtEdit.classList.remove("d-none");
     nachrichtEdit.value = nachricht.toString();
     target.nextElementSibling.classList.remove("d-none");
+    target.classList.add("d-none");
 
 }
 function nachrichtBearbeitenAbsenden(target: HTMLElement){
@@ -668,6 +633,7 @@ function nachrichtBeantwortenStart(target:HTMLElement){
     antwortInput.classList.remove("d-none");
     antwortInput.value = "";
     target.nextElementSibling.classList.remove("d-none");
+    target.classList.add("d-none");
 }
 function nachrichtBeantwortenAbsenden(target:HTMLElement){
 console.log("bin in der nachrichtBeantwortenAbsenden");
@@ -692,6 +658,19 @@ axios.post("/antwort",
 });
 }
 //Login 'n out Funktionen
+function felderUndBtnsEinstellungen(){
+    profilVorname.setAttribute("readonly","true");
+    profilVornameA.setAttribute("readonly","true");
+    profilNachname.setAttribute("readonly","true");
+    profilNachnameA.setAttribute("readonly","true");
+    profilUBtnA.classList.add("d-none");
+    profilABtnA.classList.add("d-none");
+    profilABtnB.classList.remove("d-none");
+    profilUBtnB.classList.remove("d-none");
+    nachrichtEdit.classList.add("d-none");
+    antwortInput.classList.add("d-none");
+
+}
 function login(event:Event){
     event.preventDefault();
     const data: FormData = new FormData(formLogin);
@@ -745,10 +724,10 @@ function login(event:Event){
     }
 }
 function logout(){
+    felderUndBtnsEinstellungen();
     axios.post("/logout")
         .then(()=>{
             eingeloggterBenutzer="";
-            
             navLogout.classList.add("d-none");
             navKontakt.classList.remove("d-none");
             footKont.classList.remove("d-none");
@@ -887,6 +866,7 @@ function zuHandgefertigteMesser(event: Event){
     //scrollTo(0, 1300);
 }
 function navigieren(){
+    felderUndBtnsEinstellungen();
     sectStart.classList.add("d-none");
     sectProf.classList.add("d-none");
     sectProfA.classList.add("d-none");
@@ -904,8 +884,7 @@ function navigieren(){
     sectDS.classList.add("d-none");
     sectImpr.classList.add("d-none");
 }
-function zurDet(
-    event:Event){
+function zurDet(event:Event){
     event.preventDefault();
     navigieren();
     sectDet.classList.remove("d-none");

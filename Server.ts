@@ -79,7 +79,7 @@ app.put("/nachricht/:nId", putNachrichten);
 app.post("/antwort",postAntwort);
 //Login 'n out Funktionen
 function login(req: express.Request, res: express.Response): void {
-       query("SELECT uId FROM benutzer WHERE email = ? AND passwort = ?",
+        query("SELECT uId FROM benutzer WHERE email = ? AND passwort = ?",
         [req.body.loginName, req.body.loginPasswort])
         .then((results: any) => {
             //Wenn Eintrag vorhanden ist wird der Loginname zum Sessionnamen
@@ -314,7 +314,6 @@ function getAlleNachrichten(req:express.Request, res:express.Response):void{
     }
 }
 function getAlleleleleNachrichten(req:express.Request, res:express.Response):void{
-    console.log("Bin in der getAllelelele Nachrichten")
     const param =[];
     const sql = "SELECT nachrichten.nachricht ,nachrichten.betreff ,antworten.antwort ,nachrichten.nId  FROM nachrichten LEFT JOIN antworten ON nachrichten.nId = antworten.nId";
     connection.query(
@@ -351,13 +350,9 @@ function putNachrichten(req: express.Request, res: express.Response): void {
 //Funktionen Antworten
 function postAntwort(req:express.Request, res:express.Response){
     const nId = req.body.nId;
-    console.log(nId+" in der postAntwort");
     const antwort = req.body.antwort;
-    console.log(antwort+" in der postAntwort");
     let sql = "INSERT INTO antworten (nId, antwort) VALUES(?,?)";
-    console.log(sql +" :SQL Abfrage in der postAntwort");
     const param = [nId,antwort];
-    console.log(param+" Parameter in der postAntwort");
     if(antwort===undefined || nId===undefined){
         //||ist es zu viel diese Info an den Client zu schicken?
         res.status(400).send("einer der Werte fehlt");
@@ -370,8 +365,7 @@ function postAntwort(req:express.Request, res:express.Response){
                     res.status(500).send("Fehler in der Datenbank");
                 }else{
                     res.status(201).send("nachricht mit der ID: "+ nId + " wurde beantwortet");
-                    console.log("nachricht mit der ID: "+nId+" wurde beantwortet");
-                }
+                    }
 
         });
     }
