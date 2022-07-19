@@ -335,7 +335,7 @@ h5 {
     background-position: center;
     width: 700px;
     height: 280px;
-    background-image: url('');
+    background-image: url('/cMe/images/GalerieKomp/SantokuKenshin (1).jpg');
 }
 
 .fillinsta1 {
@@ -470,6 +470,10 @@ footer {
 
 .btn {
     padding: 2px
+}
+
+.btn:focus {
+    box-shadow: none;
 }
 
 .nav-link:focus, .nav-link:hover {

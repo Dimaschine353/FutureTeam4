@@ -158,46 +158,147 @@
                 <h1 class="text-center">Galerie</h1>
                 <div class="row d-flex justify-content-evenly rowgallery pb-5">
 
-                    <div class="card col-3 card-gallery">
-                        <div class="card-body instagallery d-flex justify-content-center align-items-center fillinsta1">
-
-                        </div>
-                    </div>
+                    <a data-bs-toggle="modal" href="#insta1" class="card col-3 card-gallery fillinsta1">
+                        <div class="card-body instagallery d-flex justify-content-center align-items-center"></div>
+                    </a>
 
 
-                    <div class="card col-3 card-gallery">
-                        <div class="card-body instagallery d-flex justify-content-center align-items-center fillinsta2">
+                    <a data-bs-toggle="modal" href="#insta2" class="card col-3 card-gallery fillinsta2">
+                        <div class="card-body instagallery d-flex justify-content-center align-items-center"></div>
+                    </a>
 
-                        </div>
-                    </div>
 
-                    <div class="card col-3 card-gallery">
-                        <div class="card-body instagallery d-flex justify-content-center align-items-center fillinsta3">
+                    <a data-bs-toggle="modal" href="#insta3" class="card col-3 card-gallery fillinsta3">
+                        <div class="card-body instagallery d-flex justify-content-center align-items-center"></div>
+                    </a>
 
-                        </div>
-                    </div>
                 </div>
 
                 <div class="row d-flex justify-content-evenly rowgallery pb-5">
 
-                    <div class="card col-3 card-gallery">
-                        <div class="card-body instagallery d-flex justify-content-center align-items-center fillinsta4">
 
+                    <a data-bs-toggle="modal" href="#insta4" class="card col-3 card-gallery fillinsta4">
+                        <div class="card-body instagallery d-flex justify-content-center align-items-center"></div>
+                    </a>
+
+                    <a data-bs-toggle="modal" href="#insta5" class="card col-3 card-gallery fillinsta5">
+                        <div class="card-body instagallery d-flex justify-content-center align-items-center"></div>
+                    </a>
+
+                    <a data-bs-toggle="modal" href="#insta6" class="card col-3 card-gallery fillinsta6">
+                        <div class="card-body instagallery d-flex justify-content-center align-items-center"></div>
+                    </a>
+
+                </div>
+                <div class="row">
+                    <!-- Modal Bild 1 -->
+                    <div class="modal fade" id="insta1" aria-hidden="true" aria-labelledby="insta1" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Nakiri Musashi</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body fillinsta1">
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-luxknives" data-bs-target="#insta2" data-bs-toggle="modal">Nächstes Bild</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <!-- Modal Bild 2 -->
+                    <div class="modal fade" id="insta2" aria-hidden="true" aria-labelledby="insta2" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Santoku Kenshin</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body fillinsta2">
 
-                    <div class="card col-3 card-gallery">
-                        <div class="card-body instagallery d-flex justify-content-center align-items-center fillinsta5">
-
+                                </div>
+                                <div class="modal-footer justify-content-between">
+                                    <button class="btn btn-luxknives justify-content-start" data-bs-target="#insta1" data-bs-toggle="modal">Vorheriges Bild</button>
+                                    <button class="btn btn-luxknives justify-content-end" data-bs-target="#insta3" data-bs-toggle="modal">Nächstes Bild</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <!-- Modal Bild 3 -->
+                    <div class="modal fade" id="insta3" aria-hidden="true" aria-labelledby="insta3" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Sujihiki Set</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body fillinsta3">
 
-                    <div class="card col-3 card-gallery">
-                        <div class="card-body instagallery d-flex justify-content-center align-items-center fillinsta6">
+                                </div>
+                                <div class="modal-footer justify-content-between">
+                                    <button class="btn btn-luxknives justify-content-start" data-bs-target="#insta2" data-bs-toggle="modal">Vorheriges Bild</button>
+                                    <button class="btn btn-luxknives justify-content-end" data-bs-target="#insta4" data-bs-toggle="modal">Nächstes Bild</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal Bild 4 -->
+                    <div class="modal fade" id="insta4" aria-hidden="true" aria-labelledby="insta4" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Santoku Set</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body fillinsta4">
 
+                                </div>
+                                <div class="modal-footer justify-content-between">
+                                    <button class="btn btn-luxknives justify-content-start" data-bs-target="#insta3" data-bs-toggle="modal">Vorheriges Bild</button>
+                                    <button class="btn btn-luxknives justify-content-end" data-bs-target="#insta5" data-bs-toggle="modal">Nächstes Bild</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal Bild 5 -->
+                    <div class="modal fade" id="insta5" aria-hidden="true" aria-labelledby="insta5" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Sujihiki Masako</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body fillinsta5">
+
+                                </div>
+                                <div class="modal-footer justify-content-between">
+                                    <button class="btn btn-luxknives justify-content-start" data-bs-target="#insta4" data-bs-toggle="modal">Vorheriges Bild</button>
+                                    <button class="btn btn-luxknives justify-content-end" data-bs-target="#insta6" data-bs-toggle="modal">Nächstes Bild</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal Bild 6 -->
+                    <div class="modal fade" id="insta6" aria-hidden="true" aria-labelledby="insta6" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Nakiri Musashi</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body fillinsta6">
+
+                                </div>
+                                <div class="modal-footer justify-content-between">
+                                    <button class="btn btn-luxknives justify-content-start" data-bs-target="#insta5" data-bs-toggle="modal">Vorheriges Bild</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <!-- Danke -->
                 <div class="row">
                     <h1>
                         Vielen Dank an Herrn Groh für die Bereitstellung seiner Kamera und seiner Messer.
