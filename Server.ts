@@ -321,7 +321,7 @@ function getAlleleleleNachrichten(req:express.Request, res:express.Response):voi
         param,
         (err:MysqlError | null, results:any)=>{
             res.send(results);
-            console.log("das Ergebnis der getAlleleleleNachrichten"+JSON.stringify(results));
+
         }
     )
 }
@@ -354,8 +354,7 @@ function postAntwort(req:express.Request, res:express.Response){
     let sql = "INSERT INTO antworten (nId, antwort) VALUES(?,?)";
     const param = [nId,antwort];
     if(antwort===undefined || nId===undefined){
-        //||ist es zu viel diese Info an den Client zu schicken?
-        res.status(400).send("einer der Werte fehlt");
+        res.status(400);
     }else{
         connection.query(
            sql,

@@ -103,9 +103,7 @@ let w3: HTMLInputElement;
 let w4: HTMLInputElement;
 //Listener
 document.addEventListener("DOMContentLoaded",()=>{
-    //Funktionen die direkt ausgeführt werden sollen
-    binIchNochDrin();
-        //Initialisierung Sect
+    //Initialisierung Sect
     sectStart = document.querySelector("#sectStart");
     sectProf = document.querySelector("#sectProf");
     sectProfA = document.querySelector("#sectProfA");
@@ -320,7 +318,10 @@ document.addEventListener("DOMContentLoaded",()=>{
     w2.addEventListener("click",zumWarenkorb);
     w3.addEventListener("click",zumWarenkorb);
     w4.addEventListener("click",zumWarenkorb);
+    //Funktionen die direkt ausgeführt werden sollen
+    binIchNochDrin();
     felderUndBtnsEinstellungen();
+
 });
 //Funktionen Benutzer
 function benutzerHinzufuegen(event:Event){
@@ -659,6 +660,7 @@ axios.post("/antwort",
 }
 //Login 'n out Funktionen
 function felderUndBtnsEinstellungen(){
+
     if(eingeloggterBenutzer==""){navLogout.classList.add("d-none");}
     else{navLogout.classList.remove("d-none");}
     profilVorname.setAttribute("readonly","true");
@@ -679,6 +681,9 @@ function login(event:Event){
     event.preventDefault();
     const data: FormData = new FormData(formLogin);
     eingeloggterBenutzer = data.get("loginName").toString();
+
+
+
     axios.post("/login", {
         loginName: data.get("loginName"),
         loginPasswort: data.get("loginPasswort")
@@ -749,6 +754,8 @@ function binIchNochDrin(){
     axios.get("/binIchNochDrin?")
         .then((res:AxiosResponse)=>{
             eingeloggterBenutzer = res.data.email;
+
+
         });
 }
 //Timeout funktionen
@@ -861,14 +868,14 @@ function zurGalerie(event:Event){
     navigieren();
     sectStart.classList.remove("d-none");
     window.location.href = "#galerie";
-    //scrollTo(0, 10000);
+
 }
 function zuHandgefertigteMesser(event: Event){
     event.preventDefault();
     navigieren();
     sectStart.classList.remove("d-none");
     window.location.href = "#handgefertigte";
-    //scrollTo(0, 1300);
+
 }
 function navigieren(){
     felderUndBtnsEinstellungen();
@@ -920,4 +927,6 @@ function zumAGB(event:Event){
     sectAGB.classList.remove("d-none");
     window.scrollTo(0, 0);
 }
+
+
                     
